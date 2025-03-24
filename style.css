@@ -28,8 +28,9 @@ h1, h2, h3, h4 {
 
 .site-title {
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.8rem; /* or even 3rem for big impact */
   margin-bottom: 0.5rem;
+  color: white; /* ensure it's white */
 }
 
 .main-nav ul {
