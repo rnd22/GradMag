@@ -1,130 +1,116 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Fonts */
 body {
-  font-family: 'Georgia', serif;
-  background-color: #fff;
-  color: #111;
+  font-family: 'Open Sans', sans-serif;
+  background: #fff;
+  color: #222;
   line-height: 1.6;
+  margin: 0;
 }
 
-/* Container */
+h1, h2 {
+  font-family: 'Merriweather', serif;
+  color: #7a0c0c;
+}
+
+a {
+  color: #7a0c0c;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Header styles */
+/* Announcement Bar */
+.announcement-bar {
+  background-color: #990000;
+  color: white;
+  text-align: center;
+  padding: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.read-more {
+  background: white;
+  color: #990000;
+  padding: 0.2rem 0.6rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/* Header + Nav */
 header {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ddd;
-  padding: 1.5rem 0;
+  background: #1a1a1a;
+  padding: 1rem 0;
 }
 
-.logo h1 {
-  font-size: 2rem;
-  margin-bottom: 0.2rem;
-  color: #222;
+.site-title h1 {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
 }
 
-.logo p {
-  font-size: 1rem;
-  color: #666;
+.nav-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2rem;
-  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
-  text-decoration: none;
-  color: #333;
+  color: #fff;
   font-weight: bold;
 }
 
-nav a:hover {
-  color: #0077cc;
-}
-
-/* Hero section */
-.hero {
-  background-color: #e8f0f9;
-  padding: 4rem 0;
-  text-align: center;
+/* Main Content Columns */
+.content-columns {
+  display: flex;
+  gap: 2rem;
   margin-top: 2rem;
-  border-radius: 12px;
+  padding-bottom: 2rem;
 }
 
-.hero h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.main-text {
+  flex: 2;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto;
+.sidebar {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-left: 3px solid #ddd;
+}
+
+.donate-button {
+  display: inline-block;
+  background-color: #a10000;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 2rem 0;
-  background-color: #f8f8f8;
-  color: #777;
-  margin-top: 4rem;
-  font-size: 0.9rem;
-}
-
-/* Header styles */
-header {
-  background-color: #1f1f1f;
-  color: #fff;
-  padding: 1rem 0;
-}
-
-.header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.logo h1 {
-  font-size: 2rem;
-  color: #fff;
-}
-
-.logo p {
-  font-size: 0.9rem;
+  background-color: #1a1a1a;
   color: #ccc;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
 }
-
-/* Fix nav list bullets and layout */
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-nav li a {
-  color: #fff;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-nav li a:hover {
-  color: #66b2ff;
-}
-
- 
