@@ -61,7 +61,7 @@ h2, h3, h4 {
 .hero {
   background-color: #f8f3f2;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1rem 0.5rem;
 }
 
 .hero h2 {
