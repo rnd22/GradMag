@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pirate Map</title>
+
+  <!-- Old-timey typefaces -->
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       THEME & RESET
+       ========================= */
+    :root{
+      --paper:#f3e7cf;         /* base parchment */
+      --paper-deep:#e7d6b7;    /* darker parchment */
+      --ink:#2b2117;           /* primary ink */
+      --ink-faint:#6a4f3f;     /* faded ink */
+      --blood:#7a1b14;         /* treasure markings */
+      --ocean:#98b3b8;         /* muted teal for water strokes */
+      --shadow:#00000060;
+      --accent:#b08968;        /* sepia accent */
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"IM Fell English", serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 60% 20%, #e6dcc7 0%, #d8ccb2 35%, #cfc2a6 60%, #c7b899 100%) fixed;
+      /* subtle vignette */
+      background-image:
+        radial-gradient(1200px 800px at 60% 20%, #ece2cc 0 35%, #e3d8c0 35%),
+        radial-gradient(1200px 800px at 50% 50%, #00000000 60%, #00000022 100%);
+      overflow-x:hidden;
+    }
+
+    /* =========================
+       MAP WRAPPER & PARCHMENT
+       ========================= */
+    .wrap{
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding:4vmin;
+    }
+    .map{
+      position:relative;
+      width:min(1200px, 92vw);
+      height:min(720px, 82vh);
+      padding:2.5rem 2.25rem;
+      background:
+        /* fiber threads */
+        repeating-linear-gradient( 8deg, #0000 0 22px, #00000006 22px 24px),
+        repeating-linear-gradient(-8deg, #0000 0 25px, #00000007 25px 27px),
+        radial-gradient(1200px 800px at 40% 30%, var(--paper) 0%, var(--paper-deep) 70%);
+      border-radius:var(--radius);
+      box-shadow:
+        0 30px 80px var(--shadow),
+        inset 0 0 0 2px #0000000f,
+        inset 0 0 100px #00000026;
+      color:var(--ink);
+      isolation:isolate;
+
+      /* ragged deckled edges via CSS mask */
+-webkit-mask:
+  radial-gradient(800px 600px at center, #000 95%, #0000 100%);
+mask:
+  radial-gradient(800px 600px at center, #000 95%, #0000 100%);
+
+
+      filter: contrast(1.05) saturate(0.9);
+      animation: floaty 30s ease-in-out infinite;
+    }
+    /* charred border glow */
+    .map::before{
+      content:"";
+      position:absolute; inset:-12px;
+      border-radius:calc(var(--radius) + 10px);
+      background:
+        radial-gradient(180px 140px at 10% 10%, #0000 60%, #0000001c 100%),
+        radial-gradient(220px 180px at 90% 14%, #0000 60%, #0000001a 100%),
+        radial-gradient(260px 200px at 12% 88%, #0000 60%, #0000001c 100%),
+        radial-gradient(200px 180px at 88% 84%, #0000 60%, #0000001a 100%);
+      pointer-events:none;
+      z-index:-1;
+      filter: blur(3px);
+    }
+    @keyframes floaty{
+      0%,100%{ transform: translateY(0px) rotate(-0.1deg); }
+      50%    { transform: translateY(-4px) rotate(0.1deg);  }
+    }
+
+    /* =========================
+       HEADER / TITLE
+       ========================= */
+    .title{
+      font-family:"Pirata One", system-ui, serif;
+      font-size: clamp(28px, 4.2vw, 56px);
+      letter-spacing: .02em;
+      text-align:center;
+      margin:0 0 8px;
+      text-shadow: 0 1px #fff8, 0 2px #00000012;
+    }
+    .subtitle{
+      text-align:center;
+      margin:0 0 18px;
+      color:var(--ink-faint);
+      font-style:italic;
+    }
+
+    /* =========================
+       MAP CANVAS (SVG overlay)
+       ========================= */
+    .canvas{
+      position:relative;
+      height:calc(100% - 112px);
+      margin-top:6px;
+      border:1px dashed #0000002e;
+      border-radius:12px;
+      overflow:hidden;
+      background:
+        radial-gradient(900px 600px at 50% 30%, #ffffff0f 0%, #0000 70%),
+        radial-gradient(1200px 800px at 50% 70%, #0000000a 0%, #0000 70%);
+    }
+    svg.map-layer{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+    }
+    /* coastlines & islands */
+    .coast{ fill:#0000; stroke:var(--ink); stroke-width:2.2; stroke-linejoin:round; }
+    .shore{ stroke:var(--ink-faint); stroke-dasharray:3 7; stroke-width:1.4; }
+    .route{ stroke:var(--ink); stroke-width:1.8; stroke-dasharray:6 8; fill:none; opacity:.85 }
+    .reef { stroke:#7c5b45; stroke-width:1.2; stroke-dasharray:2 6; opacity:.7 }
+    .waves{ stroke:var(--ocean); stroke-width:1; opacity:.35; fill:none }
+
+    /* Compass rose */
+    .compass{
+      position:absolute;
+      right:16px; bottom:10px;
+      width:160px; aspect-ratio:1/1;
+      opacity:.92; filter: drop-shadow(0 3px 2px #0002);
+      animation: slowspin 90s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes slowspin{ to{ transform: rotate(360deg); } }
+    .compass svg{ width:100%; height:100% }
+    .compass .ring{ fill:#0000; stroke:var(--ink); stroke-width:2 }
+    .compass .petal{ fill:#0000; stroke:var(--ink); stroke-width:2 }
+    .compass .petal.n,.compass .petal.s{ fill:#00000006 }
+    .compass .label{ font: 20px "Pirata One"; fill:var(--ink) }
+
+    /* X marks & pins */
+    .x{
+      position:absolute;
+      width:26px; height:26px;
+      transform: translate(-50%,-50%) rotate(12deg);
+      color:var(--blood);
+      text-shadow: 0 1px #fff8;
+      filter: drop-shadow(0 1px 0 #0002);
+      animation: bob 5s ease-in-out infinite;
+      cursor:pointer;
+    }
+    .x::before, .x::after{
+      content:"";
+      position:absolute; inset:0;
+      border-left:3px solid currentColor;
+      transform: rotate(45deg);
+    }
+    .x::after{ transform: rotate(-45deg); }
+    .x:hover{ filter: drop-shadow(0 2px 0 #0003) brightness(0.95); }
+
+    @keyframes bob{
+      0%,100%{ transform: translate(-50%,-50%) rotate(12deg) }
+      50%    { transform: translate(calc(-50% + 1px),calc(-50% - 2px)) rotate(10deg) }
+    }
+
+    /* Labels (inked banners) */
+    .label{
+      position:absolute;
+      transform: translate(-50%,-50%);
+      background: linear-gradient(#0000, #00000005), #f0e4ca;
+      padding:.2rem .55rem .25rem;
+      border-radius:8px;
+      border:1px solid #00000022;
+      box-shadow: 0 1px 0 #fff8 inset, 0 3px 8px #0000001a;
+      font-weight:700;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    /* Legend card */
+    .legend{
+      position:absolute;
+      left:18px; bottom:16px;
+      width:min(280px, 44vw);
+      padding:.9rem 1.1rem;
+      background: linear-gradient(#ffffff0a,#00000008), #efe1c4;
+      border:1px solid #00000025;
+      border-radius:12px;
+      box-shadow: 0 6px 16px #00000028, 0 1px 0 #fff8 inset;
+      backdrop-filter: blur(1px);
+    }
+    .legend h3{
+      margin:.1rem 0 .5rem;
+      font-family:"Pirata One"; letter-spacing:.02em;
+    }
+    .legend ul{ margin:0; padding-left:1.1rem }
+    .legend li{ margin:.2rem 0 }
+
+    /* Tea stains */
+    .stain{
+      position:absolute; pointer-events:none; opacity:.16; mix-blend-mode:multiply;
+      filter: blur(1px) saturate(0.8);
+      border-radius:50%;
+      background:
+        radial-gradient(40% 50% at 35% 30%, #0000 55%, #6b4e34 70% 85%, #0000 86%),
+        radial-gradient(38% 48% at 60% 70%, #0000 55%, #6b4e34 70% 85%, #0000 86%);
+    }
+
+    /* Simple top navigation styled as parchment tabs */
+    .tabs{
+      display:flex; gap:.4rem; justify-content:center;
+      margin-bottom:.75rem; flex-wrap:wrap;
+    }
+    .tab{
+      padding:.35rem .7rem;
+      border:1px solid #00000030;
+      background: linear-gradient(#fff2, #00000007), #eddcbb;
+      box-shadow: 0 1px 0 #fff8 inset, 0 2px 6px #00000014;
+      border-radius:8px;
+      font-weight:700; letter-spacing:.02em;
+      text-decoration:none; color:inherit;
+      transition: transform .1s ease, box-shadow .2s ease;
+    }
+    .tab:hover{ transform: translateY(-1px); box-shadow: 0 2px 10px #00000022; }
+
+    /* Small helper for placing items by % */
+    .at{ position:absolute; transform:translate(-50%,-50%); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="map" aria-label="Old-timey pirate chart">
+      <h1 class="title">Chart of the Crimson Coast</h1>
+      <p class="subtitle">Surveyed in a fair wind &amp; foul, anno domini MDCCXLII</p>
+
+      <nav class="tabs" aria-label="Sections">
+        <a class="tab" href="#map">Map</a>
+        <a class="tab" href="#ports">Ports</a>
+        <a class="tab" href="#legend">Legend</a>
+      </nav>
+
+      <div class="canvas" id="map">
+        <!-- SVG drawing layer -->
+        <svg class="map-layer" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+          <!-- Waves (very subtle) -->
+          <path class="waves" d="M0,520 q60,-22 120,0 t120,0 t120,0 t120,0 t120,0 t120,0 t120,0" />
+          <path class="waves" d="M0,560 q80,-18 160,0 t160,0 t160,0 t160,0 t160,0" />
+
+          <!-- Coast mass -->
+          <path class="coast" d="
+            M120,360
+            q40,-70 110,-66
+            q70,4 120,-36
+            q50,-40 120,-28
+            q70,12 116,60
+            q46,48 30,104
+            q-16,56 -92,70
+            q-76,14 -138,36
+            q-62,22 -124,2
+            q-62,-20 -114,-48
+            q-52,-28 -28,-94 Z" />
+          <path class="shore" d="
+            M130,372
+            q38,-66 106,-61
+            q68,5 117,-33
+            q49,-38 116,-27
+            q67,11 110,56
+            q43,45 28,96
+            q-15,51 -88,65
+            q-73,14 -132,34
+            q-58,20 -118,2
+            q-60,-18 -110,-44
+            q-50,-26 -29,-88 Z" />
+
+          <!-- Reefs -->
+          <path class="reef" d="M610,430 q20,10 40,0 20,-10 40,6 20,16 40,10" />
+          <path class="reef" d="M300,190 q12,10 24,0 12,-10 24,8 12,18 24,10" />
+
+          <!-- Trade route -->
+          <path class="route" d="M180,480 C260,420 420,420 520,360 S780,280 860,340" />
+
+          <!-- Tiny islets -->
+          <circle cx="760" cy="160" r="10" fill="#0000" stroke="var(--ink)" stroke-width="2"/>
+          <circle cx="782" cy="148" r="6"  fill="#0000" stroke="var(--ink)" stroke-width="1.6"/>
+          <circle cx="740" cy="176" r="8"  fill="#0000" stroke="var(--ink)" stroke-width="1.8"/>
+        </svg>
+
+        <!-- Labels -->
+        <div class="label at" style="left: 38%; top: 38%;">Bay of Whispers</div>
+        <div class="label at" style="left: 73%; top: 28%;">Isles of Morrow</div>
+        <div class="label at" style="left: 58%; top: 63%;">Reef of Sighs</div>
+
+        <!-- Treasure X marks -->
+        <div class="x" style="left: 66%; top: 46%;" title="Here be treasure!"></div>
+        <div class="x" style="left: 24%; top: 58%;" title="Buried booty"></div>
+
+        <!-- Tea stains -->
+        <div class="stain" style="left:75%; top:68%; width:220px; height:170px;"></div>
+        <div class="stain" style="left:22%; top:28%; width:180px; height:140px;"></div>
+
+        <!-- Compass Rose -->
+        <div class="compass" aria-hidden="true">
+          <svg viewBox="0 0 100 100">
+            <circle class="ring" cx="50" cy="50" r="46"/>
+            <!-- 8 petals -->
+            <g>
+              <path class="petal n" d="M50 8 L54 28 L50 24 L46 28 Z"/>
+              <path class="petal" d="M92 50 L72 54 L76 50 L72 46 Z"/>
+              <path class="petal s" d="M50 92 L46 72 L50 76 L54 72 Z"/>
+              <path class="petal" d="M8 50 L28 46 L24 50 L28 54 Z"/>
+              <path class="petal" d="M76 24 L64 36 L66 30 L70 26 Z"/>
+              <path class="petal" d="M24 76 L36 64 L30 66 L26 70 Z"/>
+              <path class="petal" d="M76 76 L64 64 L70 66 L74 70 Z"/>
+              <path class="petal" d="M24 24 L36 36 L30 34 L26 30 Z"/>
+            </g>
+            <text class="label" x="50" y="15" text-anchor="middle">N</text>
+            <text class="label" x="85" y="53" text-anchor="middle">E</text>
+            <text class="label" x="50" y="90" text-anchor="middle">S</text>
+            <text class="label" x="15" y="53" text-anchor="middle">W</text>
+          </svg>
+        </div>
+
+        <!-- Legend -->
+        <aside class="legend" id="legend" aria-label="Map legend">
+          <h3>Legend</h3>
+          <ul>
+            <li><strong>— — —</strong> Trade route</li>
+            <li><strong>X</strong> Buried treasure</li>
+            <li><strong>⋯⋯</strong> Shoals &amp; reefs</li>
+            <li><strong>◎</strong> Compass rose</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <!-- Optional: tiny helper to jump to sections smoothly -->
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'center'}); }
+      });
+    });
+  </script>
+</body>
+</html>

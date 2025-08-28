@@ -1,0 +1,45 @@
+
+
+/* Intro layout (text + side card) */
+.join-intro{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 1.5rem;
+  margin: 2rem auto 2.5rem;
+}
+.join-main, .join-side{ align-self: start; }
+.join-intro .cta-row{ margin-top: .75rem; }
+@media (max-width: 2000px){
+  .join-intro{ grid-template-columns: 1fr; }
+}
+
+/* Openings: role groups and cards */
+.openings{ margin: 1rem auto 3rem; }
+.role-group{ margin: 2rem 0; }
+.role-group__title{
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin: 0 0 .75rem;
+}
+.role-card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  margin: .75rem 0;
+}
+.role-title{
+  margin: 0 0 .35rem;
+  font-weight: 700;
+}
+.role-bullets{
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.role-bullets li{ margin: .35rem 0; }
+
+.section-title {
+text-align: center;
+font-size: 2rem;
+}

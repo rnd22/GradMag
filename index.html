@@ -2,65 +2,148 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SBU Grad Mag</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home • SBU Grad Mag</title>
+  <meta name="description" content="Science communication, art, poetry, and thought from the graduate community at Stony Brook University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
-      <h1 class="site-title">SBU Graduate Arts & Sciences Magazine</h1>
-      <nav class="main-nav">
+      <h1 class="site-title">SBU Graduate Arts &amp; Sciences Magazine</h1>
+      <nav class="main-nav" aria-label="Primary">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">BRIDGES</a></li>
-          <li><a href="#">Issues</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Submissions</a></li>
-          <li><a href="#">Events</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="bridges.html">BRIDGES</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="press.html">Press</a></li>
+          <li><a href="submissions.html">Submissions</a></li>
+          <li><a href="events.html">Events</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- Hero -->
+<!--   <section class="hero hero--tight">
     <div class="container">
-      <h2>Celebrating Interdisciplinary Creativity</h2>
-      <p>Science communication, art, poetry, and thought from the graduate community at Stony Brook University.</p>
+      <h2 class="section-title">Celebrating Interdisciplinary Creativity</h2>
+      <p class="lead">Science communication, art, poetry, and thought from the graduate community at Stony Brook University.</p>
     </div>
-  </section>
+  </section> -->
 
-  <section class="featured-issue container">
-    <div class="featured-text">
-      <h3>Featured: 2025 Issue</h3>
-      <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation. From lyrical essays to experimental visuals, this edition challenges boundaries.</p>
-      <a href="#" class="read-more">Read the Issue</a>
-    </div>
-    <div class="featured-image">
-      <img src="images/cover-2025.jpg" alt="Cover of the 2025 Issue">
-    </div>
-  </section>
 
-  <section class="grid-section container">
-    <h3>From the Magazine</h3>
-    <div class="article-grid">
-      <article>
-        <h4>Displacement in a Digital Age</h4>
-        <p>A multimedia exploration of immigrant narratives in the age of algorithms.</p>
-      </article>
-      <article>
-        <h4>The Silence of Ice Cores</h4>
-        <p>Poetry meets data in this evocative look at arctic research archives.</p>
-      </article>
-      <article>
-        <h4>Time-Lapse of a Lab Bench</h4>
-        <p>Scenes from the slow rituals of discovery in marine biology.</p>
-      </article>
-    </div>
-  </section>
+  <!-- Two-column layout: main content + right sidebar -->
+<section class="container page-two-col">
+  <!-- MAIN COLUMN -->
+  <div class="page-main">
 
+    <!-- Featured Issue -->
+    <section class="featured-issue">
+      <div class="featured-text">
+        <h3>Featured: 2025 Issue</h3>
+        <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation. From lyrical essays to experimental visuals, this edition challenges boundaries.</p>
+        <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="read-more">Read the Issue</a>
+      </div>
+      <div class="featured-image">
+        <img src="images/TheFourSeasons.jpeg" alt="Cover of the 2025 Issue">
+      </div>
+    </section>
+<!-- Updates / News -->
+<section class="grid-section">
+  <!-- From the Magazine is OUTSIDE the two-column grid -->
+<section class="grid-section container">
+  <h3 class="section-title">From the Magazine</h3>
+  <div class="article-grid">
+    <article>
+      <h4>Displacement in a Digital Age</h4>
+      <p>A multimedia exploration of immigrant narratives in the age of algorithms.</p>
+    </article>
+    <article>
+      <h4>The Silence of Ice Cores</h4>
+      <p>Poetry meets data in this evocative look at arctic research archives.</p>
+    </article>
+    <article>
+      <h4>Time-Lapse of a Lab Bench</h4>
+      <p>Scenes from the slow rituals of discovery in marine biology.</p>
+    </article>
+  </div>
+</section>
+<section class="updates-year container">
+  <h3 class="section-title">What has Grad Mag been up to this year?</h3>
+
+  <div class="info-card info-card--wide">
+    <ul class="updates-bullets">
+      <li>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees.</li>
+      <li>Attended ProCon25 in February and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong>.</li>
+      <li>Published the second edition of our magazine, <a href="issues.html">The Four Seasons</a>, in April.</li>
+      <li>Received the <strong>Collaborative Program Award</strong> at the Jerrold L. Stein Student Life Awards, plus the
+          <strong>Media Programming Award</strong> and <strong>Most Innovative Use of Media</strong> at the Annual Student Media Council Awards for our B.R.I.D.G.E.S. conference.</li>
+      <li>Recognized by the GSO Executive Committee as the <strong>Best Club of the Year</strong>.</li>
+      <li>Tied for <strong>Best Cover</strong> at the Annual Student Media Council Awards.</li>
+      <li>Our president, Ava Nederlander, was named <strong>Executive Board Member of the Year</strong> at the Jerrold L. Stein Student Life Awards and won the <strong>Best Club Leadership Award</strong>.</li>
+      <li>Our secretary, Veronica Borracci; Vice President, Jennifer L. O’Connor; and President, Ava Nederlander, received the <strong>Student Media Council Leadership Award</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+
+
+  
+
+  
+</section>
+
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="page-aside note">
+    <h2> About GradMag</h2>
+    <p>
+        The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community. The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
+      </p>
+      <p>
+        The Stony Brook Graduate Arts &amp; Sciences Magazine hosted our first conference, B.R.I.D.G.E.S, on January 30th. For more information about the conference, see our <a href="bridges.html">B.R.I.D.G.E.S page</a>.
+      </p>
+
+      <div class="social-block">
+  <div class="social-links" aria-label="Follow Grad Mag">
+    <!-- Instagram -->
+    <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+    </a>
+
+    <!-- Email -->
+    <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+
+  <p class="donate-wrap">
+    <a class="btn donate-btn" href="https://www.sbugradmag.com/support" target="_blank" rel="noopener">
+      Donate to Support the Magazine
+    </a>
+  </p>
+</div>
+
+  </aside>
+</section>
+
+
+
+
+  <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 SBU Graduate Magazine | Designed with care by the Grad Mag Team.</p>
@@ -68,3 +151,4 @@
   </footer>
 </body>
 </html>
+

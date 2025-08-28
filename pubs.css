@@ -1,0 +1,34 @@
+
+    /* tiny page-local helpers that reuse your palette */
+    .pub-hero { background: var(--surface, #f8f3f2); padding: 2.25rem 0; text-align: center; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem); margin: 0 0 .35rem; }
+    .pub-sub { color: #5a5553; max-width: 700px; margin: 0 auto; }
+
+    .pub-toolbar { display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin: 1.25rem 0 0; }
+    .pill { border:1px solid #e3d9d7; border-radius:999px; padding:.35rem .75rem; background:#fff; text-decoration:none; color:#3c0d0d; font-weight:600; }
+    .pill[aria-current="true"] { background:#3c0d0d; color:#fff; }
+
+    .issues-grid { 
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem; margin: 2rem 0 3rem;
+    }
+    .issue-card {
+      background:#fff; border:1px solid #eee; border-radius:12px; overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.05); display:flex; flex-direction:column;
+    }
+        .issue-media { aspect-ratio: 3/4; background:#f3efee; overflow:hidden; }
+    .issue-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    .issue-body { padding: 1rem 1rem 1.25rem; display:flex; flex-direction:column; gap:.5rem; }
+    .issue-title { margin:0; font-size:1.1rem; line-height:1.35; color: var(--accent, #3c0d0d); }
+    .issue-meta { font-size:.95rem; color:#6b6b6b; }
+
+    .issue-actions { display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.25rem; }
+    .btn-sm { padding:.45rem .75rem; border:2px solid var(--accent, #3c0d0d); color:var(--accent, #3c0d0d); 
+              text-decoration:none; font-weight:700; border-radius:8px; font-size:.9rem; }
+    .btn-sm:hover { background:var(--accent, #3c0d0d); color:#fff; }
+
+    /* optional embedded reader section */
+    .embed-wrap { margin: 2rem 0 3rem; }
+    .embed-16x9 { position:relative; padding-top: 56.25%; height:0; overflow:hidden; border-radius:10px; border:1px solid #eee; box-shadow:0 10px 26px rgba(0,0,0,.06); }
+    .embed-16x9 iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  

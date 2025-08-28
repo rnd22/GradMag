@@ -1,0 +1,466 @@
+/* =========================
+   TYPOGRAPHY & BASE STYLES
+   ========================= */
+:root{
+  --bg:#fff;
+  --text:#111;
+  --muted:#6b6b6b;
+  --accent:#3c0d0d;
+  --surface:#f8f3f2;   /* matches hero */
+  --radius:8px;
+  --space-1:.5rem;
+  --space-2:1rem;
+  --space-3:1.5rem;
+  --space-4:2rem;
+  --space-6:3rem;
+}
+
+body{
+  font-family:'Source Sans Pro',sans-serif;
+  margin:0;
+  padding:0;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+h1,h2,h3,h4{ font-family:'Playfair Display',serif; }
+h2,h3,h4{ color:var(--accent); }
+
+
+.container {
+  max-width: 1400px;   /* larger but still centered */
+  padding: 0 2rem;     /* small breathing space */
+}
+
+
+a:focus-visible,button:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+/* =================
+   HEADER & NAV
+   ================= */
+.site-header{
+  background:#111;
+  color:#fff;
+  padding:1rem 0;
+}
+.site-title{
+  text-align:center;
+  font-size:3rem;
+  margin-bottom:.5rem;
+  color:#fff;
+}
+.main-nav ul{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  list-style:none;
+  padding:0; margin:0;
+}
+.main-nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+}
+.main-nav a:hover{ text-decoration:underline; }
+.main-nav a[aria-current="page"]{ text-decoration:underline; text-underline-offset:4px; }
+
+@media (max-width:640px){
+  .site-title{ font-size:2rem; }
+  .main-nav ul{ flex-wrap:wrap; gap:.75rem 1rem; }
+}
+
+/* =========
+   HERO
+   ========= */
+.hero{
+  background:var(--surface);
+  text-align:center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.hero h2{ font-size:2.2rem; margin-bottom:1rem; }
+.hero p{ font-size:1.1rem; max-width:600px; margin:0 auto; }
+.hero--tight{ padding:var(--space-1) var(--space-1); }
+
+/* ======================================
+   PAGE LAYOUT: MAIN + RIGHT SIDEBAR
+   ====================================== */
+.page-two-col{
+  display:grid;
+  grid-template-columns:1fr 340px; /* main | sidebar */
+  gap:2rem;
+  align-items:start;
+}
+/* .page-aside{
+  position:sticky;
+  top:2rem;          
+  height:fit-content; } */
+/* highlighted note box style (used on aside) */
+.note{
+  background:var(--surface);
+  padding:var(--space-3);
+  /* border-left:4px solid var(--accent); */
+  border-radius:var(--radius);
+}
+
+@media (max-width:900px){
+  .page-two-col{ grid-template-columns:1fr; }
+  .page-aside{ position:static; margin-top:1rem; }
+}
+
+/* ==================
+   FEATURED ISSUE
+   ================== */
+/* SINGLE definition (no duplicates) */
+.featured-issue{
+  display:flex;
+  align-items:flex-start;     /* top-align */
+  gap:8rem;
+  margin:5rem 0;              /* tighter than default */
+}
+
+.featured-text{
+  flex:1 1 420px;
+  min-width:280px;
+}
+
+/* unified button look */
+.read-more{
+  display:inline-block;
+  margin-top:1rem;
+  padding:.6rem 1rem;
+  border:2px solid var(--accent);
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:700;
+  border-radius:var(--radius);
+}
+.read-more:hover{ background:var(--accent); color:#fff; }
+
+/* smaller media column */
+.featured-image{
+  flex:0 0 260px;             /* ~260px fixed */
+  max-width:260px;
+}
+.featured-image img,
+.featured-image iframe{
+  display:block;
+  width:100%;
+  height:auto;                 /* if iframe, wrap with ratio div (see HTML) */
+  border-radius:var(--radius);
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  border:1px solid #ececec;
+}
+
+/* Optional wrapper to control iframe ratio */
+.featured-image .embed-ratio{
+  position:relative;
+  padding-top:140%;
+  height:0;
+  overflow:hidden;
+  border-radius:var(--radius);
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+  border:1px solid #ececec;
+}
+.featured-image .embed-ratio > iframe{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  border:0;
+}
+
+@media (max-width:720px){
+  .featured-issue{ flex-direction:column; }
+  .featured-image{ max-width:100%; flex-basis:auto; }
+}
+
+/* ===============
+   ARTICLE GRID
+   =============== */
+.grid-section{ margin:var(--space-6) 0; }
+.article-grid{
+  display:flex;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:var(--space-4);
+  margin-top:var(--space-3);
+  text-align: center;      /* centers the text inside */
+  justify-content: center; /* centers articles horizontally */
+  gap: 8rem;               /* optional spacing between articles */
+}
+.article-grid article{
+  background:#fff;
+  padding:var(--space-3);
+  border-radius:var(--radius);
+  border:1px solid #ececec;
+  box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.article-grid h4{ margin-top:0; color:var(--accent); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========
+   FOOTER
+   ========= */
+footer{
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:2rem 1rem;
+  font-size:.9rem;
+  margin-top:var(--space-6);
+}
+
+/* =========================
+   OPTIONAL: DARK MODE
+   
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0c0c0c; --text:#eaeaea; --surface:#181414; }
+  .site-header,footer{ background:#000; color:#ddd; }
+  .main-nav a{ color:#fff; }
+  .article-grid article{ background:#111; border-color:#2a2a2a; box-shadow:0 2px 8px rgba(0,0,0,.4); }
+  .read-more{ border-color:#e3bfbf; color:#e3bfbf; }
+  .read-more:hover{ background:#e3bfbf; color:#111; }
+  .featured-image img,.featured-image iframe{ border-color:#2a2a2a; }
+}
+
+======================== */
+.grid-section {
+  text-align: center;      /* centers the text inside */
+}
+
+.article-grid {
+  display: flex;
+  justify-content: center; /* centers articles horizontally */
+  gap: 6rem;               /* optional spacing between articles */
+}
+
+
+.grid-section {
+  max-width: 900px;
+  margin: 0 auto;   /* centers the whole block horizontally */
+  text-align: center;
+}
+
+/* Sidebar: turn the note into a white card */
+.page-aside.note{
+  background: #fff;                       /* was var(--surface) */
+  /* border: 1px solid #ececec;              /* full outline */
+  /* box-shadow: 0 8px 24px rgba(0,0,0,.06); /* soft lift */
+  /* border-left: 4px solid var(--accent);   /* keep your maroon accent */
+  padding: var(--space-3);
+  border-radius: var(--radius);
+}
+
+/* Add a subtle vertical divider between main and sidebar on desktop */
+@media (min-width: 901px){
+  .page-two-col{
+    column-gap: 2.25rem;                  /* a touch more breathing room */
+  }
+  .page-aside{
+    /*border-left: 1px solid #e8e0dd;       /* divider against the page background */
+    padding-left: calc(var(--space-3) + 0.5rem)
+  }
+}
+
+/* Align the sticky start so it doesn't visually merge with the hero band */
+/*  .page-aside{ top: 2.5rem; }               /* was 2rem; tweak if needed */
+
+/*  aside {
+  padding-top: 2rem;  }/* pushes it down */
+
+
+/* Keep featured image/title aligned nicely with the sidebar card */
+.featured-issue{ align-items: flex-start; }
+.featured-image{ margin-top: .25rem; }    /* tiny nudge to align tops */
+
+
+/* ===== Literary Magazine Look ===== */
+
+/* Wider page and calmer spacing */
+.container { max-width: 1180px; padding: 2rem; }
+
+/* Type scale (bigger, airier) */
+:root{
+  --lh: 1.7;
+}
+body { line-height: var(--lh); font-size: 18px; }
+.site-title { letter-spacing: .3px; }
+.hero h2 { font-size: clamp(2.2rem, 3.2vw + 1rem, 3.25rem); }
+.hero p.lead { font-size: 1.15rem; color: #5a5553; }
+
+/* Elegant links */
+a { color: #3c0d0d; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Section titles */
+.section-title {
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: .2px;
+  margin-bottom: 1.25rem;
+}
+.grid-section { margin: 5rem auto; }
+
+/* Subtle section divider band */
+.grid-section::before {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  margin: 0 auto 1.25rem;
+  background: #c7b6b3;
+  opacity: .8;
+  border-radius: 2px;
+}
+
+/* Feature block: image ratio + softer card look */
+.featured-issue { gap: 2.25rem; margin: 3rem 0 2rem; }
+.featured-text h3:first-child { font-size: .95rem; text-transform: uppercase; letter-spacing: .08em; color: #6c5f5c; margin: 0 0 .35rem; }
+.featured-text h3 + h3 { font-size: 2rem; margin: 0 0 .75rem; }
+.featured-image { flex: 0 0 320px; max-width: 320px; }
+.featured-image img, .featured-image iframe {
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 26px rgba(0,0,0,.06);
+}
+
+/* Sidebar ≈ magazine “note” card */
+.page-aside.note{
+  background:#fff;
+  /* border:1px solid #eee; */
+  /* box-shadow:0 8px 24px rgba(0,0,0,.05); */
+  /* border-left:6px solid #3c0d0d; */
+  padding:1.25rem 1.25rem 1.25rem 1rem;
+  /* border-radius:12px; */
+}
+@media (min-width: 901px){
+  .page-two-col{ column-gap: 3rem; }
+  .page-main{ border-right:1px solid #eee; padding-right: 2rem; }
+}
+
+/* Article list → sleek cards with images, like a grid of features */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4rem;
+}
+.article-grid article {
+  grid-column: span 4;              /* 3 across on desktop */
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.article-grid article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+.article-grid article .card-media{
+  aspect-ratio: 16 / 10;            /* modern, keeps images tidy */
+  background: #f2eeed;
+  overflow: hidden;
+}
+.article-grid article .card-media img{
+  width:100%; height:100%; object-fit: cover; display:block;
+}
+.article-grid article .card-body{ padding: 1rem 1rem 1.25rem; }
+.article-grid article h4{
+  margin: 0 0 .5rem;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+/* Two-up on tablets, single on mobile */
+@media (max-width: 1024px){ .article-grid article{ grid-column: span 6; } }
+@media (max-width: 640px){
+  .container { padding: 1.25rem; }
+  .article-grid { gap: 1.25rem; }
+  .article-grid article{ grid-column: span 12; }
+  .featured-issue{ flex-direction: column; }
+  .featured-image{ max-width: 100%; }
+}
+
+/* Footer cleaner spacing */
+footer { margin-top: 5rem; }
+
+/* --- Center the page and use one container rule --- */
+.container{
+  max-width: 1180px;        /* pick one width */
+  margin: 0 auto;           /* <— centers the whole page */
+  padding: 0 2rem;          /* comfy side gutters */
+}
+
+/* --- Two-column layout stays centered via the container --- */
+.page-two-col{ display:grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items:start; }
+
+/* Optional: remove the vertical rule if it feels off-center */
+.page-main{ border-right: none; padding-right: 0; }
+
+/* --- Featured block: keep as-is — it will center because the container is centered --- */
+
+/* --- "From the Magazine" section: center the block and its contents --- */
+.grid-section{
+  max-width: 1000px;        /* narrower than page for a magazine feel */
+  margin: 4rem auto;        /* <— centers the section */
+  text-align: center;       /* centers the heading */
+}
+
+/* Use ONE layout for the article list (grid; remove earlier flex defs) */
+/* .article-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  justify-items: center;    /* center cards in their tracks }*/
+
+/* Card width so they don’t stretch too wide on huge screens */
+.article-grid article{
+  width: 100%;
+  max-width: 360px;
+}
+
+/* --- Sidebar card polish: keep it distinct but not heavy --- */
+.page-aside.note{
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  /* border-left: 6px solid var(--accent); */
+  padding: 1.25rem;
+  border-radius: 12px;
+}
+
+/* Make sure the hero’s inner content is centered too */
+.hero .container{ margin: 0 auto; }
+
+.featured-section {
+  display: flex;
+  gap: 2rem; /* space between main and sidebar */
+  align-items: flex-start; /* ensures sidebar starts at same top */
+}
+
+
