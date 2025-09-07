@@ -5,7 +5,7 @@
   --bg:#fff;
   --text:#111;
   --muted:#6b6b6b;
-  --accent:#3c0d0d;
+  --accent:#020148;
   --surface:#f8f3f2;
   --radius:8px;
   --space-1:.5rem;
@@ -51,7 +51,7 @@ body {
    HEADER & NAV
    ================= */
 .site-header{
-  background:#111;
+  background:#020148;
   color:#fff;
   padding:1rem 0;
 }
@@ -431,7 +431,7 @@ footer{
 .person-role{
   margin:0 0 .6rem;
   font-weight:600;
-  color:#5b3f3e;
+  color: #020148;
 }
 .person-bio{ margin:.25rem 0 .75rem; color:#333; }
 .person-links .pill{
