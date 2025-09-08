@@ -114,3 +114,7 @@
   .person-card,
   .person-card--compact{ grid-column: span 12; } /* single column */
 }
+
+  .hero-about { background: var(--surface, #f8f3f2); padding: 2.25rem 0; text-align: center; }
+    .section-title { text-align: center; font-size: clamp(1.8rem, 2vw + 1rem, 2.6rem); margin: 0 0 .35rem; }
+    .hero-sub { color: #5a5553; max-width: 700px; margin: 0 auto; }

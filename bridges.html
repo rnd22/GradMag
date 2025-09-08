@@ -16,25 +16,31 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="testthis.css" />
 </head>
   <body>
-    <header class="site-header"> 
-  <div class="container">
-    <h1 class="site-title">SBU Graduate Arts &amp; Sciences Magazine</h1>
-    <nav class="main-nav" aria-label="Primary">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="bridges.html">BRIDGES</a></li>
-        <li><a href="publications.html">Publications</a></li>
-        <li><a href="press.html">Press</a></li>
-        <li><a href="submissions.html">Submissions</a></li>
-        <li><a href="events.html">Events</a></li>
-      </ul>
-    </nav>
-  </div>
-</header> 
+  
+
+      <!-- Header -->
+   <header>
+<div class="container nav">
+<div class="brand">
+<div class="brand-logo"></div>
+<div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
+</div>
+<nav class="nav-links">
+<a href="index.html" aria-current="page">Home</a>
+<a href="about.html">About</a>
+<a href="bridges.html">BRIDGES</a>
+<a href="publications.html">Publications</a>
+<a href="press.html">Press</a>
+<a href="Submissions.html">Submissions</a>
+<a href="Events.html">Events</a>
+
+</nav>
+</div>
+</header>
+
 
     <section class="hero">
       <div class="container">
@@ -43,28 +49,98 @@
       </div>
     </section>
 
-    <section class="grid-section container">
-      <h3>Highlights</h3>
-      <div class="article-grid">
-        <article>
-          <h4>Workshop Series</h4>
-          <p>Science storytelling for non-specialist audiences.</p>
-        </article>
-        <article>
-          <h4>Community Partners</h4>
-          <p>Collaborations with local schools, museums, and nonprofits.</p>
-        </article>
-        <article>
-          <h4>Student Projects</h4>
-          <p>Cross-disciplinary installations, zines, and performances.</p>
-        </article>
-      </div>
-    </section>
 
-    <footer>
-  <div class="container">
-    <p>&copy; 2025 SBU Graduate Magazine | Designed with care by the Grad Mag Team.</p>
-  </div>
-</footer>
-  </body>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B.R.I.D.G.E.S • SBU Grad Mag</title>
+  <meta name="description" content="Science communication, art, poetry, and thought from the graduate community at Stony Brook University." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+
+
+    /* =========================
+       BASE TYPOGRAPHY & COLORS
+    ========================= */
+    :root{
+      --bg:#fff; --text:#111; --muted:#6b6b6b; --accent:#020148; --surface:#f8f3f2; --radius:8px;
+    }
+    body{font-family:'Source Sans Pro',sans-serif;margin:0;color:var(--text);background:var(--bg);line-height:1.65;font-size:16px;}
+    h1,h2,h3,h4{font-family:'Playfair Display',serif;}
+    h2,h3,h4{color:var(--accent);}
+    .container{max-width:1180px;margin:0 auto;padding:0 2rem;}
+
+    /* =================
+       HEADER & NAV
+    ================= */
+    .site-header{background:#020148;color:#fff;padding:5rem 0;}
+    .site-title{text-align:center;font-size:3rem;margin:.5rem 0;color:#fff;}
+    .main-nav ul{display:flex;justify-content:center;gap:3rem;list-style:none;padding:0;margin:0;}
+    .main-nav a{color:#fff;text-decoration:none;font-weight:600;}
+    .main-nav a:hover,.main-nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:4px;}
+
+    /* HERO */
+    .hero{background:var(--surface);text-align:center;padding:2rem 0;}
+    .hero h2{font-size:2rem;margin-bottom:.5rem;}
+    .hero p{font-size:1.05rem;color:#555;max-width:900px;margin:0 auto;}
+
+    /* CONTENT SECTIONS */
+    .section{margin:2rem 0;}
+    .section h3{font-size:1.4rem;margin:.5rem 0;}
+    .card{background:#fff;border:1px solid #eee;border-radius:12px;padding:1.25rem 1.5rem;box-shadow:0 6px 18px rgba(0,0,0,.05);margin-bottom:1.5rem;}
+
+    /* FOOTER */
+    footer{background:#111;color:#ccc;text-align:center;padding:2rem 1rem;font-size:.9rem;margin-top:3rem;}
+  </style>
+</head>
+<body>
+
+    <div class="container">
+      <div class="section card">
+        <h3>BRIDGES 2026</h3>
+        <p>BRIDGES 2026 will be held on <strong>February 19th</strong>. More details on the day's schedule, submission guidelines, and more will be coming soon!</p>
+      </div>
+
+      <div class="section card">
+        <h3>About BRIDGES 2025</h3>
+        <p><strong>BRIDGES: A Cross-Departmental Graduate Student Conference</strong>, hosted by student organization The SBU Graduate Arts & Sciences Magazine, took place on January 30, 2025 from 9:30am – 5:30pm at Stony Brook University in the Student Activities Center.</p>
+        <p>After the success of this event, the magazine aims to turn BRIDGES into an annual conference. This interdisciplinary event highlights the diverse research, creativity, and innovation of Stony Brook University’s graduate students. The conference fosters collaboration and communication across fields by giving students a platform to connect and share their work with a broad audience.</p>
+        <p>BRIDGES 2025 had representation from over 30 departments, and we're looking to expand next year.</p>
+      </div>
+
+      <div class="section card">
+        <h3>Highlights from 2025</h3>
+        <ul>
+          <li>60+ research poster presentations across sciences, humanities, and engineering</li>
+          <li>Keynote by Provost Carl W. Lejuez on interdisciplinary collaboration</li>
+          <li>Alan Alda Center seminar on science communication</li>
+          <li>Career Center workshop on navigating career paths</li>
+          <li>Graduate short film screening and art gallery</li>
+          <li>Musical performances featuring piano, Turkish flute, guitar, and voice</li>
+          <li>Graduate Department Fair showcasing academic programs</li>
+        </ul>
+      </div>
+
+      <div class="section card">
+        <h3>Open to All</h3>
+        <p>BRIDGES was open to SBU faculty, students, and staff, as well as members of the local community, industry professionals, and anyone interested in interdisciplinary research, education, and innovation. Thank you to everyone who joined us for a day of discovery, creativity, and connection.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="yr"></span> SBU Graduate Arts & Sciences Magazine | Designed with care by the GradMag Team.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
