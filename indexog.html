@@ -9,12 +9,115 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
-    
-
-
 </head>
-<body>
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
 
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;               /* full screen width */
+  max-width: 100%;
+  height: 350px;             /* fixed height – adjust as needed */
+  position: relative;
+  margin: 0;
+  background: #8b8b8b;          /* fallback background */
+  overflow: hidden;
+
+  background-image: url("images/carousel.jpg");
+  background-size: cover;       /* fill entire area */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat; /* no tiling */
+
+  color: white; 
+}
+
+.slideshow-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+  pointer-events: none;       /* <-- don't block clicks */
+}
+
+/* Make controls and content clickable above overlay */
+.slideshow-container .slide-content { position: relative; z-index: 2; }
+.slideshow-container .dot           { position: relative; z-index: 2; }
+
+.prev, .next {
+  position: absolute;  /* already set in your code */
+  z-index: 3;          /* above overlay + content */
+}
+
+/* Individual slides */
+.mySlides {
+  display: none;
+  height: 100%;
+  background: transparent;        /* use same bg as container unless overridden */         /* space around content */
+  box-sizing: border-box;
+}
+
+.slide-content {
+  max-width: 65%;            /* shrink width to ~80% of carousel */
+  margin: 0 auto;            /* center horizontally */
+  padding: 1rem;             /* internal spacing */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 3px;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3);
+}
+.prev { left: 0; }
+.next { right: 0; }
+
+/* Hover effect for buttons */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.numbertext {
+  padding: 2rem 5%;
+}
+
+/* Dots */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .dot:hover { background-color: #717171; }
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  from { opacity: .4; }
+  to { opacity: 1; }
+}
+
+</style>
+<body>
   <!-- Header -->
    <header>
 <div class="container nav">
@@ -35,88 +138,54 @@
 </div>
 </header>
 
+<div class="slideshow-container">
 
-  <!-- Hero -->
-<!--   <section class="hero hero--tight">
-    <div class="container">
-      <h2 class="section-title">Celebrating Interdisciplinary Creativity</h2>
-      <p class="lead">Science communication, art, poetry, and thought from the graduate community at Stony Brook University.</p>
-    </div>
-  </section> -->
-
-
-  <!-- Two-column layout: main content + right sidebar -->
-<section class="container page-two-col">
-  <!-- MAIN COLUMN -->
-  <div class="page-main">
-
-    <!-- Featured Issue -->
+<div class="mySlides fade">
+  <div class="slide-content">
     <section class="featured-issue">
-      <div class="featured-text">
-        <h3>Featured: 2025 Issue</h3>
+      <div class="featured-carousel">
+        <h1>Featured: 2025 Issue</h1>
         <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation. From lyrical essays to experimental visuals, this edition challenges boundaries.</p>
-        <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="read-more">Read the Issue</a>
+        <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
       </div>
-      <div class="featured-image">
+      <!-- <div class="featured-image">
         <img src="images/TheFourSeasons.JPEG" alt="Cover of the 2025 Issue">
-      </div>
+      </div> -->
     </section>
-<!-- Updates / News -->
-<section class="grid-section">
-  <!-- From the Magazine is OUTSIDE the two-column grid -->
-<!-- <section class="grid-section container">
-  <h3 class="section-title">From the Magazine</h3>
-  <div class="article-grid">
-    <article>
-      <h4>Displacement in a Digital Age</h4>
-      <p>A multimedia exploration of immigrant narratives in the age of algorithms.</p>
-    </article>
-    <article>
-      <h4>The Silence of Ice Cores</h4>
-      <p>Poetry meets data in this evocative look at arctic research archives.</p>
-    </article>
-    <article>
-      <h4>Time-Lapse of a Lab Bench</h4>
-      <p>Scenes from the slow rituals of discovery in marine biology.</p>
-    </article>
   </div>
-</section> -->
+</div>
 
-<section class="updates-year container">
-  <h3 class="section-title">Stay tuned for B.R.I.D.G.E.S 2026!</h3>
-
-  <div class="info-card info-card--wide">
-    <ul class="updates-bullets">
-      <p> Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
-    </ul>
+<div class="mySlides fade">
+  <div class="slide-content">
+    <section class="featured-issue">
+      <div class="featured-carousel">
+        <h1>B.R.I.D.G.E.S. 2026</h1>
+        <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
+        <a href="bridges.html" class="carousel-button">RSVP</a>
+      </div>
+      <!-- <div class="featured-image">
+        <img src="images/TheFourSeasons.JPEG" alt="Cover of the 2025 Issue">
+      </div> -->
+    </section>
   </div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+</div>
+
 </section>
-
-<section class="updates-year container">
-  <h3 class="section-title">What has Grad Mag been up to this year?</h3>
-
-  <div class="info-card info-card--wide">
-    <ul class="updates-bullets">
-      <li>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees</li>
-      <li>Attended ProCon25 in February and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong></li>
-      <li>Published the second edition of our magazine, <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_">The Four Seasons</a>, in April</li>
-      <li>Received the <strong>Collaborative Program Award</strong> at the Jerrold L. Stein Student Life Awards, plus the
-          <strong>Media Programming Award</strong> and <strong>Most Innovative Use of Media</strong> at the Annual Student Media Council Awards for our B.R.I.D.G.E.S. conference</li>
-      <li>Recognized by the GSO Executive Committee as the <strong>Best Club of the Year</strong></li>
-      <li>Tied for <strong>Best Cover</strong> at the Annual Student Media Council Awards</li>
-      <li>Our president, Ava Nederlander, was named <strong>Executive Board Member of the Year</strong> at the Jerrold L. Stein Student Life Awards and won the <strong>Best Club Leadership Award</strong></li>
-      <li>Our secretary, Veronica Borracci; Vice President, Jennifer L. O’Connor; and President, Ava Nederlander, received the <strong>Student Media Council Leadership Award</strong></li>
-    </ul>
   </div>
-</section>
-  
-</section>
-
-  </div>
-
   <!-- RIGHT SIDEBAR -->
-  <aside class="page-aside note">
-    <h2> About GradMag</h2>
+  <aside class="updates-year container">
+    <h1 class="section-title"> About GradMag</h1>
     <p>
         The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community. The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
       </p>
@@ -148,19 +217,58 @@
     </a>
   </p>
 </div>
-
   </aside>
 </section>
 
-
-
-
+<section class="updates-year container">
+  <h1 class="section-title">What has Grad Mag been up to this year?</h1>
+  <div >
+      <p>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees</p>
+      <p>Attended ProCon25 in February and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong></p>
+      <p>Published the second edition of our magazine, <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_">The Four Seasons</a>, in April</p>
+      <p>Received the <strong>Collaborative Program Award</strong> at the Jerrold L. Stein Student Life Awards, plus the
+          <strong>Media Programming Award</strong> and <strong>Most Innovative Use of Media</strong> at the Annual Student Media Council Awards for our B.R.I.D.G.E.S. conference</p>
+      <p>Recognized by the GSO Executive Committee as the <strong>Best Club of the Year</strong></p>
+      <p>Tied for <strong>Best Cover</strong> at the Annual Student Media Council Awards</p>
+      <p>Our president, Ava Nederlander, was named <strong>Executive Board Member of the Year</strong> at the Jerrold L. Stein Student Life Awards and won the <strong>Best Club Leadership Award</strong></p>
+      <p>Our secretary, Veronica Borracci; Vice President, Jennifer L. O’Connor; and President, Ava Nederlander, received the <strong>Student Media Council Leadership Award</strong></p>
+  </div>
+</section>
   <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 SBU Graduate Arts &amp; Sciences Magazine | Designed with care by the GradMag Team.</p>
     </div>
   </footer>
+
+  <script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
 </body>
 </html>
 
