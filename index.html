@@ -13,7 +13,7 @@
     * { box-sizing: border-box }
     img { vertical-align: middle; }
 
-    /* ===== Main (top) slideshow container ===== */
+    /* ===== Main (top) slideshow ===== */
     .slideshow-container {
       width: 100%;
       max-width: 100%;
@@ -22,12 +22,10 @@
       margin: 0;
       background: #8b8b8b;
       overflow: hidden;
-
       background-image: url("images/carousel.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-
       color: white;
     }
     .slideshow-container::before {
@@ -38,20 +36,10 @@
       z-index: 1;
       pointer-events: none;
     }
-    .slideshow-container .slide-content { position: relative; z-index: 2; }
-    .slideshow-container .dot { position: relative; z-index: 2; }
+    .mySlides { display: none; height: 100%; }
+    .slide-content { max-width: 65%; margin: 0 auto; padding: 1rem; position: relative; z-index: 2; }
 
-    .mySlides {
-      display: none;
-      height: 100%;
-      background: transparent;
-    }
-    .slide-content {
-      max-width: 65%;
-      margin: 0 auto;
-      padding: 1rem;
-    }
-
+    /* Arrows */
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -71,7 +59,7 @@
     .next { right: 0; }
     .prev:hover, .next:hover { background-color: rgba(0,0,0,0.6); }
 
-    /* Dots (shared) */
+    /* Dots */
     .dot {
       cursor: pointer;
       height: 10px;
@@ -84,10 +72,9 @@
     }
     .dot.active, .dot:hover { background-color: #717171; }
 
-    .fade { animation-name: fade; animation-duration: 1.5s; }
+    .fade { animation: fade 1.5s; }
     @keyframes fade { from { opacity: .4; } to { opacity: 1; } }
 
-    /* Left-align the dots under the main carousel and keep site width */
     .main-dots-wrap {
       max-width: 1100px;
       margin: 8px auto 16px;
@@ -95,30 +82,32 @@
       text-align: left;
     }
 
-    /* ===== Content grid: About (left) + Featured card with poster carousel (right) ===== */
+    /* ===== About + Featured Content grid ===== */
     .content-grid {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 18px;
       display: grid;
-      grid-template-columns: 1fr 360px;
+      grid-template-columns: 1fr 360px; /* left column + right poster card */
       gap: 24px;
       align-items: start;
     }
+    .content-grid, .content-grid * { text-align: left; }
 
-    /* Ensure text below hero is left-aligned even if other CSS centers it */
-    .content-grid, .content-grid *:not(nav):not(.nav) { text-align: left; }
+    /* Left column stack: About + Year updates */
+    .left-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 24px; /* spacing between About and Updates */
+    }
 
-    /* About block styling nudge (reusing your .updates-year look) */
-    .about-block .section-title { margin-top: 0.5rem; }
-
-    /* Featured card with poster carousel */
     .featured-card {
       background: #fff;
       border: 1px solid #eef2f7;
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       overflow: hidden;
+      position: relative;
     }
     .featured-card header {
       padding: 14px 16px;
@@ -128,30 +117,54 @@
     .poster-slideshow {
       position: relative;
       width: 100%;
-      aspect-ratio: 3/4; /* poster aspect */
+      aspect-ratio: 3/4;
       background: #f3f4f6;
       overflow: hidden;
     }
-    .posterSlide {
-      display: none;
-      position: absolute;
-      inset: 0;
-    }
-    .posterSlide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .posterSlide { display: none; position: absolute; inset: 0; }
+    .posterSlide img { width: 100%; height: 100%; object-fit: cover; }
     .poster-dots {
       display: flex;
       gap: 6px;
       padding: 10px 14px 16px;
     }
 
+    /* Poster carousel arrows */
+    .poster-prev, .poster-next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 10px;
+      margin-top: -20px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.6s ease;
+      border-radius: 3px;
+      user-select: none;
+      background-color: rgba(0,0,0,0.3);
+      z-index: 3;
+    }
+    .poster-prev { left: 6px; }
+    .poster-next { right: 6px; }
+    .poster-prev:hover, .poster-next:hover { background-color: rgba(0,0,0,0.6); }
+
     /* Keep your other sections left aligned too */
     .updates-year, .updates-year * { text-align: left !important; }
 
-    /* Responsive stack */
+    /* Center dots for BOTH carousels */
+.main-dots-wrap {
+  text-align: center !important;   /* main carousel dots */
+}
+.main-dots-wrap .dot {
+  display: inline-block;           /* keep them inline so centering works */
+}
+
+.poster-dots {
+  display: flex;
+  justify-content: center;         /* poster carousel dots */
+}
+
     @media (max-width: 900px) {
       .content-grid { grid-template-columns: 1fr; }
       .slide-content { max-width: 90%; }
@@ -178,87 +191,96 @@
     </div>
   </header>
 
-  <!-- ===== MAIN TOP CAROUSEL (unchanged position) ===== -->
+  <!-- ===== MAIN CAROUSEL ===== -->
   <div class="slideshow-container" id="mainCarousel">
     <div class="mySlides fade">
       <div class="slide-content">
-        <section class="featured-issue">
-          <div class="featured-carousel">
-            <h1>Featured: 2025 Issue</h1>
-            <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation. From lyrical essays to experimental visuals, this edition challenges boundaries.</p>
-            <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
-          </div>
-        </section>
+        <h1>Featured: 2025 Issue</h1>
+        <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation.</p>
+        <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
       </div>
     </div>
-
     <div class="mySlides fade">
       <div class="slide-content">
-        <section class="featured-issue">
-          <div class="featured-carousel">
-            <h1>B.R.I.D.G.E.S. 2026</h1>
-            <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
-            <a href="bridges.html" class="carousel-button">RSVP</a>
-          </div>
-        </section>
+        <h1>B.R.I.D.G.E.S. 2026</h1>
+        <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
+        <a href="bridges.html" class="carousel-button">RSVP</a>
       </div>
     </div>
 
     <a class="prev" aria-label="Previous slide">❮</a>
     <a class="next" aria-label="Next slide">❯</a>
   </div>
-
-  <!-- Dots under main carousel, left aligned within site width -->
   <div class="main-dots-wrap">
     <span class="dot" data-for="mainCarousel" data-to="1"></span>
     <span class="dot" data-for="mainCarousel" data-to="2"></span>
   </div>
 
-  <!-- ===== CONTENT GRID: About (left) + Featured poster carousel (right) ===== -->
+  <!-- ===== GRID: LEFT (About + Year updates) | RIGHT (Poster carousel) ===== -->
   <div class="content-grid">
-    <!-- LEFT: About GradMag (moved here) -->
-    <aside class="about-block updates-year">
-      <h1 class="section-title"> About GradMag</h1>
-      <p>
-        The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community. The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
-      </p>
-      <p>
-        The Stony Brook Graduate Arts &amp; Sciences Magazine hosted our first conference, B.R.I.D.G.E.S, in January of 2025. For more information about the conference, see our <a href="bridges.html">B.R.I.D.G.E.S page</a>.
-      </p>
-
-      <div class="social-block">
-        <div class="social-links" aria-label="Follow Grad Mag">
-          <!-- Instagram -->
-          <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-          </a>
-
-          <!-- LinkedIn -->
-          <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-          </a>
-
-          <!-- Email -->
-          <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-
-        <p class="donate-wrap">
-          <a class="btn donate-btn" href="https://www.sbugradmag.com/" target="_blank" rel="noopener">
-            Donate to Support the Magazine
-          </a>
+    <!-- LEFT stack -->
+    <div class="left-stack">
+      <aside class="about-block updates-year">
+        <h1 class="section-title"> About GradMag</h1>
+        <p>
+          The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community. The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
         </p>
-      </div>
-    </aside>
+        <p>
+          The Stony Brook Graduate Arts &amp; Sciences Magazine hosted our first conference, B.R.I.D.G.E.S, in January of 2025. For more information about the conference, see our <a href="bridges.html">B.R.I.D.G.E.S page</a>.
+        </p>
 
-    <!-- RIGHT: Featured Content poster carousel -->
+        <div class="social-block">
+          <div class="social-links" aria-label="Follow Grad Mag">
+            <!-- Instagram -->
+            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+            </a>
+
+            <!-- Email -->
+            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+
+          <p class="donate-wrap">
+            <a class="btn donate-btn" href="https://www.sbugradmag.com/" target="_blank" rel="noopener">
+              Donate to Support the Magazine
+            </a>
+          </p>
+        </div>
+      </aside>
+
+      <!-- Year updates (now vertically aligned with About) -->
+      <section class="updates-year" style="margin-top:0;">
+        <h1 class="section-title">What has Grad Mag been up to this year?</h1>
+        <ul>
+          <li>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees</li>
+          <li>Attended ProCon25 in February and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong></li>
+          <li>Published the second edition of our magazine, <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_">The Four Seasons</a>, in April</li>
+          <li>Received the <strong>Collaborative Program Award</strong> at the Jerrold L. Stein Student Life Awards, plus the
+            <strong>Media Programming Award</strong> and <strong>Most Innovative Use of Media</strong> at the Annual Student Media Council Awards for our B.R.I.D.G.E.S. conference</li>
+          <li>Recognized by the GSO Executive Committee as the <strong>Best Club of the Year</strong></li>
+          <li>Tied for <strong>Best Cover</strong> at the Annual Student Media Council Awards</li>
+          <li>Our president, Ava Nederlander, was named <strong>Executive Board Member of the Year</strong> at the Jerrold L. Stein Student Life Awards and won the <strong>Best Club Leadership Award</strong></li>
+          <li>Our secretary, Veronica Borracci; Vice President, Jennifer L. O’Connor; and President, Ava Nederlander, received the <strong>Student Media Council Leadership Award</strong></li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- RIGHT: Poster carousel -->
     <aside class="featured-card">
       <header>Upcoming events</header>
       <div class="poster-slideshow" id="posterCarousel">
         <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 1"></div>
         <div class="posterSlide"><img src="images/GradMag_No_Stupid_Qs.png" alt="Featured poster 2"></div>
         <div class="posterSlide"><img src="images/GradMag_Welcome_Social_Poster.png" alt="Featured poster 3"></div>
+        <a class="poster-prev" aria-label="Previous slide">❮</a>
+        <a class="poster-next" aria-label="Next slide">❯</a>
       </div>
       <div class="poster-dots">
         <span class="dot" data-for="posterCarousel" data-to="1"></span>
@@ -267,22 +289,6 @@
       </div>
     </aside>
   </div>
-
-  <!-- Year updates section (full width, below the grid) -->
-  <section class="updates-year container" style="margin-top:24px;">
-    <h1 class="section-title">What has Grad Mag been up to this year?</h1>
-    <div>
-      <p>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees</p>
-      <p>Attended ProCon25 in February and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong></p>
-      <p>Published the second edition of our magazine, <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_">The Four Seasons</a>, in April</p>
-      <p>Received the <strong>Collaborative Program Award</strong> at the Jerrold L. Stein Student Life Awards, plus the
-        <strong>Media Programming Award</strong> and <strong>Most Innovative Use of Media</strong> at the Annual Student Media Council Awards for our B.R.I.D.G.E.S. conference</p>
-      <p>Recognized by the GSO Executive Committee as the <strong>Best Club of the Year</strong></p>
-      <p>Tied for <strong>Best Cover</strong> at the Annual Student Media Council Awards</p>
-      <p>Our president, Ava Nederlander, was named <strong>Executive Board Member of the Year</strong> at the Jerrold L. Stein Student Life Awards and won the <strong>Best Club Leadership Award</strong></p>
-      <p>Our secretary, Veronica Borracci; Vice President, Jennifer L. O’Connor; and President, Ava Nederlander, received the <strong>Student Media Council Leadership Award</strong></p>
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer>
@@ -315,22 +321,12 @@
   </footer>
 
   <script>
-    /**
-     * Reusable slider:
-     * containerId: element ID that contains slides/controls
-     * slidesSel: selector for slides INSIDE that container
-     * prevSel/nextSel: optional child selectors for arrows
-     * intervalMs: auto-advance interval
-     */
-    function makeSlider(containerId, { slidesSel, prevSel, nextSel, intervalMs = 5000 }) {
+    function makeSlider(containerId, { slidesSel, prevSel, nextSel, intervalMs = 10000 }) {
       const container = document.getElementById(containerId);
-      if (!container) return;
-
       const slides = Array.from(container.querySelectorAll(slidesSel));
       const dots = Array.from(document.querySelectorAll(`.dot[data-for="${containerId}"]`));
       const prev = prevSel ? container.querySelector(prevSel) : null;
       const next = nextSel ? container.querySelector(nextSel) : null;
-
       let index = 0;
 
       function show(i) {
@@ -340,30 +336,23 @@
       }
       function go(delta) { show(index + delta); }
 
-      // Init
       show(0);
-
-      // Controls
       if (prev) prev.addEventListener('click', () => go(-1));
       if (next) next.addEventListener('click', () => go(1));
       dots.forEach((d, di) => d.addEventListener('click', () => show(di)));
-
-      // Auto-advance
       setInterval(() => go(1), intervalMs);
     }
 
-    // Main hero carousel (top)
     makeSlider('mainCarousel', {
       slidesSel: '.mySlides',
       prevSel: '.prev',
-      nextSel: '.next',
-      intervalMs: 10000
+      nextSel: '.next'
     });
 
-    // Poster carousel (to the right of About)
     makeSlider('posterCarousel', {
       slidesSel: '.posterSlide',
-      intervalMs: 10000
+      prevSel: '.poster-prev',
+      nextSel: '.poster-next'
     });
   </script>
 </body>
