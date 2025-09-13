@@ -486,10 +486,10 @@ footer{
   .person-card--compact{ grid-column: span 12; } /* single column */
 }
 
-.aboutSubHeader {
+/* .aboutSubHeader {
   padding-left: 350px;
   padding-right: 350px;
-}
+} */
 
 /* Social row reused */
 .social-links{
