@@ -510,32 +510,45 @@ footer{
 /* Join band layout (same section rhythm as your About/Updates) */
 /* Layout: give right side more width so facts stay on one line */
 /* Join band: same rhythm as About/Updates */
-.join-cta-band{ max-width:1000px; margin:2.5rem auto 3.5rem; }
+/* Join band layout & spacing (same rhythm as About/Updates) */
+.join-cta-band{ max-width:1000px; margin:2rem auto 2.5rem; }
 .join-cta-grid{
-  display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start;
+  display:grid;
+  grid-template-columns: 1.15fr .85fr;  /* gives the checks a touch more room */
+  gap:16px;
+  align-items:start;
 }
 .join-cta-col{ display:flex; flex-direction:column; }
 
-/* Buttons: stacked & compact */
+/* Buttons: stacked & compact so the right-side lines don't wrap */
 .btn-row{
-  margin-top:auto;
-  display:grid; grid-template-columns:1fr; gap:.5rem;
+  display:grid; grid-template-columns:1fr; gap:.45rem;
+  margin:.25rem 0 0;
 }
 .btn-row .read-more{
   width:100%; text-align:center;
-  padding:.45rem .8rem;    /* shorter buttons */
-  font-size:.95rem;
+  padding:.42rem .8rem;          /* shorter */
+  font-size:.92rem; line-height:1.1;
 }
 
-/* Checks */
-.join-facts{ list-style:none; margin:0; padding:0; }
-.join-facts li{ position:relative; padding-left:1.2rem; margin:.35rem 0; }
-.join-facts li::before{ content:"✓"; position:absolute; left:0; top:0; color:var(--accent); line-height:1; }
+/* Checks: remove default bullets/indent and use ✓ marks */
+.join-cta-band .join-facts{
+  list-style:none !important;    /* force off browser bullets */
+  margin:.2rem 0 0; padding:0;   /* kill default UL padding */
+}
+.join-cta-band .join-facts li{
+  position:relative;
+  padding-left:1.15rem;          /* space for the check */
+  margin:.28rem 0;
+}
+.join-cta-band .join-facts li::before{
+  content:"✓";
+  position:absolute; left:0; top:.05rem;
+  color:var(--accent); font-weight:700;
+}
+.join-cta-contact{ margin-top:.6rem; font-size:.95rem; }
 
-/* Questions under the checks; keeps bottoms feeling aligned */
-.join-cta-contact{ margin-top:auto; font-size:.95rem; }
-
-/* Responsive */
+/* Mobile: single column; natural wrapping is fine */
 @media (max-width:900px){
   .join-cta-grid{ grid-template-columns:1fr; }
 }
