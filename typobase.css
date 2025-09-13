@@ -32,3 +32,38 @@
 
     /* FOOTER */
     footer{background:#111;color:#ccc;text-align:center;padding:2rem 1rem;font-size:.9rem;margin-top:3rem;}
+
+    /* Simple card look (reuse if you already have .card) */
+.section.card{
+  background:#fff; border:1px solid #eee; border-radius:12px;
+  padding:16px 18px; box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+
+/* Two-column layout for the Program section */
+.bridges-grid{
+  display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:start;
+}
+@media (max-width: 900px){ .bridges-grid{ grid-template-columns:1fr; } }
+
+/* Schedule table */
+.table-schedule{ width:100%; border-collapse:collapse; }
+.table-schedule th,.table-schedule td{
+  border-bottom:1px solid #eee; padding:.5rem .6rem; vertical-align:top;
+}
+.table-schedule th{
+  width:175px; text-align:right; font-weight:700; color:#020148; white-space:nowrap;
+}
+
+/* Buttons (skip if your global .btn exists already) */
+.btn{ display:inline-flex; align-items:center; gap:.4rem; padding:.45rem .7rem;
+  border:2px solid var(--accent, #4b4bff); color:var(--accent, #4b4bff);
+  background:#fff; text-decoration:none; font-weight:700; border-radius:8px; cursor:pointer;
+}
+.btn:hover{ background:var(--accent, #4b4bff); color:#fff; }
+.btn.ghost{ border-color:#ddd; color:#333; }
+.btn.ghost:hover{ background:#f5f5f5; color:#111; }
+
+/* PDF preview */
+.program-embed summary{ cursor:pointer; font-weight:700; margin:.5rem 0; }
+.program-embed details{ border:1px solid #eee; border-radius:10px; overflow:hidden; }
+.program-embed object{ width:100%; height:560px; border:0; display:block; }
