@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Events • SBU Grad Mag</title>
-  <meta name="description" content="Upcoming workshops, socials, and BRIDGES programming from SBU GradMag." />
+  <meta name="description" content="Upcoming workshops, socials, and BRIDGES programming from SBU Grad Mag." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,65 +47,12 @@
     .agenda ul{ list-style:none; padding:0; margin:0; display:grid; gap:.5rem }
     .agenda li{ background:#fff; border:1px solid #eee; border-radius:10px; padding:.6rem .75rem; display:flex; gap:.75rem; align-items:center }
     .agenda .badge{ background:#020148; color:#fff; border-radius:7px; padding:.15rem .5rem; font-size:.8rem; font-weight:700 }
-/* keep date badge on one line */
-.agenda .badge { white-space: nowrap; }
-
-
-/* make the row respect the wider sidebar and avoid awkward wraps */
-.agenda li { flex-wrap: nowrap; }
-.agenda li > span:last-child { min-width: 0; }
-
 
     @media (max-width: 720px){
       .cell{ min-height: 100px }
       .event{ font-size:.85rem }
       .cal-toolbar{ flex-wrap:wrap }
     }
-
-    /* ===== Side-by-side layout: Calendar (left) + Upcoming (right) ===== */
-.events-layout {
-  display: grid;
-  grid-template-columns: minmax(0,1fr) 420px; /* wider sidebar */
-  gap: 24px;
-  align-items: start;
-  margin-top: .75rem;
-}
-
-
-/* Make the Upcoming sidebar feel like a sidebar */
-.events-sidebar{
-  position: sticky; /* optional: keeps it in view while scrolling */
-  top: 84px;        /* adjust if your header height changes */
-}
-
-/* Tweak heading spacing now that it's a sidebar */
-.events-sidebar .agenda{ margin:0; }
-.events-sidebar .agenda h2{ margin:0 0 .5rem; }
-
-/* Responsive: stack on small screens */
-@media (max-width: 900px){
-  .events-layout{
-    grid-template-columns:1fr;
-  }
-  .events-sidebar{
-    position: static;
-    top: auto;
-  }
-}
-/* De-emphasize recurring/less important events */
-.event.gbm {
-  border-left-color: #bbb;       /* lighter gray instead of accent */
-  color: #555;
-  background: #fafafa;
-}
-.event.gbm .t { color: #555; }
-
-/* Agenda list badge for GBM */
-.agenda li.gbm .badge {
-  background: #bbb;
-  color: #fff;
-}
-
   </style>
 </head>
 <body>
@@ -123,49 +70,45 @@
         <a href="bridges.html">BRIDGES</a>
         <a href="publications.html">Publications</a>
         <a href="press.html">Press</a>
-        <a href="submissions.html">Submissions</a>
-        <a href="events.html" aria-current="page">Events</a>
+        <a href="Submissions.html">Submissions</a>
+        <a href="Events.html" aria-current="page">Events</a>
       </nav>
     </div>
   </header>
-<main class="page">
-  <div class="container">
-    <h1>Events</h1>
 
-    <div class="events-layout">
-      <!-- Left: Calendar -->
-      <div>
-        <div class="cal-wrap" role="region" aria-label="Events calendar">
-          <div class="cal-toolbar">
-            <div class="controls">
-              <button class="btn ghost" id="prev">◀ Prev</button>
-              <button class="btn ghost" id="today">Today</button>
-              <button class="btn ghost" id="next">Next ▶</button>
-            </div>
-            <div class="when" id="when">Month YYYY</div>
-            <div style="width:88px"></div>
-          </div>
+  <main class="page">
+    <div class="container">
+<h1>Events</h1>
 
-          <div class="cal">
-            <div class="cal-daynames" aria-hidden="true">
-              <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-            </div>
-            <div class="cal-grid" id="grid"></div>
-          </div>
-        </div>
+<div class="events-layout">
+  <div class="cal-wrap" role="region" aria-label="Events calendar">
+    <div class="cal-toolbar">
+      <div class="controls">
+        <button class="btn ghost" id="prev">◀ Prev</button>
+        <button class="btn ghost" id="today">Today</button>
+        <button class="btn ghost" id="next">Next ▶</button>
       </div>
+      <div class="when" id="when">Month YYYY</div>
+      <div style="width:88px"></div>
+    </div>
 
-      <!-- Right: Upcoming -->
-      <aside class="events-sidebar" aria-labelledby="agenda-title">
-        <section class="agenda">
-          <h2 id="agenda-title">Upcoming</h2>
-          <ul id="agendaList"></ul>
-        </section>
-      </aside>
+    <div class="cal">
+      <div class="cal-daynames" aria-hidden="true">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+      <div class="cal-grid" id="grid"></div>
     </div>
   </div>
-</main>
 
+  <section class="agenda" aria-labelledby="agenda-title">
+    <h2 id="agenda-title">Upcoming</h2>
+    <ul id="agendaList"></ul>
+  </section>
+</div>
+
+    </div>
+  </main>
 
   <footer>
     <div class="container">
@@ -174,37 +117,61 @@
   </footer>
 
   <script>
-    // —— Events source of truth (normalized) ——
-    // NOTE: Months are 0-indexed in JS Date: Jan=0, Feb=1, ...
-    const EVENTS = [
-      { title: 'General Body Meetings', date: { y: 2025, m: 8, d: 3 }, time: '1:00–1:50 pm', location: 'SAC 330', multi: true, type: 'gbm', rule: { freq: 'WEEKLY', byday: ['WE'], until: { y: 2025, m: 11, d: 10 } } },
-      { title: 'No Stupid Questions: Graduate Students Only', date: { y: 2025, m: 9, d: 15 }, time: 'TBD' },
-      { title: 'CVs v. Resume', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
-      { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
-      { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
-      { title: 'Spring 2026 Magazine Release Party', date: { y: 2026, m: 4, d: 5 }, time: 'TBD' },
-    ];
+ // —— Events source of truth (normalized) ——
+const EVENTS = [
+  {
+    title: 'Editorial Board Meeting',
+    date: { y: 2025, m: 8, d: 3 },            // first occurrence (Wed Sep 3, 2025)
+    time: '2:45–3:15 pm',
+    location: 'Google Meets',
+    multi: true,
+    rule: { freq: 'WEEKLY', interval: 2, byday: ['WE'], until: { y: 2025, m: 11, d: 10 } } // every other Wednesday
+  },
+  { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
+  { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
+  { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
+  { title: 'Spring 2026 Magazine Release Party', date: { y: 2026, m: 4, d: 5 }, time: 'TBD' },
+];
+function expandRecurring(events, viewStart, viewEnd){
+  const out = [];
+  const DOW = ['SU','MO','TU','WE','TH','FR','SA'];
 
-    // Expand simple weekly recurrence for display (basic, not full RFC5545)
-    function expandRecurring(events, viewStart, viewEnd){
-      const out = [];
-      for(const e of events){
-        if(!e.rule){ out.push(e); continue; }
-        const start = new Date(e.date.y, e.date.m, e.date.d);
-        const until = new Date(e.rule.until.y, e.rule.until.m, e.rule.until.d);
-        const days = new Set((e.rule.byday||[]).map(d=>['SU','MO','TU','WE','TH','FR','SA'].indexOf(d)));
-        const cur = new Date(Math.max(start, viewStart));
-        // align to the first day in range
-        cur.setHours(0,0,0,0);
-        while(cur <= viewEnd){
-          if(days.has(cur.getDay())){
-            out.push({ ...e, date: { y: cur.getFullYear(), m: cur.getMonth(), d: cur.getDate() }, _instance: true });
-          }
-          cur.setDate(cur.getDate()+1);
-        }
+  for (const e of events){
+    if (!e.rule) continue; // <-- do NOT push plain events
+
+    const start = new Date(e.date.y, e.date.m, e.date.d);
+    const until = new Date(e.rule.until.y, e.rule.until.m, e.rule.until.d);
+    const freq = e.rule.freq || 'WEEKLY';
+    const interval = e.rule.interval ?? (e.rule.freq === 'BIWEEKLY' ? 2 : 1);
+
+    if (freq !== 'WEEKLY' && freq !== 'BIWEEKLY') continue;
+
+    const bydayIdx = (e.rule.byday && e.rule.byday.length ? e.rule.byday : [DOW[start.getDay()]])
+      .map(d => DOW.indexOf(d))
+      .filter(i => i >= 0);
+
+    for (const wd of bydayIdx){
+      const first = new Date(start);
+      const delta = (wd - first.getDay() + 7) % 7;
+      first.setDate(first.getDate() + delta);
+
+      let cur = new Date(first);
+      if (cur < viewStart){
+        const week = 7 * 24 * 60 * 60 * 1000;
+        const blocks = Math.floor((viewStart - cur) / (week * interval));
+        cur = new Date(cur.getTime() + blocks * week * interval);
+        while (cur < viewStart) cur = new Date(cur.getTime() + week * interval);
       }
-      return out;
+
+      while (cur <= viewEnd && cur <= until){
+        out.push({ ...e, date: { y: cur.getFullYear(), m: cur.getMonth(), d: cur.getDate() }, _instance: true });
+        cur = new Date(cur.getTime() + interval * 7 * 24 * 60 * 60 * 1000);
+      }
     }
+  }
+  return out;
+}
+
 
     const grid = document.getElementById('grid');
     const whenEl = document.getElementById('when');
@@ -269,13 +236,11 @@
         .sort((a,b)=> a.dt - b.dt)
         .slice(0, 10);
       agendaList.innerHTML = upcoming.map(e=>{
-  const ds = e.dt.toLocaleDateString(undefined,{ weekday:'short', month:'short', day:'numeric' });
-  const time = e.time ? ` • ${e.time}` : '';
-  const loc  = e.location ? ` — ${e.location}` : '';
-  const cls  = e.type === 'gbm' ? ' class="gbm"' : '';
-  return `<li${cls}><span class="badge">${ds}</span><span><strong>${e.title}</strong>${time}${loc}</span></li>`;
-}).join('');
-
+        const ds = e.dt.toLocaleDateString(undefined,{ weekday:'short', month:'short', day:'numeric' });
+        const time = e.time ? ` • ${e.time}` : '';
+        const loc  = e.location ? ` — ${e.location}` : '';
+        return `<li><span class="badge">${ds}</span><span><strong>${e.title}</strong>${time}${loc}</span></li>`;
+      }).join('');
     }
 
     function makeCell(day, out=false, events=[]) {
@@ -286,14 +251,12 @@
       date.textContent = day;
       const list = document.createElement('div');
       list.className = 'events';
-events.forEach(e=>{
-  const el = document.createElement('div');
-  el.className = 'event' + (e.type === 'gbm' ? ' gbm' : '');
-  el.innerHTML = `<span class="t">${e.title}</span>` +
-                 (e.time ? `<span class="m">${e.time}${e.location ? ' • ' + e.location : ''}</span>` : '');
-  list.appendChild(el);
-});
-
+      events.forEach(e=>{
+        const el = document.createElement('div');
+        el.className = 'event';
+        el.innerHTML = `<span class="t">${e.title}</span>` + (e.time ? `<span class="m">${e.time}${e.location ? ' • ' + e.location : ''}</span>` : '');
+        list.appendChild(el);
+      });
       cell.appendChild(date); cell.appendChild(list);
       return cell;
     }
@@ -307,7 +270,5 @@ events.forEach(e=>{
     document.getElementById('yr').textContent = new Date().getFullYear();
     render();
   </script>
-
 </body>
 </html>
- 
