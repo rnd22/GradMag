@@ -486,10 +486,10 @@ footer{
   .person-card--compact{ grid-column: span 12; } /* single column */
 }
 
-/* .aboutSubHeader {
+.aboutSubHeader {
   padding-left: 350px;
   padding-right: 350px;
-} */
+}
 
 /* Social row reused */
 .social-links{
@@ -504,51 +504,15 @@ footer{
 .social-btn:hover{ background:var(--accent); color:#fff; transform:translateY(-2px); }
 .social-btn svg{ width:20px; height:20px; }
 
-
-
-/* ===== Join the Team (no card) ===== */
-/* Join band layout (same section rhythm as your About/Updates) */
-/* Layout: give right side more width so facts stay on one line */
-/* Join band: same rhythm as About/Updates */
-/* Join band layout & spacing (same rhythm as About/Updates) */
-.join-cta-band{ max-width:1000px; margin:2rem auto 2.5rem; }
-.join-cta-grid{
+/* Two-column layout for Events page */
+.events-layout{
   display:grid;
-  grid-template-columns: 1.15fr .85fr;  /* gives the checks a touch more room */
-  gap:16px;
-  align-items:start;
-}
-.join-cta-col{ display:flex; flex-direction:column; }
-
-/* Buttons: stacked & compact so the right-side lines don't wrap */
-.btn-row{
-  display:grid; grid-template-columns:1fr; gap:.45rem;
-  margin:.25rem 0 0;
-}
-.btn-row .read-more{
-  width:100%; text-align:center;
-  padding:.42rem .8rem;          /* shorter */
-  font-size:.92rem; line-height:1.1;
+  grid-template-columns: 2fr 1fr;  /* calendar | agenda */
+  gap: 18px;
+  align-items: start;
 }
 
-/* Checks: remove default bullets/indent and use ✓ marks */
-.join-cta-band .join-facts{
-  list-style:none !important;    /* force off browser bullets */
-  margin:.2rem 0 0; padding:0;   /* kill default UL padding */
-}
-.join-cta-band .join-facts li{
-  position:relative;
-  padding-left:1.15rem;          /* space for the check */
-  margin:.28rem 0;
-}
-.join-cta-band .join-facts li::before{
-  content:"✓";
-  position:absolute; left:0; top:.05rem;
-  color:var(--accent); font-weight:700;
-}
-.join-cta-contact{ margin-top:.6rem; font-size:.95rem; }
-
-/* Mobile: single column; natural wrapping is fine */
-@media (max-width:900px){
-  .join-cta-grid{ grid-template-columns:1fr; }
+/* Stack on small screens */
+@media (max-width: 900px){
+  .events-layout{ grid-template-columns: 1fr; }
 }
