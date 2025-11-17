@@ -32,12 +32,53 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.5);
+       /* background: rgba(0,0,0,0.5); */
       z-index: 1;
       pointer-events: none;
     }
-    .mySlides { display: none; height: 100%; }
-    .slide-content { max-width: 65%; margin: 0 auto; padding: 1rem; position: relative; z-index: 2; }
+    .slides-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+      transform: translateX(-100%);
+    }
+    .mySlides { 
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .slideshow-container .slide-content { 
+      max-width: 65%; 
+      margin: 0 auto; 
+      padding: 1rem; 
+      position: relative; 
+      z-index: 3; 
+      color: #ffffff !important; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.9);  /* text shadow for readability */
+    }
+
+    .slideshow-container .slide-content h1 { 
+      color: #ffffff !important; 
+      text-shadow: 2px 2px 6px rgba(0,0,0,1); 
+    }
+
+    .slideshow-container .slide-content p { 
+      color: #ffffff !important; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
+    }
+
+    .slideshow-container .slide-content a { 
+      color: #ffffff !important; 
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
+    }
+
+    .slideshow-container .slide-content strong { 
+      color: #ffffff !important; 
+    }
 
     /* Arrows */
     .prev, .next {
@@ -72,8 +113,7 @@
     }
     .dot.active, .dot:hover { background-color: #717171; }
 
-    .fade { animation: fade 1.5s; }
-    @keyframes fade { from { opacity: .4; } to { opacity: 1; } }
+    .fade { animation: none; }
 
     .main-dots-wrap {
       max-width: 1100px;
@@ -102,10 +142,10 @@
     }
 
     .featured-card {
-      background: #fff;
+      background: #ffffff;
       border: 1px solid #eef2f7;
       border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0);
       overflow: hidden;
       position: relative;
     }
@@ -121,8 +161,20 @@
       background: #f3f4f6;
       overflow: hidden;
     }
-    .posterSlide { display: none; position: absolute; inset: 0; }
-    .posterSlide img { width: 100%; height: 100%; object-fit: cover; }
+    .poster-wrapper {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+    .posterSlide { 
+      min-width: 100%;
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .posterSlide img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .poster-dots {
       display: flex;
       gap: 6px;
@@ -136,13 +188,13 @@
       top: 50%;
       padding: 10px;
       margin-top: -20px;
-      color: white;
+      color: #ffffff;
       font-weight: bold;
       font-size: 16px;
       transition: 0.6s ease;
       border-radius: 3px;
       user-select: none;
-      background-color: rgba(0,0,0,0.3);
+      background-color: rgba(0,0,0,0);
       z-index: 3;
     }
     .poster-prev { left: 6px; }
@@ -169,6 +221,8 @@
       .content-grid { grid-template-columns: 1fr; }
       .slide-content { max-width: 90%; }
     }
+
+    
   </style>
 </head>
 <body>
@@ -194,18 +248,21 @@
 
   <!-- ===== MAIN CAROUSEL ===== -->
   <div class="slideshow-container" id="mainCarousel">
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h1>Featured: 2025 Issue</h1>
-        <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation.</p>
-        <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
+    <div class="slides-wrapper">
+      <div class="mySlides">
+        <div class="slide-content">
+          <h1>Featured: 2025 Issue</h1>
+          <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation.</p>
+          <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
+        </div>
       </div>
-    </div>
-    <div class="mySlides fade">
-      <div class="slide-content">
-        <h1>B.R.I.D.G.E.S. 2026</h1>
-        <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
-        <a href="bridges.html" class="carousel-button">RSVP</a>
+      <div class="mySlides">
+        <div class="slide-content">
+          <h1>B.R.I.D.G.E.S. 2026</h1>
+          <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
+          <a href="bridges.html" class="carousel-button">RSVP</a>
+          <a href="bridges.html" class="carousel-button">Learn More</a>
+        </div>
       </div>
     </div>
 
@@ -255,6 +312,9 @@
             <a class="btn donate-btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
               Join the Team
             </a>
+            <a class="btn donate-btn" href="submissions.html">
+              Submit your work
+            </a>
           </p>
         </div>
       </aside>
@@ -280,7 +340,10 @@
     <aside class="featured-card">
       <header>Upcoming events</header>
       <div class="poster-slideshow" id="posterCarousel">
-        <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 1"></div>
+        <div class="poster-wrapper">
+          <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 1"></div>
+          <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 2"></div>
+        </div>
         <a class="poster-prev" aria-label="Previous slide">❮</a>
         <a class="poster-next" aria-label="Next slide">❯</a>
       </div>
@@ -325,6 +388,7 @@
   <script>
     function makeSlider(containerId, { slidesSel, prevSel, nextSel, intervalMs = 10000 }) {
       const container = document.getElementById(containerId);
+      const wrapper = container.querySelector('.slides-wrapper') || container.querySelector('.poster-wrapper');
       const slides = Array.from(container.querySelectorAll(slidesSel));
       const dots = Array.from(document.querySelectorAll(`.dot[data-for="${containerId}"]`));
       const prev = prevSel ? container.querySelector(prevSel) : null;
@@ -333,7 +397,8 @@
 
       function show(i) {
         index = (i + slides.length) % slides.length;
-        slides.forEach((s, si) => s.style.display = si === index ? 'block' : 'none');
+        const translateX = -(index * 100);
+        wrapper.style.transform = `translateX(${translateX}%)`;
         dots.forEach((d, di) => d.classList.toggle('active', di === index));
       }
       function go(delta) { show(index + delta); }

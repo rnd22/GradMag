@@ -260,6 +260,17 @@ footer{
   margin-top:var(--space-6);
 }
 
+footer a:not(.social-btn) {
+  color: #ffffff !important;
+  text-decoration: none;
+}
+
+footer a:not(.social-btn):hover {
+  color: #ffffff !important;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
 /* ——— Layout polish ——— */
 
 /* make the page breathe a touch more on large screens */
