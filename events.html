@@ -79,35 +79,38 @@
 
   <main class="page">
     <div class="container">
-<h1>Events</h1>
+      <section class="hero">
+        <div class="section-kicker">Events</div>
+        <h1>Upcoming Events</h1>
+        <p class="sub">Workshops, socials, and BRIDGES programming from SBU Grad Mag.</p>
+      </section>
 
-<div class="events-layout">
-  <div class="cal-wrap" role="region" aria-label="Events calendar">
-    <div class="cal-toolbar">
-      <div class="controls">
-        <button class="btn ghost" id="prev">◀ Prev</button>
-        <button class="btn ghost" id="today">Today</button>
-        <button class="btn ghost" id="next">Next ▶</button>
+      <div class="events-layout">
+        <div class="cal-wrap" role="region" aria-label="Events calendar">
+          <div class="cal-toolbar">
+            <div class="controls">
+              <button class="btn ghost" id="prev">◀ Prev</button>
+              <button class="btn ghost" id="today">Today</button>
+              <button class="btn ghost" id="next">Next ▶</button>
+            </div>
+            <div class="when" id="when">Month YYYY</div>
+            <div style="width:88px"></div>
+          </div>
+
+          <div class="cal">
+            <div class="cal-daynames" aria-hidden="true">
+              <div>Sun</div><div>Mon</div><div>Tue</div>
+              <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+            </div>
+            <div class="cal-grid" id="grid"></div>
+          </div>
+        </div>
+
+        <section class="agenda" aria-labelledby="agenda-title">
+          <h2 id="agenda-title">Upcoming</h2>
+          <ul id="agendaList"></ul>
+        </section>
       </div>
-      <div class="when" id="when">Month YYYY</div>
-      <div style="width:88px"></div>
-    </div>
-
-    <div class="cal">
-      <div class="cal-daynames" aria-hidden="true">
-        <div>Sun</div><div>Mon</div><div>Tue</div>
-        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-      </div>
-      <div class="cal-grid" id="grid"></div>
-    </div>
-  </div>
-
-  <section class="agenda" aria-labelledby="agenda-title">
-    <h2 id="agenda-title">Upcoming</h2>
-    <ul id="agendaList"></ul>
-  </section>
-</div>
-
     </div>
   </main>
 
