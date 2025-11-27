@@ -52,9 +52,11 @@
     /* Grid */
     .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin:22px 0 60px}
     .card{background:var(--card); border:1px solid #e5e7eb; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; min-height:220px}
-    .thumb{display:block; height:160px; background:#f1f5f9; border-bottom:1px solid #e5e7eb; position:relative}
-    .thumb::after{content:"PDF"; position:absolute; top:10px; left:10px; font-weight:700; font-size:.72rem; background:#111; color:#fff; padding:4px 6px; border-radius:6px; letter-spacing:.04em}
-    .pdf-icon{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:48px; opacity:.12}
+    .thumb{display:block; height:200px; background:#f1f5f9; border-bottom:1px solid #e5e7eb; position:relative; overflow:hidden}
+    .thumb::after{content:"PDF"; position:absolute; top:10px; left:10px; font-weight:700; font-size:.72rem; background:#111; color:#fff; padding:4px 6px; border-radius:6px; letter-spacing:.04em; z-index:2}
+    .pdf-icon{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:48px; opacity:.12; z-index:1}
+    .pdf-preview{width:100%; height:100%; border:none; display:block; overflow:hidden; pointer-events:none}
+    .thumb:hover .pdf-preview{opacity:0.95}
     .card-head{padding:16px 16px 6px}
     .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px}
     .tag{font-size:.75rem; background:#eef2f7; color:#111; border:1px solid #e5e7eb; border-radius:999px; padding:4px 8px}
@@ -82,7 +84,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="brand-logo" aria-hidden="true"></div>
+        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
         <div class="brand-title">SBU Graduate Arts & Sciences Magazine</div>
       </div>
       <nav class="nav-links">
@@ -90,10 +92,15 @@
         <a href="about.html">About</a>
         <a href="jointheteam.html">Join the Team</a>
         <a href="publications.html">Publications</a>
-        <a href="press.html">Press</a>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html" aria-current="page">Bulletins</a>
+          </div>
+        </div>
         <a href="submissions.html">Submissions</a>
         <a href="events.html">Events</a>
-        <a href="bulletin.html" aria-current="page">Bulletins</a>
       </nav>
     </div>
   </header>
@@ -102,7 +109,7 @@
     <section class="hero">
       <div class="section-kicker">Bulletins</div>
       <h1>News & Announcements</h1>
-      <p class="sub">Quick reads from the Graduate Arts & Sciences Magazine — calls for submissions, event updates, and community highlights.</p>
+      <p class="sub">Quick reads from the Graduate Arts & Sciences Magazine: calls for submissions, event updates, and community highlights.</p>
 
       <div class="controls" role="region" aria-label="Filters">
         <label class="control" aria-label="Search bulletins">
@@ -150,42 +157,151 @@
   <!-- Data + Renderer -->
   <script>
     // 1) SOURCE OF TRUTH: add/edit bulletins here.
-    //    Use absolute or relative URLs to PDF files in your repo (e.g., assets/bulletins/...).
+    //    Each entry corresponds to a PDF file in the bulletins/ folder.
+    //    Update date, summary, and topics as needed for each bulletin.
     const BULLETINS = [
       {
-        title: "Fall 2025 Submissions Open (PDF)",
-        date: "2025-09-01",
-        summary: "We’re seeking science writing, poetry, visual art, and interviews for our Fall issue.",
-        topics: ["Submissions", "Opportunities"],
-        url: "assets/bulletins/fall-2025-submissions.pdf"
+        title: "October 2025 Bulletin",
+        date: "2025-10",
+        summary: "Mid-fall updates, event announcements, and submission opportunities.",
+        topics: ["Bulletin", "Newsletter"],
+        url: "bulletins/October2025.pdf"
       },
       {
-        title: "Science Communication Workshop (Oct 10) — Bulletin PDF",
-        date: "2025-09-06",
-        summary: "Hands-on session on narrative structure, visual clarity, and public engagement.",
-        topics: ["Events", "Workshops"],
-        url: "assets/bulletins/scicomm-workshop-oct10-2025.pdf"
+        title: "September 2025 Bulletin",
+        date: "2025-09",
+        summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.",
+        topics: ["Bulletin"],
+        url: "bulletins/September2025.pdf"
       },
       {
-        title: "Spring 2024 Issue — Bulletin Announcement (PDF)",
-        date: "2024-04-15",
-        summary: "Flip through the latest issue online and share with friends and colleagues.",
-        topics: ["Publications"],
-        url: "assets/bulletins/spring-2024-issue-announcement.pdf"
+        title: "May 2025 Bulletin",
+        date: "2025-05",
+        summary: "End of academic year wrap-up, spring issue release, and summer opportunities.",
+        topics: ["Bulletin"],
+        url: "bulletins/May2025.pdf"
       },
       {
-        title: "Graduate Art Night Recap — Bulletin PDF",
-        date: "2023-11-09",
-        summary: "Highlights and photos from our community showcase.",
-        topics: ["Community", "Events"],
-        url: "assets/bulletins/grad-art-night-recap-2023.pdf"
+        title: "April 2025 Bulletin",
+        date: "2025-04",
+        summary: "Artificial Intelligence Community at Stony Brook University Hosts Its First Ever Datathon!, New York State to Its Graduate Workers: Poverty is Your Choice and spring programming.",
+        topics: ["Bulletin"],
+        url: "bulletins/April2025.pdf"
+      },
+      {
+        title: "March 2025 Bulletin",
+        date: "2025-03",
+        summary: "Women's History Month: Trailblazers in Science, Spring Break is Here: Tips for Refresh and Recharge!, Professor of the Month, and spring programming.",
+        topics: ["Bulletin"],
+        url: "bulletins/March2025.pdf"
+      },
+      {
+        title: "February 2025 Bulletin",
+        date: "2025-02",
+        summary: "BRIDGES conference highlights, submission calls, and spring programming preview.",
+        topics: ["Bulletin"],
+        url: "bulletins/February2025.pdf"
+      },
+      {
+        title: "Winterim 2024 Bulletin",
+        date: "2024-12",
+        summary: "BRIDGES conference updates and end of the semester recap.",
+        topics: ["Bulletin"],
+        url: "bulletins/Winterim2024.pdf"
+      },
+      {
+        title: "November 2024 Bulletin",
+        date: "2024-11",
+        summary: "Fall semester updates, upcoming deadlines, and graduate community news.",
+        topics: ["Bulletin"],
+        url: "bulletins/November2024.pdf"
+      },
+      {
+        title: "October 2024 Bulletin",
+        date: "2024-10",
+        summary: "Mid-fall updates, fall programming, and submission opportunities.",
+        topics: ["Bulletin"],
+        url: "bulletins/October2024.pdf"
+      },
+      {
+        title: "September 2024 Bulletin",
+        date: "2024-09",
+        summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.",
+        topics: ["Bulletin"],
+        url: "bulletins/September2024.pdf"
+      },
+      {
+        title: "May 2024 Bulletin",
+        date: "2024-05",
+        summary: "The 3rd annual Physics and Astronomy Chair's Cup Soccer Tournament, fall programming, and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/May2024.pdf"
+      },
+      {
+        title: "April 2024 Bulletin",
+        date: "2024-04",
+        summary: "Mastering Exam Season With Success, fall programming, and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/April2024.pdf"
+      },
+      {
+        title: "March 2024 Bulletin",
+        date: "2024-03",
+        summary: "GradMag Welcome BackSpring Luncheon Recap and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/March2024.pdf"
+      },
+      {
+        title: "February 2024 Bulletin",
+        date: "2024-02",
+        summary: "Conversations with GSA: Alexandra Checkers",
+        topics: ["Bulletin"],
+        url: "bulletins/February2024.pdf"
+      },
+      {
+        title: "Winterim 2023 Bulletin",
+        date: "2023-12",
+        summary: "The 9th Annual SBUHosted WolfieTank, fall programming, and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/Winterim2023.pdf"
+      },
+      {
+        title: "November 2023 Bulletin",
+        date: "2023-11",
+        summary: "Establishing a SACNAS Chapter at Stony Brook University, fall programming, and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/November2023.pdf"
+      },
+      {
+        title: "October 2023 Bulletin",
+        date: "2023-10",
+        summary: "Science on Stage, fall programming, and professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/October2023.pdf"
+      },
+      {
+        title: "September 2023 Bulletin",
+        date: "2023-09",
+        summary: "Organization introduction, fall programming, professor of the month.",
+        topics: ["Bulletin"],
+        url: "bulletins/September2023.pdf"
       }
     ];
 
     // 2) Utility helpers
     const $$ = (sel, el=document) => el.querySelector(sel);
     const $$$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
-    const fmt = (d) => new Date(d).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+    const fmt = (d) => {
+      // Handle YYYY-MM format
+      if (d.match(/^\d{4}-\d{2}$/)) {
+        const [year, month] = d.split('-');
+        const date = new Date(year, parseInt(month) - 1, 1);
+        return date.toLocaleDateString(undefined, {year:'numeric', month:'long'});
+      }
+      // Handle full date format
+      const date = new Date(d);
+      return date.toLocaleDateString(undefined, {year:'numeric', month:'long'});
+    };
 
     // 3) Populate year + topics
     const years = Array.from(new Set(BULLETINS.map(b=> new Date(b.date).getFullYear()))).sort((a,b)=>b-a);
@@ -228,9 +344,14 @@
         const isPDF = b.url?.toLowerCase().endsWith('.pdf');
         const openLabel = isPDF ? 'View PDF' : 'Open';
         const downloadAttr = isPDF ? `download` : '';
+        // Create PDF preview thumbnail - showing entire PDF
+        const previewHtml = isPDF 
+          ? `<iframe class="pdf-preview" src="${b.url}#toolbar=0&navpanes=0&zoom=fit&scrollbar=0" type="application/pdf" frameborder="0" scrolling="no"></iframe>`
+          : '<div class="pdf-icon">📄</div>';
+        
         el.innerHTML = `
           <a class="thumb" href="${b.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${isPDF ? 'PDF' : 'link'}: ${b.title}">
-            <div class="pdf-icon">📄</div>
+            ${previewHtml}
           </a>
           <div class="card-head">
             <div class="tagrow">${b.topics.map(t=>`<span class=\"tag\">${t}</span>`).join('')}</div>
