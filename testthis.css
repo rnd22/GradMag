@@ -410,6 +410,17 @@ footer a:hover{
   .cards-2{ grid-template-columns: 1fr; }
 }
 
+/* Three-equal cards band */
+.cards-3{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 2.5rem;
+}
+@media (max-width: 900px){
+  .cards-3{ grid-template-columns: 1fr; }
+}
+
 /* Reuse your card look */
 .info-card{
   background:#fff;
