@@ -23,9 +23,16 @@
     </div>
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="jointheteam.html"aria-current="page">Join the Team</a>
+      <div class="nav-dropdown">
+        <a href="about.html">About</a>
+        <div class="nav-dropdown-menu">
+          <a href="about.html">About</a>
+          <a href="execboard.html">Executive Board</a>
+          <a href="jointheteam.html" aria-current="page">Join the Team</a>
+        </div>
+      </div>
       <a href="bridges.html">BRIDGES</a>
+      <a href="events.html">Events</a>
       <a href="publications.html">Publications</a>
       <div class="nav-dropdown">
         <a href="press.html">Press</a>
@@ -35,7 +42,6 @@
         </div>
       </div>
       <a href="submissions.html">Submissions</a>
-      <a href="events.html">Events</a>
     </nav>
   </div>
 </header>
@@ -47,6 +53,69 @@
     <p class="sub">Help us amplify graduate voices across science, art, and public engagement</p>
   </section>
 
+  <!-- Team Photos -->
+  <section class="container team-photos">
+    <div class="photo-grid">
+      <div class="photo-placeholder">
+        <img src="images/team-photo-1.jpg" alt="Team photo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-box">
+          <span>Team Photo 1</span>
+        </div>
+      </div>
+      <div class="photo-placeholder">
+        <img src="images/team-photo-2.jpg" alt="Team photo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-box">
+          <span>Team Photo 2</span>
+        </div>
+      </div>
+      <div class="photo-placeholder">
+        <img src="images/team-photo-3.jpg" alt="Team photo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="placeholder-box">
+          <span>Team Photo 3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .team-photos {
+      padding: 1.5rem 0 2rem;
+    }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .photo-placeholder {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .placeholder-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+      border: 2px dashed #cbd5e1;
+      color: #64748b;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
   <!-- Intro + side card -->
   <section class="container join-intro">
@@ -60,7 +129,7 @@
         </p>
         <p>Reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for questions!</p>
         <p class="cta-row">
-          <a class="btn read-more" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Interest Form</a>
+          <a class="btn read-more" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Join the Team</a>
         </p>
       </div>
     </div>
@@ -74,11 +143,6 @@
           <li>Flexible hours, leadership opportunities</li>
           <li>Portfolio-friendly roles (writing, art, layout)</li>
         </ul>
-        <p class="cta-row" style="margin-top:.75rem;">
-          <a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
-            Fill the Interest Form
-          </a>
-        </p>
         <p style="margin:.5rem 0 0;">
           Questions? <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>
         </p>
@@ -98,13 +162,8 @@
           <h5 class="role-title">Social Media Coordinator</h5>
           <div class="role-meta">~2–4 hrs/week • Remote-friendly</div>
           <ul class="role-bullets">
-            <li>Assistant to the Media Director—run social media and promote events &amp; content.</li>
+            <li>Assistant to the Media Director—run social media and promote events &amp; content</li>
           </ul>
-          <p style="margin:.6rem 0 0;">
-            <a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
-              Apply / Express Interest
-            </a>
-          </p>
         </article>
       </div>
     </div>
@@ -117,28 +176,25 @@
           <h5 class="role-title">Corporate &amp; Industry Outreach Coordinator</h5>
           <div class="role-meta">2–3 hrs/week • Best during BRIDGES season</div>
           <ul class="role-bullets">
-            <li>Build connections with recruiters and industry professionals for BRIDGES &amp; networking events.</li>
+            <li>Build connections with recruiters and industry professionals for BRIDGES &amp; networking events</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Speaker &amp; Panel Coordinator</h5>
           <div class="role-meta">~2 hrs/week • Outreach &amp; scheduling</div>
           <ul class="role-bullets">
-            <li>Reach out to keynote speakers and panelists; organize schedules and materials.</li>
+            <li>Reach out to keynote speakers and panelists; organize schedules and materials</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Committee Member</h5>
           <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
           <ul class="role-bullets">
-            <li>Help organize the conference and logistics (department outreach, student participation, judges, etc.).</li>
-            <li>Recruit GradMag HR members to build an HR team.</li>
+            <li>Help organize the conference and logistics (department outreach, student participation, judges, etc.)</li>
+            <li>Recruit GradMag HR members to build an HR team</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
       </div>
     </div>
@@ -151,18 +207,16 @@
           <h5 class="role-title">GradMag Event Photographer</h5>
           <div class="role-meta">As needed • In-person</div>
           <ul class="role-bullets">
-            <li>Document events with high-quality photos for promotion and archives.</li>
+            <li>Document events with high-quality photos for promotion and archives</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Committee Member</h5>
           <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
           <ul class="role-bullets">
-            <li>Help organize, prepare, and set up equipment for events.</li>
+            <li>Help organize, prepare, and set up equipment for events</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
       </div>
     </div>
@@ -175,38 +229,34 @@
           <h5 class="role-title">Staff Writers</h5>
           <div class="role-meta">1–3 hrs/week • Remote-friendly</div>
           <ul class="role-bullets">
-            <li>Contribute written content (research highlights, student features, event recaps) for the magazine, web, and socials.</li>
-            <li>Maintain consistent communication and updates (newsletter, event recaps for the website).</li>
+            <li>Contribute written content (research highlights, student features, event recaps) for the magazine, web, and socials</li>
+            <li>Maintain consistent communication and updates (newsletter, event recaps for the website)</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Editors for Magazine</h5>
           <div class="role-meta">1–2 hrs/week • Remote-friendly</div>
           <ul class="role-bullets">
-            <li>Oversee content quality and editorial standards.</li>
+            <li>Oversee content quality and editorial standards</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Artists for Magazine</h5>
           <div class="role-meta">Flexible • Portfolio welcome</div>
           <ul class="role-bullets">
-            <li>Design visual elements and enhance the magazine’s aesthetic appeal.</li>
-            <li>No prior art experience necessary—submit a small portfolio or a few sample images.</li>
+            <li>Design visual elements and enhance the magazine’s aesthetic appeal</li>
+            <li>No prior art experience necessary, submit a small portfolio or a few sample images</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
 
         <article class="role-card">
           <h5 class="role-title">Layout Designers for Magazine</h5>
           <div class="role-meta">Project-based • Remote-friendly</div>
           <ul class="role-bullets">
-            <li>Structure and format the magazine for readability.</li>
+            <li>Structure and format the magazine for readability</li>
           </ul>
-          <p><a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply / Express Interest</a></p>
         </article>
       </div>
     </div>

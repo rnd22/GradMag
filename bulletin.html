@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="testthis.css" />
 
-  <!-- Base styles -->
+  <!-- Page-specific styles -->
   <style>
     :root{
       --bg:#ffffff; --text:#272829; --accent:#0563bb; --muted:#6b7280; --card:#f8fafc; --ring: #dbeafe;
@@ -89,8 +90,16 @@
       </div>
       <nav class="nav-links">
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="jointheteam.html">Join the Team</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="events.html">Events</a>
         <a href="publications.html">Publications</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
@@ -100,7 +109,6 @@
           </div>
         </div>
         <a href="submissions.html">Submissions</a>
-        <a href="events.html">Events</a>
       </nav>
     </div>
   </header>
@@ -159,17 +167,28 @@
     // 1) SOURCE OF TRUTH: add/edit bulletins here.
     //    Each entry corresponds to a PDF file in the bulletins/ folder.
     //    Update date, summary, and topics as needed for each bulletin.
+    //    For bi-monthly bulletins (Aug 2025+), use altMonths array for searchability.
     const BULLETINS = [
       {
-        title: "October 2025 Bulletin",
+        title: "December 2025/January 2026 Bulletin",
+        date: "2025-12",
+        altMonths: ["2026-01"], // Also searchable as January 2026
+        summary: "Winter edition with updates, events, and announcements for the new year.",
+        topics: ["Bulletin"],
+        url: "bulletins/December2025January2026.pdf"
+      },
+      {
+        title: "October/November 2025 Bulletin",
         date: "2025-10",
+        altMonths: ["2025-11"], // Also searchable as November
         summary: "Mid-fall updates, event announcements, and submission opportunities.",
         topics: ["Bulletin", "Newsletter"],
         url: "bulletins/October2025.pdf"
       },
       {
-        title: "September 2025 Bulletin",
-        date: "2025-09",
+        title: "August/September 2025 Bulletin",
+        date: "2025-08",
+        altMonths: ["2025-09"], // Also searchable as September
         summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.",
         topics: ["Bulletin"],
         url: "bulletins/September2025.pdf"
@@ -291,11 +310,25 @@
     // 2) Utility helpers
     const $$ = (sel, el=document) => el.querySelector(sel);
     const $$$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
-    const fmt = (d) => {
+    const fmt = (d, altMonths) => {
       // Handle YYYY-MM format
       if (d.match(/^\d{4}-\d{2}$/)) {
         const [year, month] = d.split('-');
         const date = new Date(year, parseInt(month) - 1, 1);
+        const mainMonth = date.toLocaleDateString(undefined, {month:'long'});
+        
+        // If there are alt months, show both
+        if (altMonths && altMonths.length > 0) {
+          const altMonth = altMonths[0].split('-');
+          const altDate = new Date(altMonth[0], parseInt(altMonth[1]) - 1, 1);
+          const altMonthName = altDate.toLocaleDateString(undefined, {month:'long'});
+          // Check if same year or different years
+          if (altMonth[0] === year) {
+            return `${mainMonth}/${altMonthName} ${year}`;
+          } else {
+            return `${mainMonth} ${year}/${altMonthName} ${altMonth[0]}`;
+          }
+        }
         return date.toLocaleDateString(undefined, {year:'numeric', month:'long'});
       }
       // Handle full date format
@@ -324,12 +357,40 @@
     const q = $$('#q');
     const sortSel = $$('#sort');
 
+    // Helper to get all searchable months for a bulletin (includes altMonths)
+    function getAllMonths(b) {
+      const months = [b.date];
+      if (b.altMonths) months.push(...b.altMonths);
+      return months;
+    }
+
+    // Helper to format month name for search matching
+    function getMonthNames(b) {
+      return getAllMonths(b).map(d => {
+        const [year, month] = d.split('-');
+        const date = new Date(year, parseInt(month) - 1, 1);
+        return date.toLocaleDateString(undefined, {month:'long'}).toLowerCase();
+      });
+    }
+
     function filterData(){
       const query = q.value.trim().toLowerCase();
       const y = yearSelect.value;
       let data = BULLETINS.slice();
-      if(query){ data = data.filter(b => (b.title+" "+b.summary).toLowerCase().includes(query)); }
-      if(y){ data = data.filter(b => String(new Date(b.date).getFullYear()) === y); }
+      if(query){ 
+        data = data.filter(b => {
+          // Search in title, summary, and all month names (including alt months)
+          const monthNames = getMonthNames(b).join(' ');
+          return (b.title+" "+b.summary+" "+monthNames).toLowerCase().includes(query);
+        }); 
+      }
+      if(y){ 
+        // Match if any of the bulletin's months fall in the selected year
+        data = data.filter(b => {
+          const allMonths = getAllMonths(b);
+          return allMonths.some(d => d.startsWith(y));
+        }); 
+      }
       if(activeTopics.size){ data = data.filter(b => b.topics.some(t => activeTopics.has(t))); }
       data.sort((a,b)=> sortSel.value==='new' ? (new Date(b.date)-new Date(a.date)) : (new Date(a.date)-new Date(b.date)) );
       return data;
@@ -356,7 +417,7 @@
           <div class="card-head">
             <div class="tagrow">${b.topics.map(t=>`<span class=\"tag\">${t}</span>`).join('')}</div>
             <h3>${b.title}</h3>
-            <div class="meta">${fmt(b.date)}</div>
+            <div class="meta">${fmt(b.date, b.altMonths)}</div>
           </div>
           <div class="card-body">${b.summary}</div>
           <div class="card-foot">

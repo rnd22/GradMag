@@ -41,7 +41,7 @@
       width: 100%;
       height: 100%;
       transition: transform 0.6s ease-in-out;
-      transform: translateX(-100%);
+      transform: translateX(0%);
     }
     .mySlides { 
       min-width: 100%;
@@ -174,7 +174,7 @@
       flex-shrink: 0;
       position: relative;
     }
-    .posterSlide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .posterSlide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #f8f9fa; }
     .poster-dots {
       display: flex;
       gap: 6px;
@@ -217,6 +217,38 @@
   justify-content: center;         /* poster carousel dots */
 }
 
+.event-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 0 14px 16px;
+}
+.event-btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: #111;
+  color: #fff;
+  border: 2px solid #111;
+  transition: all 0.2s ease;
+}
+.event-btn:hover {
+  background: #333;
+  border-color: #333;
+}
+.event-btn.secondary {
+  background: #fff;
+  color: #111;
+  border: 2px solid #ddd;
+}
+.event-btn.secondary:hover {
+  background: #f5f5f5;
+  border-color: #bbb;
+}
+
     @media (max-width: 900px) {
       .content-grid { grid-template-columns: 1fr; }
       .slide-content { max-width: 90%; }
@@ -235,9 +267,16 @@
       </div>
       <nav class="nav-links">
         <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="jointheteam.html">Join the Team</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
         <a href="bridges.html">BRIDGES</a>
+        <a href="events.html">Events</a>
         <a href="publications.html">Publications</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
@@ -247,7 +286,6 @@
           </div>
         </div>
         <a href="submissions.html">Submissions</a>
-        <a href="events.html">Events</a>
       </nav>
     </div>
   </header>
@@ -312,9 +350,9 @@
           </div>
 
           <p class="donate-wrap">
-            <a class="btn donate-btn" href="https://www.sbugradmag.com/" target="_blank" rel="noopener">
+            <!--<a class="btn donate-btn" href="https://www.sbugradmag.com/" target="_blank" rel="noopener">
               Donate to Support the Magazine
-            </a>
+            </a> -->
             <a class="btn donate-btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
               Join the Team
             </a>
@@ -344,11 +382,15 @@
 
     <!-- RIGHT: Poster carousel -->
     <aside class="featured-card">
-      <header>Upcoming events</header>
+      <header>Major Events & Calls for Submissions</header>
       <div class="poster-slideshow" id="posterCarousel">
         <div class="poster-wrapper">
-          <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 1"></div>
-          <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="Featured poster 2"></div>
+          <div class="posterSlide"><img src="images/B.R.I.D.G.E.S (2).png" alt="BRIDGES 2026"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Posters-PNG.png" alt="BRIDGES 2026 Poster Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Art-PNG.png" alt="BRIDGES 2026 Art Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Film-PNG.png" alt="BRIDGES 2026 Film Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Concert-PNG.png" alt="BRIDGES 2026 Concert"></div>
+          <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="GradMag 2026 Submissions"></div>
         </div>
         <a class="poster-prev" aria-label="Previous slide">❮</a>
         <a class="poster-next" aria-label="Next slide">❯</a>
@@ -357,6 +399,13 @@
         <span class="dot" data-for="posterCarousel" data-to="1"></span>
         <span class="dot" data-for="posterCarousel" data-to="2"></span>
         <span class="dot" data-for="posterCarousel" data-to="3"></span>
+        <span class="dot" data-for="posterCarousel" data-to="4"></span>
+        <span class="dot" data-for="posterCarousel" data-to="5"></span>
+        <span class="dot" data-for="posterCarousel" data-to="6"></span>
+      </div>
+      <div class="event-buttons">
+        <a href="bridges.html#submissions" class="btn event-btn">Submit to BRIDGES</a>
+        <a href="bridges.html" class="btn event-btn secondary">RSVP</a>
       </div>
     </aside>
   </div>
@@ -368,6 +417,81 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ===== MAIN CAROUSEL =====
+    (function() {
+      const wrapper = document.querySelector('#mainCarousel .slides-wrapper');
+      const slides = document.querySelectorAll('#mainCarousel .mySlides');
+      const prevBtn = document.querySelector('#mainCarousel .prev');
+      const nextBtn = document.querySelector('#mainCarousel .next');
+      const dots = document.querySelectorAll('.main-dots-wrap .dot[data-for="mainCarousel"]');
+      
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentSlide = index;
+        wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      // Initialize - go to first slide (remove the initial -100% offset)
+      wrapper.style.transform = 'translateX(0%)';
+      dots[0]?.classList.add('active');
+
+      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goToSlide(i));
+      });
+
+      // Auto-advance every 6 seconds
+      setInterval(() => goToSlide(currentSlide + 1), 6000);
+    })();
+
+    // ===== POSTER CAROUSEL =====
+    (function() {
+      const wrapper = document.querySelector('#posterCarousel .poster-wrapper');
+      const slides = document.querySelectorAll('#posterCarousel .posterSlide');
+      const prevBtn = document.querySelector('#posterCarousel .poster-prev');
+      const nextBtn = document.querySelector('#posterCarousel .poster-next');
+      const dots = document.querySelectorAll('.poster-dots .dot[data-for="posterCarousel"]');
+      
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+
+      function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentSlide = index;
+        wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentSlide);
+        });
+      }
+
+      // Initialize
+      dots[0]?.classList.add('active');
+
+      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goToSlide(i));
+      });
+
+      // Auto-advance every 5 seconds
+      setInterval(() => goToSlide(currentSlide + 1), 5000);
+    })();
   </script>
 </body>
 </html>

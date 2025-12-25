@@ -1,157 +1,467 @@
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title> B.R.I.D.G.E.S • SBU Grad Mag</title>
-  <meta name="description" content="Science communication, art, poetry, and thought from the graduate community at Stony Brook University." />
+  <title>B.R.I.D.G.E.S • SBU Grad Mag</title>
+  <meta name="description" content="BRIDGES 2026 - The 2nd Annual Cross-Departmental Graduate Student Conference at Stony Brook University." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
+  <style>
+    /* BRIDGES Hero Banner */
+    .bridges-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 4rem 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bridges-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('images/postersesh.JPG') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    .bridges-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .bridges-hero .annual-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      margin-bottom: 1.25rem;
+    }
+    .bridges-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.08em;
+    }
+    .bridges-hero .tagline {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .date-highlight {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 2rem 3rem;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .date-highlight .label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 0.5rem;
+    }
+    .date-highlight .date {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .date-highlight .location {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-top: 0.5rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-buttons .btn {
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .hero-buttons .btn-primary {
+      background: #e94560;
+      color: #fff;
+      border: 2px solid #e94560;
+    }
+    .hero-buttons .btn-primary:hover {
+      background: #d63850;
+      border-color: #d63850;
+    }
+    .hero-buttons .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .hero-buttons .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+    }
+
+    /* Last Year Photos Section */
+    .last-year-photos {
+      padding: 3rem 0;
+      background: #f8fafc;
+    }
+    .last-year-photos h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .last-year-photos .intro {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .photo-gallery .photo {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-gallery .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .photo-gallery .photo:hover img {
+      transform: scale(1.05);
+    }
+    .photo-gallery .photo-wide {
+      grid-column: span 2;
+    }
+    @media (max-width: 768px) {
+      .bridges-hero h1 { font-size: 2.25rem; }
+      .date-highlight { padding: 1.5rem 2rem; }
+      .date-highlight .date { font-size: 1.75rem; }
+      .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+      .photo-gallery .photo-wide { grid-column: span 2; }
+    }
+
+    /* About Section */
+    .bridges-about {
+      padding: 3rem 0;
+    }
+    .bridges-about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+    .bridges-about p {
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .highlights-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem 2rem;
+      margin: 1.5rem 0;
+      list-style: none;
+      padding: 0;
+    }
+    .highlights-list li {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .highlights-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #e94560;
+      font-weight: 700;
+    }
+    @media (max-width: 600px) {
+      .highlights-list { grid-template-columns: 1fr; }
+    }
+
+    /* Deadlines & Submissions Section */
+    .submissions-section {
+      padding: 3rem 0;
+      background: #fff;
+    }
+    .submissions-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .deadline-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .deadline-cards { grid-template-columns: 1fr; }
+    }
+    .deadline-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .deadline-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #1a1a2e;
+    }
+    .deadline-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+    .deadline-card li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .deadline-card li:last-child {
+      border-bottom: none;
+    }
+    .deadline-card .date-tag {
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    .submission-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .submission-links a {
+      display: block;
+      padding: 0.75rem 1rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      color: #1a1a2e;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .submission-links a:hover {
+      border-color: #e94560;
+      background: #fef2f4;
+    }
+
+    /* Program Section */
+    .program-section {
+      padding: 2rem 0 3rem;
+      background: #f8fafc;
+    }
+    .program-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .program-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+    .program-card p {
+      color: #64748b;
+      margin-bottom: 1.25rem;
+    }
+    .program-card .btn-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .program-card .btn-row a {
+      padding: 0.6rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .program-card .btn-row a.primary {
+      background: #1a1a2e;
+      color: #fff;
+    }
+    .program-card .btn-row a.secondary {
+      border: 1px solid #cbd5e1;
+      color: #374151;
+    }
+  </style>
 </head>
-  <body>
-  
+<body>
 
-      <!-- Header -->
-   <header>
-<div class="container nav">
-<div class="brand">
-<img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-<div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-</div>
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="jointheteam.html">Join the Team</a>
-<a href="bridges.html"aria-current="page">BRIDGES</a>
-<a href="publications.html">Publications</a>
-<div class="nav-dropdown">
-  <a href="press.html">Press</a>
-  <div class="nav-dropdown-menu">
-    <a href="press.html">Press</a>
-    <a href="bulletin.html">Bulletins</a>
-  </div>
-</div>
-<a href="submissions.html">Submissions</a>
-<a href="events.html">Events</a>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
+        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html" aria-current="page">BRIDGES</a>
+        <a href="events.html">Events</a>
+        <a href="publications.html">Publications</a>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
+        <a href="submissions.html">Submissions</a>
+      </nav>
+    </div>
+  </header>
 
-</nav>
-</div>
-</header>
-
-    <section class="hero container">
-      <div class="section-kicker">BRIDGES</div>
-      <h1>Cross-Departmental Conference</h1>
-      <p class="sub">Programming and partnerships that connect research with the public through workshops, events, and interdisciplinary projects.</p>
-    </section>
-
+  <!-- Hero Banner -->
+  <section class="bridges-hero">
     <div class="container">
-      <div class="cards-3">
-        <div class="info-card">
-          <h3>BRIDGES 2026</h3>
-          <p>BRIDGES 2026 will be held on <strong>February 19th</strong>. More details on the day's schedule, submission guidelines, and more will be coming soon!</p>
-        </div>
-        <div class="info-card">
-          <h3>Deadlines</h3>
-          <ul>
-            <li><strong>Poster</strong> January 30th</li>
-            <li><strong>Films</strong> January 30th</li>
-            <li><strong>Art Gallery</strong> January 30th</li>
-            <li><strong>Speakers</strong> January 30th</li>
-            <li><strong>Sponsors</strong> January 4th</li>
-          </ul>
-        </div>
-        <div class="info-card">
-          <h3>Submission Forms</h3>
-          <ul style="list-style: none; padding-left: 0;">
-            <li style="margin-bottom: 0.75rem;">
-              <a href="https://forms.gle/46qJYcn1KUro4DUr8" target="_blank" rel="noopener" class="read-more">Poster Submission Form</a>
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-              <a href="https://forms.gle/QBVfpP37WyPbLF1T9" target="_blank" rel="noopener" class="read-more">Art Submission Form</a>
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-              <a href="https://forms.gle/hFSvRNAGbi5Tq4HJ9" target="_blank" rel="noopener" class="read-more">Film Submission Form</a>
-            </li>
-            <li style="margin-bottom: 0.75rem;">
-              <a href="https://forms.gle/q5DqjkTWm3ijHJ2V8" target="_blank" rel="noopener" class="read-more">Concert Interest Form</a>
-            </li>
-
-
-          </ul>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>About BRIDGES 2025</h3>
-        <p><strong>BRIDGES: A Cross-Departmental Graduate Student Conference</strong>, hosted by student organization The SBU Graduate Arts & Sciences Magazine, took place on January 30, 2025 from 9:30am – 5:30pm at Stony Brook University in the Student Activities Center.</p>
-        <p>After the success of this event, the magazine aims to turn BRIDGES into an annual conference. This interdisciplinary event highlights the diverse research, creativity, and innovation of Stony Brook University's graduate students. The conference fosters collaboration and communication across fields by giving students a platform to connect and share their work with a broad audience.
-            BRIDGES 2025 had representation from over 30 departments, and we're looking to expand on that in BRIDGES 2026. </p>
+      <span class="annual-badge">2nd Annual Conference</span>
+      <h1>B.R.I.D.G.E.S</h1>
+      <p class="tagline">A Cross-Departmental Graduate Student Conference connecting research, creativity, and innovation</p>
       
-        <div style="margin-top: 0.1rem;">
-        </div>
+      <div class="date-highlight">
+        <div class="label">Save the Date</div>
+        <div class="date">February 19th, 2026</div>
+        <div class="location">Student Activities Center, Stony Brook University</div>
       </div>
 
-      <div class="cards-2">
-        <div class="info-card">
-        <h3>Photos from BRIDGES 2025</h3>
-        <p>Take a look at some moments from last year's conference.</p>
-        <div class="article-grid" style="margin-top: 2rem;">
-          <article>
-            <div style="aspect-ratio: 4/3; background: #f3f4f6; border-radius: 8px; overflow: hidden;">
-              <img src="images/bridges_winners.JPG" alt="BRIDGES 2025 Poster Session Winners & Honorable Mentions" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-          </article>
-          <article>
-            <div style="aspect-ratio: 4/3; background: #f3f4f6; border-radius: 8px; overflow: hidden;">
-              <img src="images/postersesh.JPG" alt="BRIDGES 2025 Poster Session" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            </div>
-          </article>
-          <article>
-            <div style="aspect-ratio: 4/3; background: #f3f4f6; border-radius: 8px; overflow: hidden;">
-              <img src="images/wolfie.JPG" alt="BRIDGES 2025 Wolfie" style="width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block;">
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="info-card">
-        <h3>Program from BRIDGES 2025</h3>
-        <p>View or download the official program from BRIDGES 2025 to see the full schedule, speakers, and events from last year's conference.</p>
-        <div style="margin-top: 0.1rem;">
-          <a href="OfficialBRIDGESProgram2025.pdf" target="_blank" rel="noopener" class="read-more" style="display: inline-block; margin-right: 1rem;">View Program PDF</a>
-          <a href="OfficialBRIDGESProgram2025.pdf" download class="read-more" style="display: inline-block;">Download PDF</a>
-        </div>
-       
-
-        <h3 style="margin-top: 5rem;">Highlights from 2025</h3>
-
-        <ul>
-          <li>60+ research poster presentations across sciences, humanities, and engineering</li>
-          <li>Keynote by Provost Carl W. Lejuez on interdisciplinary collaboration</li>
-          <li>Alan Alda Center seminar on science communication</li>
-          <li>Career Center workshop on navigating career paths</li>
-          <li>Graduate short film screening and art gallery</li>
-          <li>Musical performances featuring piano, Turkish flute, guitar, and voice</li>
-          <li>Graduate Department Fair showcasing academic programs</li>
-        </ul>
-
-
-        <h3 style="margin-top: 5rem;">Open to All</h3>
-        <p>BRIDGES was open to SBU faculty, students, and staff, as well as members of the local community, industry professionals, and anyone interested in interdisciplinary research, education, and innovation. Thank you to everyone who joined us for a day of discovery, creativity, and connection.</p>
+      <div class="hero-buttons">
+        <a href="#submissions" class="btn btn-primary">Submit Your Work</a>
+        <a href="#about" class="btn btn-outline">Learn More</a>
       </div>
     </div>
+  </section>
+
+  <!-- Last Year's Photos -->
+  <section class="last-year-photos">
+    <div class="container">
+      
+      <div class="photo-gallery">
+        <div class="photo photo-wide">
+          <img src="images/postersesh.JPG" alt="BRIDGES 2025 Poster Session">
+        </div>
+        <div class="photo">
+          <img src="images/bridges_winners.JPG" alt="BRIDGES 2025 Winners">
+        </div>
+        <div class="photo">
+          <img src="images/wolfie.JPG" alt="BRIDGES 2025 with Wolfie" style="object-position: center 15%;">
+        </div>
+        <div class="photo">
+          <img src="images/onepresenter.JPG" alt="BRIDGES 2025 Presenter">
+        </div>
+        <div class="photo">
+          <img src="images/bridges_winners_1.JPG" alt="BRIDGES 2025 Award Ceremony">
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- About Section -->
+  <section class="bridges-about" id="about">
+    <div class="container">
+      <h2>About BRIDGES</h2>
+      <p><strong>BRIDGES: A Cross-Departmental Graduate Student Conference</strong>, hosted by The SBU Graduate Arts & Sciences Magazine, is an interdisciplinary event that highlights the diverse research, creativity, and innovation of Stony Brook University's graduate students.</p>
+      <p>After the tremendous success of our inaugural conference in January 2025, BRIDGES is now an annual tradition. The conference fosters collaboration and communication across fields by giving students a platform to connect and share their work with a broad audience.</p>
+      <p>BRIDGES 2025 had representation from over 30 departments, and we're looking to expand even further in 2026!</p>
+
+      <h3 style="margin-top: 2rem; font-size: 1.1rem;">What to Expect at BRIDGES 2026</h3>
+      <ul class="highlights-list">
+        <li>Research poster presentations across all disciplines</li>
+        <li>Keynote speakers and panel discussions</li>
+        <li>Graduate short film screening</li>
+        <li>Art gallery featuring graduate artists</li>
+        <li>Science communication workshops</li>
+        <li>Musical performances</li>
+        <li>Career development sessions</li>
+        <li>Networking with faculty & industry</li>
+      </ul>
+
+      <p style="margin-top: 1.5rem; text-align: center;"><strong>BRIDGES welcomes SBU faculty, students, staff, community members, and industry professionals interested in interdisciplinary research and innovation</strong></p>
+    </div>
+  </section>
+
+  <!-- Deadlines & Submissions -->
+  <section class="submissions-section" id="submissions">
+    <div class="container">
+      <h2>Deadlines & Submissions</h2>
+      
+      <div class="deadline-cards">
+        <div class="deadline-card">
+          <h3>Submission Deadlines</h3>
+          <ul>
+            <li><span>Poster Submissions</span> <span class="date-tag">Jan 30</span></li>
+            <li><span>Film Submissions</span> <span class="date-tag">Jan 30</span></li>
+            <li><span>Art Gallery</span> <span class="date-tag">Jan 30</span></li>
+            <li><span>Speaker Applications</span> <span class="date-tag">Jan 30</span></li>
+            <li><span>Sponsor Interest</span> <span class="date-tag">Jan 4</span></li>
+          </ul>
+        </div>
+
+        <div class="deadline-card">
+          <h3>Submission Forms</h3>
+          <div class="submission-links">
+            <a href="https://forms.gle/46qJYcn1KUro4DUr8" target="_blank" rel="noopener">📋 Poster Submission Form</a>
+            <a href="https://forms.gle/QBVfpP37WyPbLF1T9" target="_blank" rel="noopener">🎨 Art Submission Form</a>
+            <a href="https://forms.gle/hFSvRNAGbi5Tq4HJ9" target="_blank" rel="noopener">🎬 Film Submission Form</a>
+            <a href="https://forms.gle/q5DqjkTWm3ijHJ2V8" target="_blank" rel="noopener">🎵 Concert Interest Form</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program from Last Year -->
+  <section class="program-section">
+    <div class="container">
+      <div class="program-card">
+        <h3>BRIDGES 2025 Program</h3>
+        <p>View the official program from our inaugural conference to see last year's schedule, speakers, and events.</p>
+        <div class="btn-row">
+          <a href="OfficialBRIDGESProgram2025.pdf" target="_blank" rel="noopener" class="primary">View Program</a>
+          <a href="OfficialBRIDGESProgram2025.pdf" download class="secondary">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <div class="container">© <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</div>
