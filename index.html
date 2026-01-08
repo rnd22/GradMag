@@ -301,33 +301,8 @@
     </div>
   </header>
 
-  <!-- ===== MAIN CAROUSEL ===== -->
-  <div class="slideshow-container" id="mainCarousel">
-    <div class="slides-wrapper">
-      <div class="mySlides">
-        <div class="slide-content">
-          <h1>Featured: 2025 Issue</h1>
-          <p>Explore our latest issue featuring graduate voices on climate, identity, and innovation.</p>
-          <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" class="carousel-button">Read the Issue</a>
-        </div>
-      </div>
-      <div class="mySlides">
-        <div class="slide-content">
-          <h1>B.R.I.D.G.E.S. 2026</h1>
-          <p>Our second annual conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, will be on Thursday, February 19th 2026.</p>
-          <a href="https://forms.gle/LWv4kQsyAVSqYkT68" target="_blank" rel="noopener" class="carousel-button">RSVP</a>
-          <a href="bridges.html" class="carousel-button">Learn More</a>
-        </div>
-      </div>
-    </div>
-
-    <a class="prev" aria-label="Previous slide">❮</a>
-    <a class="next" aria-label="Next slide">❯</a>
-  </div>
-  <div class="main-dots-wrap">
-    <span class="dot" data-for="mainCarousel" data-to="1"></span>
-    <span class="dot" data-for="mainCarousel" data-to="2"></span>
-  </div>
+  <!-- Spacer -->
+  <div style="height: 1.5in;"></div>
 
   <!-- ===== GRID: LEFT (About + Year updates) | RIGHT (Poster carousel) ===== -->
   <div class="content-grid">
@@ -413,44 +388,6 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
-
-    // ===== MAIN CAROUSEL =====
-    (function() {
-      const wrapper = document.querySelector('#mainCarousel .slides-wrapper');
-      const slides = document.querySelectorAll('#mainCarousel .mySlides');
-      const prevBtn = document.querySelector('#mainCarousel .prev');
-      const nextBtn = document.querySelector('#mainCarousel .next');
-      const dots = document.querySelectorAll('.main-dots-wrap .dot[data-for="mainCarousel"]');
-      
-      let currentSlide = 0;
-      const totalSlides = slides.length;
-
-      function goToSlide(index) {
-        if (index < 0) index = totalSlides - 1;
-        if (index >= totalSlides) index = 0;
-        currentSlide = index;
-        wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-        
-        // Update dots
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-      }
-
-      // Initialize - go to first slide (remove the initial -100% offset)
-      wrapper.style.transform = 'translateX(0%)';
-      dots[0]?.classList.add('active');
-
-      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goToSlide(i));
-      });
-
-      // Auto-advance every 6 seconds
-      setInterval(() => goToSlide(currentSlide + 1), 6000);
-    })();
 
     // ===== POSTER CAROUSEL =====
     (function() {
