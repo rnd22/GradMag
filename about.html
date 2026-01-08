@@ -11,14 +11,12 @@
   <link rel="stylesheet" href="testthis.css" />
   <style>
     .about-content {
-      max-width: 800px;
-      margin: 0 auto;
       padding: 2rem 0 3rem;
     }
     .about-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin: 2rem 0 1rem;
+      font-size: 1.35rem;
+      margin: 0 0 1rem;
       color: #1a1a2e;
     }
     .about-content p {
@@ -26,6 +24,23 @@
       color: #374151;
       margin-bottom: 1rem;
     }
+    /* Two-column layout for About + 2025 (no boxes) */
+    .about-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .about-col ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      line-height: 1.7;
+      color: #374151;
+    }
+    .about-col li {
+      margin-bottom: 0.6rem;
+    }
+    /* Two cards row for Meet Team + Get Involved */
     .about-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -61,7 +76,36 @@
     .about-card .btn:hover {
       background: #333;
     }
-    @media (max-width: 600px) {
+    /* Full-width contact section */
+    .contact-section {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .contact-section h2 {
+      margin-bottom: 0.75rem;
+    }
+    .contact-section p {
+      margin-bottom: 1rem;
+    }
+    .contact-section .btn {
+      display: inline-block;
+      padding: 0.6rem 1.25rem;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .contact-section .btn:hover {
+      background: #333;
+    }
+    @media (max-width: 900px) {
+      .about-two-col { grid-template-columns: 1fr; gap: 1.5rem; }
       .about-cards { grid-template-columns: 1fr; }
     }
   </style>
@@ -85,9 +129,21 @@
             <a href="jointheteam.html">Join the Team</a>
           </div>
         </div>
-        <a href="bridges.html">BRIDGES</a>
+        <div class="nav-dropdown">
+          <a href="bridges.html">BRIDGES</a>
+          <div class="nav-dropdown-menu">
+            <a href="bridges.html">BRIDGES</a>
+            <a href="bridges.html#submissions">Submissions</a>
+          </div>
+        </div>
         <a href="events.html">Events</a>
-        <a href="publications.html">Publications</a>
+        <div class="nav-dropdown">
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">Publications</a>
+            <a href="submissions.html">Submissions</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -95,7 +151,6 @@
             <a href="bulletin.html">Bulletins</a>
           </div>
         </div>
-        <a href="submissions.html">Submissions</a>
       </nav>
     </div>
   </header>
@@ -108,45 +163,61 @@
   </section>
 
   <div class="container about-content">
-    <p>The Graduate Arts & Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community.</p>
-    
-    <p>The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.</p>
+    <!-- Two-column: About info | 2025 achievements (no boxes) -->
+    <div class="about-two-col">
+      <div class="about-col">
+        <h2>About GradMag</h2>
+        <p>The Graduate Arts & Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community.</p>
+        <p>The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions.</p>
+        
+        <h2 style="margin-top: 1.5rem;">Our Mission</h2>
+        <p>We are a platform for interdisciplinary conversation: publishing creative, critical, and experimental work that connects research to wider communities.</p>
+        
+        <h2 style="margin-top: 1.5rem;">What We Do</h2>
+        <p>Each year, we publish a magazine featuring research highlights, creative work, photography, poetry, and visual storytelling. We also host events including our annual <strong>B.R.I.D.G.E.S.</strong> conference and social gatherings.</p>
+      </div>
 
-    <h2>Our Mission</h2>
-    <p>We are a platform for interdisciplinary conversation: publishing creative, critical, and experimental work that connects research to wider communities. Our goal is to bridge the gap between academic research and public understanding, making graduate work accessible and engaging for all.</p>
+      <div class="about-col">
+        <h2>What was Grad Mag up to in 2025?</h2>
+        <ul>
+          <li>Hosted our first conference, <a href="bridges.html">B.R.I.D.G.E.S.</a>, on January 30th with over 200 attendees</li>
+          <li>Attended ProCon25 and was <strong>nominated for the 2025 College Media Association David L. Adams NYC Apple Award</strong></li>
+          <li>Published <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_">The Four Seasons</a> in April</li>
+          <li>Received the <strong>Collaborative Program Award</strong>, <strong>Media Programming Award</strong>, and <strong>Most Innovative Use of Media</strong></li>
+          <li>Named <strong>Best Club of the Year</strong> by the GSO Executive Committee</li>
+          <li>Tied for <strong>Best Cover</strong> at the Student Media Council Awards</li>
+          <li>President Ava Nederlander named <strong>Executive Board Member of the Year</strong></li>
+          <li>Leadership awards for Veronica Borracci, Jennifer L. O'Connor, and Ava Nederlander</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>What We Do</h2>
-    <p>Each year, we publish a magazine featuring research highlights, creative work, photography, poetry, and visual storytelling from Stony Brook's graduate community. We also host events including our annual <strong>B.R.I.D.G.E.S.</strong> conference, workshops, and social gatherings that bring graduate students together across departments.</p>
-
+    <!-- Two cards: Meet Team + Get Involved -->
     <div class="about-cards">
       <div class="about-card">
         <h3>Meet the Team</h3>
-        <p>Get to know the Executive Board members who lead the magazine and make it all happen.</p>
+        <p>Get to know the Executive Board members who lead the magazine.</p>
         <a href="execboard.html" class="btn">Executive Board</a>
       </div>
       <div class="about-card">
         <h3>Get Involved</h3>
-        <p>We're always looking for writers, artists, editors, and layout designers to join our team.</p>
+        <p>We're always looking for writers, artists, editors, and designers.</p>
         <a href="jointheteam.html" class="btn">Join the Team</a>
       </div>
     </div>
 
-    <h2>Contact Us</h2>
-    <p>Have questions or want to collaborate? Reach out to us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>.</p>
-
-    <div class="social-block" style="margin-top: 1.5rem;">
-      <div class="social-links" aria-label="Follow Grad Mag">
-        <!-- Instagram -->
+    <!-- Full-width Contact section -->
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <p>Have questions or want to collaborate? Reach out anytime.</p>
+      <a href="mailto:sbugradmag@stonybrook.edu" class="btn">Email Us</a>
+      <div class="social-links" style="margin-top: 1.25rem; justify-content: center;">
         <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
         </a>
-
-        <!-- LinkedIn -->
         <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
         </a>
-
-        <!-- Email -->
         <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>

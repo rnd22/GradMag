@@ -7,7 +7,8 @@
   gap: 1.5rem;
   margin: 2rem auto 2.5rem;
 }
-.join-main, .join-side{ align-self: start; }
+.join-main, .join-side{ align-self: stretch; }
+.join-main .info-card, .join-side .info-card { height: 100%; }
 .join-intro .cta-row{ margin-top: .75rem; }
 @media (max-width: 900px){
   .join-intro{ grid-template-columns: 1fr; }
@@ -50,7 +51,7 @@ font-size: 2rem;
   gap:1.5rem;
   margin:2rem auto 2.5rem;
 }
-.join-main, .join-side{ align-self:start; }
+.join-main, .join-side{ align-self: stretch; }
 
 /* Fix breakpoint: stack on smaller screens, not at 2000px :) */
 @media (max-width: 900px){
