@@ -58,7 +58,7 @@
 </head>
 <body>
 
-  <!-- Header (kept as-is from your current pages) -->
+  <!-- Header -->
   <header>
     <div class="container nav">
       <div class="brand">
@@ -98,8 +98,48 @@
           </div>
         </div>
       </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">BRIDGES</div>
+      <div class="mobile-dropdown-items">
+        <a href="bridges.html">BRIDGES</a>
+        <a href="bridges.html#submissions">Submissions</a>
+      </div>
+    </div>
+    <a href="events.html" aria-current="page">Events</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">Publications</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+  </div>
 
   <main class="page">
     <div class="container">
@@ -314,6 +354,33 @@ function expandRecurring(events, viewStart, viewEnd){
     // Init
     document.getElementById('yr').textContent = new Date().getFullYear();
     render();
+
+    // Mobile Menu
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
   </script>
 </body>
 </html>

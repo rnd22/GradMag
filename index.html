@@ -383,8 +383,49 @@
           </div>
         </div>
       </nav>
+      <!-- Hamburger button (mobile only) -->
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html" aria-current="page">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">BRIDGES</div>
+      <div class="mobile-dropdown-items">
+        <a href="bridges.html">BRIDGES</a>
+        <a href="bridges.html#submissions">Submissions</a>
+      </div>
+    </div>
+    <a href="events.html">Events</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">Publications</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+  </div>
 
   <!-- Spacer -->
   <div style="height: 1rem;"></div>
@@ -510,6 +551,39 @@
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // ===== MOBILE MENU =====
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          this.setAttribute('aria-expanded', mobileMenu.classList.contains('active'));
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Dropdown toggles
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
 
     // ===== POSTER CAROUSEL =====
     (function() {

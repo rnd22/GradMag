@@ -53,10 +53,49 @@
     <a href="bulletin.html">Bulletins</a>
   </div>
 </div>
-
 </nav>
+<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </div>
 </header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-title">About</div>
+    <div class="mobile-dropdown-items">
+      <a href="about.html">About</a>
+      <a href="execboard.html">Executive Board</a>
+      <a href="jointheteam.html">Join the Team</a>
+    </div>
+  </div>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-title">BRIDGES</div>
+    <div class="mobile-dropdown-items">
+      <a href="bridges.html">BRIDGES</a>
+      <a href="bridges.html#submissions">Submissions</a>
+    </div>
+  </div>
+  <a href="events.html">Events</a>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-title">Publications</div>
+    <div class="mobile-dropdown-items">
+      <a href="publications.html" aria-current="page">Publications</a>
+      <a href="submissions.html">Submissions</a>
+    </div>
+  </div>
+  <div class="mobile-dropdown">
+    <div class="mobile-dropdown-title">Press</div>
+    <div class="mobile-dropdown-items">
+      <a href="press.html">Press</a>
+      <a href="bulletin.html">Bulletins</a>
+    </div>
+  </div>
+</div>
 
   <!-- Hero -->
   <section class="hero container">
@@ -140,5 +179,34 @@
     <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
   </div>
 </footer>
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Mobile Menu
+  (function() {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+      dropdownTitles.forEach(title => {
+        title.addEventListener('click', function() {
+          this.classList.toggle('active');
+          this.nextElementSibling.classList.toggle('active');
+        });
+      });
+    }
+  })();
+</script>
 </body>
 </html>
