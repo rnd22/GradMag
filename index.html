@@ -250,9 +250,93 @@
   border-color: #bbb;
 }
 
+    /* Video Hero Section */
+    .video-hero {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 0 18px;
+    }
+    .video-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 2rem;
+    }
+    .video-hero video {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .video-hero-content {
+      color: #fff;
+      padding: 1rem;
+    }
+    .video-hero-content .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+    .video-hero-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 0 0 0.75rem;
+      color: #fff;
+    }
+    .video-hero-content p {
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .video-hero-content .hero-btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .video-hero-content .hero-btns a {
+      padding: 0.7rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .video-hero-content .hero-btns .btn-primary {
+      background: #e94560;
+      color: #fff;
+    }
+    .video-hero-content .hero-btns .btn-primary:hover {
+      background: #d63850;
+    }
+    .video-hero-content .hero-btns .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .video-hero-content .hero-btns .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+
     @media (max-width: 900px) {
       .content-grid { grid-template-columns: 1fr; }
       .slide-content { max-width: 90%; }
+      .video-hero-inner { 
+        grid-template-columns: 1fr; 
+        padding: 1.5rem;
+      }
+      .video-hero-content h2 { font-size: 1.5rem; }
     }
 
     
@@ -303,19 +387,43 @@
   </header>
 
   <!-- Spacer -->
-  <div style="height: 1.5in;"></div>
+  <div style="height: 1rem;"></div>
 
-  <!-- ===== GRID: LEFT (About + Year updates) | RIGHT (Poster carousel) ===== -->
+  <!-- Video Hero Section -->
+  <section class="video-hero">
+    <div class="video-hero-inner">
+      <video autoplay muted loop playsinline>
+        <source src="images/BRIDGES2025Reel.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="video-hero-content">
+        <span class="badge">BRIDGES 2026</span>
+        <h2>Join Us for the 2nd Annual Conference</h2>
+        <p>Experience the interdisciplinary research, art, and creativity of Stony Brook's graduate community. BRIDGES brings together students from all departments for a day of connection and discovery.</p>
+        <p><strong>February 19th, 2026</strong> • Student Activities Center</p>
+        <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
+          <strong style="color: #fde68a;">Extended Deadline: Feb 6th</strong><br>
+          Submit your posters, art, films & concert interest!
+        </p>
+        <div class="hero-btns">
+          <a href="https://forms.gle/LWv4kQsyAVSqYkT68" target="_blank" rel="noopener" class="btn-primary">RSVP Now</a>
+          <a href="bridges.html#submissions" class="btn-outline">Submit Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GRID: LEFT (About) | RIGHT (Poster carousel) ===== -->
   <div class="content-grid">
     <!-- LEFT stack -->
     <div class="left-stack">
       <aside class="about-block updates-year">
-        <h1 class="section-title"> About GradMag</h1>
+        <h1 class="section-title">About GradMag</h1>
         <p>
-          The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community. The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
+          The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community.
         </p>
         <p>
-          The Stony Brook Graduate Arts &amp; Sciences Magazine hosted our first conference, B.R.I.D.G.E.S, in January of 2025. For more information about the conference, see our <a href="bridges.html">B.R.I.D.G.E.S page</a>.
+          The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
         </p>
 
         <div class="social-block">
@@ -337,9 +445,6 @@
           </div>
 
           <p class="donate-wrap">
-            <!--<a class="btn donate-btn" href="https://www.sbugradmag.com/" target="_blank" rel="noopener">
-              Donate to Support the Magazine
-            </a> -->
             <a class="btn donate-btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
               Join the Team
             </a>
@@ -349,7 +454,6 @@
           </p>
         </div>
       </aside>
-
     </div>
 
     <!-- RIGHT: Poster carousel -->
@@ -357,10 +461,10 @@
       <header>Major Events & Calls for Submissions</header>
       <div class="poster-slideshow" id="posterCarousel">
         <div class="poster-wrapper">
-          <div class="posterSlide"><img src="images/BRIDGES26_Poster1.png" alt="BRIDGES 2026 Poster Submissions"></div>
-          <div class="posterSlide"><img src="images/BRIDGES26_Art.png" alt="BRIDGES 2026 Art Submissions"></div>
-          <div class="posterSlide"><img src="images/BRIDGES26_Film.png" alt="BRIDGES 2026 Film Submissions"></div>
-          <div class="posterSlide"><img src="images/BRIDGES26_Music.png" alt="BRIDGES 2026 Concert"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Posters_Extended.png" alt="BRIDGES 2026 Poster Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Art_Extended.png" alt="BRIDGES 2026 Art Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Film_Extended.png" alt="BRIDGES 2026 Film Submissions"></div>
+          <div class="posterSlide"><img src="images/BRIDGES26_Concert_Extended.png" alt="BRIDGES 2026 Concert"></div>
           <div class="posterSlide"><img src="images/GradMag_26_Submissions-2.png" alt="GradMag 2026 Submissions"></div>
         </div>
         <a class="poster-prev" aria-label="Previous slide">❮</a>
