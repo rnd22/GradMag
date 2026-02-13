@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech & Friends • SBU Grad Mag</title>
+  <meta name="description" content="Tech & Friends - every other Friday 1-2pm on WUSB 90.1 FM. A radio show by the SBU Graduate Arts & Sciences Magazine." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="testthis.css" />
+  <style>
+    .radio-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .radio-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0 0 1rem;
+    }
+    .radio-hero p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .radio-hero .wusb-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .radio-hero .btn-listen {
+      display: inline-block;
+      background: #e94560;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .radio-hero .btn-listen:hover {
+      background: #d63850;
+      text-decoration: none;
+    }
+    .episodes-section {
+      padding: 3rem 0;
+    }
+    .episodes-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .coming-soon {
+      text-align: center;
+      padding: 3rem;
+      background: #f8fafc;
+      border: 2px dashed #e2e8f0;
+      border-radius: 12px;
+      color: #64748b;
+    }
+    .coming-soon h3 {
+      margin: 0 0 0.5rem;
+      color: #374151;
+    }
+    .coming-soon p {
+      margin: 0;
+    }
+    .show-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .show-info-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .show-info-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .show-info-card h3 {
+      font-size: 1rem;
+      margin: 0 0 0.25rem;
+      color: #1a1a2e;
+    }
+    .show-info-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 768px) {
+      .show-info { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .radio-hero h1 { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
+        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="bridges.html">BRIDGES</a>
+          <div class="nav-dropdown-menu">
+            <a href="bridges.html">BRIDGES</a>
+            <a href="bridges.html#submissions">Submissions</a>
+          </div>
+        </div>
+        <a href="events.html">Events</a>
+        <div class="nav-dropdown">
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">Publications</a>
+            <a href="submissions.html">Submissions</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
+        <a href="radio.html" aria-current="page">Radio</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">BRIDGES</div>
+      <div class="mobile-dropdown-items">
+        <a href="bridges.html">BRIDGES</a>
+        <a href="bridges.html#submissions">Submissions</a>
+      </div>
+    </div>
+    <a href="events.html">Events</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">Publications</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+    <a href="radio.html" aria-current="page">Radio</a>
+  </div>
+
+  <!-- Radio Hero -->
+  <section class="radio-hero">
+    <div class="container">
+      <span class="wusb-badge">WUSB 90.1 FM</span>
+      <h1>Tech & Friends</h1>
+      <p>Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community. Listen live on WUSB or catch up on our episodes below.</p>
+      <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong style="color: #fde68a;">Premieres February 20th, 2026</strong></p>
+      <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-listen">Listen Live on WUSB</a>
+    </div>
+  </section>
+
+  <!-- Show Info -->
+  <section class="episodes-section">
+    <div class="container">
+      <div class="show-info">
+        <div class="show-info-card">
+          <div class="icon">📻</div>
+          <h3>WUSB 90.1 FM</h3>
+          <p>Stony Brook's student radio</p>
+        </div>
+        <div class="show-info-card">
+          <div class="icon">📅</div>
+          <h3>Every Other Friday</h3>
+          <p>1:00 PM - 2:00 PM</p>
+        </div>
+        <div class="show-info-card">
+          <div class="icon">🎉</div>
+          <h3>Premiere</h3>
+          <p>February 20th, 2026</p>
+        </div>
+      </div>
+
+      <h2>Episodes</h2>
+      <div class="coming-soon">
+        <h3>Coming Soon</h3>
+        <p>Past episodes will be available here as podcasts after our premiere. Stay tuned!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-contact">
+        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
+        
+        <div class="social-block">
+          <div class="social-links" aria-label="Follow Grad Mag">
+            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+            </a>
+            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+            </a>
+            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    // Mobile Menu
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
