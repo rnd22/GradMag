@@ -214,6 +214,15 @@ const EVENTS = [
     multi: true,
     rule: { freq: 'BIWEEKLY', interval: 2, byday: ['WE'], until: { y: 2025, m: 11, d: 10 } } // every other Wednesday
   },
+  { title: 'Tech & Friends (Premiere)', date: { y: 2026, m: 1, d: 20 }, time: '1:00–2:00 pm', location: 'WUSB 90.1 FM' },
+  {
+    title: 'Tech & Friends',
+    date: { y: 2026, m: 2, d: 20 },           // recurring starts Mar 20, 2026
+    time: '1:00–2:00 pm',
+    location: 'WUSB 90.1 FM',
+    multi: true,
+    rule: { freq: 'BIWEEKLY', interval: 2, byday: ['FR'], until: { y: 2026, m: 7, d: 21 } } // every other Friday until Aug 21
+  },
   { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
   { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
   { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
