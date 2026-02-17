@@ -11,6 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
     /* BRIDGES Hero Banner */
     .bridges-hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -444,8 +448,8 @@
 
       <div class="hero-buttons">
         <a href="https://forms.gle/LWv4kQsyAVSqYkT68" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem;">RSVP to Attend</a>
+        <a href="#schedule" class="btn btn-outline">View Schedule</a>
         <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank" rel="noopener" class="btn btn-outline">View 2026 Program</a>
-        <a href="#about" class="btn btn-outline">Learn More</a>
       </div>
       <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.85;">Submissions are now closed. Thank you to everyone who submitted!</p>
     </div>
@@ -558,16 +562,24 @@
     </div>
   </section>
 
+  <!-- Schedule Section -->
+  <section id="schedule" style="padding: 3rem 0; background: #fff;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem;">Conference Schedule</h2>
+      <img src="images/B.R.I.D.G.E.S%20Schedule%20w%20Sponsors%20(1)%20copy%20(1).png" alt="BRIDGES 2026 Schedule" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+    </div>
+  </section>
+
   <!-- Program Section -->
   <section class="program-section">
     <div class="container">
       <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
         <div class="program-card" style="flex: 1; min-width: 280px;">
-          <h3>BRIDGES 2026 Brochure</h3>
-          <p>View the official brochure for this year's conference with all the details about events, submissions, and more.</p>
+          <h3>BRIDGES 2026 Program</h3>
+          <p>View the official program for this year's conference with the full schedule, speakers, and events.</p>
           <div class="btn-row">
-            <a href="images/BRIDGES_brochure_ADA_jan92025_compresssed.pdf" target="_blank" rel="noopener" class="primary">View Brochure</a>
-            <a href="images/BRIDGES_brochure_ADA_jan92025_compresssed.pdf" download class="secondary">Download PDF</a>
+            <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank" rel="noopener" class="primary">View Program</a>
+            <a href="Official%20BRIDGES%20Program%202026.pdf" download class="secondary">Download PDF</a>
           </div>
         </div>
         <div class="program-card" style="flex: 1; min-width: 280px;">
