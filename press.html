@@ -32,13 +32,7 @@
     <a href="jointheteam.html">Join the Team</a>
   </div>
 </div>
-<div class="nav-dropdown">
-  <a href="bridges.html">BRIDGES</a>
-  <div class="nav-dropdown-menu">
-    <a href="bridges.html">BRIDGES</a>
-    <a href="bridges.html#submissions">Submissions</a>
-  </div>
-</div>
+<a href="bridges.html">BRIDGES</a>
 <a href="events.html">Events</a>
 <div class="nav-dropdown">
   <a href="publications.html">Publications</a>
@@ -75,13 +69,7 @@
       <a href="jointheteam.html">Join the Team</a>
     </div>
   </div>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">BRIDGES</div>
-    <div class="mobile-dropdown-items">
-      <a href="bridges.html">BRIDGES</a>
-      <a href="bridges.html#submissions">Submissions</a>
-    </div>
-  </div>
+  <a href="bridges.html">BRIDGES</a>
   <a href="events.html">Events</a>
   <div class="mobile-dropdown">
     <div class="mobile-dropdown-title">Publications</div>
@@ -108,104 +96,205 @@
     <p class="sub">To feature GradMag or request quotes/interviews, email <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>.</p>
   </section>
 
+  <!-- Timeline Styles -->
+  <style>
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding-left: 140px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 115px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #0563bb;
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: #0563bb;
+      border: 4px solid #dbeafe;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 0 4px #0563bb;
+      z-index: 1;
+    }
+    .timeline-date {
+      position: absolute;
+      left: -140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 90px;
+      background: #0563bb;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.3;
+      text-align: center;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(5,99,187,0.25);
+    }
+    .timeline-date::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-left: 8px solid #0563bb;
+    }
+    .timeline-content {
+      background: var(--card, #f8fafc);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid #e5e7eb;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .timeline-content:hover {
+      box-shadow: 0 4px 16px rgba(5,99,187,0.12);
+      transform: translateY(-2px);
+    }
+    .timeline-content h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .timeline-content h3 a {
+      color: var(--accent, #0563bb);
+    }
+    .timeline-source {
+      color: var(--muted, #6b7280);
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content p {
+      margin: 0;
+      color: var(--text, #272829);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      .timeline {
+        padding-left: 35px;
+      }
+      .timeline::before {
+        left: 12px;
+        width: 3px;
+      }
+      .timeline-date {
+        position: static;
+        width: fit-content;
+        margin-bottom: 0.75rem;
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+      }
+      .timeline-dot {
+        left: -35px;
+        width: 16px;
+        height: 16px;
+        border-width: 3px;
+        box-shadow: 0 0 0 3px #0563bb;
+      }
+    }
+  </style>
+
   <!-- Content -->
   <main class="container">
-    <div class="grid" style="margin-top: 22px;">
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">GradMag releases second edition highlighting diverse graduate experiences</a></h3>
-          <div class="meta">The South Shore Press • May 2025</div>
-        </div>
-        <div class="card-body">
-          <p>The SBU Graduate Arts & Sciences Magazine marked the release of its second edition, The Four Seasons.</p>
-        </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
-      
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">BRIDGES Highlights Community, Interdisciplinary Research</a></h3>
-          <div class="meta">Stony Brook University • Jan 2025</div>
-        </div>
-        <div class="card-body">
-          <p>SBU's inaugural B.R.I.D.G.E.S. cross-departmental Graduate Research Conference took place in the SAC.</p>
-        </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">GradMag Highlights 'Four Seasons' of the Graduate Experience</a></h3>
-          <div class="meta">Stony Brook University • Apr 2025</div>
-        </div>
-        <div class="card-body">
+    <div class="timeline">
+      <!-- May 2025 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">May<br>2025</div>
+        <div class="timeline-content">
+          <h3><a href="https://news.stonybrook.edu/university/gradmag-highlights-four-seasons-of-the-graduate-student-experience/" target="_blank" rel="noopener">GradMag Highlights 'Four Seasons' of the Graduate Experience</a></h3>
+          <div class="timeline-source">Stony Brook University</div>
           <p>GradMag celebrated the release of <em>The Four Seasons</em>, its second edition, with a reception in the SAC.</p>
         </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
+      </div>
 
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">CIV Grad Students Showcase Research at BRIDGES Conference</a></h3>
-          <div class="meta">Dept. of Civil Engineering • Feb 2025</div>
+      <!-- Feb 2025 - BRIDGES Coverage -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb<br>2025</div>
+        <div class="timeline-content">
+          <h3><a href="https://southshorepress.com/stories/669771067-stony-brook-hosts-inaugural-b-r-i-d-g-e-s-promoting-interdisciplinary-research-among-graduates" target="_blank" rel="noopener">Stony Brook hosts inaugural B.R.I.D.G.E.S.</a></h3>
+          <div class="timeline-source">The South Shore Press</div>
+          <p>The inaugural B.R.I.D.G.E.S. Cross-Departmental Graduate Research Conference took place at Stony Brook's Student Activities Center.</p>
         </div>
-        <div class="card-body">
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb<br>2025</div>
+        <div class="timeline-content">
+          <h3><a href="https://news.stonybrook.edu/university/first-b-r-i-d-g-e-s-conference-highlights-community-and-interdisciplinary-research/" target="_blank" rel="noopener">BRIDGES Highlights Community, Interdisciplinary Research</a></h3>
+          <div class="timeline-source">Stony Brook University</div>
+          <p>SBU's inaugural B.R.I.D.G.E.S. cross-departmental Graduate Research Conference took place in the SAC.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb<br>2025</div>
+        <div class="timeline-content">
+          <h3><a href="https://socialwelfare.stonybrookmedicine.edu/bridges-conference-2025" target="_blank" rel="noopener">School of Social Welfare Students at BRIDGES Conference</a></h3>
+          <div class="timeline-source">School of Social Welfare</div>
+          <p>Social Welfare graduate students participated in the inaugural B.R.I.D.G.E.S. cross-departmental conference.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Feb<br>2025</div>
+        <div class="timeline-content">
+          <h3><a href="https://www.stonybrook.edu/commcms/civileng/events/2025/civ_grad_students_showcase_research_at_bridges_conference" target="_blank" rel="noopener">CIV Grad Students Showcase Research at BRIDGES Conference</a></h3>
+          <div class="timeline-source">Dept. of Civil Engineering</div>
           <p>Graduate researchers presented at B.R.I.D.G.E.S, a cross-departmental conference spearheaded by GradMag.</p>
         </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
+      </div>
 
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">Janzen Named Professor of the Month</a></h3>
-          <div class="meta">Dept. of Linguistics • Oct 2024</div>
-        </div>
-        <div class="card-body">
+      <!-- Oct 2024 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">Oct<br>2024</div>
+        <div class="timeline-content">
+          <h3><a href="https://linguistics.stonybrook.edu/news/2024/10_03_2024_Janzen_Prof_of_the_Month.php" target="_blank" rel="noopener">Janzen Named Professor of the Month</a></h3>
+          <div class="timeline-source">Dept. of Linguistics</div>
           <p>Prof. Joy Janzen has been named Professor of the Month for October by the SBU Graduate Arts and Sciences Magazine.</p>
         </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
+      </div>
 
-      <article class="card">
-        <div class="card-head">
-          <div class="tagrow">
-            <span class="tag">Press</span>
-          </div>
-          <h3><a href="#" target="_blank" rel="noopener">Graduate Student Publication Highlights Interdisciplinary Collaboration</a></h3>
-          <div class="meta">Stony Brook University • May 2024</div>
-        </div>
-        <div class="card-body">
+      <!-- May 2024 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">May<br>2024</div>
+        <div class="timeline-content">
+          <h3><a href="https://news.stonybrook.edu/university/graduate-student-publication-highlights-interdisciplinary-collaboration/" target="_blank" rel="noopener">Graduate Student Publication Highlights Interdisciplinary Collaboration</a></h3>
+          <div class="timeline-source">Stony Brook University</div>
           <p>The SBU Graduate Arts and Sciences Magazine released their first publication, The Human Connection.</p>
         </div>
-        <div class="card-foot">
-          <a class="btn" href="#" target="_blank" rel="noopener">Read</a>
-        </div>
-      </article>
+      </div>
     </div>
   </main>
 
