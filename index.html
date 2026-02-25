@@ -250,7 +250,166 @@
   border-color: #bbb;
 }
 
-    /* Video Hero Section */
+    /* Hero Carousel Section */
+    .hero-carousel {
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 0 18px;
+      position: relative;
+    }
+    .hero-carousel-inner {
+      position: relative;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 400px;
+    }
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      visibility: visible;
+      position: relative;
+    }
+    .hero-slide-media img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .hero-slide-content {
+      color: #fff;
+      padding: 1rem;
+    }
+    .hero-slide-content .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #e94560, #ff6b6b);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    .hero-slide-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      color: #fff;
+    }
+    .hero-slide-content p {
+      opacity: 0.9;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .hero-slide-content .hero-btns {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .hero-slide-content .hero-btns a {
+      padding: 0.7rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .hero-slide-content .hero-btns .btn-primary {
+      background: #e94560;
+      color: #fff;
+    }
+    .hero-slide-content .hero-btns .btn-primary:hover {
+      background: #d63850;
+      text-decoration: none;
+    }
+    .hero-slide-content .hero-btns .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .hero-slide-content .hero-btns .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+    .hero-carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .hero-dot {
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #e2e8f0;
+      color: #64748b;
+      transition: all 0.2s ease;
+    }
+    .hero-dot:hover {
+      background: #cbd5e1;
+    }
+    .hero-dot.active {
+      background: #0563bb;
+      color: #fff;
+    }
+    .bridges-photo-slideshow {
+      position: relative;
+      width: 100%;
+      min-height: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .bridges-slideshow-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .bridges-slideshow-img.active {
+      opacity: 1;
+      position: relative;
+    }
+    @media (max-width: 768px) {
+      .hero-slide {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+      }
+      .hero-slide-content h2 { font-size: 1.5rem; }
+      .hero-carousel-nav {
+        flex-wrap: wrap;
+      }
+      .hero-dot {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+      }
+      .bridges-photo-grid-hero {
+        min-height: 180px;
+      }
+    }
+
+    /* Video Hero Section (legacy) */
     .video-hero {
       max-width: 1100px;
       margin: 0 auto 2rem;
@@ -420,24 +579,79 @@
   <!-- Spacer -->
   <div style="height: 1rem;"></div>
 
-  <!-- Magazine Release Hero Section -->
-  <section class="video-hero">
-    <div class="video-hero-inner">
-      <img src="images/ReleaseCeleb.JPG" alt="Magazine Release Celebration" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;">
-      <div class="video-hero-content">
-        <span class="badge">Spring 2026</span>
-        <h2>Magazine Release Celebration</h2>
-        <p>Join us for the release of our newest edition, <em>The Next Generation</em>! Celebrate the creativity and scholarship of Stony Brook's graduate community with readings, refreshments, and community.</p>
-        <p><strong>May 5th, 2026 • 12 - 1:30pm</strong><br>The Shore Club (SAC Room 169)</p>
-        <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
-          <strong style="color: #fde68a;">You're Invited!</strong><br>
-          Come celebrate with us!
-        </p>
-        <div class="hero-btns">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSYghFpcoN-vkthGL0AmcgBR9gCj_mTS-nKCktGDtG3bgSaw/viewform" target="_blank" rel="noopener" class="btn-primary">RSVP</a>
-          <a href="publications.html" class="btn-outline">View Previous Editions</a>
+  <!-- Hero Carousel Section -->
+  <section class="hero-carousel" id="heroCarousel">
+    <div class="hero-carousel-inner">
+      <!-- Slide 1: BRIDGES Wrap-Up -->
+      <div class="hero-slide active" data-slide="0" data-duration="30000">
+        <div class="hero-slide-media">
+          <div class="bridges-photo-slideshow" id="bridgesPhotoSlideshow">
+            <!-- Placeholder photos - will be replaced with actual BRIDGES photos -->
+            <img class="bridges-slideshow-img active" src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026">
+            <img class="bridges-slideshow-img" src="images/TeamPhotos1.png" alt="BRIDGES 2026">
+            <!-- Add more photos here -->
+          </div>
+        </div>
+        <div class="hero-slide-content">
+          <span class="badge">BRIDGES 2026</span>
+          <h2>Thank You for Attending!</h2>
+          <p>The 2nd annual B.R.I.D.G.E.S. conference was a huge success! With 93 poster presentations, an art gallery, film screenings, and live music, our graduate community came together for an amazing day of interdisciplinary connection.</p>
+          <p><strong>February 19th, 2026</strong> • Student Activities Center</p>
+          <div class="hero-btns">
+            <a href="bridges.html" class="btn-primary">See Highlights</a>
+            <a href="press.html" class="btn-outline">Read Coverage</a>
+          </div>
         </div>
       </div>
+
+      <!-- Slide 2: Tech & Friends -->
+      <div class="hero-slide" data-slide="1" data-duration="10000">
+        <div class="hero-slide-media">
+          <img src="images/radio1.png" alt="Tech & Friends Radio Show" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;">
+        </div>
+        <div class="hero-slide-content">
+          <span class="badge">WUSB 90.1 FM</span>
+          <h2>Tech & Friends</h2>
+          <p>Tune in to our new radio show! Every other Friday from 1-2pm, Tech & Friends features conversations with Stony Brook's graduate community, research highlights, and more.</p>
+          <p><strong>Every Other Friday</strong> • 1:00 - 2:00 PM</p>
+          <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
+            <strong style="color: #fde68a;">Now Streaming!</strong><br>
+            Listen live or catch up on past episodes.
+          </p>
+          <div class="hero-btns">
+            <a href="radio.html" class="btn-primary">Tune In</a>
+            <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-outline">WUSB Schedule</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Magazine Release -->
+      <div class="hero-slide" data-slide="2" data-duration="10000">
+        <div class="hero-slide-media">
+          <img src="images/ReleaseCeleb.JPG" alt="Magazine Release Celebration" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;">
+        </div>
+        <div class="hero-slide-content">
+          <span class="badge">Spring 2026</span>
+          <h2>Magazine Release Celebration</h2>
+          <p>Join us for the release of our newest edition, <em>The Next Generation</em>! Celebrate the creativity and scholarship of Stony Brook's graduate community with readings, refreshments, and community.</p>
+          <p><strong>May 5th, 2026 • 12 - 1:30pm</strong><br>The Shore Club (SAC Room 169)</p>
+          <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
+            <strong style="color: #fde68a;">You're Invited!</strong><br>
+            Come celebrate with us!
+          </p>
+          <div class="hero-btns">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScSYghFpcoN-vkthGL0AmcgBR9gCj_mTS-nKCktGDtG3bgSaw/viewform" target="_blank" rel="noopener" class="btn-primary">RSVP</a>
+            <a href="publications.html" class="btn-outline">View Previous Editions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation -->
+    <div class="hero-carousel-nav">
+      <span class="hero-dot active" data-slide="0">B.R.I.D.G.E.S Recap</span>
+      <span class="hero-dot" data-slide="1">Tech & Friends</span>
+      <span class="hero-dot" data-slide="2">Magazine Release Party</span>
     </div>
   </section>
 
@@ -509,19 +723,11 @@
       </aside>
     </div>
 
-    <!-- RIGHT: Poster carousel -->
+    <!-- RIGHT: Announcements -->
     <aside class="featured-card">
       <header>Announcements</header>
-      <div class="poster-slideshow" id="posterCarousel">
-        <div class="poster-wrapper">
-          <div class="posterSlide"><img src="images/GradMag%20Tech%20%26%20Friends.png" alt="Tech & Friends Radio Show"></div>
-          <!-- Add more announcement slides here:
-          <div class="posterSlide"><img src="images/YOUR_IMAGE.png" alt="Description"></div>
-          -->
-        </div>
-      </div>
-      <div class="event-buttons">
-        <a href="radio.html" class="btn event-btn">Tune in!</a>
+      <div style="padding: 14px 16px;">
+        <p style="color: #64748b; font-size: 0.9rem; text-align: center;">Check out what's happening with GradMag above!</p>
       </div>
     </aside>
   </div>
@@ -586,41 +792,64 @@
       }
     })();
 
-    // ===== POSTER CAROUSEL =====
+    // ===== POSTER CAROUSEL (disabled - no longer used) =====
+    // Poster carousel code removed since we're using the hero carousel now
+
+    // ===== HERO CAROUSEL =====
     (function() {
-      const wrapper = document.querySelector('#posterCarousel .poster-wrapper');
-      const slides = document.querySelectorAll('#posterCarousel .posterSlide');
-      const prevBtn = document.querySelector('#posterCarousel .poster-prev');
-      const nextBtn = document.querySelector('#posterCarousel .poster-next');
-      const dots = document.querySelectorAll('.poster-dots .dot[data-for="posterCarousel"]');
-      
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.hero-dot');
       let currentSlide = 0;
       const totalSlides = slides.length;
+      let slideTimer = null;
 
       function goToSlide(index) {
         if (index < 0) index = totalSlides - 1;
         if (index >= totalSlides) index = 0;
         currentSlide = index;
-        wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
         
-        // Update dots
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === currentSlide);
+        });
         dots.forEach((dot, i) => {
           dot.classList.toggle('active', i === currentSlide);
         });
+        
+        // Schedule next slide based on current slide's duration
+        scheduleNextSlide();
       }
 
-      // Initialize
-      dots[0]?.classList.add('active');
+      function scheduleNextSlide() {
+        if (slideTimer) clearTimeout(slideTimer);
+        const currentSlideEl = slides[currentSlide];
+        const duration = parseInt(currentSlideEl.dataset.duration) || 10000;
+        slideTimer = setTimeout(() => goToSlide(currentSlide + 1), duration);
+      }
 
-      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
-      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-
+      // Click handlers for dots
       dots.forEach((dot, i) => {
         dot.addEventListener('click', () => goToSlide(i));
       });
 
-      // Auto-advance every 5 seconds
-      setInterval(() => goToSlide(currentSlide + 1), 5000);
+      // Start the carousel
+      scheduleNextSlide();
+    })();
+
+    // ===== BRIDGES PHOTO SLIDESHOW =====
+    (function() {
+      const photos = document.querySelectorAll('.bridges-slideshow-img');
+      if (photos.length === 0) return;
+      
+      let currentPhoto = 0;
+      const photoInterval = 3000; // 3 seconds per photo
+
+      function nextPhoto() {
+        photos[currentPhoto].classList.remove('active');
+        currentPhoto = (currentPhoto + 1) % photos.length;
+        photos[currentPhoto].classList.add('active');
+      }
+
+      setInterval(nextPhoto, photoInterval);
     })();
   </script>
 </body>
