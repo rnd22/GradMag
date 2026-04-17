@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Four Seasons • Spring 2025 • SBU Grad Mag</title>
+  <meta name="description" content="The Four Seasons - Spring 2025 edition of the SBU Graduate Arts & Sciences Magazine. Read the magazine and explore featured interviews with Stony Brook faculty." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="testthis.css" />
+  <style>
+    .pub-hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 3rem 0;
+    }
+    .pub-hero-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .pub-hero-cover {
+      border-radius: 12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      width: 100%;
+    }
+    .pub-hero-content .vol-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .pub-hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      margin: 0 0 0.5rem;
+    }
+    .pub-hero-content .subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+    .pub-hero-content p {
+      opacity: 0.85;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      max-width: 550px;
+    }
+    .pub-hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .pub-hero-btns a {
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .pub-hero-btns .btn-primary {
+      background: #e94560;
+      color: #fff;
+    }
+    .pub-hero-btns .btn-primary:hover {
+      background: #d63850;
+      text-decoration: none;
+    }
+    .pub-hero-btns .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.4);
+    }
+    .pub-hero-btns .btn-outline:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+
+    /* Interviews Section */
+    .interviews-section {
+      padding: 3rem 0;
+      background: #f8fafc;
+    }
+    .interviews-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #0563bb;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .interviews-section .section-intro {
+      text-align: center;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+    .interview-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+    .interview-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      align-items: center;
+    }
+    .interview-photo {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .interview-intro h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #0563bb;
+      margin: 0 0 0.25rem;
+    }
+    .interview-intro .title {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+    .interview-intro .bio {
+      color: #374151;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .interview-toggle {
+      padding: 1rem 1.5rem;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .interview-toggle:hover {
+      background: #f1f5f9;
+    }
+    .interview-toggle span {
+      font-weight: 600;
+      color: #0563bb;
+    }
+    .interview-toggle .arrow {
+      transition: transform 0.3s ease;
+    }
+    .interview-toggle.open .arrow {
+      transform: rotate(180deg);
+    }
+    .interview-content {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+    }
+    .interview-content.open {
+      max-height: 5000px;
+      padding: 1.5rem;
+    }
+    .interview-qa {
+      margin-bottom: 1.5rem;
+    }
+    .interview-qa:last-child {
+      margin-bottom: 0;
+    }
+    .interview-q {
+      font-weight: 700;
+      color: #0563bb;
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+    .interview-a {
+      color: #374151;
+      line-height: 1.7;
+    }
+    .interview-a p {
+      margin-bottom: 0.75rem;
+    }
+    .interview-a p:last-child {
+      margin-bottom: 0;
+    }
+    .footnotes {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 768px) {
+      .pub-hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .pub-hero-cover {
+        max-width: 250px;
+        margin: 0 auto;
+      }
+      .pub-hero-content h1 {
+        font-size: 2rem;
+      }
+      .pub-hero-btns {
+        justify-content: center;
+      }
+      .interview-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .interview-photo {
+        max-width: 150px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
+        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="events.html">Events</a>
+        <div class="nav-dropdown">
+          <a href="publications.html" aria-current="page">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html" aria-current="page">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
+    </div>
+    <a href="bridges.html">BRIDGES</a>
+    <a href="events.html">Events</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="fourseasons.html" aria-current="page">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+      </div>
+    </div>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+    <a href="radio.html">Radio</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="pub-hero">
+    <div class="container">
+      <div class="pub-hero-grid">
+        <img src="images/TheFourSeasons.JPEG" alt="The Four Seasons Magazine Cover" class="pub-hero-cover">
+        <div class="pub-hero-content">
+          <span class="vol-badge">Vol. 2, Issue 1 • Spring 2025</span>
+          <h1>The Four Seasons</h1>
+          <p class="subtitle">SBU Graduate Arts & Sciences Magazine</p>
+          <p>Our second edition explores the rhythms of graduate life through the lens of the four seasons. Featuring research articles, creative writing, poetry, art, and in-depth interviews with distinguished Stony Brook faculty.</p>
+          <div class="pub-hero-btns">
+            <a href="https://issuu.com/sbugradmag/docs/the_four_seasons_spring_2025_vol._2_issue_1_" target="_blank" rel="noopener" class="btn-primary">Read Magazine</a>
+            <a href="#interviews" class="btn-outline">View Interviews</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interviews Section -->
+  <section class="interviews-section" id="interviews">
+    <div class="container">
+      <h2>Interviews with Stony Brook Staff & Faculty</h2>
+      <p class="section-intro">In-depth conversations with distinguished faculty members about their research, careers, and insights for aspiring academics.</p>
+
+      <!-- Dr. Carl Safina -->
+      <article class="interview-card">
+        <div class="interview-header">
+          <img src="images/Carl-Safina.JPG" alt="Dr. Carl Safina" class="interview-photo">
+          <div class="interview-intro">
+            <h3>Dr. Carl Safina</h3>
+            <p class="title">Endowed Professor for Nature and Humanity, School of Marine and Atmospheric Sciences</p>
+            <p class="bio">Dr. Carl Safina, founder of the Safina Center, is the first Endowed Professor for Nature and Humanity at SOMAS. He studied seabirds for his PhD and has worked to change fishing policies to benefit marine wildlife through science communication. An award-winning author, he writes about the relationship between humans and the natural world.</p>
+          </div>
+        </div>
+        <div class="interview-toggle" onclick="toggleInterview(this)">
+          <span>Read Full Interview</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="interview-content">
+          <div class="interview-qa">
+            <p class="interview-q">Can you tell us about your career journey? How did you decide to pursue a career in marine ecology, and what made you decide to become an environmental writer?</p>
+            <div class="interview-a">
+              <p>I always loved animals and the natural world. So it's a life journey, not just a career journey. I always had pets, went birding, camping, fishing, and learned bird-banding, and so on. In college, I majored in environmental science. There I met professors involved in bird work, and I got temporary jobs re-introducing peregrine falcons and studying seabirds called terns. After that, I got a job with the New Jersey Dept of Environmental Protection finding illegal toxic chemical dumps, and a year later—through connections I made volunteering—got a job with the National Audubon Society. I studied terns for the next ten years and got a master's and PhD doing that. Because I was on the water a lot with the terns, and fishing a lot, I could see that fish were being depleted by overfishing. So I switched my work and focused on changing federal fisheries law and also working internationally to protect bluefin tuna and sharks. We succeeded in getting fishing quotas reduced and in writing and getting through Congress the Sustainable Fisheries Act of 1996. The follow-through with that was writing my first book, Song for the Blue Ocean, and I've been writing books and articles and speaking ever since. Now I also teach.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">Throughout your work, you have achieved real-world policy changes. Can you tell us about your journey through that?</p>
+            <div class="interview-a">
+              <p>I was very far from confident. But the goals were very precisely articulated and the campaigns very targeted. When I was motivated to involve myself I had no idea what to do. How does one end overfishing? But I was very proactive and realized that I had a surprising hidden talent for networking and organizing. I also realized that policy is not mainly science; it's people, it's law, it's very much politics. My main ability turned out to be writing, and I wrote articles about how fisheries policies were failing and how to fix the laws. I linked up with environmental lawyers who knew how to get things into Congress.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">How did you develop your ability to communicate science effectively?</p>
+            <div class="interview-a">
+              <p>Practice. Learning by doing. Doing a lot of it. Networking with people who knew things I did not know about how to get things done. Working with them. Learning how to get grants from foundations for conservation policy work.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What about your work motivates you despite facing challenging situations?</p>
+            <div class="interview-a">
+              <p>My love and concern for the natural world and other species, for wild things and wild places, is the central driver of my life. I am good about balancing work and enjoyment of wild things. The writer E. B. White said, "I arise in the morning torn between a desire to save the world and a desire to savor the world. This makes it hard to plan the day." That pretty much sums it up for me.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">For graduate students who don't feel the need to develop communication skills outside their discipline, what would you encourage them to reconsider?</p>
+            <div class="interview-a">
+              <p>Well, there is an overwhelming need. Silence is the same as complicity. The biggest threat to anything is the people who say nothing. That's how bad people win. With science and reason and democracy under assault from within, this is not a time to be silent. Your own work won't be anything when all the science funding is cut.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What advice would you give to those balancing science communication with academic work?</p>
+            <div class="interview-a">
+              <p>No one can do everything. Everyone can do something. Do something.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">Any advice for those starting their research careers in this political moment?</p>
+            <div class="interview-a">
+              <p>Keep working. But don't ignore what's happening. Use your voice. And be patient, because the worst people always topple.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">Has anyone served as a role model in your life?</p>
+            <div class="interview-a">
+              <p>Aldo Leopold, Rachel Carson, Peter Matthiessen, Barry Lopez.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What are the "coolest" places you've visited for research?</p>
+            <div class="interview-a">
+              <p>What comes to mind right away are Laysan Island and Palau. But I have been so fortunate to have visited every continent from the Arctic to Antarctic and across the tropics. My life has turned out much better and more interesting than I ever thought possible. When I was in college, I wasn't sure I'd ever get to go anywhere or do anything that mattered. I am glad I was wrong about myself.</p>
+            </div>
+          </div>
+
+          <div class="footnotes">
+            <p><strong>Learn more:</strong> <a href="https://www.carlsafina.org/" target="_blank" rel="noopener">carlsafina.org</a> | <a href="https://www.stonybrook.edu/commcms/somas/people/_profiles/carl-safina.php" target="_blank" rel="noopener">Faculty Profile</a></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dr. Mark Aronoff -->
+      <article class="interview-card">
+        <div class="interview-header">
+          <img src="images/Mark-Aranoff.jpg" alt="Dr. Mark Aronoff" class="interview-photo">
+          <div class="interview-intro">
+            <h3>Dr. Mark Aronoff</h3>
+            <p class="title">Distinguished Professor, Department of Linguistics</p>
+            <p class="bio">Dr. Mark Aronoff is a Distinguished Professor in the Department of Linguistics at Stony Brook University. His research focuses on morphology, sign language, and written language systems. He has conducted groundbreaking research on emergent sign languages and has a strong interest in linguistics education.</p>
+          </div>
+        </div>
+        <div class="interview-toggle" onclick="toggleInterview(this)">
+          <span>Read Full Interview</span>
+          <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="interview-content">
+          <div class="interview-qa">
+            <p class="interview-q">Could you describe any current research you're involved in?</p>
+            <div class="interview-a">
+              <p>I have this very long standing research project involving sign language that I've been working on for about 25 years. About 30 years ago, a visitor from Israel convinced me that sign language had properties that would interest me. We came across a sign language that had emerged in a Bedouin village in the desert in Israel, and we spent about a dozen years studying what it meant to create a new language.</p>
+              <p>I'm also looking at new ways of forming words in English—words like 'combo' for 'combination.' And I've been working on an online asynchronous version of the introductory linguistics course. I think that really is one aspect of the future of education.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What has interdisciplinary collaboration taught you about language?</p>
+            <div class="interview-a">
+              <p>I have this interest in written language versus spoken language. Linguists learn that language is basically spoken and that written language is secondary. But that's not what you learn at school—the first thing you learn is reading and writing. I've worked with psychologists and computer scientists. Their interests are different, but by working together, we can figure out things that we're both interested in.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What are some significant advancements you've seen in linguistics?</p>
+            <div class="interview-a">
+              <p>The more you know, the less you know. People see that language is much more complex than they ever thought. A great advance in the last 50 years is the acceptance of sign language. When I was growing up, people thought sign language wasn't really language. That's changed a lot. People have also become much more accepting of different varieties of English—you can hear people talking all different kinds of ways on TV ads now.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">Why is linguistics an important field of study?</p>
+            <div class="interview-a">
+              <p>If you ask what humans do that nothing else does, the answer is language. Every human community has a language. And nowadays, what's the biggest hot topic? Artificial intelligence. And what is AI about? It's actually about language. There's an interesting question about whether the way AI understands language is helpful—children need very small amounts of language to learn, but computers need vast amounts of data. As long as there are people, the study of language will be important.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What is the most common misconception about linguistics?</p>
+            <div class="interview-a">
+              <p>Two things. First, that there's a right way and a wrong way of talking—there is no intrinsically right or wrong way. Second, people think of language as written, but most languages are not written. Written language is only about 5,000 years old, while the human species is at least a quarter of a million years old.</p>
+            </div>
+          </div>
+
+          <div class="interview-qa">
+            <p class="interview-q">What advice would you give to aspiring linguists?</p>
+            <div class="interview-a">
+              <p>Take my linguistics 101 course that we're going to put online. And what I would say to everybody is you need to know something about computing. People will not be able to negotiate in any academic discipline without being able to use computers in various ways.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-contact">
+        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
+        
+        <div class="social-block">
+          <div class="social-links" aria-label="Follow Grad Mag">
+            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+            </a>
+            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+            </a>
+            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
+
+    // Interview toggle
+    function toggleInterview(toggle) {
+      toggle.classList.toggle('open');
+      const content = toggle.nextElementSibling;
+      content.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
