@@ -4,91 +4,235 @@
   <meta charset="utf-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bulletins • SBU Grad Mag</title>
-  <meta name="description" content="Browse Graduate Arts & Sciences Magazine bulletins by year, topic, and keyword." />
-
-  <!-- Fonts (match the rest of the site) -->
+  <title>Bulletins • SBU Graduate Arts & Sciences Magazine</title>
+  <meta name="description" content="Browse Graduate Arts & Sciences Magazine bulletins by year." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="testthis.css" />
-
-  <!-- Page-specific styles -->
   <style>
-    :root{
-      --bg:#ffffff; --text:#272829; --accent:#0563bb; --muted:#6b7280; --card:#f8fafc; --ring: #dbeafe;
-      --radius: 16px;
+    .bulletin-page {
+      background: #fafafa;
+      min-height: 100vh;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:"Source Sans Pro", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text); background:var(--bg);}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
 
-    /* Header / Nav */
-    header{position:sticky; top:0; z-index:50; background:#fff; border-bottom:1px solid #eef2f7}
-    .container{max-width:1100px; margin:0 auto; padding:0 18px}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
-    .brand{display:flex; align-items:center; gap:10px}
-    .brand-logo{width:36px; height:36px; border-radius:50%; background:#000 url('images/HumanConnection.jpg') center/cover no-repeat; box-shadow:0 0 0 2px #000 inset}
-    .brand-title{font-family:"Playfair Display", serif; font-weight:700; font-size:1.15rem; letter-spacing:.2px}
-    .nav-links{display:flex; gap:16px; flex-wrap:wrap}
-    .nav-links a{color:#111; font-weight:600}
-    .nav-links a[aria-current="page"]{color:var(--accent)}
+    /* Page Header */
+    .page-header {
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      background: #fff;
+    }
+    .page-header .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+    }
+    .page-header .subtitle {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
 
-    /* Page hero */
-    .hero{padding:44px 0 24px}
-    .section-kicker{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.8rem}
-    h1{font-family:"Playfair Display", serif; font-size:2.1rem; margin:.35rem 0 0}
-    .sub{color:var(--muted); margin-top:6px}
+    .bulletin-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
 
     /* Controls */
-    .controls{display:grid; grid-template-columns:1.2fr .8fr .8fr; gap:12px; margin-top:22px}
-    .control{position:relative}
-    .control input, .control select{width:100%; padding:12px 14px; border:1px solid #e5e7eb; border-radius:12px; font:inherit; background:#fff; outline:none}
-    .control input:focus, .control select:focus{border-color:#93c5fd; box-shadow:0 0 0 4px var(--ring)}
-    .pillbar{display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .pill{background:#eef2f7; color:#111; padding:6px 10px; border-radius:999px; font-size:.85rem; cursor:pointer; border:1px solid #e5e7eb}
-    .pill[aria-pressed="true"]{background:#dbeafe; border-color:#bfdbfe}
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .control {
+      flex: 1;
+      min-width: 200px;
+    }
+    .control input, .control select {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0;
+      font: inherit;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .control input:focus, .control select:focus {
+      border-color: #1a1a1a;
+    }
 
     /* Grid */
-    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin:22px 0 60px}
-    .card{background:var(--card); border:1px solid #e5e7eb; border-radius:var(--radius); overflow:hidden; display:flex; flex-direction:column; min-height:220px}
-    .thumb{display:block; height:200px; background:#f1f5f9; border-bottom:1px solid #e5e7eb; position:relative; overflow:hidden}
-    .thumb::after{content:"PDF"; position:absolute; top:10px; left:10px; font-weight:700; font-size:.72rem; background:#111; color:#fff; padding:4px 6px; border-radius:6px; letter-spacing:.04em; z-index:2}
-    .pdf-icon{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:48px; opacity:.12; z-index:1}
-    .pdf-preview{width:100%; height:100%; border:none; display:block; overflow:hidden; pointer-events:none}
-    .thumb:hover .pdf-preview{opacity:0.95}
-    .card-head{padding:16px 16px 6px}
-    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px}
-    .tag{font-size:.75rem; background:#eef2f7; color:#111; border:1px solid #e5e7eb; border-radius:999px; padding:4px 8px}
-    .card h3{font-family:"Playfair Display", serif; font-size:1.15rem; margin:4px 0}
-    .meta{color:#6b7280; font-size:.9rem}
-    .card-body{padding:0 16px 14px; color:#374151; flex:1}
-    .card-foot{display:flex; gap:8px; padding:12px 16px 16px}
-    .btn{display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:9px 12px; border:1px solid #d1d5db; background:#fff; color:#111; font-weight:600; text-decoration:none}
-    .btn:hover{background:#f3f4f6}
-    .btn.primary{background:#111; color:#fff; border-color:#111}
-    .btn.primary:hover{opacity:.92}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
 
-    /* Empty state */
-    .empty{border:2px dashed #e5e7eb; border-radius:16px; padding:28px; text-align:center; color:#6b7280}
+    .card {
+      background: #fff;
+      overflow: hidden;
+      border-radius: 0;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .thumb {
+      display: block;
+      height: 200px;
+      background: #f5f5f5;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      overflow: hidden;
+    }
+    .thumb::after {
+      content: "PDF";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-weight: 600;
+      font-size: 0.7rem;
+      background: #1a1a1a;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 0;
+      letter-spacing: 0.05em;
+    }
+    .pdf-preview {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .card-head {
+      padding: 1.25rem 1.25rem 0.5rem;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin: 0 0 0.25rem;
+      color: #1a1a1a;
+    }
+    .meta {
+      color: #888;
+      font-size: 0.9rem;
+    }
+    .card-body {
+      padding: 0 1.25rem 1rem;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .card-foot {
+      display: flex;
+      gap: 0.5rem;
+      padding: 0 1.25rem 1.25rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.65rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0;
+      background: #fff;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn:hover {
+      border-color: #1a1a1a;
+      text-decoration: none;
+    }
+    .btn.primary {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+    .btn.primary:hover {
+      background: #333;
+    }
 
-    /* Footer */
-    footer{border-top:1px solid #eef2f7; padding:28px 0; color:#6b7280}
+    .empty {
+      border: 2px dashed #ddd;
+      border-radius: 0;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+    }
 
-    /* Responsive */
-    @media (max-width: 980px){.grid{grid-template-columns:repeat(2, 1fr)} .controls{grid-template-columns:1fr 1fr}}
-    @media (max-width: 640px){.grid{grid-template-columns:1fr} .controls{grid-template-columns:1fr} .brand-title{font-size:1rem}}
+    /* Dialog */
+    dialog {
+      width: min(1000px, 92vw);
+      height: min(90vh, 900px);
+      border: 1px solid #eee;
+      border-radius: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    dialog::backdrop {
+      background: rgba(0,0,0,0.5);
+    }
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+    .dialog-header strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .controls {
+        flex-direction: column;
+      }
+      .control {
+        min-width: 100%;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="bulletin-page">
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts & Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -100,16 +244,17 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -139,16 +284,17 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
-<div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+      </div>
     </div>
-    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -159,312 +305,133 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <main class="container">
-    <section class="hero">
-      <div class="section-kicker">Bulletins</div>
-      <h1>News & Announcements</h1>
-      <p class="sub">Quick reads from the Graduate Arts & Sciences Magazine: calls for submissions, event updates, and community highlights.</p>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="label">Newsletter Archive</div>
+    <h1>Bulletins</h1>
+    <p class="subtitle">Quick reads from GradMag: calls for submissions, event updates, and community highlights.</p>
+  </section>
 
-      <div class="controls" role="region" aria-label="Filters">
-        <label class="control" aria-label="Search bulletins">
-          <input id="q" type="search" placeholder="Search bulletins (title & summary)…" />
-        </label>
-        <label class="control" aria-label="Filter by year">
-          <select id="year">
-            <option value="">All years</option>
-          </select>
-        </label>
-        <label class="control" aria-label="Sort order">
-          <select id="sort">
-            <option value="new">Newest first</option>
-            <option value="old">Oldest first</option>
-          </select>
-        </label>
-      </div>
-      <div class="pillbar" id="topicBar" aria-label="Topics"></div>
-    </section>
+  <main class="bulletin-container">
+    <div class="controls">
+      <label class="control">
+        <input id="q" type="search" placeholder="Search bulletins..." />
+      </label>
+      <label class="control">
+        <select id="year">
+          <option value="">All years</option>
+        </select>
+      </label>
+      <label class="control">
+        <select id="sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+        </select>
+      </label>
+    </div>
 
-    <section id="results">
-      <div class="grid" id="grid" hidden></div>
-      <div class="empty" id="empty" hidden>
-        No bulletins found. Try a different search, year, or topic.
-      </div>
-    </section>
+    <div class="grid" id="grid" hidden></div>
+    <div class="empty" id="empty" hidden>No bulletins found. Try a different search or year.</div>
   </main>
 
-  <!-- Inline PDF preview dialog -->
-  <dialog id="pdfDialog" style="width:min(1000px, 92vw); height:min(90vh, 900px); border:1px solid #e5e7eb; border-radius:16px; padding:0; overflow:hidden;">
-    <div style="display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #e5e7eb; background:#fff;">
-      <strong id="pdfTitle" style="font-family: 'Playfair Display', serif; font-size:1rem"></strong>
-      <div style="display:flex; gap:8px; align-items:center;">
+  <!-- PDF Preview Dialog -->
+  <dialog id="pdfDialog">
+    <div class="dialog-header">
+      <strong id="pdfTitle"></strong>
+      <div style="display:flex; gap:0.5rem;">
         <a id="pdfDownload" class="btn" href="#" download>Download</a>
         <button id="pdfClose" class="btn" type="button">Close</button>
       </div>
     </div>
-    <iframe id="pdfFrame" title="Bulletin PDF preview" style="width:100%; height:calc(100% - 46px); border:0;" src="about:blank"></iframe>
+    <iframe id="pdfFrame" title="Bulletin PDF preview" style="width:100%; height:calc(100% - 50px); border:0;" src="about:blank"></iframe>
   </dialog>
 
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
 
-  <!-- Data + Renderer -->
   <script>
-    // 1) SOURCE OF TRUTH: add/edit bulletins here.
-    //    Each entry corresponds to a PDF file in the bulletins/ folder.
-    //    Update date, summary, and topics as needed for each bulletin.
-    //    For bi-monthly bulletins (Aug 2025+), use altMonths array for searchability.
     const BULLETINS = [
-      {
-        title: "March/April 2026 Bulletin",
-        date: "2026-03",
-        altMonths: ["2026-04"], // Also searchable as April 2026
-        summary: "Spring edition with updates on the magazine release, upcoming events, and community highlights.",
-        topics: ["Bulletin"],
-        url: "bulletins/March2026April2026.pdf"
-      },
-      {
-        title: "December 2025/January 2026 Bulletin",
-        date: "2025-12",
-        altMonths: ["2026-01"], // Also searchable as January 2026
-        summary: "Winter edition with updates, events, and announcements for the new year.",
-        topics: ["Bulletin"],
-        url: "bulletins/December2025January2026.pdf"
-      },
-      {
-        title: "October/November 2025 Bulletin",
-        date: "2025-10",
-        altMonths: ["2025-11"], // Also searchable as November
-        summary: "Mid-fall updates, event announcements, and submission opportunities.",
-        topics: ["Bulletin", "Newsletter"],
-        url: "bulletins/October2025.pdf"
-      },
-      {
-        title: "August/September 2025 Bulletin",
-        date: "2025-08",
-        altMonths: ["2025-09"], // Also searchable as September
-        summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.",
-        topics: ["Bulletin"],
-        url: "bulletins/September2025.pdf"
-      },
-      {
-        title: "May 2025 Bulletin",
-        date: "2025-05",
-        summary: "End of academic year wrap-up, spring issue release, and summer opportunities.",
-        topics: ["Bulletin"],
-        url: "bulletins/May2025.pdf"
-      },
-      {
-        title: "April 2025 Bulletin",
-        date: "2025-04",
-        summary: "Artificial Intelligence Community at Stony Brook University Hosts Its First Ever Datathon!, New York State to Its Graduate Workers: Poverty is Your Choice and spring programming.",
-        topics: ["Bulletin"],
-        url: "bulletins/April2025.pdf"
-      },
-      {
-        title: "March 2025 Bulletin",
-        date: "2025-03",
-        summary: "Women's History Month: Trailblazers in Science, Spring Break is Here: Tips for Refresh and Recharge!, Professor of the Month, and spring programming.",
-        topics: ["Bulletin"],
-        url: "bulletins/March2025.pdf"
-      },
-      {
-        title: "February 2025 Bulletin",
-        date: "2025-02",
-        summary: "BRIDGES conference highlights, submission calls, and spring programming preview.",
-        topics: ["Bulletin"],
-        url: "bulletins/February2025.pdf"
-      },
-      {
-        title: "Winterim 2024 Bulletin",
-        date: "2024-12",
-        summary: "BRIDGES conference updates and end of the semester recap.",
-        topics: ["Bulletin"],
-        url: "bulletins/Winterim2024.pdf"
-      },
-      {
-        title: "November 2024 Bulletin",
-        date: "2024-11",
-        summary: "Fall semester updates, upcoming deadlines, and graduate community news.",
-        topics: ["Bulletin"],
-        url: "bulletins/November2024.pdf"
-      },
-      {
-        title: "October 2024 Bulletin",
-        date: "2024-10",
-        summary: "Mid-fall updates, fall programming, and submission opportunities.",
-        topics: ["Bulletin"],
-        url: "bulletins/October2024.pdf"
-      },
-      {
-        title: "September 2024 Bulletin",
-        date: "2024-09",
-        summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.",
-        topics: ["Bulletin"],
-        url: "bulletins/September2024.pdf"
-      },
-      {
-        title: "May 2024 Bulletin",
-        date: "2024-05",
-        summary: "The 3rd annual Physics and Astronomy Chair's Cup Soccer Tournament, fall programming, and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/May2024.pdf"
-      },
-      {
-        title: "April 2024 Bulletin",
-        date: "2024-04",
-        summary: "Mastering Exam Season With Success, fall programming, and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/April2024.pdf"
-      },
-      {
-        title: "March 2024 Bulletin",
-        date: "2024-03",
-        summary: "GradMag Welcome BackSpring Luncheon Recap and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/March2024.pdf"
-      },
-      {
-        title: "February 2024 Bulletin",
-        date: "2024-02",
-        summary: "Conversations with GSA: Alexandra Checkers.",
-        topics: ["Bulletin"],
-        url: "bulletins/February2024.pdf"
-      },
-      {
-        title: "Winterim 2023 Bulletin",
-        date: "2023-12",
-        summary: "The 9th Annual SBUHosted WolfieTank, fall programming, and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/Winterim2023.pdf"
-      },
-      {
-        title: "November 2023 Bulletin",
-        date: "2023-11",
-        summary: "Establishing a SACNAS Chapter at Stony Brook University, fall programming, and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/November2023.pdf"
-      },
-      {
-        title: "October 2023 Bulletin",
-        date: "2023-10",
-        summary: "Science on Stage, fall programming, and professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/October2023.pdf"
-      },
-      {
-        title: "September 2023 Bulletin",
-        date: "2023-09",
-        summary: "Organization introduction, fall programming, professor of the month.",
-        topics: ["Bulletin"],
-        url: "bulletins/September2023.pdf"
-      }
+      { title: "March/April 2026 Bulletin", date: "2026-03", altMonths: ["2026-04"], summary: "Spring edition with updates on the magazine release, upcoming events, and community highlights.", url: "bulletins/March2026April2026.pdf" },
+      { title: "December 2025/January 2026 Bulletin", date: "2025-12", altMonths: ["2026-01"], summary: "Winter edition with updates, events, and announcements for the new year.", url: "bulletins/December2025January2026.pdf" },
+      { title: "October/November 2025 Bulletin", date: "2025-10", altMonths: ["2025-11"], summary: "Mid-fall updates, event announcements, and submission opportunities.", url: "bulletins/October2025.pdf" },
+      { title: "August/September 2025 Bulletin", date: "2025-08", altMonths: ["2025-09"], summary: "Welcome back edition featuring new initiatives, fall programming, and ways to get involved.", url: "bulletins/September2025.pdf" },
+      { title: "May 2025 Bulletin", date: "2025-05", summary: "End of academic year wrap-up, spring issue release, and summer opportunities.", url: "bulletins/May2025.pdf" },
+      { title: "April 2025 Bulletin", date: "2025-04", summary: "AI Community Datathon, graduate worker updates, and spring programming.", url: "bulletins/April2025.pdf" },
+      { title: "March 2025 Bulletin", date: "2025-03", summary: "Women's History Month trailblazers, spring break tips, and Professor of the Month.", url: "bulletins/March2025.pdf" },
+      { title: "February 2025 Bulletin", date: "2025-02", summary: "BRIDGES conference highlights, submission calls, and spring programming preview.", url: "bulletins/February2025.pdf" },
+      { title: "Winterim 2024 Bulletin", date: "2024-12", summary: "BRIDGES conference updates and end of the semester recap.", url: "bulletins/Winterim2024.pdf" },
+      { title: "November 2024 Bulletin", date: "2024-11", summary: "Fall semester updates, upcoming deadlines, and graduate community news.", url: "bulletins/November2024.pdf" },
+      { title: "October 2024 Bulletin", date: "2024-10", summary: "Mid-fall updates, fall programming, and submission opportunities.", url: "bulletins/October2024.pdf" },
+      { title: "September 2024 Bulletin", date: "2024-09", summary: "Welcome back edition featuring new initiatives and fall programming.", url: "bulletins/September2024.pdf" },
+      { title: "May 2024 Bulletin", date: "2024-05", summary: "Chair's Cup Soccer Tournament, fall programming, and professor of the month.", url: "bulletins/May2024.pdf" },
+      { title: "April 2024 Bulletin", date: "2024-04", summary: "Mastering Exam Season, fall programming, and professor of the month.", url: "bulletins/April2024.pdf" },
+      { title: "March 2024 Bulletin", date: "2024-03", summary: "Spring Luncheon Recap and professor of the month.", url: "bulletins/March2024.pdf" },
+      { title: "February 2024 Bulletin", date: "2024-02", summary: "Conversations with GSA: Alexandra Checkers.", url: "bulletins/February2024.pdf" },
+      { title: "Winterim 2023 Bulletin", date: "2023-12", summary: "Annual WolfieTank, fall programming, and professor of the month.", url: "bulletins/Winterim2023.pdf" },
+      { title: "November 2023 Bulletin", date: "2023-11", summary: "Establishing a SACNAS Chapter, fall programming, and professor of the month.", url: "bulletins/November2023.pdf" },
+      { title: "October 2023 Bulletin", date: "2023-10", summary: "Science on Stage, fall programming, and professor of the month.", url: "bulletins/October2023.pdf" },
+      { title: "September 2023 Bulletin", date: "2023-09", summary: "Organization introduction, fall programming, professor of the month.", url: "bulletins/September2023.pdf" }
     ];
 
-    // 2) Utility helpers
-    const $$ = (sel, el=document) => el.querySelector(sel);
-    const $$$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+    const $$ = sel => document.querySelector(sel);
     const fmt = (d, altMonths) => {
-      // Handle YYYY-MM format
-      if (d.match(/^\d{4}-\d{2}$/)) {
-        const [year, month] = d.split('-');
-        const date = new Date(year, parseInt(month) - 1, 1);
-        const mainMonth = date.toLocaleDateString(undefined, {month:'long'});
-        
-        // If there are alt months, show both
-        if (altMonths && altMonths.length > 0) {
-          const altMonth = altMonths[0].split('-');
-          const altDate = new Date(altMonth[0], parseInt(altMonth[1]) - 1, 1);
-          const altMonthName = altDate.toLocaleDateString(undefined, {month:'long'});
-          // Check if same year or different years
-          if (altMonth[0] === year) {
-            return `${mainMonth}/${altMonthName} ${year}`;
-          } else {
-            return `${mainMonth} ${year}/${altMonthName} ${altMonth[0]}`;
-          }
-        }
-        return date.toLocaleDateString(undefined, {year:'numeric', month:'long'});
+      const [year, month] = d.split('-');
+      const date = new Date(year, parseInt(month) - 1, 1);
+      const mainMonth = date.toLocaleDateString(undefined, {month:'long'});
+      if (altMonths && altMonths.length > 0) {
+        const [altYear, altMonth] = altMonths[0].split('-');
+        const altDate = new Date(altYear, parseInt(altMonth) - 1, 1);
+        const altMonthName = altDate.toLocaleDateString(undefined, {month:'long'});
+        return altYear === year ? `${mainMonth}/${altMonthName} ${year}` : `${mainMonth} ${year}/${altMonthName} ${altYear}`;
       }
-      // Handle full date format
-      const date = new Date(d);
       return date.toLocaleDateString(undefined, {year:'numeric', month:'long'});
     };
 
-    // 3) Populate year + topics
     const years = Array.from(new Set(BULLETINS.map(b=> new Date(b.date).getFullYear()))).sort((a,b)=>b-a);
     const yearSelect = $$('#year');
     years.forEach(y=>{ const o=document.createElement('option'); o.value=String(y); o.textContent=y; yearSelect.appendChild(o); });
 
-    const topicSet = new Set(BULLETINS.flatMap(b=>b.topics));
-    const topicBar = $$('#topicBar');
-    const activeTopics = new Set();
-    topicSet.forEach(t=>{
-      const b=document.createElement('button');
-      b.type='button'; b.className='pill'; b.textContent=t; b.setAttribute('aria-pressed','false');
-      b.addEventListener('click',()=>{ const on=b.getAttribute('aria-pressed')==='true'; b.setAttribute('aria-pressed', String(!on)); if(on){activeTopics.delete(t)} else {activeTopics.add(t)} render();});
-      topicBar.appendChild(b);
-    });
-
-    // 4) Render cards
     const grid = $$('#grid');
     const empty = $$('#empty');
     const q = $$('#q');
     const sortSel = $$('#sort');
 
-    // Helper to get all searchable months for a bulletin (includes altMonths)
     function getAllMonths(b) {
       const months = [b.date];
       if (b.altMonths) months.push(...b.altMonths);
       return months;
     }
 
-    // Helper to format month name for search matching
-    function getMonthNames(b) {
-      return getAllMonths(b).map(d => {
-        const [year, month] = d.split('-');
-        const date = new Date(year, parseInt(month) - 1, 1);
-        return date.toLocaleDateString(undefined, {month:'long'}).toLowerCase();
-      });
-    }
-
     function filterData(){
       const query = q.value.trim().toLowerCase();
       const y = yearSelect.value;
       let data = BULLETINS.slice();
-      if(query){ 
-        data = data.filter(b => {
-          // Search in title, summary, and all month names (including alt months)
-          const monthNames = getMonthNames(b).join(' ');
-          return (b.title+" "+b.summary+" "+monthNames).toLowerCase().includes(query);
-        }); 
-      }
-      if(y){ 
-        // Match if any of the bulletin's months fall in the selected year
-        data = data.filter(b => {
-          const allMonths = getAllMonths(b);
-          return allMonths.some(d => d.startsWith(y));
-        }); 
-      }
-      if(activeTopics.size){ data = data.filter(b => b.topics.some(t => activeTopics.has(t))); }
+      if(query){ data = data.filter(b => (b.title+" "+b.summary).toLowerCase().includes(query)); }
+      if(y){ data = data.filter(b => getAllMonths(b).some(d => d.startsWith(y))); }
       data.sort((a,b)=> sortSel.value==='new' ? (new Date(b.date)-new Date(a.date)) : (new Date(a.date)-new Date(b.date)) );
       return data;
     }
@@ -475,40 +442,29 @@
       data.forEach(b=>{
         const el = document.createElement('article');
         el.className='card';
-        const isPDF = b.url?.toLowerCase().endsWith('.pdf');
-        const openLabel = isPDF ? 'View PDF' : 'Open';
-        const downloadAttr = isPDF ? `download` : '';
-        // Create PDF preview thumbnail - showing entire PDF
-        const previewHtml = isPDF 
-          ? `<iframe class="pdf-preview" src="${b.url}#toolbar=0&navpanes=0&zoom=fit&scrollbar=0" type="application/pdf" frameborder="0" scrolling="no"></iframe>`
-          : '<div class="pdf-icon">📄</div>';
-        
         el.innerHTML = `
-          <a class="thumb" href="${b.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${isPDF ? 'PDF' : 'link'}: ${b.title}">
-            ${previewHtml}
+          <a class="thumb" href="${b.url}" target="_blank" rel="noopener">
+            <iframe class="pdf-preview" src="${b.url}#toolbar=0&navpanes=0&zoom=fit" frameborder="0" scrolling="no"></iframe>
           </a>
           <div class="card-head">
-            <div class="tagrow">${b.topics.map(t=>`<span class=\"tag\">${t}</span>`).join('')}</div>
             <h3>${b.title}</h3>
             <div class="meta">${fmt(b.date, b.altMonths)}</div>
           </div>
           <div class="card-body">${b.summary}</div>
           <div class="card-foot">
-            <button class="btn primary" data-open-preview="true" data-url="${b.url}" data-title="${b.title}">${openLabel}</button>
-            <a class="btn" href="${b.url}" ${downloadAttr}>Download</a>
+            <button class="btn primary" data-open-preview="true" data-url="${b.url}" data-title="${b.title}">View</button>
+            <a class="btn" href="${b.url}" download>Download</a>
           </div>`;
         grid.appendChild(el);
       });
-      const none = data.length === 0;
-      grid.hidden = none; empty.hidden = !none;
+      grid.hidden = data.length === 0;
+      empty.hidden = data.length > 0;
     }
 
-    // 5) Wire up controls
     q.addEventListener('input', render);
     yearSelect.addEventListener('change', render);
     sortSel.addEventListener('change', render);
 
-    // PDF preview dialog handlers
     const dlg = document.getElementById('pdfDialog');
     const frame = document.getElementById('pdfFrame');
     const titleEl = document.getElementById('pdfTitle');
@@ -516,16 +472,13 @@
     document.addEventListener('click', (e)=>{
       const btn = e.target.closest('[data-open-preview]');
       if(!btn) return;
-      const url = btn.getAttribute('data-url');
-      const title = btn.getAttribute('data-title');
-      titleEl.textContent = title;
-      downloadEl.href = url;
-      frame.src = url + (url.includes('#') ? '' : '#toolbar=1&navpanes=0');
+      titleEl.textContent = btn.getAttribute('data-title');
+      downloadEl.href = btn.getAttribute('data-url');
+      frame.src = btn.getAttribute('data-url') + '#toolbar=1&navpanes=0';
       if(typeof dlg.showModal === 'function') dlg.showModal();
     });
     document.getElementById('pdfClose').addEventListener('click', ()=>{ frame.src='about:blank'; dlg.close(); });
 
-    // 6) init
     document.getElementById('yr').textContent = new Date().getFullYear();
     render();
 

@@ -4,511 +4,516 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home • SBU Grad Mag</title>
+  <title>Home • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="Science communication, art, poetry, and thought from the graduate community at Stony Brook University." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
-    * { box-sizing: border-box }
-    img { vertical-align: middle; }
+    .home-page {
+      background: #fff;
+      min-height: 100vh;
+    }
 
-    /* ===== Main (top) slideshow ===== */
-    .slideshow-container {
-      width: 100%;
-      max-width: 100%;
-      height: 350px;
-      position: relative;
+    /* Masthead */
+    .masthead {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    .masthead-date {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .masthead h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
       margin: 0;
-      background: #8b8b8b;
-      overflow: hidden;
-      background-image: url("images/carousel.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: white;
+      color: #1a1a1a;
     }
-    .slideshow-container::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-       /* background: rgba(0,0,0,0.5); */
-      z-index: 1;
-      pointer-events: none;
-    }
-    .slides-wrapper {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s ease-in-out;
-      transform: translateX(0%);
-    }
-    .mySlides { 
-      min-width: 100%;
-      width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 2;
-    }
-    .slideshow-container .slide-content { 
-      max-width: 65%; 
-      margin: 0 auto; 
-      padding: 1rem; 
-      position: relative; 
-      z-index: 3; 
-      color: #ffffff !important; 
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.9);  /* text shadow for readability */
+    .masthead-tagline {
+      font-size: 1rem;
+      color: #666;
+      margin-top: 0.5rem;
+      font-style: italic;
     }
 
-    .slideshow-container .slide-content h1 { 
-      color: #ffffff !important; 
-      text-shadow: 2px 2px 6px rgba(0,0,0,1); 
-    }
-
-    .slideshow-container .slide-content p { 
-      color: #ffffff !important; 
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
-    }
-
-    .slideshow-container .slide-content a { 
-      color: #ffffff !important; 
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.9); 
-    }
-
-    .slideshow-container .slide-content strong { 
-      color: #ffffff !important; 
-    }
-
-    /* Arrows */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 3px;
-      user-select: none;
-      background-color: rgba(0,0,0,0.3);
-      z-index: 3;
-    }
-    .prev { left: 0; }
-    .next { right: 0; }
-    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.6); }
-
-    /* Dots */
-    .dot {
-      cursor: pointer;
-      height: 10px;
-      width: 10px;
-      margin: 0 4px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s ease;
-    }
-    .dot.active, .dot:hover { background-color: #717171; }
-
-    .fade { animation: none; }
-
-    .main-dots-wrap {
-      max-width: 1100px;
-      margin: 8px auto 16px;
-      padding: 0 18px;
-      text-align: left;
-    }
-
-    /* ===== About + Featured Content grid ===== */
-    .content-grid {
-      max-width: 1100px;
+    /* Main Container */
+    .main-container {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 18px;
+      padding: 0 1rem;
+    }
+
+    /* Featured Event - Hero Style */
+    .featured-event {
       display: grid;
-      grid-template-columns: 1fr 360px; /* left column + right poster card */
-      gap: 24px;
-      align-items: start;
-    }
-    .content-grid, .content-grid * { text-align: left; }
-
-    /* Left column stack: About + Year updates */
-    .left-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 24px; /* spacing between About and Updates */
-    }
-
-    .featured-card {
-      background: #ffffff;
-      border: 1px solid #eef2f7;
-      border-radius: 16px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0);
-      overflow: hidden;
-      position: relative;
-    }
-    .featured-card header {
-      padding: 14px 16px;
-      font-weight: 700;
-      border-bottom: 1px solid #eef2f7;
-    }
-    .poster-slideshow {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #f3f4f6;
-      overflow: hidden;
-    }
-    .poster-wrapper {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.6s ease-in-out;
-    }
-    .posterSlide { 
-      min-width: 100%;
-      width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-      position: relative;
-    }
-    .posterSlide img { width: 100%; height: 100%; object-fit: contain; display: block; background: #f8f9fa; }
-    .poster-dots {
-      display: flex;
-      gap: 6px;
-      padding: 10px 14px 16px;
-    }
-
-    /* Poster carousel arrows */
-    .poster-prev, .poster-next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      padding: 10px;
-      margin-top: -20px;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 16px;
-      transition: 0.6s ease;
-      border-radius: 3px;
-      user-select: none;
-      background-color: rgba(0,0,0,0);
-      z-index: 3;
-    }
-    .poster-prev { left: 6px; }
-    .poster-next { right: 6px; }
-    .poster-prev:hover, .poster-next:hover { background-color: rgba(0,0,0,0.6); }
-
-    /* Keep your other sections left aligned too */
-    .updates-year, .updates-year * { text-align: left !important; }
-
-    /* Center dots for BOTH carousels */
-.main-dots-wrap {
-  text-align: center !important;   /* main carousel dots */
-}
-.main-dots-wrap .dot {
-  display: inline-block;           /* keep them inline so centering works */
-}
-
-.poster-dots {
-  display: flex;
-  justify-content: center;         /* poster carousel dots */
-}
-
-.event-buttons {
-  display: flex;
-  gap: 10px;
-  padding: 0 14px 16px;
-}
-.event-btn {
-  flex: 1;
-  text-align: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-decoration: none;
-  background: #111;
-  color: #fff;
-  border: 2px solid #111;
-  transition: all 0.2s ease;
-}
-.event-btn:hover {
-  background: #333;
-  border-color: #333;
-}
-.event-btn.secondary {
-  background: #fff;
-  color: #111;
-  border: 2px solid #ddd;
-}
-.event-btn.secondary:hover {
-  background: #f5f5f5;
-  border-color: #bbb;
-}
-
-    /* Hero Carousel Section */
-    .hero-carousel {
-      max-width: 1100px;
-      margin: 0 auto 2rem;
-      padding: 0 18px;
-      position: relative;
-    }
-    .hero-carousel-inner {
-      position: relative;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-radius: 20px;
-      overflow: hidden;
-      min-height: 400px;
-    }
-    .hero-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.6s ease, visibility 0.6s ease;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid #eee;
       align-items: center;
-      padding: 2rem;
     }
-    .hero-slide.active {
-      opacity: 1;
-      visibility: visible;
+    .featured-event-image {
       position: relative;
     }
-    .hero-slide-media img {
+    .featured-event-image img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     }
-    .hero-slide-content {
+    .featured-event-image .event-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: #0563bb;
       color: #fff;
-      padding: 1rem;
-    }
-    .hero-slide-content .badge {
-      display: inline-block;
-      background: linear-gradient(90deg, #e94560, #ff6b6b);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+      border-radius: 2px;
     }
-    .hero-slide-content h2 {
+    .featured-event-content {
+      padding: 1rem 0;
+    }
+    .featured-event-content .category {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .featured-event-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 400;
+      line-height: 1.2;
       margin: 0 0 1rem;
-      color: #fff;
+      color: #1a1a1a;
     }
-    .hero-slide-content p {
-      opacity: 0.9;
-      line-height: 1.6;
+    .featured-event-content .event-meta {
+      font-size: 1rem;
+      color: #444;
       margin-bottom: 1rem;
+      line-height: 1.6;
     }
-    .hero-slide-content .hero-btns {
+    .featured-event-content .event-meta strong {
+      color: #1a1a1a;
+    }
+    .featured-event-content .event-description {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .featured-event-content .btn-group {
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .hero-slide-content .hero-btns a {
-      padding: 0.7rem 1.25rem;
-      border-radius: 8px;
-      font-weight: 600;
+    .featured-event-content .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
       text-decoration: none;
-      font-size: 0.95rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 4px;
       transition: all 0.2s ease;
     }
-    .hero-slide-content .hero-btns .btn-primary {
-      background: #e94560;
+    .featured-event-content .btn-primary {
+      background: #1a1a1a;
       color: #fff;
     }
-    .hero-slide-content .hero-btns .btn-primary:hover {
-      background: #d63850;
-      text-decoration: none;
+    .featured-event-content .btn-primary:hover {
+      background: #333;
     }
-    .hero-slide-content .hero-btns .btn-outline {
+    .featured-event-content .btn-outline {
       background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.4);
+      color: #1a1a1a;
+      border: 1px solid #ddd;
     }
-    .hero-slide-content .hero-btns .btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-      text-decoration: none;
+    .featured-event-content .btn-outline:hover {
+      border-color: #1a1a1a;
     }
-    .hero-carousel-nav {
+
+    /* Section Headers */
+    .section-header {
       display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.5rem;
     }
-    .hero-dot {
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      background: #e2e8f0;
-      color: #64748b;
-      transition: all 0.2s ease;
+    .section-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
     }
-    .hero-dot:hover {
-      background: #cbd5e1;
+    .section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
     }
-    .hero-dot.active {
-      background: #0563bb;
-      color: #fff;
+
+    /* Events Grid */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #eee;
     }
-    .bridges-photo-slideshow {
-      position: relative;
-      width: 100%;
-      min-height: 280px;
-      border-radius: 12px;
+    .event-card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .event-card-image {
+      aspect-ratio: 1;
+      border-radius: 4px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      background: #f5f5f5;
     }
-    .bridges-slideshow-img {
-      position: absolute;
-      top: 0;
-      left: 0;
+    .event-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.5s ease;
     }
-    .bridges-slideshow-img.active {
-      opacity: 1;
-      position: relative;
+    .event-card-content .category {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
     }
-    @media (max-width: 768px) {
-      .hero-slide {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-      }
-      .hero-slide-content h2 { font-size: 1.5rem; }
-      .hero-carousel-nav {
-        flex-wrap: wrap;
-      }
-      .hero-dot {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.8rem;
-      }
-      .bridges-photo-grid-hero {
-        min-height: 180px;
-      }
+    .event-card-content h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin: 0 0 0.5rem;
+      color: #1a1a1a;
+    }
+    .event-card-content h4 a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .event-card-content h4 a:hover {
+      color: #0563bb;
+    }
+    .event-card-content .meta {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.5;
     }
 
-    /* Video Hero Section (legacy) */
-    .video-hero {
-      max-width: 1100px;
-      margin: 0 auto 2rem;
-      padding: 0 18px;
-    }
-    .video-hero-inner {
+    /* Two Column Layout */
+    .two-column {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-radius: 16px;
-      overflow: hidden;
-      padding: 2rem;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      padding: 2rem 0 3rem;
     }
-    .video-hero video {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-    .video-hero-content {
-      color: #fff;
-      padding: 1rem;
-    }
-    .video-hero-content .badge {
-      display: inline-block;
-      background: linear-gradient(90deg, #e94560, #ff6b6b);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      margin-bottom: 1rem;
-    }
-    .video-hero-content h2 {
+
+    /* Calendar Section */
+    .cal-section h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin: 0 0 0.75rem;
-      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      color: #1a1a1a;
     }
-    .video-hero-content p {
-      opacity: 0.9;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
+    .cal-wrap {
+      border: 1px solid #eee;
     }
-    .video-hero-content .hero-btns {
+    .cal-toolbar {
       display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #eee;
+      background: #fafafa;
     }
-    .video-hero-content .hero-btns a {
-      padding: 0.7rem 1.25rem;
-      border-radius: 8px;
+    .cal-toolbar .when {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #1a1a1a;
+    }
+    .cal-toolbar .controls {
+      display: flex;
+      gap: 0.35rem;
+    }
+    .cal-btn {
+      padding: 0.3rem 0.6rem;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 0.75rem;
       font-weight: 600;
-      text-decoration: none;
-      font-size: 0.9rem;
+      cursor: pointer;
       transition: all 0.2s ease;
     }
-    .video-hero-content .hero-btns .btn-primary {
-      background: #e94560;
+    .cal-btn:hover {
+      border-color: #1a1a1a;
+    }
+    .cal-daynames {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-bottom: 1px solid #eee;
+    }
+    .cal-daynames > div {
+      text-align: center;
+      padding: 0.5rem 0.25rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+    }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+    .cell {
+      min-height: 70px;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 0.35rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .cell:nth-child(7n) {
+      border-right: none;
+    }
+    .cell.out {
+      background: #fafafa;
+      opacity: 0.5;
+    }
+    .cell .date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.25rem;
+    }
+    .events {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .event {
+      background: #1a1a1a;
       color: #fff;
+      padding: 0.2rem 0.35rem;
+      font-size: 0.6rem;
+      line-height: 1.2;
     }
-    .video-hero-content .hero-btns .btn-primary:hover {
-      background: #d63850;
+    .event .t {
+      display: block;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .video-hero-content .hero-btns .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.4);
+
+    /* Sidebar */
+    .sidebar {
+      padding-left: 2rem;
+      border-left: 1px solid #eee;
     }
-    .video-hero-content .hero-btns .btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
+    .sidebar-section {
+      margin-bottom: 2rem;
+    }
+    .sidebar-section h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      color: #1a1a1a;
+    }
+    .agenda-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .agenda-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .agenda-list li:last-child {
+      border-bottom: none;
+    }
+    .agenda-list .date-badge {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.2rem;
+    }
+    .agenda-list .event-title {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+    .agenda-list .event-meta {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .sidebar .view-all {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      color: #0563bb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .sidebar .view-all:hover {
+      text-decoration: underline;
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .quick-links a:hover {
+      color: #0563bb;
+    }
+    .quick-links a::before {
+      content: "→";
+      color: #0563bb;
+    }
+
+    /* Radio List */
+    .radio-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .radio-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .radio-list li:last-child {
+      border-bottom: none;
+    }
+    .radio-list a {
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+    .radio-list a:hover {
+      color: #0563bb;
+    }
+    .radio-list .date {
+      font-size: 0.8rem;
+      color: #888;
+      display: block;
+      margin-top: 0.25rem;
     }
 
     @media (max-width: 900px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .slide-content { max-width: 90%; }
-      .video-hero-inner { 
-        grid-template-columns: 1fr; 
-        padding: 1.5rem;
+      .cal-section {
+        order: 2;
       }
-      .video-hero-content h2 { font-size: 1.5rem; }
+      .cell {
+        min-height: 60px;
+      }
+      .cell .date {
+        font-size: 0.7rem;
+      }
+      .event {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.25rem;
+      }
     }
-
-    
+    @media (max-width: 900px) {
+      .featured-event {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+      .event-card {
+        grid-template-columns: 100px 1fr;
+      }
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .sidebar {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-top: 2rem;
+      }
+    }
   </style>
 </head>
-<body>
+<body class="home-page">
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav {
+          max-width: 100%;
+          margin: 0;
+          padding-left: 2.5%;
+          padding-right: 2.5%;
+        }
+        .nav-links a, .nav-dropdown-menu a {
+          text-transform: uppercase;
+        }
+        .brand {
+          margin-left: 0;
+        }
+        .brand-text {
+          font-family: 'Manrope', sans-serif;
+          font-size: 1.35rem;
+          font-weight: 700;
+          color: #1a1a1a;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+        @media (max-width: 768px) {
+          .brand-text {
+            font-size: 1.05rem;
+            letter-spacing: 0.03em;
+          }
+        }
+      </style>
       <nav class="nav-links">
         <a href="index.html" aria-current="page">Home</a>
         <div class="nav-dropdown">
@@ -520,16 +525,17 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -539,7 +545,6 @@
         </div>
         <a href="radio.html">Radio</a>
       </nav>
-      <!-- Hamburger button (mobile only) -->
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -560,16 +565,17 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
-<div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
     </div>
-    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -580,196 +586,306 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <!-- Spacer -->
-  <div style="height: 1rem;"></div>
-
-  <!-- Hero Carousel Section -->
-  <section class="hero-carousel" id="heroCarousel">
-    <div class="hero-carousel-inner">
-      <!-- Slide 1: BRIDGES Wrap-Up -->
-      <div class="hero-slide active" data-slide="0" data-duration="30000">
-        <div class="hero-slide-media">
-          <div class="bridges-photo-slideshow" id="bridgesPhotoSlideshow">
-            <img class="bridges-slideshow-img active" src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026 Award Winners">
-            <img class="bridges-slideshow-img" src="images/TeamPhotos1.png" alt="BRIDGES 2026 Team">
-            <img class="bridges-slideshow-img" src="images/P1059693.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060303.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060348.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060409.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060435.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060456.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060704.JPG" alt="BRIDGES 2026">
-            <img class="bridges-slideshow-img" src="images/P1060901.JPG" alt="BRIDGES 2026">
-          </div>
-        </div>
-        <div class="hero-slide-content">
-          <span class="badge">BRIDGES 2026</span>
-          <h2>Thank You for Attending!</h2>
-          <p>The 2nd annual B.R.I.D.G.E.S. conference was a huge success! With 93 poster presentations, an art gallery, film screenings, and live music, our graduate community came together for an amazing day of interdisciplinary connection.</p>
-          <p><strong>February 19th, 2026</strong> • Student Activities Center</p>
-          <div class="hero-btns">
-            <a href="bridges.html" class="btn-primary">See Highlights</a>
-            <a href="press.html" class="btn-outline">Read Coverage</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 2: Tech & Friends -->
-      <div class="hero-slide" data-slide="1" data-duration="10000">
-        <div class="hero-slide-media">
-          <img src="images/radio1.png" alt="Tech & Friends Radio Show" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;">
-        </div>
-        <div class="hero-slide-content">
-          <span class="badge">WUSB 90.1 FM</span>
-          <h2>Tech & Friends</h2>
-          <p>Tune in to our new radio show! Every other Friday from 1-2pm, Tech & Friends features conversations with Stony Brook's graduate community, research highlights, and more.</p>
-          <p><strong>Every Other Friday</strong> • 1:00 - 2:00 PM</p>
-          <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
-            <strong style="color: #fde68a;">Now Streaming!</strong><br>
-            Listen live or catch up on past episodes.
-          </p>
-          <div class="hero-btns">
-            <a href="radio.html" class="btn-primary">Tune In</a>
-            <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-outline">WUSB Schedule</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3: Magazine Release -->
-      <div class="hero-slide" data-slide="2" data-duration="10000">
-        <div class="hero-slide-media">
-          <img src="images/ReleaseCeleb.JPG" alt="Magazine Release Celebration" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); object-fit: cover;">
-        </div>
-        <div class="hero-slide-content">
-          <span class="badge">Spring 2026</span>
-          <h2>Magazine Release Celebration</h2>
-          <p>Join us for the release of our newest edition, <em>The Next Generation</em>! Celebrate the creativity and scholarship of Stony Brook's graduate community with readings, refreshments, and community.</p>
-          <p><strong>May 5th, 2026 • 12 - 1:30pm</strong><br>The Shore Club (SAC Room 169)</p>
-          <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
-            <strong style="color: #fde68a;">You're Invited!</strong><br>
-            Come celebrate with us!
-          </p>
-          <div class="hero-btns">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScSYghFpcoN-vkthGL0AmcgBR9gCj_mTS-nKCktGDtG3bgSaw/viewform" target="_blank" rel="noopener" class="btn-primary">RSVP</a>
-            <a href="publications.html" class="btn-outline">View Previous Editions</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel Navigation -->
-    <div class="hero-carousel-nav">
-      <span class="hero-dot active" data-slide="0">B.R.I.D.G.E.S Recap</span>
-      <span class="hero-dot" data-slide="1">Tech & Friends</span>
-      <span class="hero-dot" data-slide="2">Magazine Release Party</span>
-    </div>
+  <!-- Masthead -->
+  <section class="masthead">
+    <div class="masthead-date">Spring 2026</div>
+    <h1>SBU Graduate Arts & Sciences Magazine</h1>
+    <p class="masthead-tagline">Science, art, and thought from Stony Brook's graduate community</p>
   </section>
 
-  <!-- Video Hero Section (COMMENTED OUT)
-  <section class="video-hero">
-    <div class="video-hero-inner">
-      <video autoplay muted loop playsinline>
-        <source src="images/BRIDGES2025Reel.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div class="video-hero-content">
-        <span class="badge">BRIDGES 2026</span>
-        <h2>Join Us for the 2nd Annual Conference</h2>
-        <p>Experience the interdisciplinary research, art, and creativity of Stony Brook's graduate community. BRIDGES brings together students from all departments for a day of connection and discovery.</p>
-        <p><strong>February 19th, 2026</strong> • Student Activities Center</p>
-        <p style="background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: 8px; margin: 1rem 0; font-size: 0.95rem;">
-          <strong style="color: #fde68a;">Submissions are now closed!</strong><br>
-          Don't miss out, RSVP to attend the conference!
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Featured Event -->
+    <article class="featured-event">
+      <div class="featured-event-image">
+        <span class="event-badge">Coming Up</span>
+        <img src="images/ReleaseCeleb.JPG" alt="Magazine Release Celebration">
+      </div>
+      <div class="featured-event-content">
+        <div class="category">Upcoming Event</div>
+        <h2>Magazine Release Celebration</h2>
+        <div class="event-meta">
+          <strong>May 5th, 2026</strong> • 12:00 – 1:30 PM<br>
+          The Shore Club (SAC Room 169)
+        </div>
+        <p class="event-description">
+          Join us for the release of our newest edition, <em>The Next Generation</em>! Celebrate the creativity and scholarship of Stony Brook's graduate community with readings, refreshments, and community.
         </p>
-        <div class="hero-btns">
-          <a href="https://forms.gle/LWv4kQsyAVSqYkT68" target="_blank" rel="noopener" class="btn-primary">RSVP Now</a>
-          <a href="bridges.html" class="btn-outline">Learn More</a>
+        <div class="btn-group">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScSYghFpcoN-vkthGL0AmcgBR9gCj_mTS-nKCktGDtG3bgSaw/viewform" target="_blank" rel="noopener" class="btn btn-primary">RSVP Now</a>
+          <a href="publications.html" class="btn btn-outline">View Past Editions</a>
         </div>
       </div>
+    </article>
+
+    <!-- More Events Section -->
+    <div class="section-header">
+      <h3>What's Happening</h3>
     </div>
-  </section>
-  END Video Hero Section -->
 
-  <!-- ===== GRID: LEFT (About) | RIGHT (Poster carousel) ===== -->
-  <div class="content-grid">
-    <!-- LEFT stack -->
-    <div class="left-stack">
-      <aside class="about-block updates-year">
-        <h1 class="section-title">About GradMag</h1>
-        <p>
-          The Graduate Arts &amp; Sciences Magazine at Stony Brook University is an official student organization. We serve as a platform where graduate students can share their academic research with their peers, faculty, and the wider community.
-        </p>
-        <p>
-          The magazine provides an opportunity for graduate students to showcase their talents, explore new topics, and engage in interdisciplinary discussions. With a focus on intellectual curiosity and community building, graduate students are given the opportunity to engage and collaborate with others through our events.
-        </p>
-
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <!-- Instagram -->
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-
-            <!-- LinkedIn -->
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-
-            <!-- Email -->
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-
-          <p class="donate-wrap">
-            <a class="btn donate-btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">
-              Join the Team
-            </a>
-            <a class="btn donate-btn" href="submissions.html">
-              Submit your work
-            </a>
+    <div class="events-grid">
+      <!-- Tech & Friends -->
+      <article class="event-card">
+        <div class="event-card-image">
+          <img src="images/radio1.png" alt="Tech & Friends Radio Show">
+        </div>
+        <div class="event-card-content">
+          <div class="category">Radio Show</div>
+          <h4><a href="radio.html">Tech & Friends on WUSB 90.1 FM</a></h4>
+          <p class="meta">
+            Every other Friday, 1–2 PM<br>
+            <strong>Next episode:</strong> May 1st, 2026
           </p>
+        </div>
+      </article>
+
+      <!-- BRIDGES Recap -->
+      <article class="event-card">
+        <div class="event-card-image">
+          <img src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026 Award Winners">
+        </div>
+        <div class="event-card-content">
+          <div class="category">Conference Recap</div>
+          <h4><a href="bridges.html">BRIDGES 2026: A Success</a></h4>
+          <p class="meta">
+            93 poster presentations, art gallery, film screenings, and live music brought together 300+ attendees.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Two Column: Calendar + Upcoming Events -->
+    <div class="two-column">
+      <!-- Calendar Section -->
+      <div class="cal-section">
+        <div class="cal-wrap" role="region" aria-label="Events calendar">
+          <div class="cal-toolbar">
+            <div class="when" id="when">Month YYYY</div>
+            <div class="controls">
+              <button class="cal-btn" id="prev">←</button>
+              <button class="cal-btn" id="today">Today</button>
+              <button class="cal-btn" id="next">→</button>
+            </div>
+          </div>
+          <div class="cal-daynames" aria-hidden="true">
+            <div>Sun</div><div>Mon</div><div>Tue</div>
+            <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+          <div class="cal-grid" id="grid"></div>
+        </div>
+      </div>
+
+      <!-- Sidebar: Upcoming Events -->
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h4>Upcoming Events</h4>
+          <ul class="agenda-list" id="agendaList"></ul>
+          <a href="events.html" class="view-all">View All Events →</a>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="sidebar-section">
+          <h4>Quick Links</h4>
+          <div class="quick-links">
+            <a href="bulletin.html">Monthly Bulletins</a>
+            <a href="press.html">Press Coverage</a>
+            <a href="about.html">About Us</a>
+            <a href="execboard.html">Executive Board</a>
+          </div>
+        </div>
+
+        <!-- Latest Episodes -->
+        <div class="sidebar-section">
+          <h4>Latest Radio Episodes</h4>
+          <ul class="radio-list">
+            <li>
+              <a href="radio.html">Art, Science, and the Power of Perception</a>
+              <span class="date">April 17, 2026</span>
+            </li>
+            <li>
+              <a href="radio.html">Mental Health in a Tech-Driven World</a>
+              <span class="date">April 3, 2026</span>
+            </li>
+            <li>
+              <a href="radio.html">BRIDGES 2026 Highlights, Part 2</a>
+              <span class="date">March 20, 2026</span>
+            </li>
+          </ul>
         </div>
       </aside>
     </div>
-
-    <!-- RIGHT: Announcements -->
-    <aside class="featured-card">
-      <header>Announcements</header>
-      <div style="padding: 14px 16px;">
-        <p style="color: #64748b; font-size: 0.9rem; text-align: center;">Check out what's happening with GradMag above!</p>
-      </div>
-    </aside>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // ===== MOBILE MENU =====
+    // Calendar Events
+    const EVENTS = [
+      {
+        title: 'Editorial Board Meeting',
+        date: { y: 2025, m: 8, d: 3 },
+        time: '2:45–3:15 pm',
+        location: 'Google Meets',
+        multi: true,
+        rule: { freq: 'BIWEEKLY', interval: 2, byday: ['WE'], until: { y: 2025, m: 11, d: 10 } }
+      },
+      { title: 'Tech & Friends (Premiere)', date: { y: 2026, m: 1, d: 20 }, time: '1:00–2:00 pm', location: 'WUSB 90.1 FM' },
+      {
+        title: 'Tech & Friends',
+        date: { y: 2026, m: 2, d: 20 },
+        time: '1:00–2:00 pm',
+        location: 'WUSB 90.1 FM',
+        multi: true,
+        rule: { freq: 'BIWEEKLY', interval: 2, byday: ['FR'], until: { y: 2026, m: 7, d: 21 } }
+      },
+      { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
+      { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
+      { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
+      { title: 'Magazine Release', date: { y: 2026, m: 4, d: 5 }, time: '12:00 - 1:30pm', location: 'The Shore Club' },
+    ];
+
+    function expandRecurring(events, viewStart, viewEnd) {
+      const out = [];
+      const DOW = ['SU','MO','TU','WE','TH','FR','SA'];
+      for (const e of events) {
+        if (!e.rule) continue;
+        const start = new Date(e.date.y, e.date.m, e.date.d);
+        const until = new Date(e.rule.until.y, e.rule.until.m, e.rule.until.d);
+        const interval = e.rule.interval ?? 2;
+        const bydayIdx = (e.rule.byday || [DOW[start.getDay()]]).map(d => DOW.indexOf(d)).filter(i => i >= 0);
+        for (const wd of bydayIdx) {
+          const first = new Date(start);
+          const delta = (wd - first.getDay() + 7) % 7;
+          first.setDate(first.getDate() + delta);
+          let cur = new Date(first);
+          if (cur < viewStart) {
+            const week = 7 * 24 * 60 * 60 * 1000;
+            const blocks = Math.floor((viewStart - cur) / (week * interval));
+            cur.setDate(cur.getDate() + (blocks * interval * 7));
+            while (cur < viewStart) cur.setDate(cur.getDate() + (interval * 7));
+          }
+          while (cur <= viewEnd && cur <= until) {
+            out.push({ ...e, date: { y: cur.getFullYear(), m: cur.getMonth(), d: cur.getDate() }, _instance: true });
+            cur.setDate(cur.getDate() + (interval * 7));
+          }
+        }
+      }
+      return out;
+    }
+
+    const grid = document.getElementById('grid');
+    const whenEl = document.getElementById('when');
+    const agendaList = document.getElementById('agendaList');
+    let cursor = new Date();
+    cursor.setDate(1);
+
+    function renderCalendar() {
+      const year = cursor.getFullYear();
+      const month = cursor.getMonth();
+      const firstDay = new Date(year, month, 1);
+      const startDay = firstDay.getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      whenEl.textContent = firstDay.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+
+      const viewStart = new Date(year, month, 1 - 7);
+      const viewEnd = new Date(year, month, daysInMonth + 7);
+      const expanded = expandRecurring(EVENTS, viewStart, viewEnd);
+      const all = [...EVENTS.filter(e => !e.rule), ...expanded];
+
+      const byDay = new Map();
+      function key(y, m, d) { return `${y}-${String(m + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`; }
+      for (const e of all) {
+        const k = key(e.date.y, e.date.m, e.date.d);
+        if (!byDay.has(k)) byDay.set(k, []);
+        byDay.get(k).push(e);
+      }
+
+      grid.innerHTML = '';
+      const prevMonthDays = new Date(year, month, 0).getDate();
+      for (let i = 0; i < startDay; i++) {
+        const d = prevMonthDays - startDay + 1 + i;
+        grid.appendChild(makeCell(d, true));
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        grid.appendChild(makeCell(d, false, byDay.get(key(year, month, d)) || []));
+      }
+      const totalCells = startDay + daysInMonth;
+      const trailing = (7 - (totalCells % 7)) % 7;
+      for (let i = 1; i <= trailing; i++) {
+        grid.appendChild(makeCell(i, true));
+      }
+
+      // Agenda list
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const upcoming = all
+        .map(e => ({ ...e, dt: new Date(e.date.y, e.date.m, e.date.d) }))
+        .filter(e => e.dt >= today)
+        .sort((a, b) => a.dt - b.dt)
+        .slice(0, 6);
+      agendaList.innerHTML = upcoming.map(e => {
+        const ds = e.dt.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+        const meta = [e.time, e.location].filter(Boolean).join(' • ');
+        return `<li>
+          <div class="date-badge">${ds}</div>
+          <div class="event-title">${e.title}</div>
+          ${meta ? `<div class="event-meta">${meta}</div>` : ''}
+        </li>`;
+      }).join('');
+    }
+
+    function makeCell(day, out = false, events = []) {
+      const cell = document.createElement('div');
+      cell.className = 'cell' + (out ? ' out' : '');
+      const date = document.createElement('div');
+      date.className = 'date';
+      date.textContent = day;
+      const list = document.createElement('div');
+      list.className = 'events';
+      events.slice(0, 2).forEach(e => {
+        const el = document.createElement('div');
+        el.className = 'event';
+        el.innerHTML = `<span class="t">${e.title}</span>`;
+        list.appendChild(el);
+      });
+      cell.appendChild(date);
+      cell.appendChild(list);
+      return cell;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => { cursor.setMonth(cursor.getMonth() - 1); renderCalendar(); });
+    document.getElementById('next').addEventListener('click', () => { cursor.setMonth(cursor.getMonth() + 1); renderCalendar(); });
+    document.getElementById('today').addEventListener('click', () => { cursor = new Date(); cursor.setDate(1); renderCalendar(); });
+    renderCalendar();
+
+    // Mobile Menu
     (function() {
       const hamburger = document.querySelector('.hamburger');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -783,7 +899,6 @@
           document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking a link
         mobileMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -792,7 +907,6 @@
           });
         });
 
-        // Dropdown toggles
         dropdownTitles.forEach(title => {
           title.addEventListener('click', function() {
             this.classList.toggle('active');
@@ -800,66 +914,6 @@
           });
         });
       }
-    })();
-
-    // ===== POSTER CAROUSEL (disabled - no longer used) =====
-    // Poster carousel code removed since we're using the hero carousel now
-
-    // ===== HERO CAROUSEL =====
-    (function() {
-      const slides = document.querySelectorAll('.hero-slide');
-      const dots = document.querySelectorAll('.hero-dot');
-      let currentSlide = 0;
-      const totalSlides = slides.length;
-      let slideTimer = null;
-
-      function goToSlide(index) {
-        if (index < 0) index = totalSlides - 1;
-        if (index >= totalSlides) index = 0;
-        currentSlide = index;
-        
-        slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === currentSlide);
-        });
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === currentSlide);
-        });
-        
-        // Schedule next slide based on current slide's duration
-        scheduleNextSlide();
-      }
-
-      function scheduleNextSlide() {
-        if (slideTimer) clearTimeout(slideTimer);
-        const currentSlideEl = slides[currentSlide];
-        const duration = parseInt(currentSlideEl.dataset.duration) || 10000;
-        slideTimer = setTimeout(() => goToSlide(currentSlide + 1), duration);
-      }
-
-      // Click handlers for dots
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goToSlide(i));
-      });
-
-      // Start the carousel
-      scheduleNextSlide();
-    })();
-
-    // ===== BRIDGES PHOTO SLIDESHOW =====
-    (function() {
-      const photos = document.querySelectorAll('.bridges-slideshow-img');
-      if (photos.length === 0) return;
-      
-      let currentPhoto = 0;
-      const photoInterval = 3000; // 3 seconds per photo
-
-      function nextPhoto() {
-        photos[currentPhoto].classList.remove('active');
-        currentPhoto = (currentPhoto + 1) % photos.length;
-        photos[currentPhoto].classList.add('active');
-      }
-
-      setInterval(nextPhoto, photoInterval);
     })();
   </script>
 </body>

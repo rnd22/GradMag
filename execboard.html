@@ -4,23 +4,136 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Executive Board • SBU Grad Mag</title>
+  <title>Executive Board • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="Meet the 2024–2025 Executive Board of the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
-  <link rel="stylesheet" href="about.css" />
+  <style>
+    .board-page {
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .page-header .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin: 0;
+      color: #1a1a1a;
+    }
+    .page-header .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0.75rem;
+      font-style: italic;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem 3rem;
+    }
+
+    /* People Grid - 3 per row (override testthis.css) */
+    .board-page .people-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 2rem !important;
+    }
+
+    .board-page .person-card {
+      grid-column: auto !important;
+      border: 1px solid #eee;
+      border-radius: 0;
+      box-shadow: none;
+      transition: border-color 0.2s ease;
+    }
+    .board-page .person-card:hover {
+      border-color: #0563bb;
+    }
+
+    .board-page .person-media {
+      aspect-ratio: 4 / 3;
+      background: #f8f9fa;
+      overflow: hidden;
+    }
+    .board-page .person-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .board-page .person-body {
+      padding: 1.25rem;
+    }
+    .board-page .person-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin: 0 0 0.25rem;
+      color: #1a1a1a;
+    }
+    .board-page .person-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0563bb !important;
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .board-page .person-bio {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* Responsive - 2 columns on tablet, 1 on mobile */
+    @media (max-width: 900px) {
+      .board-page .people-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 1.5rem !important; }
+    }
+    @media (max-width: 600px) {
+      .board-page .people-grid { grid-template-columns: 1fr !important; }
+      .board-page .person-card { grid-column: auto !important; }
+    }
+  </style>
 </head>
-<body>
+<body class="board-page">
 
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -32,16 +145,17 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -71,16 +185,17 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
-<div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
     </div>
-    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -91,27 +206,27 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="section-kicker">About</div>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="label">About</div>
     <h1>Executive Board</h1>
-    <p class="sub">Meet the team behind the SBU Graduate Arts & Sciences Magazine. We amplify graduate voices at the intersection of science, art, and public engagement.</p>
+    <p class="subtitle">Meet the team behind the SBU Graduate Arts & Sciences Magazine</p>
   </section>
 
-  <!-- Board Grid -->
-  <section class="container">
+  <!-- Content -->
+  <div class="main-container">
     <div class="people-grid">
 
       <!-- Ava Nederlander -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-ava.jpg" alt="Ava Nederlander — Founder, President & Executive Editor">
+          <img src="images/board-ava.jpg" alt="Ava Nederlander">
         </div>
         <div class="person-body">
           <h4 class="person-name">Ava Nederlander</h4>
-          <p class="person-role">Founder, President &amp; Executive Editor</p>
+          <p class="person-role">Founder, President & Executive Editor</p>
           <p class="person-bio">
-              Ava is a PhD Candidate in the Department of Electrical and Computer Engineering, working under Dr. Arie Kaufman in the Center for Visual Computing. Her research interests are interdisciplinary, focusing on the intersection of machine learning and augmented reality/virtual reality with medical oncologic surgeries. 
+            PhD Candidate in Electrical and Computer Engineering, working under Dr. Arie Kaufman in the Center for Visual Computing. Research focuses on machine learning and AR/VR with medical oncologic surgeries.
           </p>
         </div>
       </article>
@@ -119,13 +234,13 @@
       <!-- Rachel Deahl Kostelnik -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-rachel.jpg" alt="Rachel Deahl Kostelnik — Vice President">
+          <img src="images/board-rachel.jpg" alt="Rachel Deahl Kostelnik">
         </div>
         <div class="person-body">
           <h4 class="person-name">Rachel Deahl Kostelnik</h4>
           <p class="person-role">Vice President</p>
           <p class="person-bio">
-           Rachel is a second-year PhD student in Marine Atmospheric and Sustainability Sciences, working in the Warren Lab. She is researching the impact of hypoxia on fish abundance and behavior. She is from New Jersey, where she completed her undergraduate and master's degrees at NJIT in Ecology & Evolution, looking into the potential for automated insect classification using infrared remote sensing. During her free time, she loves to write, paint, and spoil her cats. In the future, she'd love to have a career where she's able to communicate science to the public and policy-makers and teach college students to become interested in the sciences.
+            Second-year PhD student in Marine Atmospheric and Sustainability Sciences, working in the Warren Lab. Researching the impact of hypoxia on fish abundance and behavior.
           </p>
         </div>
       </article>
@@ -133,13 +248,13 @@
       <!-- Narmin Mekawy -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-narmin.JPG" alt="Narmin Mekawy — Secretary">
+          <img src="images/board-narmin.JPG" alt="Narmin Mekawy">
         </div>
         <div class="person-body">
           <h4 class="person-name">Narmin Mekawy</h4>
           <p class="person-role">Secretary</p>
           <p class="person-bio">
-         Narmin is a fourth-year PhD candidate in the department of Neurobiology and Behavior working in  the Dubnau lab. She is studying how stress influences the onset and progression of neurodegenerative diseases. She is a first generation Egyptian-Moroccan woman from Staten Island, New York. In her free time she likes to organize with community groups, sing and bake. Long-term goals include starting a research lab at an academic institution while contributing to the community and advancements to education and science. 
+            Fourth-year PhD candidate in Neurobiology and Behavior working in the Dubnau lab. Studying how stress influences the onset and progression of neurodegenerative diseases.
           </p>
         </div>
       </article>
@@ -147,34 +262,27 @@
       <!-- Akhil Kolanti -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-akhil.jpg" alt="Akhil Kolanti — Treasurer">
+          <img src="images/board-akhil.jpg" alt="Akhil Kolanti">
         </div>
         <div class="person-body">
           <h4 class="person-name">Akhil Kolanti</h4>
           <p class="person-role">Treasurer</p>
           <p class="person-bio">
-Akhil is a fourth-year PhD candidate in the Materials Science department, working under Prof.
-Sprouster in the EMX Lab. His research focuses on developing innovative approaches to recycle
-and repurpose nuclear waste, with a prime emphasis on nuclear graphite, and designing safe
-repositories for long-term nuclear waste storage. Originally from India, he completed his
-bachelor's at Rajiv Gandhi University of Knowledge Technologies (RGUKT)-Nuzvid, and
-master's degree at IIT-Kharagpur and is the first in his family to pursue a PhD. Outside the lab,
-he enjoys photography, watching movies, listening to music and playing volleyball. After
-graduation, he hopes to pursue a career in industry as a research scientist, contributing to
-solutions for sustainable nuclear energy.          </p>
+            Fourth-year PhD candidate in Materials Science, working under Prof. Sprouster in the EMX Lab. Research focuses on developing innovative approaches to recycle and repurpose nuclear waste.
+          </p>
         </div>
       </article>
 
       <!-- Yashwanth Pateel -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-Yashwanth.jpg" alt="Yashwanth Pateel — BRIDGES Industry Outreach Chair">
+          <img src="images/board-Yashwanth.jpg" alt="Yashwanth Pateel">
         </div>
         <div class="person-body">
           <h4 class="person-name">Yashwanth Pateel</h4>
           <p class="person-role">BRIDGES Industry Outreach Chair</p>
           <p class="person-bio">
-            Yashwanth is a second-year master's student in the Electrical Engineering program, specializing in Signal Processing and Communications. He spends his downtime traveling, swimming, and following the fast-paced action of F1 and MotoGP. As an aspiring entrepreneur with a passion for innovation, he aims to combine his technical expertise with his entrepreneurial spirit to shape the future of technology.
+            Second-year master's student in Electrical Engineering, specializing in Signal Processing and Communications. Aspiring entrepreneur with a passion for innovation.
           </p>
         </div>
       </article>
@@ -182,21 +290,13 @@ solutions for sustainable nuclear energy.          </p>
       <!-- Candice Clark -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-candice.png" alt="Candice Clark — Media Director">
+          <img src="images/board-candice.png" alt="Candice Clark">
         </div>
         <div class="person-body">
           <h4 class="person-name">Candice Clark</h4>
           <p class="person-role">Media Director</p>
           <p class="person-bio">
-            Candice is a second-year master's student in the MFA in Television Writing program. She recently completed the summer development internship at Killer Films. She has written and directed a proof of
-concept for a family sitcom. Originally from San Francisco, she moved
-from Washington state, where she earned her undergraduate and
-master's degrees in Filmmaking and Producing. In her free time, she
-enjoys reading and loves long nature walks with her partner in the
-Hudson River Valley. She hopes to develop and create her own
-unique and topical series, in addition to pursuing a career in
-academia, where she can help others grow and express their voice
-and vision.
+            Second-year master's student in the MFA in Television Writing program. Recently completed a summer development internship at Killer Films. Hopes to create unique and topical series.
           </p>
         </div>
       </article>
@@ -204,26 +304,27 @@ and vision.
       <!-- Ming-Wei Chou -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-ming-wei.jpg" alt="Ming-Wei Chou — Art Director">
+          <img src="images/board-ming-wei.jpg" alt="Ming-Wei Chou">
         </div>
         <div class="person-body">
           <h4 class="person-name">Ming-Wei Chou</h4>
           <p class="person-role">Art Director</p>
           <p class="person-bio">
-           Ming-Wei is a fifth-year PhD candidate in the chemistry program. Her research interests include drug discovery, enzyme kinetics, and protein chemistry. She is currently working in the Boon Lab, where she studies how bacteria sense their environment and the underlying chemistry. Outside of the lab, she enjoys going to the gym, brainstorming new illustration ideas, and having small tea parties with her friends. After graduation, she aims to work as a research scientist in the pharmaceutical industry while also pursuing her dream of becoming a freelance illustrator.          </p>
+            Fifth-year PhD candidate in chemistry. Research interests include drug discovery, enzyme kinetics, and protein chemistry. Currently working in the Boon Lab studying bacterial sensing.
+          </p>
         </div>
       </article>
 
       <!-- Amanda Sirna -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-Amanda.jpg" alt="Amanda Sirna — Event Committee Chair">
+          <img src="images/board-Amanda.jpg" alt="Amanda Sirna">
         </div>
         <div class="person-body">
           <h4 class="person-name">Amanda Sirna</h4>
           <p class="person-role">Event Committee Chair</p>
           <p class="person-bio">
-            Amanda is a fourth-year PhD candidate in Mechanical Engineering studying alternative fuels—hydrogen, ammonia, and natural gas—in compression-ignition engines. She loves teaching and hopes to become a professor. In her free time she reads and paints.
+            Fourth-year PhD candidate in Mechanical Engineering studying alternative fuels—hydrogen, ammonia, and natural gas—in compression-ignition engines. Aspires to become a professor.
           </p>
         </div>
       </article>
@@ -231,47 +332,47 @@ and vision.
       <!-- Dennis Jourdain -->
       <article class="person-card">
         <div class="person-media">
-          <img src="images/board-dennis.png" alt="Dennis Jourdain — HR Director">
+          <img src="images/board-dennis.png" alt="Dennis Jourdain">
         </div>
         <div class="person-body">
           <h4 class="person-name">Dennis Jourdain</h4>
           <p class="person-role">HR Director</p>
           <p class="person-bio">
-Dennis is a second-year master's student in the Human Resource Management program. He initially completed his undergraduate degree at the University of Buffalo, where he got his bachelor's in anthropology, before taking a gap year and switching career paths to Human Resources. In his free time he enjoys playing and watching soccer, reading, and spending time with friends. As he completes his studies, he intends to join the HR field for hands-on experience and views GradMag as a great organization to help develop and refine related skills.          </p>
+            Second-year master's student in Human Resource Management. Completed undergraduate degree at the University of Buffalo in anthropology before switching to HR.
+          </p>
         </div>
       </article>
 
     </div>
-  </section>
+  </div>
 
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <!-- Instagram -->
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-
-            <!-- LinkedIn -->
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-
-            <!-- Email -->
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
     (function() {

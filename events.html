@@ -4,55 +4,197 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Events • SBU Grad Mag</title>
+  <title>Events • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="Upcoming workshops, socials, and BRIDGES programming from SBU Grad Mag." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Your site stylesheet (variables & base styles) -->
   <link rel="stylesheet" href="testthis.css" />
 
   <style>
-    /* Calendar styles that respect your variables */
-    :root{ --cal-grid-gap: 6px; }
-    .page{ padding: 1.5rem 0 2rem; }
-    .page h1{ font-family:'Playfair Display',serif; color: var(--accent); margin: .5rem 0 1rem; }
+    .events-page {
+      background: #fff;
+      min-height: 100vh;
+    }
 
-    .cal-wrap{ background:#fff; border:1px solid #eee; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.05); }
-    .cal-toolbar{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; padding: .75rem 1rem; border-bottom:1px solid #eee; }
-    .cal-toolbar .when{ font-weight:700; color:var(--accent); letter-spacing:.2px }
-    .cal-toolbar .controls{ display:flex; gap:.5rem; }
-    .btn{ display:inline-flex; align-items:center; gap:.4rem; padding:.45rem .7rem; border:2px solid var(--accent); color:var(--accent); background:#fff; text-decoration:none; font-weight:700; border-radius:8px; cursor:pointer }
-    .btn:hover{ background:var(--accent); color:#fff }
-    .btn.ghost{ border-color:#ddd; color:#333 }
-    .btn.ghost:hover{ background:#f5f5f5; color:#111 }
+    /* Main Layout */
+    .events-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+    }
 
-    .cal{ display:grid; grid-template-rows:auto 1fr; }
-    .cal-daynames{ display:grid; grid-template-columns: repeat(7, 1fr); gap: var(--cal-grid-gap); padding: .6rem; color:#6b6b6b; font-weight:700; text-align:center; }
-    .cal-grid{ display:grid; grid-template-columns: repeat(7, 1fr); gap: var(--cal-grid-gap); padding: .6rem; }
+    /* Calendar */
+    .cal-wrap {
+      border: 1px solid #eee;
+    }
+    .cal-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #eee;
+      background: #fafafa;
+    }
+    .cal-toolbar .when {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #1a1a1a;
+    }
+    .cal-toolbar .controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .cal-btn {
+      padding: 0.4rem 0.75rem;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cal-btn:hover {
+      border-color: #1a1a1a;
+    }
 
-    .cell{ background:var(--surface); border:1px solid #eee; border-radius:10px; min-height:120px; display:flex; flex-direction:column; overflow:hidden }
-    .cell.out{ opacity:.45 }
-    .cell .date{ font-weight:700; font-size:.95rem; padding:.4rem .5rem; color:#333; }
-    .events{ display:flex; flex-direction:column; gap:6px; padding: 0 .5rem .6rem; }
-    .event{ background:#fff; border:1px solid #e8e3e2; border-left:4px solid var(--accent); border-radius:8px; padding:.35rem .5rem; font-size:.9rem; line-height:1.35 }
-    .event .t{ display:block; font-weight:700; color:#020148 }
-    .event .m{ color:#444 }
+    .cal-daynames {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-bottom: 1px solid #eee;
+    }
+    .cal-daynames > div {
+      text-align: center;
+      padding: 0.75rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #888;
+    }
 
-    /* Agenda list (accessible alt view) */
-    .agenda{ margin: 1.25rem 0 0; }
-    .agenda h2{ font-size:1.25rem; margin:.25rem 0 .5rem }
-    .agenda ul{ list-style:none; padding:0; margin:0; display:grid; gap:.5rem }
-    .agenda li{ background:#fff; border:1px solid #eee; border-radius:10px; padding:.6rem .75rem; display:flex; gap:.75rem; align-items:center }
-    .agenda .badge{ background:#020148; color:#fff; border-radius:7px; padding:.15rem .5rem; font-size:.8rem; font-weight:700 }
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+    }
+    .cell {
+      min-height: 100px;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .cell:nth-child(7n) {
+      border-right: none;
+    }
+    .cell.out {
+      background: #fafafa;
+      opacity: 0.5;
+    }
+    .cell .date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.35rem;
+    }
+    .events {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .event {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.75rem;
+      line-height: 1.3;
+    }
+    .event .t {
+      display: block;
+      font-weight: 600;
+    }
+    .event .m {
+      opacity: 0.8;
+      font-size: 0.7rem;
+    }
 
-    @media (max-width: 720px){
-      .cell{ min-height: 100px }
-      .event{ font-size:.85rem }
-      .cal-toolbar{ flex-wrap:wrap }
+    /* Sidebar */
+    .events-sidebar {
+      padding-top: 0.5rem;
+    }
+    .sidebar-section {
+      margin-bottom: 2rem;
+    }
+    .sidebar-section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      color: #1a1a1a;
+    }
+
+    .agenda-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .agenda-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .agenda-list li:last-child {
+      border-bottom: none;
+    }
+    .agenda-list .date-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.25rem;
+    }
+    .agenda-list .event-title {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.15rem;
+    }
+    .agenda-list .event-meta {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    @media (max-width: 900px) {
+      .events-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .events-sidebar {
+        order: -1;
+      }
+    }
+    @media (max-width: 600px) {
+      .cell {
+        min-height: 80px;
+        padding: 0.35rem;
+      }
+      .cell .date {
+        font-size: 0.75rem;
+      }
+      .event {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.35rem;
+      }
     }
   </style>
 </head>
@@ -61,10 +203,15 @@
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -76,7 +223,6 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html" aria-current="page">Events</a>
         <div class="nav-dropdown">
 <a href="publications.html">Publications</a>
   <div class="nav-dropdown-menu">
@@ -86,6 +232,8 @@
     <a href="humanconnection.html">The Human Connection (2024)</a>
   </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -115,7 +263,6 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html" aria-current="page">Events</a>
     <div class="mobile-dropdown">
 <div class="mobile-dropdown-title">Publications</div>
     <div class="mobile-dropdown-items">
@@ -125,6 +272,8 @@
       <a href="submissions.html">Submissions</a>
     </div>
     </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -135,63 +284,62 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <main class="page">
-    <div class="container">
-      <section class="hero">
-        <div class="section-kicker">Events</div>
-        <h1>Upcoming Events</h1>
-        <p class="sub">Workshops, socials, and BRIDGES programming from SBU Grad Mag.</p>
-      </section>
-
-      <div class="events-layout">
-        <div class="cal-wrap" role="region" aria-label="Events calendar">
-          <div class="cal-toolbar">
-            <div class="controls">
-              <button class="btn ghost" id="prev">◀ Prev</button>
-              <button class="btn ghost" id="today">Today</button>
-              <button class="btn ghost" id="next">Next ▶</button>
-            </div>
-            <div class="when" id="when">Month YYYY</div>
-            <div style="width:88px"></div>
-          </div>
-
-          <div class="cal">
-            <div class="cal-daynames" aria-hidden="true">
-              <div>Sun</div><div>Mon</div><div>Tue</div>
-              <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-            </div>
-            <div class="cal-grid" id="grid"></div>
+  <main class="events-page">
+    <!-- Page Header -->
+    <!-- Main Content -->
+    <div class="events-main">
+      <!-- Calendar -->
+      <div class="cal-wrap" role="region" aria-label="Events calendar">
+        <div class="cal-toolbar">
+          <div class="when" id="when">Month YYYY</div>
+          <div class="controls">
+            <button class="cal-btn" id="prev">← Prev</button>
+            <button class="cal-btn" id="today">Today</button>
+            <button class="cal-btn" id="next">Next →</button>
           </div>
         </div>
-
-        <section class="agenda" aria-labelledby="agenda-title">
-          <h2 id="agenda-title">Upcoming</h2>
-          <ul id="agendaList"></ul>
-        </section>
+        <div class="cal-daynames" aria-hidden="true">
+          <div>Sun</div><div>Mon</div><div>Tue</div>
+          <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="cal-grid" id="grid"></div>
       </div>
+
+      <!-- Sidebar -->
+      <aside class="events-sidebar">
+        <div class="sidebar-section">
+          <h3>Upcoming Events</h3>
+          <ul class="agenda-list" id="agendaList"></ul>
+        </div>
+
+      </aside>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts &amp; Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
 
@@ -322,12 +470,17 @@ function expandRecurring(events, viewStart, viewEnd){
         .map(e=>({ ...e, dt: new Date(e.date.y, e.date.m, e.date.d) }))
         .filter(e=> e.dt >= today)
         .sort((a,b)=> a.dt - b.dt)
-        .slice(0, 10);
+        .slice(0, 8);
       agendaList.innerHTML = upcoming.map(e=>{
         const ds = e.dt.toLocaleDateString(undefined,{ weekday:'short', month:'short', day:'numeric' });
-        const time = e.time ? ` • ${e.time}` : '';
-        const loc  = e.location ? ` — ${e.location}` : '';
-        return `<li><span class="badge">${ds}</span><span><strong>${e.title}</strong>${time}${loc}</span></li>`;
+        const time = e.time || '';
+        const loc  = e.location || '';
+        const meta = [time, loc].filter(Boolean).join(' • ');
+        return `<li>
+          <div class="date-badge">${ds}</div>
+          <div class="event-title">${e.title}</div>
+          ${meta ? `<div class="event-meta">${meta}</div>` : ''}
+        </li>`;
       }).join('');
     }
 

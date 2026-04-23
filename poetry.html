@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poetry • SBU Graduate Arts & Sciences Magazine</title>
+  <meta name="description" content="Poetry from the SBU Graduate Arts &amp; Sciences Magazine&mdash;literary work from the Stony Brook community." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="testthis.css" />
+  <link rel="stylesheet" href="poem-agni.css" />
+  <!-- PUBLISH: remove class poetry--coming-soon from <body> below to show the full poetry index. -->
+  <style>
+    .pub-page { background: #fff; min-height: 100vh; }
+    body.poetry--coming-soon .poetry-index--live { display: none; }
+    body:not(.poetry--coming-soon) .poetry-coming-soon { display: none; }
+    .poetry-coming-soon {
+      text-align: center;
+      padding: 3.5rem 1.5rem 4rem;
+    }
+    .poetry-coming-soon__eyebrow {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #888;
+      margin: 0 0 1rem;
+    }
+    .poetry-coming-soon h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.85rem, 4vw, 2.4rem);
+      font-weight: 500;
+      margin: 0 0 0.9rem;
+      color: #1a1a1a;
+    }
+    .poetry-coming-soon p { margin: 0 auto; max-width: 24rem; color: #4a4a4a; line-height: 1.55; font-size: 0.98rem; }
+    .poetry-hub__tagline--when-soon { display: none; }
+    body.poetry--coming-soon .poetry-hub__tagline--when-live { display: none; }
+    body.poetry--coming-soon .poetry-hub__tagline--when-soon { display: block; max-width: 32rem; margin-left: auto; margin-right: auto; }
+    .poetry-index-header {
+      padding: 2.5rem 1.5rem 0.5rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+    .poetry-index-header .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    .poetry-index-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.1rem, 4.5vw, 2.85rem);
+      font-weight: 400;
+      margin: 0 0 0.75rem;
+      color: #1a1a1a;
+    }
+    .pub-main--index { max-width: 48rem; margin: 0 auto; padding: 0 0 3.5rem; }
+  </style>
+</head>
+<body class="pub-page poetry--coming-soon">
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html">BRIDGES</a>
+        <div class="nav-dropdown">
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
+        </div>
+        <a href="poetry.html" aria-current="page">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
+    </div>
+    <a href="bridges.html">BRIDGES</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
+    </div>
+    <a href="poetry.html" aria-current="page">Poetry</a>
+    <a href="submissions.html">Submissions</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+    <a href="radio.html">Radio</a>
+  </div>
+
+  <main>
+  <section class="poetry-index-header" aria-labelledby="poetry-h1">
+    <p class="label">GradMag</p>
+    <h1 id="poetry-h1">Poetry</h1>
+    <p class="poetry-hub__tagline poetry-hub__tagline--when-live">Graduate works of the literary arts&mdash;new poems and pieces published here, online, from the Stony Brook community.</p>
+    <p class="poetry-hub__tagline poetry-hub__tagline--when-soon">We&rsquo;re preparing to share new graduate poetry from the Stony Brook community here&mdash;stay tuned.</p>
+  </section>
+
+  <div class="pub-main--index">
+    <section class="poetry-coming-soon" aria-labelledby="coming-soon-heading">
+      <p class="poetry-coming-soon__eyebrow">Poetry</p>
+      <h2 id="coming-soon-heading">Coming soon!</h2>
+      <p>We&rsquo;re getting this section ready. Check back for graduate poetry from the Stony Brook community.</p>
+    </section>
+
+    <div class="poetry-index--live">
+    <p class="poetry-index__kicker">Featured</p>
+    <ul class="poetry-cards">
+      <!--
+        New poem: add <li><a class="poetry-card" href="poetry-yourfile.html">…
+        and create a page (copy poetry-spring-rituals.html). Use poem-pub--online; card meta: poetry-card__meta--online.
+      -->
+      <li>
+      <a class="poetry-card" href="poetry-strangest-stranger.html">
+        <h2>The Strangest Stranger</h2>
+        <p class="poetry-card__by">Poetry by Elnaz Azimi</p>
+        <p class="poetry-card__excerpt">They say a stranger from far away fired my home&hellip;</p>
+        <p class="poetry-card__more">Read the poem</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+      <li>
+      <a class="poetry-card" href="poetry-spring-rituals.html">
+        <h2>Spring Rituals</h2>
+        <p class="poetry-card__by">Poetry by Allyson C. Sheneman</p>
+        <p class="poetry-card__excerpt">Snow lingers on the Catskills as winter retreats and warmth hovers with the settling of early spring&hellip;</p>
+        <p class="poetry-card__more">Read the poem</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+      <li>
+      <a class="poetry-card" href="poetry-stressful-game.html">
+        <h2>A Stressful Game</h2>
+        <p class="poetry-card__by">Poetry by Jacob Rowen</p>
+        <p class="poetry-card__excerpt">An X, Vowel the next&mdash;Moves continue; a draw? Blunder! Triumphant Cross&hellip;</p>
+        <p class="poetry-card__more">Read the poem + note</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+      <li>
+      <a class="poetry-card" href="poetry-artificial-intelligence.html">
+        <h2>Artificial Intelligence</h2>
+        <p class="poetry-card__by">Poetry by Rose Paleologos</p>
+        <p class="poetry-card__excerpt">Fie! A wretched lullaby. This moldy slice of Pied pipers tunes&hellip;</p>
+        <p class="poetry-card__more">Read the poem</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+      <li>
+      <a class="poetry-card" href="poetry-lycanthrophic.html">
+        <h2>Lycanthrophic</h2>
+        <p class="poetry-card__by">Poetry by Sara S. Barenfeld</p>
+        <p class="poetry-card__excerpt">They came for us in the Atlas Mountains, while the women carried&hellip;</p>
+        <p class="poetry-card__more">Read the poem</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+      <li>
+      <a class="poetry-card" href="poetry-probability-im-sorry.html">
+        <h2>Probability (I&rsquo;m Sorry)</h2>
+        <p class="poetry-card__by">Poetry by Hannah Nathanson</p>
+        <p class="poetry-card__excerpt">Meteor. Meteor half the size of a giraffe&hellip;</p>
+        <p class="poetry-card__more">Read the poem</p>
+        <p class="poetry-card__meta poetry-card__meta--online">Online only</p>
+      </a>
+      </li>
+    </ul>
+    <p class="poem-index-footer">
+      <strong>Online only</strong> = on this site; not a print page. For full magazine layouts:
+      <a href="fourseasons.html">The Four Seasons</a>, <a href="humanconnection.html">The Human Connection</a> ·
+      <a href="https://issuu.com/sbugradmag" target="_blank" rel="noopener">Issuu</a> ·
+      <a href="publications.html">Publications</a> ·
+      <a href="submissions.html">Submissions</a>
+    </p>
+    </div>
+  </div>
+  </main>
+
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html" aria-current="page">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
+          this.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(function(title) {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
+    (function() {
+      var m = {
+        '#spring-rituals': 'poetry-spring-rituals.html',
+        '#a-stressful-game': 'poetry-stressful-game.html',
+        '#artificial-intelligence': 'poetry-artificial-intelligence.html',
+        '#lycanthrophic': 'poetry-lycanthrophic.html',
+        '#probability-im-sorry': 'poetry-probability-im-sorry.html',
+        '#strangest-stranger': 'poetry-strangest-stranger.html'
+      };
+      if (m[location.hash]) { location.replace(m[location.hash]); }
+    })();
+  </script>
+</body>
+</html>

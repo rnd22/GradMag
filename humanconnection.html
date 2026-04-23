@@ -4,113 +4,167 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Human Connection • Spring 2024 • SBU Grad Mag</title>
+  <title>The Human Connection • Spring 2024 • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="The Human Connection - Spring 2024 inaugural edition of the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
-    .pub-hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #fff;
-      padding: 3rem 0;
+    .pub-page {
+      background: #fff;
+      min-height: 100vh;
     }
-    .pub-hero-grid {
+
+    /* Hero Section */
+    .pub-hero {
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .pub-hero .container {
+      max-width: 1000px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 3rem;
       align-items: center;
     }
-    .pub-hero-cover {
-      border-radius: 12px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    .pub-hero .cover img {
       width: 100%;
+      display: block;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
-    .pub-hero-content .vol-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+    .pub-hero .info .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin-bottom: 0.5rem;
     }
-    .pub-hero-content h1 {
+    .pub-hero .info .label .inaugural {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 0.2rem 0.5rem;
+      margin-left: 0.5rem;
+      font-size: 0.65rem;
+    }
+    .pub-hero .info h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.75rem;
-      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      margin: 0 0 1rem;
+      color: #1a1a1a;
     }
-    .pub-hero-content .subtitle {
-      font-size: 1.25rem;
-      opacity: 0.9;
+    .pub-hero .info p {
+      color: #555;
+      line-height: 1.8;
       margin-bottom: 1.5rem;
     }
-    .pub-hero-content p {
-      opacity: 0.85;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-      max-width: 550px;
-    }
-    .pub-hero-btns {
+    .pub-hero .actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .pub-hero-btns a {
-      padding: 0.85rem 1.75rem;
-      border-radius: 8px;
-      font-weight: 700;
+    .pub-hero .actions a {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
     }
-    .pub-hero-btns .btn-primary {
-      background: #e94560;
+    .pub-hero .actions .btn-primary {
+      background: #1a1a1a;
       color: #fff;
     }
-    .pub-hero-btns .btn-primary:hover {
-      background: #d63850;
-      text-decoration: none;
+    .pub-hero .actions .btn-primary:hover {
+      background: #333;
     }
-    .pub-hero-btns .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.4);
+    .pub-hero .actions .btn-outline {
+      border: 1px solid #ddd;
+      color: #1a1a1a;
     }
-    .pub-hero-btns .btn-outline:hover {
-      border-color: #fff;
-      background: rgba(255,255,255,0.1);
-      text-decoration: none;
+    .pub-hero .actions .btn-outline:hover {
+      border-color: #1a1a1a;
+    }
+
+    .pub-container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+    .section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    .about-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .about-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 0 0 1rem;
+    }
+    .about-card p {
+      color: #555;
+      line-height: 1.7;
+      margin: 0;
     }
 
     @media (max-width: 768px) {
-      .pub-hero-grid {
+      .pub-hero .container {
         grid-template-columns: 1fr;
+        gap: 2rem;
         text-align: center;
       }
-      .pub-hero-cover {
-        max-width: 250px;
+      .pub-hero .cover {
+        max-width: 240px;
         margin: 0 auto;
       }
-      .pub-hero-content h1 {
-        font-size: 2rem;
-      }
-      .pub-hero-btns {
+      .pub-hero .actions {
         justify-content: center;
       }
     }
   </style>
 </head>
-<body>
+<body class="pub-page">
 
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -122,7 +176,6 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
           <a href="publications.html" aria-current="page">Publications</a>
           <div class="nav-dropdown-menu">
@@ -132,6 +185,8 @@
             <a href="humanconnection.html" aria-current="page">The Human Connection (2024)</a>
           </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -161,7 +216,6 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Publications</div>
       <div class="mobile-dropdown-items">
@@ -171,6 +225,8 @@
         <a href="humanconnection.html" aria-current="page">The Human Connection (2024)</a>
       </div>
     </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -181,46 +237,57 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section class="pub-hero">
     <div class="container">
-      <div class="pub-hero-grid">
-        <img src="images/HumanConnection.jpg" alt="The Human Connection Magazine Cover" class="pub-hero-cover">
-        <div class="pub-hero-content">
-          <span class="vol-badge">Vol. 1, Issue 1 • Spring 2024</span>
-          <h1>The Human Connection</h1>
-          <p class="subtitle">SBU Graduate Arts & Sciences Magazine</p>
-          <p>Our inaugural edition explores the threads that bind us together as scholars and humans. Featuring research articles, creative writing, poetry, and art from Stony Brook's graduate community.</p>
-          <div class="pub-hero-btns">
-            <a href="https://issuu.com/sbugradmag/docs/gradmag_spring2024_issuu" target="_blank" rel="noopener" class="btn-primary">Read Magazine</a>
-            <a href="publications.html" class="btn-outline">View All Publications</a>
-          </div>
+      <div class="cover">
+        <img src="images/HumanConnection.jpg" alt="The Human Connection Magazine Cover">
+      </div>
+      <div class="info">
+        <div class="label">Vol. 1, Issue 1 • Spring 2024 <span class="inaugural">Inaugural</span></div>
+        <h1>The Human Connection</h1>
+        <p>Our inaugural edition explores the threads that bind us together as scholars and humans. Featuring research articles, creative writing, poetry, and art from Stony Brook's graduate community.</p>
+        <div class="actions">
+          <a href="https://issuu.com/sbugradmag/docs/gradmag_spring2024_issuu" target="_blank" rel="noopener" class="btn-primary">Read Magazine</a>
+          <a href="publications.html" class="btn-outline">All Publications</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- About Section -->
+  <div class="pub-container">
+    <div class="about-card">
+      <h2>About This Edition</h2>
+      <p>The Human Connection marks the beginning of our journey as Stony Brook's graduate arts and sciences magazine. This edition brought together voices from across disciplines to explore what connects us as researchers, creators, and community members. From scientific discoveries to personal essays, from poetry to visual art, this issue celebrates the diversity of graduate scholarship at Stony Brook University.</p>
+    </div>
+  </div>
+
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
 

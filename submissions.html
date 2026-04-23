@@ -1,215 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Submissions • SBU Grad Mag</title>
-  <meta name="description" content="Science communication, art, poetry, and thought from the graduate community at Stony Brook University." />
+  <title>Submissions • SBU Graduate Arts & Sciences Magazine</title>
+  <meta name="description" content="Submit your research, poetry, photography, and art to the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
+  <style>
+    .sub-page {
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+    .page-header .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+    }
+    .page-header .subtitle {
+      color: #666;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    /* Main Layout - Two Column */
+    .sub-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+    }
+
+    /* Left Column */
+    .sub-content {
+      min-width: 0;
+    }
+
+    /* Right Sidebar */
+    .sub-sidebar {
+      padding-top: 0.5rem;
+    }
+
+    /* Status Banner */
+    .status-banner {
+      padding: 1.25rem;
+      background: transparent;
+      border: 1px solid #ddd;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .status-banner h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.35rem;
+      color: #1a1a1a;
+    }
+    .status-banner p {
+      color: #666;
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    /* Timeline in Sidebar */
+    .timeline-section h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      color: #1a1a1a;
+    }
+    .timeline {
+      margin: 0;
+    }
+    .timeline-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+    .timeline-item .month {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 0.85rem;
+      margin-bottom: 0.15rem;
+    }
+    .timeline-item .desc {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    /* Sidebar Links */
+    .sidebar-links {
+      margin-top: 2rem;
+    }
+    .sidebar-links h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #eee;
+      color: #1a1a1a;
+    }
+    .sidebar-links a {
+      display: block;
+      padding: 0.6rem 0;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #f0f0f0;
+      transition: color 0.2s ease;
+    }
+    .sidebar-links a:last-child {
+      border-bottom: none;
+    }
+    .sidebar-links a:hover {
+      color: #666;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+    .section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    /* Content Sections */
+    .content-block {
+      margin-bottom: 2.5rem;
+    }
+    .content-block p {
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .content-block a {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    /* Submission Types */
+    .sub-types {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sub-type {
+      padding: 1.5rem;
+      border: 1px solid #eee;
+      transition: border-color 0.2s ease;
+    }
+    .sub-type:hover {
+      border-color: #1a1a1a;
+    }
+    .sub-type h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0 0 0.5rem;
+      color: #1a1a1a;
+    }
+    .sub-type .status {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #888;
+      margin-bottom: 0.75rem;
+    }
+    .sub-type p {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .sub-main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .sub-sidebar {
+        order: -1;
+      }
+    }
+  </style>
 </head>
-  <body>
-    
-<!-- Header -->
-   <header>
-<div class="container nav">
-<div class="brand">
-<img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-<div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-</div>
-<nav class="nav-links">
-<a href="index.html">Home</a>
-<div class="nav-dropdown">
-  <a href="about.html">About</a>
-  <div class="nav-dropdown-menu">
-    <a href="about.html">About</a>
-    <a href="execboard.html">Executive Board</a>
-    <a href="jointheteam.html">Join the Team</a>
-  </div>
-</div>
-<a href="bridges.html">BRIDGES</a>
-<a href="events.html">Events</a>
-<div class="nav-dropdown">
-  <a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html" aria-current="page">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
-</div>
-<div class="nav-dropdown">
-  <a href="press.html">Press</a>
-  <div class="nav-dropdown-menu">
-    <a href="press.html">Press</a>
-    <a href="bulletin.html">Bulletins</a>
-  </div>
-</div>
+<body class="sub-page">
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html">BRIDGES</a>
+        <div class="nav-dropdown">
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
+        </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html" aria-current="page">Submissions</a>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
         <a href="radio.html">Radio</a>
       </nav>
-<button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
-</div>
-</header>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">About</div>
-    <div class="mobile-dropdown-items">
-      <a href="about.html">About</a>
-      <a href="execboard.html">Executive Board</a>
-      <a href="jointheteam.html">Join the Team</a>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html">Join the Team</a>
+      </div>
     </div>
-  </div>
-  <a href="bridges.html">BRIDGES</a>
-  <a href="events.html">Events</a>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html" aria-current="page">Submissions</a>
+    <a href="bridges.html">BRIDGES</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+      </div>
     </div>
-  </div>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">Press</div>
-    <div class="mobile-dropdown-items">
-      <a href="press.html">Press</a>
-      <a href="bulletin.html">Bulletins</a>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html" aria-current="page">Submissions</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
     </div>
-  </div>
     <a href="radio.html">Radio</a>
   </div>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="section-kicker">Submissions</div>
-    <h1>Submit Your Work</h1>
-    <p class="sub">Share your research, poetry, photography, and art with the graduate community.</p>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="label">Contribute</div>
+    <h1>Submissions</h1>
+    <p class="subtitle">Share your research, poetry, photography, and art with the graduate community</p>
   </section>
 
-  <!-- Submissions Closed Notice -->
-  <section class="container" style="margin-bottom: 2rem;">
-    <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; border-radius: 12px; padding: 2rem; text-align: center;">
-      <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 0.75rem;">Submissions for Spring 2026 are now closed</h2>
-      <p style="opacity: 0.9; margin-bottom: 1rem;">Thank you to everyone who submitted their work! Stay tuned for information about our next edition.</p>
-      <p style="font-size: 0.95rem; opacity: 0.8;">Join us at the <strong style="color: #fde68a;">Magazine Release Celebration on May 5th, 2026</strong> to celebrate!</p>
-    </div>
-  </section>
-
-    <section class="grid-section container">
-      <h3></h3>
-      <div class="article-grid">
-        <article>
-          <h4>What We Publish</h4>
-          <div style="text-align: left;">
-            <p>We accept short-form and long-form articles, poetry, photography, and art from Stony Brook graduate students. Each spring we release a new edition celebrating the creativity and scholarship of our graduate community.</p>
-            
-            <p style="margin-top: 1rem;"><strong>Typical Timeline:</strong></p>
-            <ul style="margin: 0.5rem 0 1rem 1.5rem; padding-left: 1rem;">
-              <li><strong>September/October:</strong> Call for abstracts, artists, and poetry go out</li>
-              <li><strong>October:</strong> Priority submission deadline</li>
-              <li><strong>January/February:</strong> Final submission deadline</li>
-              <li><strong>April:</strong> Magazine goes to print</li>
-              <li><strong>May:</strong> Magazine Release Celebration</li>
-            </ul>
-            
-            <p style="font-size: 0.9rem;">For questions, please reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>.</p>
-          </div>
-          
-          <h4 style="margin-top: 2rem;">Read Our Past Editions</h4>
-          <div style="text-align: left;">
-            <p>Check out our previous magazines on the <a href="publications.html">Publications page</a>!</p>
-          </div>
-        </article>
-        <article>
-          <h4>Article Submissions</h4>
-          <div style="text-align: left;">
-            <p style="color: #e94560; font-weight: 600; margin-bottom: 1rem;">Closed for Spring 2026</p>
-            
-            <p style="margin-top: 1rem;"><strong>Abstract Requirements:</strong></p>
-            <ul style="margin: 0.5rem 0 1rem 1.5rem; padding-left: 1rem;">
-              <li>400-500 words</li>
-              <li>Research or academic work based on Stony Brook-related work</li>
-              <li>Only original written work can be accepted, text that is already published cannot be accepted</li>
-            </ul>
-            
-            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Check back in Fall 2026 for our next submission cycle!</p>
-          </div>
-        </article>
-        <article>
-          <h4>Poetry Submissions</h4>
-          <div style="text-align: left;">
-            <p style="color: #e94560; font-weight: 600; margin-bottom: 1rem;">Closed for Spring 2026</p>
-            
-            <p style="margin-top: 1rem;">Writers may submit up to 3 poems for consideration. Please note that only one poem per person will be accepted for publication.</p>
-            
-            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Check back in Fall 2026 for our next submission cycle!</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
+  <!-- Main Content - Two Column -->
+  <div class="sub-main">
     
+    <!-- Left Column -->
+    <div class="sub-content">
+      <!-- About -->
+      <div class="section-header">
+        <h2>What We Publish</h2>
+      </div>
+      <div class="content-block">
+        <p>We accept short-form and long-form articles, poetry, photography, and art from Stony Brook graduate students. Each spring we release a new edition celebrating the creativity and scholarship of our graduate community.</p>
+        <p>For questions, reach out at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>.</p>
+      </div>
 
-<footer>
-  <div class="container">
-    <div class="footer-contact">
-      <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-      
-      <div class="social-block">
-        <div class="social-links" aria-label="Follow Grad Mag">
-          <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-          </a>
-          <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-          </a>
-          <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+      <!-- Submission Types -->
+      <div class="section-header">
+        <h2>Submission Types</h2>
+      </div>
+      <div class="sub-types">
+        <div class="sub-type">
+          <h3>Articles</h3>
+          <div class="status">Closed for Spring 2026</div>
+          <p>Abstracts should be 400-500 words covering research or academic work. Only original written work can be accepted.</p>
+        </div>
+        <div class="sub-type">
+          <h3>Poetry</h3>
+          <div class="status">Closed for Spring 2026</div>
+          <p>Writers may submit up to 3 poems for consideration. One poem per person will be accepted for publication.</p>
+        </div>
+        <div class="sub-type">
+          <h3>Art & Photography</h3>
+          <div class="status">Closed for Spring 2026</div>
+          <p>We welcome visual art, photography, illustrations, and other creative works from graduate students.</p>
         </div>
       </div>
     </div>
-    <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+
+    <!-- Right Sidebar -->
+    <aside class="sub-sidebar">
+      <!-- Status -->
+      <div class="status-banner">
+        <h3>Submissions Closed</h3>
+        <p>Join us at the Magazine Release Celebration on May 5th, 2026</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline-section">
+        <h4>Typical Timeline</h4>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="month">September/October</div>
+            <div class="desc">Call for submissions</div>
+          </div>
+          <div class="timeline-item">
+            <div class="month">October</div>
+            <div class="desc">Priority deadline</div>
+          </div>
+          <div class="timeline-item">
+            <div class="month">January/February</div>
+            <div class="desc">Final deadline</div>
+          </div>
+          <div class="timeline-item">
+            <div class="month">April</div>
+            <div class="desc">Goes to print</div>
+          </div>
+          <div class="timeline-item">
+            <div class="month">May</div>
+            <div class="desc">Release Celebration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="sidebar-links">
+        <h4>Quick Links</h4>
+        <a href="publications.html">Browse Past Editions</a>
+        <a href="jointheteam.html">Join the Team</a>
+        <a href="events.html">Upcoming Events</a>
+      </div>
+    </aside>
+
   </div>
-</footer>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  (function() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      });
-      dropdownTitles.forEach(title => {
-        title.addEventListener('click', function() {
+
+  <!-- Footer -->
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html" aria-current="page">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    
+    // Mobile Menu
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
           this.classList.toggle('active');
-          this.nextElementSibling.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
-      });
-    }
-  })();
-</script>
-  </body>
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
 </html>

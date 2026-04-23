@@ -4,345 +4,603 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Join the Team • SBU Grad Mag</title>
+  <title>Join the Team • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="Open roles and ways to get involved with the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-  <!-- Use the same site stylesheet as other pages -->
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
-  <link rel="stylesheet" href="join.css" />
-</head>
-<body>
-
-  <!-- Header -->
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-      <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-    </div>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <div class="nav-dropdown">
-        <a href="about.html">About</a>
-        <div class="nav-dropdown-menu">
-          <a href="about.html">About</a>
-          <a href="execboard.html">Executive Board</a>
-          <a href="jointheteam.html" aria-current="page">Join the Team</a>
-        </div>
-      </div>
-        <a href="bridges.html">BRIDGES</a>
-      <a href="events.html">Events</a>
-      <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
-      </div>
-      <div class="nav-dropdown">
-        <a href="press.html">Press</a>
-        <div class="nav-dropdown-menu">
-          <a href="press.html">Press</a>
-          <a href="bulletin.html">Bulletins</a>
-        </div>
-      </div>
-        <a href="radio.html">Radio</a>
-      </nav>
-    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">About</div>
-    <div class="mobile-dropdown-items">
-      <a href="about.html">About</a>
-      <a href="execboard.html">Executive Board</a>
-      <a href="jointheteam.html" aria-current="page">Join the Team</a>
-    </div>
-  </div>
-    <a href="bridges.html">BRIDGES</a>
-  <a href="events.html">Events</a>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
-    </div>
-  </div>
-  <div class="mobile-dropdown">
-    <div class="mobile-dropdown-title">Press</div>
-    <div class="mobile-dropdown-items">
-      <a href="press.html">Press</a>
-      <a href="bulletin.html">Bulletins</a>
-    </div>
-  </div>
-    <a href="radio.html">Radio</a>
-  </div>
-
-  <!-- Hero -->
-  <section class="hero container">
-    <div class="section-kicker">Join the Team</div>
-    <h1>Get Involved</h1>
-    <p class="sub">Help us amplify graduate voices across science, art, and public engagement</p>
-  </section>
-
-  <!-- Team Photos -->
-  <section class="container team-photos">
-    <div class="photo-grid">
-      <div class="photo-placeholder">
-        <img src="images/TeamPhoto1.JPG" alt="GradMag Team Photo">
-      </div>
-      <div class="photo-placeholder">
-        <img src="images/TeamPhoto2.JPG" alt="GradMag Team Photo" style="object-position: center 60%;">
-      </div>
-      <div class="photo-placeholder">
-        <img src="images/TeamPhoto3.JPG" alt="GradMag Team Photo">
-      </div>
-    </div>
-  </section>
-
   <style>
+    .join-page {
+      background: #fff;
+      min-height: 100vh;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      padding: 3rem 1rem 2.5rem;
+      border-bottom: 1px solid #eee;
+    }
+    .page-header .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin: 0;
+      color: #1a1a1a;
+    }
+    .page-header .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-top: 0.75rem;
+      font-style: italic;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+    .section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    /* Team Photos */
     .team-photos {
-      padding: 1.5rem 0 2rem;
-    }
-    .photo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #eee;
     }
-    .photo-placeholder {
-      position: relative;
-      aspect-ratio: 4/3;
-      border-radius: 12px;
+    .team-photo {
+      aspect-ratio: 16/9;
       overflow: hidden;
     }
-    .photo-placeholder img {
+    .team-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
-    .placeholder-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
-      border: 2px dashed #cbd5e1;
-      color: #64748b;
-      font-weight: 600;
-      font-size: 0.95rem;
+
+    /* Intro Section */
+    .intro-section {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #eee;
     }
+    .intro-main h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 1rem;
+      color: #1a1a1a;
+    }
+    .intro-main p {
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .intro-main a {
+      color: #0563bb;
+    }
+    .intro-main .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #1a1a1a;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+      margin-top: 0.5rem;
+    }
+    .intro-main .btn:hover {
+      background: #333;
+    }
+
+    /* Quick Facts Box */
+    .quick-facts {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-left: 3px solid #0563bb;
+    }
+    .quick-facts h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: #1a1a1a;
+    }
+    .quick-facts ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .quick-facts li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #444;
+      line-height: 1.6;
+    }
+    .quick-facts li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0563bb;
+      font-weight: 700;
+    }
+    .quick-facts .contact {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e5e5e5;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Role Groups */
+    .roles-section {
+      padding: 2rem 0 3rem;
+    }
+
+    /* Accordion Styles */
+    .accordion {
+      border: 1px solid #eee;
+      margin-bottom: 0.5rem;
+    }
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      background: #fff;
+      transition: background 0.2s ease;
+    }
+    .accordion-header:hover {
+      background: #fafafa;
+    }
+    .accordion-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 0;
+    }
+    .accordion-icon {
+      font-size: 1.25rem;
+      color: #888;
+      transition: transform 0.3s ease;
+    }
+    .accordion.active .accordion-icon {
+      transform: rotate(45deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .accordion.active .accordion-content {
+      max-height: 1000px;
+    }
+    .accordion-inner {
+      padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .role-card {
+      padding: 1.25rem;
+      border: 1px solid #eee;
+      background: #fafafa;
+      transition: border-color 0.2s ease;
+    }
+    .role-card:hover {
+      border-color: #0563bb;
+    }
+    .role-title {
+      font-weight: 600;
+      margin: 0 0 0.25rem;
+      color: #1a1a1a;
+    }
+    .role-meta {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .role-description {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .role-description ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+    .role-description li {
+      margin: 0.35rem 0;
+    }
+
     @media (max-width: 768px) {
-      .photo-grid {
-        grid-template-columns: 1fr;
-      }
+      .team-photos { grid-template-columns: 1fr; }
+      .intro-section { grid-template-columns: 1fr; gap: 2rem; }
+      .role-grid { grid-template-columns: 1fr; }
     }
   </style>
+</head>
+<body class="join-page">
 
-  <!-- Intro + side card -->
-  <section class="container join-intro">
-    <div class="join-main">
-      <div class="info-card">
-        <h3>Join the SBU GradMag Team!</h3>
-        <p>
-          Interested in becoming a member? Fill out the interest form and let us know what positions you might be
-          interested in! We’re always looking for writers, artists, editors, and layout designers. For more information
-          on positions needing to be filled, see the openings below.
-        </p>
-        <p>Reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for questions!</p>
-        <p class="cta-row">
-          <a class="btn read-more" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Join the Team</a>
-        </p>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="about.html">About</a>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About</a>
+            <a href="execboard.html">Executive Board</a>
+            <a href="jointheteam.html" aria-current="page">Join the Team</a>
+          </div>
+        </div>
+        <a href="bridges.html">BRIDGES</a>
+        <div class="nav-dropdown">
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
+        </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <div class="nav-dropdown">
+          <a href="press.html">Press</a>
+          <div class="nav-dropdown-menu">
+            <a href="press.html">Press</a>
+            <a href="bulletin.html">Bulletins</a>
+          </div>
+        </div>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">About</div>
+      <div class="mobile-dropdown-items">
+        <a href="about.html">About</a>
+        <a href="execboard.html">Executive Board</a>
+        <a href="jointheteam.html" aria-current="page">Join the Team</a>
+      </div>
+    </div>
+    <a href="bridges.html">BRIDGES</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
+    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">Press</div>
+      <div class="mobile-dropdown-items">
+        <a href="press.html">Press</a>
+        <a href="bulletin.html">Bulletins</a>
+      </div>
+    </div>
+    <a href="radio.html">Radio</a>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="label">Get Involved</div>
+    <h1>Join the Team</h1>
+    <p class="subtitle">Help us amplify graduate voices across science, art, and public engagement</p>
+  </section>
+
+  <!-- Main Content -->
+  <div class="main-container">
+    <!-- Team Photos -->
+    <div class="team-photos">
+      <div class="team-photo">
+        <img src="images/TeamPhoto1.JPG" alt="GradMag Team Photo">
+      </div>
+      <div class="team-photo">
+        <img src="images/TeamPhoto3.JPG" alt="GradMag Team Photo">
       </div>
     </div>
 
-    <div class="join-side">
-      <div class="info-card sticky">
+    <!-- Intro Section -->
+    <div class="intro-section">
+      <div class="intro-main">
+        <h2>Join the SBU GradMag Team</h2>
+        <p>
+          Interested in becoming a member? Fill out the interest form and let us know what positions you might be interested in! We're always looking for writers, artists, editors, and layout designers.
+        </p>
+        <p>
+          For more information on positions needing to be filled, see the openings below. Reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for questions!
+        </p>
+        <a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply Now</a>
+      </div>
+      <div class="quick-facts">
         <h3>Quick Facts</h3>
-        <ul class="checklist">
+        <ul>
           <li>All roles are <strong>volunteer</strong> positions</li>
           <li>Open to all SBU grad programs</li>
           <li>Flexible hours, leadership opportunities</li>
           <li>Portfolio-friendly roles (writing, art, layout)</li>
         </ul>
-        <p style="margin:.5rem 0 0;">
+        <p class="contact">
           Questions? <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>
         </p>
       </div>
     </div>
-  </section>
 
-  <!-- Open Positions -->
-  <section class="container openings">
-    <h3 class="section-title">We’re Looking to Fill Staff Positions</h3>
-
-    <!-- Executive Board -->
-    <div class="role-group" id="executive-board">
-      <h4 class="role-group__title">Executive Board</h4>
-      <div class="role-group__list">
-        <article class="role-card">
-          <h5 class="role-title">Social Media Coordinator</h5>
-          <div class="role-meta">~2–4 hrs/week • Remote-friendly</div>
-          <ul class="role-bullets">
-            <li>Assistant to the Media Director; run social media and promote events &amp; content</li>
-          </ul>
-        </article>
+    <!-- Open Positions -->
+    <div class="roles-section">
+      <div class="section-header">
+        <h2>Open Positions</h2>
       </div>
-    </div>
 
-    <!-- BRIDGES Committee -->
-    <div class="role-group" id="bridges-committee">
-      <h4 class="role-group__title">B.R.I.D.G.E.S Committee</h4>
-      <div class="role-group__list">
-        
-
-        <article class="role-card">
-          <h5 class="role-title">Speaker &amp; Panel Coordinator</h5>
-          <div class="role-meta">~2 hrs/week • Outreach &amp; scheduling</div>
-          <ul class="role-bullets">
-            <li>Reach out to keynote speakers and panelists; organize schedules and materials</li>
-          </ul>
-        </article>
-
-        <article class="role-card">
-          <h5 class="role-title">Committee Member</h5>
-          <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
-          <ul class="role-bullets">
-            <li>Help organize the conference and logistics (department outreach, student participation, judges, etc.)</li>
-            <li>Recruit GradMag HR members to build an HR team</li>
-          </ul>
-        </article>
+      <!-- Executive Board -->
+      <div class="accordion">
+        <div class="accordion-header">
+          <h3 class="accordion-title">Executive Board</h3>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="role-grid">
+              <article class="role-card">
+                <h4 class="role-title">Social Media Coordinator</h4>
+                <div class="role-meta">~2–4 hrs/week • Remote-friendly</div>
+                <div class="role-description">
+                  Assistant to the Media Director; run social media and promote events & content
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Events Committee (no Lead role) -->
-    <div class="role-group" id="events-committee">
-      <h4 class="role-group__title">Events Committee</h4>
-      <div class="role-group__list">
-        <article class="role-card">
-          <h5 class="role-title">GradMag Event Photographer</h5>
-          <div class="role-meta">As needed • In-person</div>
-          <ul class="role-bullets">
-            <li>Document events with high-quality photos for promotion and archives</li>
-          </ul>
-        </article>
-
-        <article class="role-card">
-          <h5 class="role-title">Committee Member</h5>
-          <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
-          <ul class="role-bullets">
-            <li>Help organize, prepare, and set up equipment for events</li>
-          </ul>
-        </article>
+      <!-- BRIDGES Committee -->
+      <div class="accordion">
+        <div class="accordion-header">
+          <h3 class="accordion-title">B.R.I.D.G.E.S Committee</h3>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="role-grid">
+              <article class="role-card">
+                <h4 class="role-title">Speaker & Panel Coordinator</h4>
+                <div class="role-meta">~2 hrs/week • Outreach & scheduling</div>
+                <div class="role-description">
+                  Reach out to keynote speakers and panelists; organize schedules and materials
+                </div>
+              </article>
+              <article class="role-card">
+                <h4 class="role-title">Committee Member</h4>
+                <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
+                <div class="role-description">
+                  <ul>
+                    <li>Help organize the conference and logistics</li>
+                    <li>Department outreach, student participation, judges</li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- Editorial Board -->
-    <div class="role-group" id="editorial-board">
-      <h4 class="role-group__title">Editorial Board</h4>
-      <div class="role-group__list">
-        <article class="role-card">
-          <h5 class="role-title">Staff Writers</h5>
-          <div class="role-meta">1–3 hrs/week • Remote-friendly</div>
-          <ul class="role-bullets">
-            <li>Contribute written content (research highlights, student features, event recaps) for the magazine, web, and socials</li>
-            <li>Maintain consistent communication and updates (newsletter, event recaps for the website)</li>
-          </ul>
-        </article>
-
-        <article class="role-card">
-          <h5 class="role-title">Editors for Magazine</h5>
-          <div class="role-meta">1–2 hrs/week • Remote-friendly</div>
-          <ul class="role-bullets">
-            <li>Oversee content quality and editorial standards</li>
-          </ul>
-        </article>
-
-        <article class="role-card">
-          <h5 class="role-title">Artists for Magazine</h5>
-          <div class="role-meta">Flexible • Portfolio welcome</div>
-          <ul class="role-bullets">
-            <li>Design visual elements and enhance the magazine’s aesthetic appeal</li>
-            <li>No prior art experience necessary, submit a small portfolio or a few sample images</li>
-          </ul>
-        </article>
-
-        <article class="role-card">
-          <h5 class="role-title">Layout Designers for Magazine</h5>
-          <div class="role-meta">Project-based • Remote-friendly</div>
-          <ul class="role-bullets">
-            <li>Structure and format the magazine for readability</li>
-          </ul>
-        </article>
+      <!-- Events Committee -->
+      <div class="accordion">
+        <div class="accordion-header">
+          <h3 class="accordion-title">Events Committee</h3>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="role-grid">
+              <article class="role-card">
+                <h4 class="role-title">GradMag Event Photographer</h4>
+                <div class="role-meta">As needed • In-person</div>
+                <div class="role-description">
+                  Document events with high-quality photos for promotion and archives
+                </div>
+              </article>
+              <article class="role-card">
+                <h4 class="role-title">Committee Member</h4>
+                <div class="role-meta">1–2 hrs/week • Flexible tasks</div>
+                <div class="role-description">
+                  Help organize, prepare, and set up equipment for events
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <div class="footer-contact">
-      <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-      
-      <div class="social-block">
-        <div class="social-links" aria-label="Follow Grad Mag">
-          <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-          </a>
-          <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-          </a>
-          <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+      <!-- Editorial Board -->
+      <div class="accordion">
+        <div class="accordion-header">
+          <h3 class="accordion-title">Editorial Board</h3>
+          <span class="accordion-icon">+</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            <div class="role-grid">
+              <article class="role-card">
+                <h4 class="role-title">Staff Writers</h4>
+                <div class="role-meta">1–3 hrs/week • Remote-friendly</div>
+                <div class="role-description">
+                  <ul>
+                    <li>Contribute written content for the magazine, web, and socials</li>
+                    <li>Research highlights, student features, event recaps</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="role-card">
+                <h4 class="role-title">Editors for Magazine</h4>
+                <div class="role-meta">1–2 hrs/week • Remote-friendly</div>
+                <div class="role-description">
+                  Oversee content quality and editorial standards
+                </div>
+              </article>
+              <article class="role-card">
+                <h4 class="role-title">Artists for Magazine</h4>
+                <div class="role-meta">Flexible • Portfolio welcome</div>
+                <div class="role-description">
+                  <ul>
+                    <li>Design visual elements and enhance aesthetic appeal</li>
+                    <li>No prior art experience necessary</li>
+                  </ul>
+                </div>
+              </article>
+              <article class="role-card">
+                <h4 class="role-title">Layout Designers</h4>
+                <div class="role-meta">Project-based • Remote-friendly</div>
+                <div class="role-description">
+                  Structure and format the magazine for readability
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
   </div>
-</footer>
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-  (function() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
-    if (hamburger && mobileMenu) {
-      hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          mobileMenu.classList.remove('active');
-          document.body.style.overflow = '';
-        });
-      });
-      dropdownTitles.forEach(title => {
-        title.addEventListener('click', function() {
+
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+    (function() {
+      const hamburger = document.querySelector('.hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const dropdownTitles = document.querySelectorAll('.mobile-dropdown-title');
+      if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', function() {
           this.classList.toggle('active');
-          this.nextElementSibling.classList.toggle('active');
+          mobileMenu.classList.toggle('active');
+          document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+          });
+        });
+        dropdownTitles.forEach(title => {
+          title.addEventListener('click', function() {
+            this.classList.toggle('active');
+            this.nextElementSibling.classList.toggle('active');
+          });
+        });
+      }
+
+      // Accordion functionality
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          const accordion = this.parentElement;
+          accordion.classList.toggle('active');
         });
       });
-    }
-  })();
-</script>
+    })();
+  </script>
 </body>
 </html>

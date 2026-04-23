@@ -4,153 +4,225 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tech & Friends • SBU Grad Mag</title>
+  <title>Tech & Friends • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="Tech & Friends - every other Friday 1-2pm on WUSB 90.1 FM. A radio show by the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
-    .radio-hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #fff;
-      padding: 3rem 0;
+    html { scroll-behavior: smooth; }
+
+    .radio-page {
+      background: #fafafa;
+      min-height: 100vh;
     }
-    .radio-hero-grid {
+
+    /* Hero Section */
+    .radio-hero {
+      padding: 3rem 1.5rem;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+    .radio-hero .container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
     }
-    .radio-hero-image {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    .radio-hero .hero-content {
+      max-width: 500px;
     }
-    .radio-hero-image img {
+    .radio-hero .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .radio-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin: 0 0 0.5rem;
+      color: #1a1a1a;
+    }
+    .radio-hero .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .radio-hero .desc {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .radio-hero .next-ep {
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .radio-hero .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .radio-hero .hero-actions a {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: all 0.2s ease;
+    }
+    .radio-hero .hero-actions .btn-primary {
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .radio-hero .hero-actions .btn-primary:hover {
+      background: #333;
+    }
+    .radio-hero .hero-actions .btn-outline {
+      border: 1px solid #ddd;
+      color: #1a1a1a;
+    }
+    .radio-hero .hero-actions .btn-outline:hover {
+      border-color: #1a1a1a;
+    }
+    .radio-hero .hero-image img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .radio-hero .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .radio-hero .hero-content {
+        max-width: 100%;
+        order: 2;
+      }
+      .radio-hero .hero-image {
+        order: 1;
+      }
+    }
+
+    .radio-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    .episode-card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .episode-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .episode-header {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .episode-thumb {
+      flex: 0 0 180px;
+      max-width: 180px;
+    }
+    .episode-thumb img {
       width: 100%;
       height: auto;
       display: block;
     }
-    .radio-hero-content {
-      text-align: left;
+    .episode-info {
+      flex: 1;
+      min-width: 250px;
     }
-    .radio-hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin: 0 0 1rem;
-    }
-    .radio-hero p {
-      max-width: 600px;
-      margin: 0 0 1.5rem;
-      opacity: 0.9;
-      line-height: 1.6;
-    }
-    .radio-hero .wusb-badge {
+    .episode-badge {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.3);
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
+      font-size: 0.75rem;
       font-weight: 600;
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #888;
+      background: #f5f5f5;
+      padding: 0.35rem 0.75rem;
     }
-    .radio-hero .btn-listen {
-      display: inline-block;
-      background: #e94560;
-      color: #fff;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
-    .radio-hero .btn-listen:hover {
-      background: #d63850;
-      text-decoration: none;
-    }
-    @media (max-width: 768px) {
-      .radio-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .radio-hero-content {
-        text-align: center;
-      }
-      .radio-hero-image {
-        order: -1;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-    }
-    .episodes-section {
-      padding: 3rem 0;
-    }
-    .episodes-section h2 {
+    .episode-card h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      text-align: center;
-      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0.75rem 0 0.5rem;
+      color: #1a1a1a;
     }
-    .coming-soon {
-      text-align: center;
-      padding: 3rem;
-      background: #f8fafc;
-      border: 2px dashed #e2e8f0;
-      border-radius: 12px;
-      color: #64748b;
+    .episode-date {
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
     }
-    .coming-soon h3 {
-      margin: 0 0 0.5rem;
-      color: #374151;
-    }
-    .coming-soon p {
-      margin: 0;
-    }
-    .show-info {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-    .show-info-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    .show-info-card .icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .show-info-card h3 {
-      font-size: 1rem;
-      margin: 0 0 0.25rem;
-      color: #1a1a2e;
-    }
-    .show-info-card p {
-      margin: 0;
-      color: #64748b;
+    .episode-desc {
+      color: #555;
+      line-height: 1.6;
       font-size: 0.95rem;
     }
-    @media (max-width: 768px) {
-      .show-info { grid-template-columns: 1fr; }
+    .episode-audio {
+      margin-top: 1.25rem;
     }
+    .episode-audio audio {
+      width: 100%;
+    }
+
+    .episodes-footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+
     @media (max-width: 768px) {
-      .radio-hero h1 { font-size: 1.75rem; }
+      .episode-thumb {
+        flex: 0 0 100%;
+        max-width: 180px;
+      }
     }
   </style>
 </head>
-<body>
+<body class="radio-page">
 
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -162,16 +234,17 @@
           </div>
         </div>
         <a href="bridges.html">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -201,16 +274,17 @@
       </div>
     </div>
     <a href="bridges.html">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
-<div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+      </div>
     </div>
-    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -221,161 +295,151 @@
     <a href="radio.html" aria-current="page">Radio</a>
   </div>
 
-  <!-- Radio Hero -->
+  <!-- Page Header -->
   <section class="radio-hero">
     <div class="container">
-      <div class="radio-hero-grid">
-        <div class="radio-hero-image">
-          <img src="images/radio1.png" alt="Tech & Friends radio show hosts in the WUSB studio">
+      <div class="hero-content">
+        <div class="label">WUSB 90.1 FM • Every Other Friday</div>
+        <h1>Tech & Friends</h1>
+        <p class="subtitle">Premiered February 20th, 2026</p>
+        <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community.</p>
+        <p class="next-ep">Next episode: May 1st, 2026</p>
+        <div class="hero-actions">
+          <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-primary">Listen Live on WUSB</a>
+          <a href="#episodes" class="btn-outline">Browse Episodes</a>
         </div>
-        <div class="radio-hero-content">
-          <span class="wusb-badge">WUSB 90.1 FM</span>
-          <h1>Tech & Friends</h1>
-          <p>Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community. Listen live on WUSB or catch up on our episodes below.</p>
-          <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong style="color: #fde68a;">Catch the next episode May 1st!</strong></p>
-          <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-listen">Listen Live on WUSB</a>
-        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/radio1.png" alt="Tech & Friends radio show hosts in the WUSB studio">
       </div>
     </div>
   </section>
 
-  <!-- Show Info -->
-  <section class="episodes-section">
-    <div class="container">
-      <div class="show-info">
-        <div class="show-info-card">
-          <div class="icon">📻</div>
-          <h3>WUSB 90.1 FM</h3>
-          <p>Stony Brook's student radio</p>
+  <!-- Content -->
+  <div class="radio-container">
+    
+    <!-- Episodes -->
+    <div class="section-label" id="episodes">Episodes</div>
+    
+    <!-- Episode 4 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 4 - Tech & Friends">
         </div>
-        <div class="show-info-card">
-          <div class="icon">📅</div>
-          <h3>Every Other Friday</h3>
-          <p>1:00 PM - 2:00 PM</p>
-        </div>
-        <div class="show-info-card">
-          <div class="icon">🎧</div>
-          <h3>Next Episode</h3>
-          <p>May 1st, 2026</p>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 4</span>
+          <h3>Art, Science, and the Power of Perception</h3>
+          <div class="episode-date">April 17th, 2026</div>
+          <p class="episode-desc">We sit down with Patricia Maurides, a visual artist and Professor of Practice in the Department of Art at Stony Brook University, whose work lives at the crossroads of science and art. With a background in biology and an MFA from Carnegie Mellon, Maurides has spent decades building courses, collaborations, and exhibitions that ask students to investigate perception, memory, and the natural world through both a scientific and artistic lens.</p>
         </div>
       </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast4.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
 
-      <h2>Episodes</h2>
-      
-      <!-- Episode 4 -->
-      <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 0 0 200px; max-width: 200px;">
-            <img src="images/Radio2.png" alt="Episode 4 - Tech & Friends" style="width: 100%; height: auto; border-radius: 8px; display: block;">
-          </div>
-          <div style="flex: 1; min-width: 250px;">
-            <span style="background: #e94560; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; text-transform: uppercase;">Episode 4</span>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0.75rem 0 0.5rem;">Art, Science, and the Power of Perception</h3>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">April 17th, 2026</p>
-            <p style="color: #333; line-height: 1.6;">We sit down with Patricia Maurides, a visual artist and Professor of Practice in the Department of Art at Stony Brook University, whose work lives at the crossroads of science and art. With a background in biology and an MFA from Carnegie Mellon, Maurides has spent decades building courses, collaborations, and exhibitions that ask students to investigate perception, memory, and the natural world through both a scientific and artistic lens. We talk about her own photo-based practice, her long-running courses Art and Biology and Art and the Brain, and her current student installation "Blu tanical Impressions" in the Staller Center hallway. In the second half, we explore her philosophy of teaching, the power of public presentation, and Earthstock, where her students will be sharing their work with the Stony Brook community.</p>
-          </div>
+    <!-- Episode 3 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 3 - Tech & Friends">
         </div>
-        <div style="margin-top: 1rem;">
-          <audio controls style="width: 100%; border-radius: 8px;">
-            <source src="techandfriends_broadcast4.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 3</span>
+          <h3>Mental Health in a Tech-Driven World</h3>
+          <div class="episode-date">April 3rd, 2026</div>
+          <p class="episode-desc">Exploring technology's role in graduate student mental health, featuring conversations with Donal Thomas, PhD Candidate and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services. The episode highlights campus resources, advocacy efforts, and strategies for maintaining wellbeing in a highly connected academic environment.</p>
         </div>
       </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast3.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
 
-      <!-- Episode 3 -->
-      <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 0 0 200px; max-width: 200px;">
-            <img src="images/Radio2.png" alt="Episode 3 - Tech & Friends" style="width: 100%; height: auto; border-radius: 8px; display: block;">
-          </div>
-          <div style="flex: 1; min-width: 250px;">
-            <span style="background: #e94560; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; text-transform: uppercase;">Episode 3</span>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0.75rem 0 0.5rem;">Mental Health in a Tech-Driven World</h3>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">April 3rd, 2026</p>
-            <p style="color: #333; line-height: 1.6;">Exploring technology's role in graduate student mental health, featuring conversations with Donal Thomas, PhD Candidate and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services. The episode highlights campus resources, advocacy efforts, and strategies for maintaining wellbeing in a highly connected academic environment.</p>
-          </div>
+    <!-- Episode 2 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 2 - Tech & Friends">
         </div>
-        <div style="margin-top: 1rem;">
-          <audio controls style="width: 100%; border-radius: 8px;">
-            <source src="techandfriends_broadcast3.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 2</span>
+          <h3>BRIDGES 2026 Conference Highlights, Part 2</h3>
+          <div class="episode-date">March 20th, 2026</div>
+          <p class="episode-desc">Continuing our BRIDGES coverage with extended interviews, featuring Alfreda S. James on networking and professional development, graduate student presenters, and musical performances from Shiqi Yang & Changyue Liu, Gina Rizzo, Kevin Kyaw, Da Young Rachel Lim, and Guilherme Batalha.</p>
         </div>
       </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast2.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
 
-      <!-- Episode 2 -->
-      <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 0 0 200px; max-width: 200px;">
-            <img src="images/Radio2.png" alt="Episode 2 - Tech & Friends" style="width: 100%; height: auto; border-radius: 8px; display: block;">
-          </div>
-          <div style="flex: 1; min-width: 250px;">
-            <span style="background: #e94560; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; text-transform: uppercase;">Episode 2</span>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0.75rem 0 0.5rem;">BRIDGES 2026 Conference Highlights, Part 2</h3>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">March 20th, 2026</p>
-            <p style="color: #333; line-height: 1.6;">Continuing our BRIDGES coverage with extended interviews, featuring Alfreda S. James on networking and professional development, graduate student presenters, and musical performances from Shiqi Yang & Changyue Liu, Gina Rizzo, Kevin Kyaw, Da Young Rachel Lim, and Guilherme Batalha. A more in-depth look at the people, ideas, and community driving graduate research at Stony Brook.</p>
-          </div>
+    <!-- Episode 1 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 1 - Tech & Friends">
         </div>
-        <div style="margin-top: 1rem;">
-          <audio controls style="width: 100%; border-radius: 8px;">
-            <source src="techandfriends_broadcast2.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 1</span>
+          <h3>BRIDGES 2026 Conference Highlights, Part 1</h3>
+          <div class="episode-date">February 20th, 2026</div>
+          <p class="episode-desc">In the inaugural broadcast of Tech & Friends, we introduce the BRIDGES conference, a student-led initiative that brought together nearly 300 attendees. Featuring reflections from Celia Marshik, conversations with Gillian Farnan, Nancee Moes, and Peter Stokes, and highlights from award-winning work.</p>
         </div>
       </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast1.m4a" type="audio/mp4">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
 
-      <!-- Episode 1 -->
-      <div style="background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; overflow: hidden;">
-        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
-          <div style="flex: 0 0 200px; max-width: 200px;">
-            <img src="images/Radio2.png" alt="Episode 1 - Tech & Friends" style="width: 100%; height: auto; border-radius: 8px; display: block;">
-          </div>
-          <div style="flex: 1; min-width: 250px;">
-            <span style="background: #e94560; color: #fff; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 50px; text-transform: uppercase;">Episode 1</span>
-            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0.75rem 0 0.5rem;">BRIDGES 2026 Conference Highlights, Part 1</h3>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1rem;">February 20th, 2026</p>
-            <p style="color: #333; line-height: 1.6;">In the inaugural broadcast of Tech & Friends, we introduce the BRIDGES conference, a student-led initiative that brought together nearly 300 attendees. Featuring reflections from Celia Marshik, conversations with Gillian Farnan, Nancee Moes, and Peter Stokes, interviews with graduate presenters, and remarks from Carl W. Lejuez, culminating in highlights from award-winning work by Lauren Rothburd and Sai Abasolo.</p>
-          </div>
-        </div>
-        <div style="margin-top: 1rem;">
-          <audio controls style="width: 100%; border-radius: 8px;">
-            <source src="techandfriends_broadcast1.m4a" type="audio/mp4">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-      
-      <p style="text-align: center; color: #64748b; font-size: 0.9rem;">New episodes every other Friday on WUSB 90.1 FM!</p>
-    </div>
-  </section>
+    <p class="episodes-footer">New episodes every other Friday on WUSB 90.1 FM</p>
+
+  </div>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
 
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
+    
     // Mobile Menu
     (function() {
       const hamburger = document.querySelector('.hamburger');

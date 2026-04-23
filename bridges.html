@@ -4,355 +4,408 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>B.R.I.D.G.E.S • SBU Grad Mag</title>
+  <title>B.R.I.D.G.E.S • SBU Graduate Arts & Sciences Magazine</title>
   <meta name="description" content="BRIDGES 2026 - The 2nd Annual Cross-Departmental Graduate Student Conference at Stony Brook University." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
-    html {
-      scroll-behavior: smooth;
+    html { scroll-behavior: smooth; }
+
+    .bridges-page {
+      background: #fff;
+      min-height: 100vh;
     }
-    
-    /* BRIDGES Hero Banner */
+
+    /* Hero Section */
     .bridges-hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #fff;
-      padding: 4rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .bridges-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('images/postersesh.JPG') center/cover no-repeat;
-      opacity: 0.15;
-      z-index: 0;
+      padding: 3rem 1.5rem;
+      border-bottom: 1px solid #eee;
     }
     .bridges-hero .container {
-      position: relative;
-      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
-    .bridges-hero .annual-badge {
-      display: inline-block;
-      background: linear-gradient(90deg, #e94560, #ff6b6b);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+    .bridges-hero .hero-content {
+      max-width: 500px;
+    }
+    .bridges-hero .label {
+      font-size: 0.75rem;
       text-transform: uppercase;
-      padding: 0.5rem 1.25rem;
-      border-radius: 50px;
-      margin-bottom: 1.25rem;
+      letter-spacing: 0.15em;
+      color: #888;
+      margin-bottom: 1rem;
     }
     .bridges-hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
       margin: 0 0 0.5rem;
-      letter-spacing: 0.08em;
+      color: #1a1a1a;
     }
-    .bridges-hero .tagline {
-      font-size: 1.15rem;
-      opacity: 0.9;
-      margin-bottom: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .date-highlight {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 16px;
-      padding: 2rem 3rem;
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
-    .date-highlight .label {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      opacity: 0.8;
-      margin-bottom: 0.5rem;
-    }
-    .date-highlight .date {
+    .bridges-hero .subtitle {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      font-weight: 700;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: #666;
+      margin-bottom: 1.5rem;
     }
-    .date-highlight .location {
-      font-size: 1rem;
-      opacity: 0.85;
-      margin-top: 0.5rem;
+    .bridges-hero .event-info {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
     }
-    .hero-buttons {
+    .bridges-hero .event-info strong {
+      color: #1a1a1a;
+    }
+    .bridges-hero .hero-actions {
       display: flex;
-      gap: 1rem;
-      justify-content: center;
+      gap: 0.75rem;
       flex-wrap: wrap;
     }
-    .hero-buttons .btn {
-      padding: 0.85rem 1.75rem;
-      border-radius: 8px;
-      font-weight: 700;
+    .bridges-hero .hero-actions a {
+      padding: 0.6rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s ease;
+      border-radius: 3px;
+      transition: all 0.2s ease;
     }
-    .hero-buttons .btn-primary {
-      background: #e94560;
+    .bridges-hero .hero-actions .btn-primary {
+      background: #1a1a1a;
       color: #fff;
-      border: 2px solid #e94560;
     }
-    .hero-buttons .btn-primary:hover {
-      background: #d63850;
-      border-color: #d63850;
+    .bridges-hero .hero-actions .btn-primary:hover {
+      background: #333;
     }
-    .hero-buttons .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.5);
+    .bridges-hero .hero-actions .btn-outline {
+      border: 1px solid #ddd;
+      color: #1a1a1a;
     }
-    .hero-buttons .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #fff;
+    .bridges-hero .hero-actions .btn-outline:hover {
+      border-color: #1a1a1a;
+    }
+    .bridges-hero .hero-image {
+      position: relative;
+    }
+    .bridges-hero .hero-image img {
+      width: 100%;
+      display: block;
     }
 
-    /* Last Year Photos Section */
-    .last-year-photos {
-      padding: 3rem 0;
-      background: #f8fafc;
+    /* Main Content */
+    .bridges-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
     }
-    .last-year-photos h2 {
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 1.5rem;
+    }
+    .section-header:first-child {
+      margin-top: 0;
+    }
+    .section-header h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      text-align: center;
-      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
     }
-    .last-year-photos .intro {
-      text-align: center;
-      color: #64748b;
+    .section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+
+    /* Summary */
+    .summary-section {
       margin-bottom: 2rem;
     }
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: repeat(4, 120px);
-      gap: 6px;
+    .summary-section p {
+      color: #444;
+      line-height: 1.9;
+      margin-bottom: 1rem;
     }
-    .photo-gallery .photo {
-      border-radius: 6px;
+    .summary-section .pullquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #1a1a1a;
+      border-left: 3px solid #1a1a1a;
+      padding-left: 1.5rem;
+      margin: 2rem 0;
+      line-height: 1.6;
+    }
+
+    /* Stats Row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      padding: 2rem 0;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #1a1a1a;
+    }
+    .stat-item .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-top: 0.25rem;
+    }
+
+    /* Winners */
+    .winners-section {
+      margin-bottom: 2rem;
+    }
+    .winner-category {
+      margin-bottom: 2rem;
+    }
+    .winner-category h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      margin: 0 0 1rem;
+      font-weight: 600;
+    }
+    .winner-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .winner-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem;
+      background: #fafafa;
+      border-left: 3px solid #eee;
+      transition: border-color 0.2s ease;
+    }
+    .winner-item:hover {
+      border-left-color: #1a1a1a;
+    }
+    .winner-item.gold { border-left-color: #d4a650; }
+    .winner-item.silver { border-left-color: #8b9298; }
+    .winner-item.bronze { border-left-color: #cd7f32; }
+    .winner-item .place-prize {
+      text-align: center;
+    }
+    .winner-item .place {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+    .winner-item .prize {
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .winner-item .details .name {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.15rem;
+    }
+    .winner-item .details .dept {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    .winner-item .details .title {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* Photo Gallery */
+    .gallery {
+      margin-bottom: 2rem;
+    }
+    .gallery-featured {
+      margin-bottom: 1rem;
+    }
+    .gallery-featured img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.5rem;
+    }
+    .gallery-grid .photo {
+      aspect-ratio: 1;
       overflow: hidden;
       position: relative;
     }
-    .photo-gallery .photo img {
+    .gallery-grid .photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: opacity 0.3s ease;
     }
-    .photo-gallery .photo:hover img {
-      transform: scale(1.05);
-    }
-    /* Varied sizes for gallery look - 13 photos */
-    .photo-gallery .photo:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; }
-    .photo-gallery .photo:nth-child(2) { grid-column: 3 / 4; grid-row: 1 / 3; }
-    .photo-gallery .photo:nth-child(3) { grid-column: 4 / 5; grid-row: 1 / 2; }
-    .photo-gallery .photo:nth-child(4) { grid-column: 5 / 7; grid-row: 1 / 2; }
-    .photo-gallery .photo:nth-child(5) { grid-column: 1 / 2; grid-row: 2 / 3; }
-    .photo-gallery .photo:nth-child(6) { grid-column: 2 / 3; grid-row: 2 / 3; }
-    .photo-gallery .photo:nth-child(7) { grid-column: 4 / 6; grid-row: 2 / 3; }
-    .photo-gallery .photo:nth-child(8) { grid-column: 6 / 7; grid-row: 2 / 4; }
-    .photo-gallery .photo:nth-child(9) { grid-column: 1 / 3; grid-row: 3 / 4; }
-    .photo-gallery .photo:nth-child(10) { grid-column: 3 / 4; grid-row: 3 / 4; }
-    .photo-gallery .photo:nth-child(11) { grid-column: 4 / 6; grid-row: 3 / 4; }
-    .photo-gallery .photo:nth-child(12) { grid-column: 1 / 4; grid-row: 4 / 5; }
-    .photo-gallery .photo:nth-child(13) { grid-column: 4 / 7; grid-row: 4 / 5; }
-    
-    @media (max-width: 768px) {
-      .bridges-hero h1 { font-size: 2.25rem; }
-      .date-highlight { padding: 1.5rem 2rem; }
-      .date-highlight .date { font-size: 1.75rem; }
-      .photo-gallery { 
-        grid-template-columns: repeat(3, 1fr); 
-        grid-template-rows: auto;
-      }
-      .photo-gallery .photo { 
-        grid-column: auto !important; 
-        grid-row: auto !important; 
-        aspect-ratio: 1; 
-      }
-    }
-    @media (max-width: 500px) {
-      .photo-gallery { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid .photo:hover img {
+      opacity: 0.85;
     }
 
-    /* About Section */
-    .bridges-about {
-      padding: 3rem 0;
-    }
-    .bridges-about h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
-    .bridges-about p {
-      color: #374151;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    .highlights-list {
+    /* Programs */
+    .programs-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem 2rem;
-      margin: 1.5rem 0;
-      list-style: none;
-      padding: 0;
-    }
-    .highlights-list li {
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .highlights-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #e94560;
-      font-weight: 700;
-    }
-    @media (max-width: 600px) {
-      .highlights-list { grid-template-columns: 1fr; }
-    }
-
-    /* Deadlines & Submissions Section */
-    .submissions-section {
-      padding: 3rem 0;
-      background: #fff;
-    }
-    .submissions-section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      text-align: center;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
-    .deadline-cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 768px) {
-      .deadline-cards { grid-template-columns: 1fr; }
-    }
-    .deadline-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
+    .program-item {
       padding: 1.5rem;
-    }
-    .deadline-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: #1a1a2e;
-    }
-    .deadline-card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 1rem;
-    }
-    .deadline-card li {
+      border: 1px solid #eee;
       display: flex;
       justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #e2e8f0;
+      align-items: center;
+      transition: border-color 0.2s ease;
     }
-    .deadline-card li:last-child {
-      border-bottom: none;
+    .program-item:hover {
+      border-color: #1a1a1a;
     }
-    .deadline-card .date-tag {
-      background: #fef3c7;
-      color: #92400e;
+    .program-item .info h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      margin: 0 0 0.25rem;
+      color: #1a1a1a;
+    }
+    .program-item .info span {
       font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
+      color: #888;
     }
-    .submission-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-    .submission-links a {
-      display: block;
-      padding: 0.75rem 1rem;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      color: #1a1a2e;
+    .program-item a {
+      font-size: 0.85rem;
+      color: #1a1a1a;
       text-decoration: none;
       font-weight: 600;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 3px;
       transition: all 0.2s ease;
     }
-    .submission-links a:hover {
-      border-color: #e94560;
-      background: #fef2f4;
+    .program-item a:hover {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
     }
 
-    /* Program Section */
-    .program-section {
-      padding: 2rem 0 3rem;
-      background: #f8fafc;
-    }
-    .program-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 2rem;
+    /* CTA Section */
+    .cta-section {
       text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      background: #fafafa;
+      margin-top: 2rem;
     }
-    .program-card h3 {
+    .cta-section h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 0.5rem;
+      color: #1a1a1a;
     }
-    .program-card p {
-      color: #64748b;
-      margin-bottom: 1.25rem;
+    .cta-section p {
+      color: #666;
+      margin-bottom: 1.5rem;
     }
-    .program-card .btn-row {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .program-card .btn-row a {
-      padding: 0.6rem 1.25rem;
-      border-radius: 6px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .program-card .btn-row a.primary {
-      background: #1a1a2e;
+    .cta-section a {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: #1a1a1a;
       color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      transition: background 0.2s ease;
     }
-    .program-card .btn-row a.secondary {
-      border: 1px solid #cbd5e1;
-      color: #374151;
+    .cta-section a:hover {
+      background: #333;
+    }
+
+    @media (max-width: 900px) {
+      .bridges-hero .container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .bridges-hero .hero-content {
+        max-width: 100%;
+        text-align: center;
+      }
+      .bridges-hero .hero-actions {
+        justify-content: center;
+      }
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .stats-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .gallery-featured img {
+        height: 250px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .programs-row {
+        grid-template-columns: 1fr;
+      }
+      .winner-item {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+      }
     }
   </style>
 </head>
-<body>
+<body class="bridges-page">
 
   <!-- Header -->
   <header>
     <div class="container nav">
-      <div class="brand">
-        <img src="images/logo.png" alt="SBU Graduate Arts & Sciences Magazine Logo" class="brand-logo">
-        <div class="brand-title">SBU Graduate Arts &amp; Sciences Magazine</div>
-      </div>
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-text">SBU Graduate Arts & Sciences Magazine</span>
+      </a>
+      <style>
+        header .container.nav { max-width:100%; margin:0; padding-left:2.5%; padding-right:2.5%; }
+        .nav-links a, .nav-dropdown-menu a { text-transform: uppercase; }
+        .brand-text { font-family:'Manrope',sans-serif; font-size:1.35rem; font-weight:700; color:#1a1a1a; letter-spacing:0.05em; text-transform:uppercase; }
+        @media(max-width:768px) { .brand-text { font-size:1.05rem; letter-spacing:0.03em; } }
+      </style>
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <div class="nav-dropdown">
@@ -364,16 +417,17 @@
           </div>
         </div>
         <a href="bridges.html" aria-current="page">BRIDGES</a>
-        <a href="events.html">Events</a>
         <div class="nav-dropdown">
-<a href="publications.html">Publications</a>
-  <div class="nav-dropdown-menu">
-    <a href="publications.html">All Publications</a>
-    <a href="submissions.html">Submissions</a>
-    <a href="fourseasons.html">The Four Seasons (2025)</a>
-    <a href="humanconnection.html">The Human Connection (2024)</a>
-  </div>
+          <a href="publications.html">Publications</a>
+          <div class="nav-dropdown-menu">
+            <a href="publications.html">All Publications</a>
+            <a href="submissions.html">Submissions</a>
+            <a href="fourseasons.html">The Four Seasons (2025)</a>
+            <a href="humanconnection.html">The Human Connection (2024)</a>
+          </div>
         </div>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
           <div class="nav-dropdown-menu">
@@ -383,7 +437,6 @@
         </div>
         <a href="radio.html">Radio</a>
       </nav>
-      <!-- Hamburger button (mobile only) -->
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -404,16 +457,17 @@
       </div>
     </div>
     <a href="bridges.html" aria-current="page">BRIDGES</a>
-    <a href="events.html">Events</a>
     <div class="mobile-dropdown">
-<div class="mobile-dropdown-title">Publications</div>
-    <div class="mobile-dropdown-items">
-      <a href="publications.html">All Publications</a>
-      <a href="fourseasons.html">The Four Seasons (2025)</a>
-      <a href="humanconnection.html">The Human Connection (2024)</a>
-      <a href="submissions.html">Submissions</a>
+      <div class="mobile-dropdown-title">Publications</div>
+      <div class="mobile-dropdown-items">
+        <a href="publications.html">All Publications</a>
+        <a href="fourseasons.html">The Four Seasons (2025)</a>
+        <a href="humanconnection.html">The Human Connection (2024)</a>
+        <a href="submissions.html">Submissions</a>
+      </div>
     </div>
-    </div>
+    <a href="poetry.html">Poetry</a>
+    <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
       <div class="mobile-dropdown-items">
@@ -424,230 +478,223 @@
     <a href="radio.html">Radio</a>
   </div>
 
-  <!-- Hero Banner with Video -->
-  <section class="bridges-hero" style="padding: 2rem 0;">
+  <!-- Hero Section -->
+  <section class="bridges-hero">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; max-width: 1100px; margin: 0 auto;">
-        <div style="position: relative;">
-          <img src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026 Award Winners" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.3);">
+      <div class="hero-content">
+        <div class="label">Annual Conference</div>
+        <h1>B.R.I.D.G.E.S</h1>
+        <p class="subtitle">A Cross-Departmental Graduate Student Conference</p>
+        <p class="event-info">
+          <strong>2nd Annual Conference</strong><br>
+          February 19, 2026 • Student Activities Center<br>
+          Stony Brook University
+        </p>
+        <div class="hero-actions">
+          <a href="#recap" class="btn-primary">2026 Recap</a>
+          <a href="#winners" class="btn-outline">Award Winners</a>
+          <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank" class="btn-outline">View Program</a>
         </div>
-        <div style="text-align: left;">
-          <span class="annual-badge" style="display: inline-block; margin-bottom: 1rem;">2nd Annual Conference • February 19, 2026</span>
-          <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">B.R.I.D.G.E.S</h1>
-          <p class="tagline" style="margin-bottom: 1rem;">A Cross-Departmental Graduate Student Conference connecting research, creativity, and innovation</p>
-          <p style="font-size: 1.1rem; font-weight: 600; color: #fde68a; margin-bottom: 1.5rem;">Thank you for making BRIDGES 2026 a success!</p>
-          
-          <div class="hero-buttons" style="justify-content: flex-start;">
-            <a href="#summary" class="btn btn-primary" style="font-size: 1rem; padding: 0.85rem 1.75rem;">Event Recap</a>
-            <a href="#winners" class="btn btn-outline">2026 Winners</a>
-            <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank" rel="noopener" class="btn btn-outline">View Program</a>
+      </div>
+      <div class="hero-image">
+        <img src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026 Award Winners">
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="bridges-content">
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="number">93</div>
+        <div class="label">Poster Presentations</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">40+</div>
+        <div class="label">Departments</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">$2,450</div>
+        <div class="label">In Prizes</div>
+      </div>
+      <div class="stat-item">
+        <div class="number">2nd</div>
+        <div class="label">Annual Event</div>
+      </div>
+    </div>
+
+    <!-- Event Recap -->
+    <section id="recap" class="summary-section">
+      <div class="section-header">
+        <h2>Event Recap</h2>
+      </div>
+      <p>BRIDGES 2026 was successfully held on February 19, 2026, at the Student Activities Center at Stony Brook University. The student-led interdisciplinary conference brought together graduate scholars, faculty, and community members for research presentations, artistic showcases, and professional development programming.</p>
+      
+      <p class="pullquote">BRIDGES 2026 marked a milestone in interdisciplinary engagement, highlighting the strength of graduate research, creativity, and collaboration across the institution.</p>
+      
+      <p>The event featured 93 research poster presentations, an art gallery, graduate student film screenings, live musical performances, interdisciplinary seminars, and a Graduate Department Fair. The conference opened with a keynote address by <strong>Peter Stokes</strong>, Managing Director at Huron Consulting Group, followed by seminars from the <strong>Alan Alda Center for Communicating Science</strong> and the <strong>Stony Brook Career Center</strong>.</p>
+    </section>
+
+    <!-- Award Winners -->
+    <section id="winners" class="winners-section">
+      <div class="section-header">
+        <h2>2026 Award Winners</h2>
+      </div>
+      
+      <div class="winner-category">
+        <h3>Poster Awards</h3>
+        <div class="winner-list">
+          <div class="winner-item gold">
+            <div class="place-prize">
+              <div class="place">1st</div>
+              <div class="prize">$1,000</div>
+            </div>
+            <div class="details">
+              <div class="name">Lauren Rothburd</div>
+              <div class="dept">MS Student, Department of Psychology</div>
+              <div class="title">Temperament, Psychopathology, and Interpersonal Functioning Factors of Adolescent Social Media Use</div>
+            </div>
+          </div>
+          <div class="winner-item silver">
+            <div class="place-prize">
+              <div class="place">2nd</div>
+              <div class="prize">$500</div>
+            </div>
+            <div class="details">
+              <div class="name">Lily Cam</div>
+              <div class="dept">PhD Student, Chemistry and Chemical Biology</div>
+              <div class="title">Uncovering NosP's Role in P. aeruginosa Biofilm Dispersal via Pyocyanin Profiling of Functional Residues</div>
+            </div>
+          </div>
+          <div class="winner-item bronze">
+            <div class="place-prize">
+              <div class="place">3rd</div>
+              <div class="prize">$250</div>
+            </div>
+            <div class="details">
+              <div class="name">Sai Abasolo</div>
+              <div class="dept">PhD Student, Biomedical Engineering</div>
+              <div class="title">Woven Bone-Mimicking Organoids as a Preclinical Platform and Therapeutic Construct for Bone Repair</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  
-  <style>
-    @media (max-width: 768px) {
-      .bridges-hero > .container > div {
-        grid-template-columns: 1fr !important;
-        text-align: center !important;
-      }
-      .bridges-hero .hero-buttons {
-        justify-content: center !important;
-      }
-    }
-  </style>
 
-  <!-- Event Summary Section -->
-  <section id="summary" style="padding: 3rem 0; background: #fff;">
-    <div class="container">
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-bottom: 2rem;">BRIDGES 2026 Celebrates Graduate Excellence</h2>
-      
-      <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #333;">
-        <p style="margin-bottom: 1.5rem;"><strong>BRIDGES: A Cross-Departmental Graduate Student Conference</strong> was successfully held on February 19, 2026, at the Student Activities Center at Stony Brook University. The historic, student-led and student-run interdisciplinary conference brought together graduate scholars, faculty, and community members for a full day of research presentations, artistic showcases, and professional development programming.</p>
-        
-        <p style="margin-bottom: 1.5rem;">The event was organized by the graduate leadership team of <strong>The SBU Graduate Arts & Sciences Magazine (GradMag)</strong>, whose coordination and vision made the large-scale conference possible. Representing more than <strong>40 academic departments</strong>, BRIDGES 2026 featured <strong>93 research poster presentations</strong>, an art gallery, graduate student film screenings, live musical performances, interdisciplinary seminars, and a Graduate Department Fair.</p>
-        
-        <p style="margin-bottom: 1.5rem;">The conference opened with a keynote address by <strong>Peter Stokes</strong>, Managing Director of Strategy and Operations at Huron Consulting Group. Attendees also participated in a seminar hosted by the <strong>Alan Alda Center for Communicating Science</strong> from Professor Nancee Moes, and a professional development workshop led by <strong>Dr. Alfreda S. James</strong> of the Stony Brook University Career Center. Closing remarks were delivered by <strong>Provost Carl W. Lejuez</strong> and <strong>Dean Celia Marshik</strong>, who recognized the impact of graduate scholarship and student leadership.</p>
-        
-        <p style="text-align: center; font-style: italic; color: #64748b;">BRIDGES 2026 marked a milestone in interdisciplinary engagement at Stony Brook University, highlighting the strength of graduate research, creativity, and collaboration across the institution.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Award Winners Section -->
-  <section id="winners" style="padding: 3rem 0; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff;">
-    <div class="container">
-      <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; text-align: center; margin-bottom: 2.5rem;">2026 Award Winners</h2>
-      
-      <!-- Poster Awards -->
-      <h3 style="text-align: center; font-size: 1.25rem; margin-bottom: 1.5rem; color: #fde68a;">Poster Awards</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto 2.5rem;">
-        
-        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <div style="font-size: 2rem; font-weight: 700; color: #fde68a;">1st Place</div>
-          <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">$1,000</div>
-          <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">Lauren Rothburd</div>
-          <div style="font-size: 0.9rem; opacity: 0.85;">MS Student, Department of Psychology</div>
-          <div style="font-size: 0.85rem; font-style: italic; margin-top: 0.75rem; opacity: 0.9;">Temperament, Psychopathology, and Interpersonal Functioning Factors of Adolescent Social Media Use</div>
-        </div>
-        
-        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <div style="font-size: 2rem; font-weight: 700; color: #c0c0c0;">2nd Place</div>
-          <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">$500</div>
-          <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">Lily Cam</div>
-          <div style="font-size: 0.9rem; opacity: 0.85;">PhD Student, Department of Chemistry and Chemical Biology Training Program</div>
-          <div style="font-size: 0.85rem; font-style: italic; margin-top: 0.75rem; opacity: 0.9;">Uncovering NosP's Role in P. aeruginosa Biofilm Dispersal via Pyocyanin Profiling of Functional Residues</div>
-        </div>
-        
-        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <div style="font-size: 2rem; font-weight: 700; color: #cd7f32;">3rd Place</div>
-          <div style="font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0;">$250</div>
-          <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">Sai Abasolo</div>
-          <div style="font-size: 0.9rem; opacity: 0.85;">PhD Student, Department of Biomedical Engineering</div>
-          <div style="font-size: 0.85rem; font-style: italic; margin-top: 0.75rem; opacity: 0.9;">Woven Bone-Mimicking Organoids as a Preclinical Platform and Therapeutic Construct for Bone Repair</div>
-        </div>
-      </div>
-      
-      <!-- Art & Film Awards -->
-      <h3 style="text-align: center; font-size: 1.25rem; margin-bottom: 1.5rem; color: #fde68a;">Art & Film Awards</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 700px; margin: 0 auto;">
-        
-        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <div style="font-size: 1.5rem; font-weight: 700; color: #fde68a;">Art Award</div>
-          <div style="font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0;">$350</div>
-          <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">Benjamin Truong</div>
-          <div style="font-size: 0.9rem; opacity: 0.85;">MFA Student, Department of Art</div>
-          <div style="font-size: 0.95rem; font-weight: 600; margin-top: 0.75rem;">Beaver Jesus</div>
-          <div style="font-size: 0.85rem; font-style: italic; margin-top: 0.5rem; opacity: 0.9;">In Idaho, 1948, beavers descended from the sky and brought with them entire ecosystems. Jesus was a carpenter, and so are beavers. Need I say more?</div>
-        </div>
-        
-        <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; text-align: center;">
-          <div style="font-size: 1.5rem; font-weight: 700; color: #fde68a;">Film Award</div>
-          <div style="font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0;">$350</div>
-          <div style="font-size: 1.2rem; font-weight: 600; margin-top: 1rem;">Issack Cintrón</div>
-          <div style="font-size: 0.9rem; opacity: 0.85;">MFA Student, Department of Film</div>
-          <div style="font-size: 0.95rem; font-weight: 600; margin-top: 0.75rem;">¡Capicu!</div>
-          <div style="font-size: 0.85rem; font-style: italic; margin-top: 0.5rem; opacity: 0.9;">A grieving grandson reminisces on a childhood memory of his late Abuela after finding her illustrious Dominoes set.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Last Year's Photos -->
-  <section class="last-year-photos">
-    <div class="container">
-      
-      <div class="photo-gallery">
-        <div class="photo">
-          <img src="images/postersesh.JPG" alt="BRIDGES 2025 Poster Session">
-        </div>
-        <div class="photo">
-          <img src="images/bridges_winners.JPG" alt="BRIDGES 2025 Winners">
-        </div>
-        <div class="photo">
-          <img src="images/wolfie.JPG" alt="BRIDGES 2025 with Wolfie" style="object-position: center 15%;">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A5803.JPG" alt="BRIDGES 2025" style="object-position: center 10%;">
-        </div>
-        <div class="photo">
-          <img src="images/onepresenter.JPG" alt="BRIDGES 2025 Presenter">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A5937.JPG" alt="BRIDGES 2025">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A5972.JPG" alt="BRIDGES 2025">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6000.JPG" alt="BRIDGES 2025" style="object-position: center 25%;">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6030.JPG" alt="BRIDGES 2025">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6046.JPG" alt="BRIDGES 2025">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6149.JPG" alt="BRIDGES 2025" style="object-position: center 5%;">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6183.JPG" alt="BRIDGES 2025" style="object-position: center 10%;">
-        </div>
-        <div class="photo">
-          <img src="images/0A5A6207.JPG" alt="BRIDGES 2025">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Thank You Section -->
-  <section class="submissions-section" id="thankyou">
-    <div class="container">
-      <h2>Thank You!</h2>
-      
-      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
-        <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; border-radius: 16px; padding: 2.5rem;">
-          <p style="font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">Thank you to everyone who attended, presented, and supported BRIDGES 2026!</p>
-          <p style="font-size: 1rem; opacity: 0.85; margin-bottom: 1.5rem;">Stay tuned for information about BRIDGES 2027.</p>
-          <a href="index.html" style="display: inline-block; background: #e94560; color: #fff; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; text-decoration: none;">Back to GradMag</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Program Section -->
-  <section class="program-section">
-    <div class="container">
-      <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
-        <div class="program-card" style="flex: 1; min-width: 280px;">
-          <h3>BRIDGES 2026 Program</h3>
-          <p>View the official program for this year's conference with the full schedule, speakers, and events.</p>
-          <div class="btn-row">
-            <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank" rel="noopener" class="primary">View Program</a>
-            <a href="Official%20BRIDGES%20Program%202026.pdf" download class="secondary">Download PDF</a>
+      <div class="winner-category">
+        <h3>Art & Film Awards</h3>
+        <div class="winner-list">
+          <div class="winner-item">
+            <div class="place-prize">
+              <div class="place">Art</div>
+              <div class="prize">$350</div>
+            </div>
+            <div class="details">
+              <div class="name">Benjamin Truong</div>
+              <div class="dept">MFA Student, Department of Art</div>
+              <div class="title">"Beaver Jesus" — In Idaho, 1948, beavers descended from the sky and brought with them entire ecosystems.</div>
+            </div>
           </div>
-        </div>
-        <div class="program-card" style="flex: 1; min-width: 280px;">
-          <h3>BRIDGES 2025 Program</h3>
-          <p>View the official program from our inaugural conference to see last year's schedule, speakers, and events.</p>
-          <div class="btn-row">
-            <a href="OfficialBRIDGESProgram2025.pdf" target="_blank" rel="noopener" class="primary">View Program</a>
-            <a href="OfficialBRIDGESProgram2025.pdf" download class="secondary">Download PDF</a>
+          <div class="winner-item">
+            <div class="place-prize">
+              <div class="place">Film</div>
+              <div class="prize">$350</div>
+            </div>
+            <div class="details">
+              <div class="name">Issack Cintrón</div>
+              <div class="dept">MFA Student, Department of Film</div>
+              <div class="title">"¡Capicu!" — A grieving grandson reminisces on a childhood memory of his late Abuela after finding her Dominoes set.</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-contact">
-        <p>Email us at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for general inquiries and collaborations.</p>
-        
-        <div class="social-block">
-          <div class="social-links" aria-label="Follow Grad Mag">
-            <a class="social-btn" href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
-            </a>
-            <a class="social-btn" href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
-            </a>
-            <a class="social-btn" href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
+    <!-- Photos -->
+    <section>
+      <div class="section-header">
+        <h2>Conference Photos</h2>
+      </div>
+      <div class="gallery">
+        <div class="gallery-featured">
+          <img src="images/postersesh.JPG" alt="BRIDGES 2026 Poster Session">
+        </div>
+        <div class="gallery-grid">
+          <div class="photo"><img src="images/bridges_winners.JPG" alt="Winners"></div>
+          <div class="photo"><img src="images/wolfie.JPG" alt="Wolfie" style="object-position: center 15%;"></div>
+          <div class="photo"><img src="images/0A5A5803.JPG" alt="BRIDGES" style="object-position: center 10%;"></div>
+          <div class="photo"><img src="images/onepresenter.JPG" alt="Presenter"></div>
+          <div class="photo"><img src="images/0A5A5937.JPG" alt="BRIDGES"></div>
+          <div class="photo"><img src="images/0A5A5972.JPG" alt="BRIDGES"></div>
+          <div class="photo"><img src="images/0A5A6030.JPG" alt="BRIDGES"></div>
+          <div class="photo"><img src="images/0A5A6046.JPG" alt="BRIDGES"></div>
+          <div class="photo"><img src="images/0A5A6149.JPG" alt="BRIDGES" style="object-position: center 5%;"></div>
+          <div class="photo"><img src="images/0A5A6183.JPG" alt="BRIDGES" style="object-position: center 10%;"></div>
         </div>
       </div>
-      <p>&copy; <span id="yr"></span> SBU Graduate Arts & Sciences Magazine</p>
+    </section>
+
+    <!-- Programs -->
+    <section>
+      <div class="section-header">
+        <h2>Conference Programs</h2>
+      </div>
+      <div class="programs-row">
+        <div class="program-item">
+          <div class="info">
+            <h4>BRIDGES 2026</h4>
+            <span>Full schedule, speakers, and events</span>
+          </div>
+          <a href="Official%20BRIDGES%20Program%202026.pdf" target="_blank">View PDF</a>
+        </div>
+        <div class="program-item">
+          <div class="info">
+            <h4>BRIDGES 2025</h4>
+            <span>Inaugural conference program</span>
+          </div>
+          <a href="OfficialBRIDGESProgram2025.pdf" target="_blank">View PDF</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h3>Thank You</h3>
+    <p>Thank you to everyone who attended, presented, and supported BRIDGES 2026.<br>Stay tuned for information about BRIDGES 2027.</p>
+    <a href="index.html">Back to GradMag</a>
+  </section>
+
+  <footer class="site-footer site-footer-simple">
+    <div class="footer-simple-inner">
+      <nav class="footer-simple-nav" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="bridges.html">BRIDGES</a>
+        <a href="publications.html">Publications</a>
+        <a href="poetry.html">Poetry</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="press.html">Press</a>
+        <a href="radio.html">Radio</a>
+      </nav>
+      <div class="footer-simple-social">
+        <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/the-sbu-graduate-arts-sciences-magazine" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.5-.9 1.8-2.2 3.7-2.2 4 0 4.7 2.6 4.7 6v10h-4v-8.9c0-2.1 0-4.8-2.9-4.8s-3.3 2.3-3.3 4.6V24h-4V8z"/></svg>
+        </a>
+        <a href="mailto:sbugradmag@stonybrook.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2zm0 0l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="footer-simple-copy">&copy; <span id="yr"></span> SBU GradMag Team</p>
     </div>
   </footer>
+
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // ===== MOBILE MENU =====
     (function() {
       const hamburger = document.querySelector('.hamburger');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -661,7 +708,6 @@
           document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close menu when clicking a link
         mobileMenu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -670,7 +716,6 @@
           });
         });
 
-        // Dropdown toggles
         dropdownTitles.forEach(title => {
           title.addEventListener('click', function() {
             this.classList.toggle('active');
