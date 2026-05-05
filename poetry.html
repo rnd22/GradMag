@@ -6,39 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="js/ga4.js"></script>
   <title>Poetry • SBU Graduate Arts & Sciences Magazine</title>
-  <meta name="description" content="Poetry from the SBU Graduate Arts &amp; Sciences Magazine&mdash;literary work from the Stony Brook community." />
+  <meta name="description" content="Featured graduate poetry from the SBU Graduate Arts &amp; Sciences Magazine&mdash;read full poems online from the Stony Brook community." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <link rel="stylesheet" href="poem-agni.css" />
-  <!-- PUBLISH: remove class poetry--coming-soon from <body> below to show the full poetry index. -->
   <style>
     .pub-page { background: #fff; min-height: 100vh; }
-    body.poetry--coming-soon .poetry-index--live { display: none; }
-    body:not(.poetry--coming-soon) .poetry-coming-soon { display: none; }
-    .poetry-coming-soon {
-      text-align: center;
-      padding: 3.5rem 1.5rem 4rem;
-    }
-    .poetry-coming-soon__eyebrow {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: #888;
-      margin: 0 0 1rem;
-    }
-    .poetry-coming-soon h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.85rem, 4vw, 2.4rem);
-      font-weight: 500;
-      margin: 0 0 0.9rem;
-      color: #1a1a1a;
-    }
-    .poetry-coming-soon p { margin: 0 auto; max-width: 24rem; color: #4a4a4a; line-height: 1.55; font-size: 0.98rem; }
-    .poetry-hub__tagline--when-soon { display: none; }
-    body.poetry--coming-soon .poetry-hub__tagline--when-live { display: none; }
-    body.poetry--coming-soon .poetry-hub__tagline--when-soon { display: block; max-width: 32rem; margin-left: auto; margin-right: auto; }
     .poetry-index-header {
       padding: 2.5rem 1.5rem 0.5rem;
       text-align: center;
@@ -58,10 +33,10 @@
       margin: 0 0 0.75rem;
       color: #1a1a1a;
     }
-    .pub-main--index { max-width: 48rem; margin: 0 auto; padding: 0 0 3.5rem; }
+    .pub-main--index { max-width: 68rem; margin: 0 auto; padding: 0 0 3.5rem; }
   </style>
 </head>
-<body class="pub-page poetry--coming-soon">
+<body class="pub-page">
   <header>
     <div class="container nav">
       <a href="index.html" class="brand" style="text-decoration:none;">
@@ -89,6 +64,7 @@
           <div class="nav-dropdown-menu">
             <a href="publications.html">All Publications</a>
             <a href="submissions.html">Submissions</a>
+            <a href="nextgeneration.html">The Next Generation (2026)</a>
             <a href="fourseasons.html">The Four Seasons (2025)</a>
             <a href="humanconnection.html">The Human Connection (2024)</a>
           </div>
@@ -127,9 +103,10 @@
       <div class="mobile-dropdown-title">Publications</div>
       <div class="mobile-dropdown-items">
         <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="nextgeneration.html">The Next Generation (2026)</a>
         <a href="fourseasons.html">The Four Seasons (2025)</a>
         <a href="humanconnection.html">The Human Connection (2024)</a>
-        <a href="submissions.html">Submissions</a>
       </div>
     </div>
     <a href="poetry.html" aria-current="page">Poetry</a>
@@ -148,18 +125,10 @@
   <section class="poetry-index-header" aria-labelledby="poetry-h1">
     <p class="label">GradMag</p>
     <h1 id="poetry-h1">Poetry</h1>
-    <p class="poetry-hub__tagline poetry-hub__tagline--when-live">Poems and other works of literary arts published here, from the Stony Brook graduate community.</p>
-    <p class="poetry-hub__tagline poetry-hub__tagline--when-soon">We&rsquo;re preparing to share new poetry from the Stony Brook graduate community here, stay tuned!</p>
+    <p class="poetry-hub__tagline">Poems and other works of literary arts published here, from the Stony Brook graduate community.</p>
   </section>
 
   <div class="pub-main--index">
-    <section class="poetry-coming-soon" aria-labelledby="coming-soon-heading">
-      <p class="poetry-coming-soon__eyebrow">Poetry</p>
-      <h2 id="coming-soon-heading">Coming soon!</h2>
-      <p>We&rsquo;re getting this section ready. Check back for graduate poetry from the Stony Brook community.</p>
-    </section>
-
-    <div class="poetry-index--live">
     <p class="poetry-index__kicker">Featured</p>
     <ul class="poetry-cards">
       <!--
@@ -222,13 +191,8 @@
       </li>
     </ul>
     <p class="poem-index-footer">
-      <strong>Online only</strong> = on this site; not a print page. For full magazine layouts:
-      <a href="fourseasons.html">The Four Seasons</a>, <a href="humanconnection.html">The Human Connection</a> ·
-      <a href="https://issuu.com/sbugradmag" target="_blank" rel="noopener">Issuu</a> ·
-      <a href="publications.html">Publications</a> ·
-      <a href="submissions.html">Submissions</a>
+      For full print layouts, see <a href="publications.html">Publications</a>.
     </p>
-    </div>
   </div>
   </main>
 

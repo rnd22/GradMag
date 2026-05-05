@@ -1,32 +1,23 @@
 <!DOCTYPE html>
-<!-- Draft issue page: not linked from the main nav yet. When ready, add a link from publications.html and the Publications dropdown, and remove or adjust meta robots. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="js/ga4.js"></script>
-  <meta name="robots" content="noindex, nofollow" />
-  <title>The Next Generation • 2026 • SBU Graduate Arts & Sciences Magazine</title>
-  <meta name="description" content="The Next Generation (2026) — upcoming edition of the SBU Graduate Arts & Sciences Magazine." />
+  <title>The Next Generation • Spring 2026 • SBU Graduate Arts & Sciences Magazine</title>
+  <meta name="description" content="The Next Generation — Spring 2026 edition of the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="testthis.css" />
   <style>
-    .pub-page { background: #fff; min-height: 100vh; }
-
-    .draft-banner {
-      background: #1a1a1a;
-      color: #f5f5f5;
-      text-align: center;
-      font-size: 0.75rem;
-      padding: 0.55rem 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 600;
+    .pub-page {
+      background: #fff;
+      min-height: 100vh;
     }
 
+    /* Hero Section */
     .pub-hero {
       padding: 3rem 1.5rem;
       border-bottom: 1px solid #eee;
@@ -35,7 +26,7 @@
       max-width: 1000px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: min(280px, 38vw) 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 3rem;
       align-items: center;
     }
@@ -55,13 +46,8 @@
       font-family: 'Playfair Display', serif;
       font-size: clamp(2rem, 4vw, 2.75rem);
       font-weight: 400;
-      margin: 0 0 0.5rem;
+      margin: 0 0 1rem;
       color: #1a1a1a;
-    }
-    .pub-hero .info .vol {
-      font-size: 0.9rem;
-      color: #888;
-      margin-bottom: 1rem;
     }
     .pub-hero .info p {
       color: #555;
@@ -78,31 +64,54 @@
       font-size: 0.85rem;
       font-weight: 600;
       text-decoration: none;
-      border: 1px solid #ddd;
-      color: #1a1a1a;
       transition: all 0.2s ease;
     }
-    .pub-hero .actions a:hover {
-      border-color: #1a1a1a;
-    }
-    .pub-hero .actions a.primary {
+    .pub-hero .actions .btn-primary {
       background: #1a1a1a;
       color: #fff;
-      border-color: #1a1a1a;
     }
-    .pub-hero .actions a.primary:hover {
+    .pub-hero .actions .btn-primary:hover {
       background: #333;
     }
+    .pub-hero .actions .btn-outline {
+      border: 1px solid #ddd;
+      color: #1a1a1a;
+    }
+    .pub-hero .actions .btn-outline:hover {
+      border-color: #1a1a1a;
+    }
+    a.issuu-placeholder[href="#"] {
+      opacity: 0.72;
+      cursor: not-allowed;
+    }
 
-    .pub-note {
-      max-width: 640px;
+    .pub-container {
+      max-width: 700px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem 4rem;
-      color: #666;
-      font-size: 0.95rem;
-      line-height: 1.7;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .about-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
       text-align: center;
-      border-top: 1px solid #eee;
+    }
+    .about-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #1a1a1a;
+      margin: 0 0 1rem;
+    }
+    .about-card p {
+      color: #555;
+      line-height: 1.7;
+      margin: 0 0 1rem;
+    }
+    .about-card p:last-child {
+      margin-bottom: 0;
     }
 
     @media (max-width: 768px) {
@@ -123,8 +132,7 @@
 </head>
 <body class="pub-page">
 
-  <p class="draft-banner" role="status">Preview — not linked on the public site yet</p>
-
+  <!-- Header -->
   <header>
     <div class="container nav">
       <a href="index.html" class="brand" style="text-decoration:none;">
@@ -148,10 +156,11 @@
         </div>
         <a href="bridges.html">BRIDGES</a>
         <div class="nav-dropdown">
-          <a href="publications.html">Publications</a>
+          <a href="publications.html" aria-current="page">Publications</a>
           <div class="nav-dropdown-menu">
             <a href="publications.html">All Publications</a>
             <a href="submissions.html">Submissions</a>
+            <a href="nextgeneration.html" aria-current="page">The Next Generation (2026)</a>
             <a href="fourseasons.html">The Four Seasons (2025)</a>
             <a href="humanconnection.html">The Human Connection (2024)</a>
           </div>
@@ -175,6 +184,7 @@
     </div>
   </header>
 
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Home</a>
     <div class="mobile-dropdown">
@@ -190,9 +200,10 @@
       <div class="mobile-dropdown-title">Publications</div>
       <div class="mobile-dropdown-items">
         <a href="publications.html">All Publications</a>
+        <a href="submissions.html">Submissions</a>
+        <a href="nextgeneration.html" aria-current="page">The Next Generation (2026)</a>
         <a href="fourseasons.html">The Four Seasons (2025)</a>
         <a href="humanconnection.html">The Human Connection (2024)</a>
-        <a href="submissions.html">Submissions</a>
       </div>
     </div>
     <a href="poetry.html">Poetry</a>
@@ -207,32 +218,35 @@
     <a href="radio.html">Radio</a>
   </div>
 
+  <!-- Hero Section -->
   <section class="pub-hero">
     <div class="container">
       <div class="cover">
-        <img src="images/nextgeneration_cover.png" width="612" height="792" alt="Cover: The Next Generation, 2026">
+        <img src="images/nextgeneration_cover.png" alt="The Next Generation magazine cover">
       </div>
       <div class="info">
-        <div class="label">Upcoming 2026 issue</div>
+        <div class="label">Vol. 3, Issue 1 • Spring 2026</div>
         <h1>The Next Generation</h1>
-        <p class="vol">Vol. 3 — Spring 2026</p>
-        <p>
-          The 2026 issue is available as a PDF. Download the full magazine below, or open the cover-only PDF for a quick look at the artwork.
-        </p>
+        <p>Our third edition continues the magazine’s mission: research, creative work, and voices from Stony Brook’s graduate community. An Issuu reading link will go on the button below when it is ready; you can still download the PDF anytime.</p>
         <div class="actions">
-          <a class="primary" href="publications/TheNextGeneration-2026-full.pdf" target="_blank" rel="noopener">Download full issue (PDF)</a>
-          <a href="images/TheNextGenerationcover.pdf" target="_blank" rel="noopener">Cover (PDF)</a>
-          <a href="publications.html">All publications</a>
-          <a href="submissions.html">Submissions</a>
+          <!-- Issuu: replace href="#" below with your full Issuu reader URL (e.g. https://issuu.com/sbugradmag/docs/...) -->
+          <a href="#" class="btn-primary issuu-placeholder" target="_blank" rel="noopener">Read on Issuu</a>
+          <a href="publications/TheNextGeneration-2026-full.pdf" target="_blank" rel="noopener" class="btn-outline">Download PDF</a>
+          <a href="publications.html" class="btn-outline">All Publications</a>
         </div>
       </div>
     </div>
   </section>
 
-  <p class="pub-note">
-    Share this URL only for previews. It is not listed in the main navigation. Search engines are asked not to index this page (<code>noindex</code>). When you’re ready to go live, we can add it to <a href="publications.html">Publications</a> and open it up to search.
-  </p>
+  <!-- About Section -->
+  <div class="pub-container">
+    <div class="about-card">
+      <h2>About This Edition</h2>
+      <p>The Next Generation brings together graduate scholarship and creative work from across the university. Download the PDF for offline reading, or use <strong>Read on Issuu</strong> once that link is added above.</p>
+    </div>
+  </div>
 
+  <!-- Footer -->
   <footer class="site-footer site-footer-simple">
     <div class="footer-simple-inner">
       <nav class="footer-simple-nav" aria-label="Site">
@@ -284,6 +298,15 @@
             this.classList.toggle('active');
             this.nextElementSibling.classList.toggle('active');
           });
+        });
+      }
+    })();
+    (function () {
+      var a = document.querySelector('a.issuu-placeholder');
+      if (a) {
+        a.addEventListener('click', function (e) {
+          var h = (a.getAttribute('href') || '').trim();
+          if (!h || h === '#') e.preventDefault();
         });
       }
     })();
