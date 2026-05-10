@@ -68,7 +68,11 @@
       font-size: 0.9rem;
       color: #1a1a1a;
       font-weight: 600;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .radio-hero .muses-player-wrap {
+      margin: 0.35rem 0 0.75rem;
+      min-height: 62px;
     }
     .radio-hero .hero-actions {
       display: flex;
@@ -240,7 +244,7 @@
           <div class="nav-dropdown-menu">
             <a href="publications.html">All Publications</a>
             <a href="submissions.html">Submissions</a>
-            <a href="nextgeneration.html">The Next Generation (2026)</a>
+            <a href="thenextgeneration/index.html">The Next Generation (2026)</a>
             <a href="fourseasons.html">The Four Seasons (2025)</a>
             <a href="humanconnection.html">The Human Connection (2024)</a>
           </div>
@@ -281,7 +285,7 @@
       <div class="mobile-dropdown-items">
         <a href="publications.html">All Publications</a>
         <a href="submissions.html">Submissions</a>
-        <a href="nextgeneration.html">The Next Generation (2026)</a>
+        <a href="thenextgeneration/index.html">The Next Generation (2026)</a>
         <a href="fourseasons.html">The Four Seasons (2025)</a>
         <a href="humanconnection.html">The Human Connection (2024)</a>
       </div>
@@ -307,9 +311,9 @@
         <p class="subtitle">Premiered February 20th, 2026</p>
         <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community.</p>
         <p class="next-ep">Next episode: May 15th, 2026</p>
+        <div class="muses-player-wrap" id="listen" aria-label="WUSB 90.1 FM live stream player"></div>
         <div class="hero-actions">
-          <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener" class="btn-primary">Listen Live on WUSB</a>
-          <a href="#episodes" class="btn-outline">Browse Episodes</a>
+          <a href="#episodes" class="btn-outline">Browse episodes</a>
         </div>
       </div>
       <div class="hero-image">
@@ -317,6 +321,37 @@
       </div>
     </div>
   </section>
+
+  <!-- Muses Radio Player (WUSB live stream) -->
+  <script src="https://hosted.muses.org/mrp.js"></script>
+  <script>
+  (function () {
+    function initMuses() {
+      if (typeof MRP === 'undefined' || typeof MRP.insert !== 'function') return;
+      MRP.insert({
+        'elementId': 'listen',
+        'url': 'https://stream.wusb.stonybrook.edu:8092/listen.pl/relay?type=http',
+        'codec': 'mp3',
+        'volume': 65,
+        'autoplay': false,
+        'forceHTML5': true,
+        'jsevents': true,
+        'buffering': 5,
+        'title': 'WUSB',
+        'welcome': 'WELCOME TO...',
+        'wmode': 'transparent',
+        'skin': 'mcclean',
+        'width': 180,
+        'height': 60
+      });
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMuses);
+    } else {
+      initMuses();
+    }
+  })();
+  </script>
 
   <!-- Content -->
   <div class="radio-container">

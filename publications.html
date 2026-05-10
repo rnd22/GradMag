@@ -137,10 +137,6 @@
     .featured-actions .btn-outline:hover {
       border-color: #1a1a1a;
     }
-    .featured-actions a.issuu-placeholder[href="#"] {
-      opacity: 0.72;
-      cursor: not-allowed;
-    }
 
     /* Archive Grid */
     .archive-grid {
@@ -229,7 +225,7 @@
           <div class="nav-dropdown-menu">
             <a href="publications.html" aria-current="page">All Publications</a>
             <a href="submissions.html">Submissions</a>
-            <a href="nextgeneration.html">The Next Generation (2026)</a>
+            <a href="thenextgeneration/index.html">The Next Generation (2026)</a>
             <a href="fourseasons.html">The Four Seasons (2025)</a>
             <a href="humanconnection.html">The Human Connection (2024)</a>
           </div>
@@ -270,6 +266,7 @@
       <div class="mobile-dropdown-items">
         <a href="publications.html" aria-current="page">All Publications</a>
         <a href="submissions.html">Submissions</a>
+        <a href="thenextgeneration/index.html">The Next Generation (2026)</a>
         <a href="fourseasons.html">The Four Seasons (2025)</a>
         <a href="humanconnection.html">The Human Connection (2024)</a>
       </div>
@@ -302,18 +299,17 @@
       <h2>Current Issue</h2>
     </div>
     <article class="featured-issue">
-      <a href="nextgeneration.html" class="featured-cover">
+      <a href="thenextgeneration/index.html" class="featured-cover">
         <img src="images/nextgeneration_cover.png" alt="The Next Generation - Spring 2026">
       </a>
       <div class="featured-info">
         <div class="date">Spring 2026</div>
         <h3>The Next Generation</h3>
         <div class="vol">Vol. 3, Issue 1</div>
-        <p>Our third edition continues the magazine’s mission: research, creative work, and voices from Stony Brook’s graduate community. Issuu link coming soon; PDF download is available now.</p>
+        <p>Our third edition continues the magazine's mission: research, creative work, and voices from Stony Brook's graduate community. Visit the issue page, read on Issuu, or download the PDF.</p>
         <div class="featured-actions">
-          <a href="nextgeneration.html" class="btn-primary">View Publication</a>
-          <!-- Issuu: same as nextgeneration.html — replace href="#" with your Issuu URL -->
-          <a href="#" class="btn-outline issuu-placeholder" target="_blank" rel="noopener">Read on Issuu</a>
+          <a href="thenextgeneration/index.html" class="btn-primary">Issue page</a>
+          <a href="https://issuu.com/sbugradmag/docs/the_next_generation_spring_2026_vol._3_issue_1_" class="btn-outline" target="_blank" rel="noopener">Read on Issuu</a>
           <a href="publications/TheNextGeneration-2026-full.pdf" target="_blank" rel="noopener" class="btn-outline">Download PDF</a>
         </div>
       </div>
@@ -402,14 +398,6 @@
           });
         });
       }
-    })();
-    (function () {
-      document.querySelectorAll('a.issuu-placeholder').forEach(function (a) {
-        a.addEventListener('click', function (e) {
-          var h = (a.getAttribute('href') || '').trim();
-          if (!h || h === '#') e.preventDefault();
-        });
-      });
     })();
   </script>
 </body>
