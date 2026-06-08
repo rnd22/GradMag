@@ -101,8 +101,15 @@
     .radio-hero .hero-actions .btn-outline:hover {
       border-color: #1a1a1a;
     }
+    .radio-hero .hero-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .radio-hero .hero-image img {
+      max-width: 460px;
       width: 100%;
+      height: auto;
       display: block;
     }
 
@@ -153,13 +160,7 @@
       flex-wrap: wrap;
     }
     .episode-thumb {
-      flex: 0 0 180px;
-      max-width: 180px;
-    }
-    .episode-thumb img {
-      width: 100%;
-      height: auto;
-      display: block;
+      display: none;
     }
     .episode-info {
       flex: 1;
@@ -186,6 +187,10 @@
       color: #888;
       font-size: 0.9rem;
       margin-bottom: 1rem;
+    }
+    .episode-hosts {
+      font-style: italic;
+      color: #888;
     }
     .episode-desc {
       color: #555;
@@ -310,14 +315,14 @@
         <h1>Tech & Friends</h1>
         <p class="subtitle">Premiered February 20th, 2026</p>
         <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community.</p>
-        <p class="next-ep">Next episode: May 15th, 2026</p>
+        <p class="next-ep">Next episode: June 12th, 2026</p>
         <div class="muses-player-wrap" id="listen" aria-label="WUSB 90.1 FM live stream player"></div>
         <div class="hero-actions">
           <a href="#episodes" class="btn-outline">Browse episodes</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="images/radio1.png" alt="Tech & Friends radio show hosts in the WUSB studio">
+        <img src="images/techandfriends_logo.png" alt="Tech & Friends logo">
       </div>
     </div>
   </section>
@@ -358,7 +363,49 @@
     
     <!-- Episodes -->
     <div class="section-label" id="episodes">Episodes</div>
-    
+
+    <!-- Episode 7 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 7 - Tech & Friends">
+        </div>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 7</span>
+          <h3>Music, Technology, and the Future of Creative Computation</h3>
+          <div class="episode-date">May 29th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander</span></div>
+          <p class="episode-desc">Margaret Schedel, Professor in the Department of Music and Core Faculty of the Institute for Advanced Computational Science at Stony Brook University, joins the show. An internationally recognized composer, cellist, and researcher, Schedel's work spans interactive multimedia opera, virtual reality, sound art, video game scores, and real-time audio and video processing. The episode explores how technology has transformed musical composition and performance, what it means for instruments to become interactive and computational, and the emerging field of data sonification — including using music to study the gait patterns of people with Parkinson's Disease. In part two, they discuss how AI is reshaping creative expression, whether AI-generated art changes what it means to be a composer, and what advice Schedel has for students interested in combining the arts with coding, engineering, or data science.</p>
+        </div>
+      </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast7.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
+
+    <!-- Episode 6 -->
+    <article class="episode-card">
+      <div class="episode-header">
+        <div class="episode-thumb">
+          <img src="images/Radio2.png" alt="Episode 6 - Tech & Friends">
+        </div>
+        <div class="episode-info">
+          <span class="episode-badge">Episode 6</span>
+          <h3>Student Engagement in a Digital World</h3>
+          <div class="episode-date">May 15th, 2026 · <span class="episode-hosts">Hosted by Esther Nosazeogie</span></div>
+          <p class="episode-desc">Gillian Farnan, Assistant Director of Student Engagement & Activities at Stony Brook University, joins the show to explore how technology is reshaping the way students connect and build community on campus. The episode covers how digital tools, virtual collaboration platforms, and AI are transforming student organizations and leadership development, what it means for students to maintain meaningful human connections in an increasingly tech-driven academic environment, and practical strategies for getting involved and developing communication and leadership skills — both online and in person.</p>
+        </div>
+      </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast6.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
+
     <!-- Episode 5 -->
     <article class="episode-card">
       <div class="episode-header">
@@ -368,8 +415,8 @@
         <div class="episode-info">
           <span class="episode-badge">Episode 5</span>
           <h3>How AI is Changing the Job Market</h3>
-          <div class="episode-date">May 1st, 2026</div>
-          <p class="episode-desc">We sit down with Jessica Roman, Associate Director of Career Development at the Stony Brook University Career Center, to explore how artificial intelligence is transforming the modern job market and what that means for students, researchers, and emerging professionals. Roman works closely with graduate students on career readiness, internships, job strategy, and professional development, helping them navigate an increasingly complex employment landscape. In this episode, we discuss how AI is reshaping hiring practices, application processes, and workforce expectations, while also examining the technical and transferable skills that make candidates stand out. In the second half, we explore career paths in STEM, engineering, academia, and industry, offering practical insight into how students can strategically position themselves for long-term success in a rapidly evolving professional world.</p>
+          <div class="episode-date">May 1st, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander & Esther Nosazeogie</span></div>
+          <p class="episode-desc">Jessica Roman, Associate Director of Career Development at the Stony Brook University Career Center, joins the show to explore how artificial intelligence is transforming the modern job market and what that means for students, researchers, and emerging professionals. The episode covers what the Career Center offers graduate students — from internship strategy and job searching to headshots and personal branding — and how AI is reshaping hiring practices, application processes, and workforce expectations. Topics include the difference between technical and transferable skills, skill-based hiring, how to stand out on paper versus in an interview, career paths in STEM and applied sciences, navigating academia versus industry, and resources like Handshake and Frogire AI for international students. In part two, they look at the national job landscape, how far in advance students should be planning, and practical advice for students who don't yet know what direction they want to go.</p>ce for students who don't yet know what direction they want to go.</p>
         </div>
       </div>
       <div class="episode-audio">
@@ -389,8 +436,8 @@
         <div class="episode-info">
           <span class="episode-badge">Episode 4</span>
           <h3>Art, Science, and the Power of Perception</h3>
-          <div class="episode-date">April 17th, 2026</div>
-          <p class="episode-desc">We sit down with Patricia Maurides, a visual artist and Professor of Practice in the Department of Art at Stony Brook University, whose work lives at the crossroads of science and art. With a background in biology and an MFA from Carnegie Mellon, Maurides has spent decades building courses, collaborations, and exhibitions that ask students to investigate perception, memory, and the natural world through both a scientific and artistic lens.</p>
+          <div class="episode-date">April 17th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander</span></div>
+          <p class="episode-desc">Patricia Maurides, visual artist and Professor of Practice in the Department of Art at Stony Brook University, joins the show. Her work lives at the crossroads of science and art — with a background in biology, she has developed courses like Art and Biology and Art and the Brain, bringing together neuroscience and fine arts to explore questions of perception, memory, and how we see the world. The episode covers how her scientific background shapes her photo-based art — layering personal history, family memory, genetic code, and eye scans — and her project "Ancestral Listening," in which she traveled to her father's village in Greece to record the sounds of ancient plane trees and the landscape. In part two, they explore her teaching philosophy, a current student installation "Blu tanical Impressions" in the Staller Center hallway, and her students' work at Earthstock — Stony Brook's annual sustainability festival.</p>
         </div>
       </div>
       <div class="episode-audio">
@@ -410,8 +457,8 @@
         <div class="episode-info">
           <span class="episode-badge">Episode 3</span>
           <h3>Mental Health in a Tech-Driven World</h3>
-          <div class="episode-date">April 3rd, 2026</div>
-          <p class="episode-desc">Exploring technology's role in graduate student mental health, featuring conversations with Donal Thomas, PhD Candidate and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services. The episode highlights campus resources, advocacy efforts, and strategies for maintaining wellbeing in a highly connected academic environment.</p>
+          <div class="episode-date">April 3rd, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander</span></div>
+          <p class="episode-desc">This episode explores technology's role in graduate student mental health — the ways it supports academic life and the challenges it creates. Featuring taped conversations with Donal Thomas, PhD Candidate and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services at Stony Brook University, covering campus mental health resources, student advocacy, and strategies for maintaining wellbeing in a highly connected academic environment.</p>
         </div>
       </div>
       <div class="episode-audio">
@@ -431,8 +478,8 @@
         <div class="episode-info">
           <span class="episode-badge">Episode 2</span>
           <h3>BRIDGES 2026 Conference Highlights, Part 2</h3>
-          <div class="episode-date">March 20th, 2026</div>
-          <p class="episode-desc">Continuing our BRIDGES coverage with extended interviews, featuring Alfreda S. James on networking and professional development, graduate student presenters, and musical performances from Shiqi Yang & Changyue Liu, Gina Rizzo, Kevin Kyaw, Da Young Rachel Lim, and Guilherme Batalha.</p>
+          <div class="episode-date">March 20th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander & Esther Nosazeogie</span></div>
+          <p class="episode-desc">Continuing BRIDGES 2026 coverage with extended interviews, featuring Alfreda S. James on networking and professional development, graduate student presenters, and musical performances from Shiqi Yang & Changyue Liu, Gina Rizzo, Kevin Kyaw, Da Young Rachel Lim, and Guilherme Batalha.</p>
         </div>
       </div>
       <div class="episode-audio">
@@ -452,8 +499,8 @@
         <div class="episode-info">
           <span class="episode-badge">Episode 1</span>
           <h3>BRIDGES 2026 Conference Highlights, Part 1</h3>
-          <div class="episode-date">February 20th, 2026</div>
-          <p class="episode-desc">In the inaugural broadcast of Tech & Friends, we introduce the BRIDGES conference, a student-led initiative that brought together nearly 300 attendees. Featuring reflections from Celia Marshik, conversations with Gillian Farnan, Nancee Moes, and Peter Stokes, and highlights from award-winning work.</p>
+          <div class="episode-date">February 20th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander & Esther Nosazeogie</span></div>
+          <p class="episode-desc">In the inaugural broadcast of Tech & Friends, the BRIDGES conference is introduced — a student-led initiative that brought together nearly 300 attendees. Featuring reflections from Celia Marshik, conversations with Gillian Farnan, Nancee Moes, and Peter Stokes, and highlights from award-winning work.</p>
         </div>
       </div>
       <div class="episode-audio">
