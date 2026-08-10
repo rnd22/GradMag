@@ -368,7 +368,14 @@ const EVENTS = [
   },
   { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
   { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
-  { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
+  { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
+  { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 10 }, time: '5:00–6:00 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
+  { title: 'Doctoral Welcome Convocation', date: { y: 2026, m: 7, d: 17 }, time: '1:00–2:30 pm', location: 'Student Activities Center Auditorium' },
+  { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 26 }, time: '6:30–7:30 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
+  { title: 'Welcome Barbecue', date: { y: 2026, m: 7, d: 27 }, time: '12:00–2:00 pm', location: 'Old Computer Science Front Lawn' },
+  { title: 'Mag Release Celebration', date: { y: 2026, m: 4, d: 4 }, time: '12:00–1:30 pm', location: 'The Shore Club (SAC 169)' },
+  { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 4 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
+  { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 5 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
 ];
 function expandRecurring(events, viewStart, viewEnd){
   const out = [];
@@ -478,10 +485,12 @@ function expandRecurring(events, viewStart, viewEnd){
         const time = e.time || '';
         const loc  = e.location || '';
         const meta = [time, loc].filter(Boolean).join(' • ');
+        const zoom = e.url ? `<div class="event-meta"><a href="${e.url}" target="_blank" rel="noopener">Join on Zoom</a></div>` : '';
         return `<li>
           <div class="date-badge">${ds}</div>
           <div class="event-title">${e.title}</div>
           ${meta ? `<div class="event-meta">${meta}</div>` : ''}
+          ${zoom}
         </li>`;
       }).join('');
     }

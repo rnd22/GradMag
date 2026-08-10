@@ -170,7 +170,7 @@
     /* Events Grid */
     .events-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       padding-bottom: 3rem;
       border-bottom: 1px solid #eee;
@@ -191,6 +191,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    .event-card-image--flyer img {
+      object-fit: contain;
+      padding: 0.25rem;
     }
     .event-card-content .category {
       font-size: 0.7rem;
@@ -626,6 +630,46 @@
     </div>
 
     <div class="events-grid">
+      <!-- Meet GradMag: Virtual Information Sessions -->
+      <article class="event-card">
+        <div class="event-card-image event-card-image--flyer">
+          <img src="images/aug10_gradmag.png" alt="Meet GradMag virtual information session poster">
+        </div>
+        <div class="event-card-content">
+          <div class="category">Virtual Event</div>
+          <h4><a href="https://stonybrook.zoom.us/j/9052275978?omn=94240248282" target="_blank" rel="noopener">Meet GradMag: Virtual Information Session</a></h4>
+          <p class="meta">
+            Learn about SBU GradMag and how to get involved this fall.<br>
+            <strong>Monday, August 10th, 2026 · 5:00–6:00 PM</strong><br>
+            <strong>Wednesday, August 26th, 2026 · 6:30–7:30 PM</strong><br>
+            <a href="https://stonybrook.zoom.us/j/9052275978?omn=94240248282" target="_blank" rel="noopener">Join on Zoom</a>
+            <span class="meta-sep" aria-hidden="true"> · </span>
+            <a href="jointheteam.html">Join the team</a>
+            <span class="meta-sep" aria-hidden="true"> · </span>
+            <a href="https://tinyurl.com/MagFall26" target="_blank" rel="noopener">Apply for Fall 2026</a>
+          </p>
+        </div>
+      </article>
+
+
+      <!-- Fall 2026 Undergraduate Recruitment -->
+      <article class="event-card">
+        <div class="event-card-image event-card-image--flyer">
+          <img src="images/gradmag-fall2026-recruitment.png" alt="SBU GradMag Fall 2026 undergraduate recruitment">
+        </div>
+        <div class="event-card-content">
+          <div class="category">Join the Team</div>
+          <h4><a href="jointheteam.html">Earn 1 Credit. Join GradMag This Fall.</a></h4>
+          <p class="meta">
+            Earn credit through THR 298 while gaining hands-on experience in publishing, design, and media.<br>
+            <a href="https://tinyurl.com/MagFall26" target="_blank" rel="noopener">Apply now</a>
+            <span class="meta-sep" aria-hidden="true"> · </span>
+            <a href="jointheteam.html">Learn more</a>
+            <br><strong>Deadline:</strong> September 4, 2026
+          </p>
+        </div>
+      </article>
+
       <!-- Tech & Friends -->
       <article class="event-card">
         <div class="event-card-image">
@@ -636,7 +680,7 @@
           <h4><a href="radio.html">Tech & Friends</a></h4>
           <p class="meta">
             Every other Friday, 1–2 PM on WUSB 90.1 FM, featuring faculty and student guests.<br>
-            <strong>Next episode:</strong> August 7th, 2026<br>
+            <strong>Next episode:</strong> August 21st, 2026<br>
             <a href="radio.html#listen">Listen live</a>
             <span class="meta-sep" aria-hidden="true"> · </span>
             <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener">WUSB weekly schedule</a>
@@ -661,7 +705,8 @@
         </div>
       </article>
 
-      <!-- Magazine Release -->
+
+      <!-- Magazine Release (hidden for now)
       <article class="event-card">
         <div class="event-card-image">
           <img src="images/releasephoto2026.png" alt="The Next Generation magazine release event 2026" onerror="this.src='images/logo.png'">
@@ -677,8 +722,9 @@
           </p>
         </div>
       </article>
+      -->
 
-      <!-- BRIDGES Recap -->
+      <!-- BRIDGES Recap (hidden for now)
       <article class="event-card">
         <div class="event-card-image">
           <img src="images/BRIDGES_AwardsPhoto.png" alt="BRIDGES 2026 Award Winners">
@@ -694,6 +740,7 @@
           </p>
         </div>
       </article>
+      -->
     </div>
 
     <!-- Two Column: Calendar + Upcoming Events -->
@@ -741,20 +788,20 @@
           <h4>Latest Radio Episodes</h4>
           <ul class="radio-list">
             <li>
+              <a href="radio.html#episodes">Mental Health in a Tech-Driven World</a>
+              <span class="date">August 7, 2026</span>
+            </li>
+            <li>
               <a href="radio.html#episodes">Gut Health: Tips, Technology, and Training</a>
               <span class="date">July 24, 2026</span>
             </li>
             <li>
-              <a href="radio.html#episodes">Tech & Tunes: The Birth of Recorded Sound</a>
+              <a href="radio.html#episodes">Tech & Tunes: The Dawn of Recorded Sound</a>
               <span class="date">July 10, 2026</span>
             </li>
             <li>
               <a href="radio.html#episodes">Student Media, Broadcasting, and the Future of Radio</a>
               <span class="date">June 26, 2026</span>
-            </li>
-            <li>
-              <a href="radio.html#episodes">State of the Science</a>
-              <span class="date">June 12, 2026</span>
             </li>
           </ul>
         </div>
@@ -813,7 +860,14 @@
       },
       { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
       { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
-      { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day' },
+      { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
+      { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 10 }, time: '5:00–6:00 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
+      { title: 'Doctoral Welcome Convocation', date: { y: 2026, m: 7, d: 17 }, time: '1:00–2:30 pm', location: 'Student Activities Center Auditorium' },
+      { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 26 }, time: '6:30–7:30 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
+      { title: 'Welcome Barbecue', date: { y: 2026, m: 7, d: 27 }, time: '12:00–2:00 pm', location: 'Old Computer Science Front Lawn' },
+      { title: 'Mag Release Celebration', date: { y: 2026, m: 4, d: 4 }, time: '12:00–1:30 pm', location: 'The Shore Club (SAC 169)' },
+      { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 4 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
+      { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 5 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
     ];
 
     function expandRecurring(events, viewStart, viewEnd) {
@@ -898,10 +952,12 @@
       agendaList.innerHTML = upcoming.map(e => {
         const ds = e.dt.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
         const meta = [e.time, e.location].filter(Boolean).join(' • ');
+        const zoom = e.url ? `<div class="event-meta"><a href="${e.url}" target="_blank" rel="noopener">Join on Zoom</a></div>` : '';
         return `<li>
           <div class="date-badge">${ds}</div>
           <div class="event-title">${e.title}</div>
           ${meta ? `<div class="event-meta">${meta}</div>` : ''}
+          ${zoom}
         </li>`;
       }).join('');
     }

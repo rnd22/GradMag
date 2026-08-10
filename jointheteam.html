@@ -100,10 +100,21 @@
     /* Intro Section */
     .intro-section {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 3rem;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
       padding: 2.5rem 0;
       border-bottom: 1px solid #eee;
+      align-items: start;
+    }
+    .intro-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .intro-main-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
     .intro-main h2 {
       font-family: 'Playfair Display', serif;
@@ -265,6 +276,73 @@
       margin: 0.35rem 0;
     }
 
+    .ug-recruit {
+      background: #f0f6fc;
+      border: 1px solid #c8ddf5;
+      border-left: 4px solid #0563bb;
+      padding: 1.25rem;
+    }
+    .ug-recruit .recruit-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #0563bb;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .ug-recruit h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin: 0 0 0.75rem;
+      color: #1a1a1a;
+      line-height: 1.35;
+    }
+    .ug-recruit p {
+      color: #444;
+      line-height: 1.6;
+      margin: 0 0 0.75rem;
+      font-size: 0.9rem;
+    }
+    .ug-recruit ul {
+      margin: 0 0 0.75rem;
+      padding-left: 1.1rem;
+      color: #444;
+      line-height: 1.5;
+      font-size: 0.85rem;
+    }
+    .ug-recruit li {
+      margin: 0.25rem 0;
+    }
+    .ug-recruit .deadline {
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+    }
+    .ug-recruit .btn {
+      display: inline-block;
+      padding: 0.55rem 1rem;
+      background: #0563bb;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.8rem;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+    }
+    .ug-recruit .btn:hover {
+      background: #04509a;
+    }
+    .ug-recruit-flyer {
+      margin-bottom: 0.75rem;
+    }
+    .ug-recruit-flyer img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+    }
+
     @media (max-width: 768px) {
       .team-photos { grid-template-columns: 1fr; }
       .intro-section { grid-template-columns: 1fr; gap: 2rem; }
@@ -381,27 +459,46 @@
 
     <!-- Intro Section -->
     <div class="intro-section">
-      <div class="intro-main">
-        <h2>Join the SBU GradMag Team</h2>
-        <p>
-          Interested in becoming a member? Fill out the interest form and let us know what positions you might be interested in! We're always looking for writers, artists, editors, and layout designers.
-        </p>
-        <p>
-          For more information on positions needing to be filled, see the openings below. Reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for questions!
-        </p>
-        <a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply Now</a>
+      <div class="intro-main-column">
+        <div class="intro-main">
+          <h2>Join the SBU GradMag Team</h2>
+          <p>
+            Interested in becoming a member? Fill out the interest form and let us know what positions you might be interested in! We're always looking for writers, artists, editors, and layout designers.
+          </p>
+          <p>
+            For more information on positions needing to be filled, see the openings below. Reach out via email at <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a> for questions!
+          </p>
+          <a class="btn" href="https://forms.gle/qXzfcEy6fhenpYJ86" target="_blank" rel="noopener">Apply Now</a>
+        </div>
+        <div class="quick-facts">
+          <h3>Quick Facts</h3>
+          <ul>
+            <li>All roles are <strong>volunteer</strong> positions</li>
+            <li>Open to all SBU grad programs</li>
+            <li>Flexible hours, leadership opportunities</li>
+            <li>Portfolio-friendly roles (writing, art, layout)</li>
+          </ul>
+          <p class="contact">
+            Questions? <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>
+          </p>
+        </div>
       </div>
-      <div class="quick-facts">
-        <h3>Quick Facts</h3>
-        <ul>
-          <li>All roles are <strong>volunteer</strong> positions</li>
-          <li>Open to all SBU grad programs</li>
-          <li>Flexible hours, leadership opportunities</li>
-          <li>Portfolio-friendly roles (writing, art, layout)</li>
-        </ul>
-        <p class="contact">
-          Questions? <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>
-        </p>
+      <div class="intro-sidebar">
+        <section class="ug-recruit">
+          <div class="recruit-label">Fall 2026 • Undergraduates</div>
+          <h2>Earn 1 Credit. Gain Real-World Experience.</h2>
+          <div class="ug-recruit-flyer">
+            <img src="images/gradmag-fall2026-recruitment.png" alt="SBU GradMag Fall 2026 undergraduate recruitment flyer">
+          </div>
+          <p>Undergraduates may enroll in <strong>THR 298: Student Media Leadership</strong> (1 credit, S/U) through GradMag this fall.</p>
+          <ul>
+            <li><strong>Editorial</strong> – Write and edit magazine content</li>
+            <li><strong>Design & Creative</strong> – Layouts, graphics, and promo materials</li>
+            <li><strong>Outreach & Marketing</strong> – Social media, events, and engagement</li>
+          </ul>
+          <p class="deadline">Apply by September 4, 2026</p>
+          <a class="btn" href="https://tinyurl.com/MagFall26" target="_blank" rel="noopener">Apply for Fall 2026</a>
+        </section>
       </div>
     </div>
 
