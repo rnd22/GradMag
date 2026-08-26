@@ -102,11 +102,21 @@
       background: #fafafa;
       opacity: 0.5;
     }
+    .cell.today {
+      background: #f0f6fc;
+      box-shadow: inset 0 0 0 2px #0563bb;
+    }
+    .cell.out.today {
+      opacity: 1;
+    }
     .cell .date {
       font-size: 0.85rem;
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 0.35rem;
+    }
+    .cell.today .date {
+      color: #0563bb;
     }
     .events {
       display: flex;
@@ -228,13 +238,13 @@
 <a href="publications.html">Publications</a>
   <div class="nav-dropdown-menu">
     <a href="publications.html">All Publications</a>
+            <a href="poetry.html">Poetry</a>
     <a href="submissions.html">Submissions</a>
     <a href="thenextgeneration/index.html">The Next Generation (2026)</a>
     <a href="fourseasons.html">The Four Seasons (2025)</a>
     <a href="humanconnection.html">The Human Connection (2024)</a>
   </div>
         </div>
-        <a href="poetry.html">Poetry</a>
         <a href="submissions.html">Submissions</a>
         <div class="nav-dropdown">
           <a href="press.html">Press</a>
@@ -243,6 +253,7 @@
             <a href="bulletin.html">Bulletins</a>
           </div>
         </div>
+        <a href="events.html">Events</a>
         <a href="radio.html">Radio</a>
       </nav>
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -275,7 +286,6 @@
       <a href="submissions.html">Submissions</a>
     </div>
     </div>
-    <a href="poetry.html">Poetry</a>
     <a href="submissions.html">Submissions</a>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Press</div>
@@ -349,33 +359,25 @@
   <script>
  // —— Events source of truth (normalized) ——
 const EVENTS = [
-  {
-    title: 'Editorial Board Meeting',
-    date: { y: 2025, m: 8, d: 3 },            // first occurrence (Wed Sep 3, 2025)
-    time: '2:45–3:15 pm',
-    location: 'Google Meets',
-    multi: true,
-    rule: { freq: 'BIWEEKLY', interval: 2, byday: ['WE'], until: { y: 2025, m: 11, d: 10 } } // every other Wednesday
-  },
-  { title: 'Tech & Friends Radio Show(Premiere)', date: { y: 2026, m: 1, d: 20 }, time: '1:00–2:00 pm', location: 'WUSB 90.1 FM' },
-  {
-    title: 'Tech & Friends Radio Show',
-    date: { y: 2026, m: 2, d: 20 },           // recurring starts Mar 20, 2026
-    time: '1:00–2:00 pm',
-    location: 'WUSB 90.1 FM',
-    multi: true,
-    rule: { freq: 'BIWEEKLY', interval: 2, byday: ['FR'], until: { y: 2026, m: 7, d: 21 } } // every other Friday until Aug 21
-  },
-  { title: 'CV v. Resume Workshop', date: { y: 2025, m: 10, d: 12 }, time: '1:00–1:50 pm', location: 'SAC 303' },
-  { title: 'Anatomy of a Poster', date: { y: 2026, m: 1, d: 10 }, time: 'TBD' },
-  { title: 'B.R.I.D.G.E.S', date: { y: 2026, m: 1, d: 19 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
   { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 10 }, time: '5:00–6:00 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
-  { title: 'Doctoral Welcome Convocation', date: { y: 2026, m: 7, d: 17 }, time: '1:00–2:30 pm', location: 'Student Activities Center Auditorium' },
+  { title: 'Doctoral Welcome Convocation', date: { y: 2026, m: 7, d: 17 }, time: '2:30–3:30 pm', location: 'SAC Lobby' },
   { title: 'Meet GradMag: Virtual Information Session', date: { y: 2026, m: 7, d: 26 }, time: '6:30–7:30 pm', location: 'Virtual (Zoom)', url: 'https://stonybrook.zoom.us/j/9052275978?omn=94240248282' },
   { title: 'Welcome Barbecue', date: { y: 2026, m: 7, d: 27 }, time: '12:00–2:00 pm', location: 'Old Computer Science Front Lawn' },
-  { title: 'Mag Release Celebration', date: { y: 2026, m: 4, d: 4 }, time: '12:00–1:30 pm', location: 'The Shore Club (SAC 169)' },
+  { title: 'FALL 2026 SEAWOLVES BLOCK PARTY', date: { y: 2026, m: 7, d: 28 }, time: '3:30–5:00 pm', location: 'TBD' },
+  { title: 'Welcome Social', date: { y: 2026, m: 8, d: 9 }, time: '5:00–6:00 pm', location: 'TBD' },
+  { title: 'LinkedIn Mastery & Networking Strategies', date: { y: 2026, m: 8, d: 21 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'GradMag GBM', date: { y: 2026, m: 8, d: 23 }, time: '5:00–5:50 pm', location: 'SAC 302' },
+  { title: 'GradMag GBM', date: { y: 2026, m: 9, d: 7 }, time: '5:00–5:50 pm', location: 'SAC 302' },
+  { title: 'Mastering Resume Building', date: { y: 2026, m: 9, d: 19 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'GradMag GBM', date: { y: 2026, m: 10, d: 11 }, time: '5:00–5:50 pm', location: 'SAC 302' },
+  { title: 'Preparing for Job Fairs', date: { y: 2026, m: 10, d: 16 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'GradMag GBM', date: { y: 2026, m: 11, d: 2 }, time: '5:00–5:50 pm', location: 'SAC 302' },
   { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 4 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
   { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 5 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
+  { title: 'Articulating Your Skills with Confidence', date: { y: 2027, m: 1, d: 8 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'Navigating Salary Negotiation', date: { y: 2027, m: 2, d: 9 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'Personal Branding for Success', date: { y: 2027, m: 2, d: 12 }, time: '7:00–8:00 pm', location: 'Virtual' },
+  { title: 'Mag Release Celebration', date: { y: 2027, m: 3, d: 28 }, time: '12:00–1:30 pm', location: 'The Shore Club (SAC 169)' },
 ];
 function expandRecurring(events, viewStart, viewEnd){
   const out = [];
@@ -457,20 +459,21 @@ function expandRecurring(events, viewStart, viewEnd){
       const prevMonthDays = new Date(year, month, 0).getDate();
       for(let i=0;i<startDay;i++){
         const d = prevMonthDays - startDay + 1 + i;
-        const cell = makeCell(d, true);
-        grid.appendChild(cell);
+        const prevMonth = month === 0 ? 11 : month - 1;
+        const prevYear = month === 0 ? year - 1 : year;
+        grid.appendChild(makeCell(d, true, [], prevYear, prevMonth));
       }
       // Current month
       for(let d=1; d<=daysInMonth; d++){
-        const cell = makeCell(d, false, byDay.get(key(year, month, d)) || []);
-        grid.appendChild(cell);
+        grid.appendChild(makeCell(d, false, byDay.get(key(year, month, d)) || [], year, month));
       }
       // Trailing blanks to complete rows
       const totalCells = startDay + daysInMonth;
       const trailing = (7 - (totalCells % 7)) % 7;
       for(let i=1;i<=trailing;i++){
-        const cell = makeCell(i, true);
-        grid.appendChild(cell);
+        const nextMonth = month === 11 ? 0 : month + 1;
+        const nextYear = month === 11 ? year + 1 : year;
+        grid.appendChild(makeCell(i, true, [], nextYear, nextMonth));
       }
 
       // Agenda list (next 10 upcoming)
@@ -495,11 +498,20 @@ function expandRecurring(events, viewStart, viewEnd){
       }).join('');
     }
 
-    function makeCell(day, out=false, events=[]) {
+    function makeCell(day, out=false, events=[], cellYear=null, cellMonth=null) {
       const cell = document.createElement('div');
-      cell.className = 'cell' + (out ? ' out' : '');
+      let className = 'cell' + (out ? ' out' : '');
+      if (cellYear !== null && cellMonth !== null) {
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const cellDate = new Date(cellYear, cellMonth, day);
+        cellDate.setHours(0,0,0,0);
+        if (cellDate.getTime() === today.getTime()) className += ' today';
+      }
+      cell.className = className;
       const date = document.createElement('div');
       date.className = 'date';
+      if (className.includes('today')) date.setAttribute('aria-current', 'date');
       date.textContent = day;
       const list = document.createElement('div');
       list.className = 'events';
