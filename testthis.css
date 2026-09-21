@@ -780,24 +780,33 @@ footer a:hover{
       color:#666;
     }
     .footer-simple-inner{
-      max-width:720px;
+      max-width:960px;
       margin:0 auto;
       text-align:center;
     }
     .footer-simple-nav{
       display:flex;
-      flex-wrap:wrap;
+      flex-wrap:nowrap;
       justify-content:center;
-      gap:0.75rem 1.5rem;
+      align-items:center;
+      gap:0.5rem 1rem;
       margin-bottom:1.25rem;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .footer-simple-nav::-webkit-scrollbar{
+      display:none;
     }
     .footer-simple-nav a{
       font-family:"GFS Didot","Playfair Display",serif;
-      font-size:0.9rem;
+      font-size:0.78rem;
       text-transform:uppercase;
-      letter-spacing:0.08em;
+      letter-spacing:0.06em;
       color:#1a1a1a;
       text-decoration:none;
+      white-space:nowrap;
+      flex-shrink:0;
     }
     .footer-simple-nav a:hover{
       color:var(--accent);
