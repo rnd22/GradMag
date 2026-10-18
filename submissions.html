@@ -84,6 +84,18 @@
       margin: 0;
       font-size: 0.85rem;
     }
+    .status-banner.status-open {
+      background: #f0f6fc;
+      border: 2px solid #0563bb;
+      border-left-width: 4px;
+    }
+    .status-banner.status-open h3 {
+      color: #0563bb;
+    }
+    .sub-type .status.status-open {
+      color: #0563bb;
+      font-weight: 700;
+    }
 
     /* Timeline in Sidebar */
     .timeline-section h4 {
@@ -249,6 +261,49 @@
       margin-bottom: 0;
     }
 
+    .writer-interest-callout {
+      background: #f0f6fc;
+      border: 1px solid #c8ddf5;
+      border-left: 4px solid #0563bb;
+      padding: 1.5rem 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .writer-interest-callout h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin: 0 0 0.5rem;
+      color: #1a1a1a;
+    }
+    .writer-interest-callout p {
+      color: #444;
+      line-height: 1.7;
+      margin: 0 0 1rem;
+      font-size: 0.95rem;
+    }
+    .writer-interest-callout .writer-interest-btn {
+      display: inline-block;
+      padding: 0.65rem 1.15rem;
+      background: #0563bb;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 2px;
+    }
+    .writer-interest-callout .writer-interest-btn:hover {
+      background: #04509a;
+    }
+    .sub-sidebar .writer-interest-callout {
+      margin-bottom: 2rem;
+    }
+    .sub-sidebar .writer-interest-callout img {
+      width: 100%;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
     @media (max-width: 900px) {
       .sub-main {
         grid-template-columns: 1fr;
@@ -353,7 +408,7 @@
   <section class="page-header">
     <div class="label">Contribute</div>
     <h1>Submissions</h1>
-    <p class="subtitle">Share your research, poetry, photography, and art with the graduate community</p>
+    <p class="subtitle">Submissions for Spring 2027 are open—share your research, poetry, photography, and art with the graduate community</p>
   </section>
 
   <!-- Main Content - Two Column -->
@@ -361,6 +416,12 @@
     
     <!-- Left Column -->
     <div class="sub-content">
+      <div class="writer-interest-callout">
+        <h3>Spring 2027 Writer Interest Form</h3>
+        <p>Submissions for our Spring 2027 issue, <em>The World Within</em>, are open. If you're planning to write articles or other prose, fill out the writer interest form so our editorial team can stay in touch.</p>
+        <a class="writer-interest-btn" href="https://tinyurl.com/magwriter26" target="_blank" rel="noopener">Fill out the writer interest form</a>
+      </div>
+
       <!-- Theme Announcement -->
       <div class="theme-announce">
         <div class="theme-label">Spring 2027 Theme</div>
@@ -388,17 +449,17 @@
       <div class="sub-types">
         <div class="sub-type">
           <h3>Articles</h3>
-          <div class="status">Opening Fall 2026</div>
+          <div class="status status-open">Open now</div>
           <p>Abstracts should be 400-500 words covering research or academic work. Only original written work can be accepted.</p>
         </div>
         <div class="sub-type">
           <h3>Poetry</h3>
-          <div class="status">Opening Fall 2026</div>
+          <div class="status status-open">Open now</div>
           <p>Writers may submit up to 3 poems for consideration. One poem per person will be accepted for publication.</p>
         </div>
         <div class="sub-type">
           <h3>Art & Photography</h3>
-          <div class="status">Opening Fall 2026</div>
+          <div class="status status-open">Open now</div>
           <p>We welcome visual art, photography, illustrations, and other creative works from graduate students.</p>
         </div>
       </div>
@@ -406,10 +467,17 @@
 
     <!-- Right Sidebar -->
     <aside class="sub-sidebar">
+      <div class="writer-interest-callout">
+        <img src="images/writerinterest_gradmagfall26.png" alt="GradMag Spring 2027 writer interest form">
+        <h3>Writer Interest Form</h3>
+        <p>For graduate students planning to write for the Spring 2027 magazine.</p>
+        <a class="writer-interest-btn" href="https://tinyurl.com/magwriter26" target="_blank" rel="noopener">Fill out the writer interest form</a>
+      </div>
+
       <!-- Status -->
-      <div class="status-banner">
-        <h3>Opening Fall 2026</h3>
-        <p>Spring 2027 theme announced: <em>The World Within</em>. Submissions open this fall.</p>
+      <div class="status-banner status-open">
+        <h3>Submissions open</h3>
+        <p>We are accepting work for Spring 2027: The World Within. We encourage Graduate students to submit articles, poetry, art, and photography.</p>
       </div>
 
       <!-- Timeline -->
@@ -417,8 +485,8 @@
         <h4>Typical Timeline</h4>
         <div class="timeline">
           <div class="timeline-item">
-            <div class="month">September/October</div>
-            <div class="desc">Call for submissions</div>
+            <div class="month">Fall 2026</div>
+            <div class="desc">Call for submissions (open now)</div>
           </div>
           <div class="timeline-item">
             <div class="month">October</div>
@@ -443,6 +511,7 @@
       <div class="sidebar-links">
         <h4>Quick Links</h4>
         <a href="publications.html">Browse Past Editions</a>
+        <a href="https://tinyurl.com/magwriter26" target="_blank" rel="noopener">Spring 2027 Writer Interest Form</a>
         <a href="jointheteam.html">Join the Team</a>
         <a href="events.html">Upcoming Events</a>
       </div>
