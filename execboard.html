@@ -5,8 +5,8 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="js/ga4.js"></script>
-  <title>Executive Board • SBU Graduate Arts & Sciences Magazine</title>
-  <meta name="description" content="Meet the 2024–2025 Executive Board of the SBU Graduate Arts & Sciences Magazine." />
+  <title>Masthead: Meet the Team • SBU Graduate Arts & Sciences Magazine</title>
+  <meta name="description" content="Meet the Executive Board and THR 298 undergraduate team behind the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
@@ -61,6 +61,7 @@
       display: grid !important;
       grid-template-columns: repeat(3, 1fr) !important;
       gap: 2rem !important;
+      align-items: start;
     }
 
     .board-page .person-card {
@@ -104,11 +105,47 @@
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
-    .board-page .person-bio {
+    .board-page .person-card .person-bio {
       font-size: 0.9rem;
       color: #555;
       line-height: 1.7;
-      margin: 0;
+      margin: 0.5rem 0 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+    .board-page .person-card.is-bio-open .person-bio {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+    .board-page .person-card .bio-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 0.4rem;
+      padding: 0;
+      border: none;
+      background: none;
+      color: #0563bb;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .board-page .person-card .bio-read-more:hover {
+      text-decoration: underline;
+    }
+    .board-page .person-card .bio-chevron {
+      display: inline-block;
+      font-size: 0.55rem;
+      line-height: 1;
+      transition: transform 0.25s ease;
+    }
+    .board-page .person-card.is-bio-open .bio-chevron {
+      transform: rotate(180deg);
     }
 
     /* Responsive - 2 columns on tablet, 1 on mobile */
@@ -118,6 +155,72 @@
     @media (max-width: 600px) {
       .board-page .people-grid { grid-template-columns: 1fr !important; }
       .board-page .person-card { grid-column: auto !important; }
+    }
+
+    .board-section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 0 1.5rem;
+    }
+    .board-section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+      white-space: nowrap;
+    }
+    .board-section-header::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eee;
+    }
+    .board-section {
+      margin-bottom: 3rem;
+    }
+
+    .ug-team-section {
+      padding: 0 0 1rem;
+      border-top: 1px solid #eee;
+      padding-top: 2.5rem;
+    }
+    .ug-team-section .section-intro {
+      color: #555;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: -0.5rem 0 1.75rem;
+      font-size: 0.95rem;
+    }
+    .board-page .people-grid.thr-grid {
+      grid-template-columns: repeat(4, 1fr) !important;
+      max-width: none;
+      gap: 1.25rem !important;
+      align-items: start;
+    }
+    .board-page .people-grid.thr-grid .person-body {
+      padding: 1rem;
+    }
+    .board-page .people-grid.thr-grid .person-name {
+      font-size: 1rem;
+    }
+    .board-page .people-grid.thr-grid .person-role {
+      font-size: 0.72rem;
+    }
+    .board-page .people-grid.thr-grid .person-bio {
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+    @media (max-width: 1100px) {
+      .board-page .people-grid.thr-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .board-page .people-grid.thr-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
@@ -141,7 +244,7 @@
           <a href="about.html">About</a>
           <div class="nav-dropdown-menu">
             <a href="about.html">About</a>
-            <a href="execboard.html" aria-current="page">Executive Board</a>
+            <a href="execboard.html" aria-current="page">Masthead: Meet the Team</a>
             <a href="jointheteam.html">Join the Team</a>
           </div>
         </div>
@@ -183,7 +286,7 @@
       <div class="mobile-dropdown-title">About</div>
       <div class="mobile-dropdown-items">
         <a href="about.html">About</a>
-        <a href="execboard.html" aria-current="page">Executive Board</a>
+        <a href="execboard.html" aria-current="page">Masthead: Meet the Team</a>
         <a href="jointheteam.html">Join the Team</a>
       </div>
     </div>
@@ -214,12 +317,16 @@
   <!-- Page Header -->
   <section class="page-header">
     <div class="label">About</div>
-    <h1>Executive Board</h1>
-    <p class="subtitle">Meet the team behind the SBU Graduate Arts & Sciences Magazine</p>
+    <h1>Masthead: Meet the Team</h1>
+    <p class="subtitle">Executive Board and undergraduate contributors behind the SBU Graduate Arts & Sciences Magazine</p>
   </section>
 
   <!-- Content -->
   <div class="main-container">
+    <section class="board-section">
+      <div class="board-section-header">
+        <h2>Executive Board</h2>
+      </div>
     <div class="people-grid">
 
       <!-- Ava Nederlander -->
@@ -233,6 +340,10 @@
           <p class="person-bio">
             Ava is a PhD Candidate in Electrical and Computer Engineering, working under Dr. Arie Kaufman in the Center for Visual Computing. Her research interests are interdisciplinary, focusing on the intersection of machine learning and augmented reality/virtual reality with medical oncologic surgeries. 
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Ava Nederlander">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -245,8 +356,12 @@
           <h4 class="person-name">Rachel Deahl Kostelnik</h4>
           <p class="person-role">Vice President of Publication and Media</p>
           <p class="person-bio">
-            Rachel is a PhD student in Marine Atmospheric and Sustainability Sciences, working in the Warren Lab, researching the interaction between internal waves in shallow systems and pycnocline stability. She is from New Jersey, where she completed her undergraduate and master's degrees at NJIT in Ecology & Evolution, looking into the potential for automated insect classification using infrared remote sensing. During her free time, she loves to write, paint, and spoil her cats. In the future, she’d love to have a career where she’s able to communicate science to the public and policy-makers and teach college students to become interested in the sciences.
+            Rachel is a PhD student in Marine Atmospheric and Sustainability Sciences, working in the Warren Lab, researching the interaction between internal waves in shallow systems and pycnocline stability. She is from New Jersey, where she completed her undergraduate and master's degrees at NJIT in Ecology & Evolution, looking into the potential for automated insect classification using infrared remote sensing.             During her free time, she loves to write, paint, and spoil her cats. In the future, she’d love to have a career where she’s able to communicate science to the public and policy-makers and teach college students to become interested in the sciences.
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Rachel Deahl Kostelnik">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -259,9 +374,13 @@
           <h4 class="person-name">Narmin Mekawy</h4>
           <p class="person-role">Vice President of Administration</p>
           <p class="person-bio">
-            Narmin is a PhD candidate in Neurobiology and Behavior working in the Dubnau lab. She is studying how stress influences the onset and progression of neurodegenerative diseases. She is a first generation Egyptian-Moroccan woman from Staten Island, New York. In her free time she likes to organize with community groups, sing and bake. Long-term goals include starting a research lab at an academic institution while contributing to the community and advancements to education and science. 
+            Narmin is a PhD candidate in Neurobiology and Behavior working in the Dubnau lab. She is studying how stress influences the onset and progression of neurodegenerative diseases. She is a first generation Egyptian-Moroccan woman from Staten Island, New York. In her free time she likes to organize with community groups, sing and bake.             Long-term goals include starting a research lab at an academic institution while contributing to the community and advancements to education and science. 
 
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Narmin Mekawy">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -276,6 +395,10 @@
           <p class="person-bio">
             Yashwanth is a Masters student in Electrical Engineering, specializing in Signal Processing and Communications. He spends his downtime traveling, swimming, and following the fast-paced action of F1 and MotoGP. As an aspiring entrepreneur with a passion for innovation, he aims to combine his technical expertise with his entrepreneurial spirit to shape the future of technology.  
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Yashwanth Pateel">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -290,6 +413,10 @@
           <p class="person-bio">
             Dennis is a Masters student in Human Resource Management. He initially completed his undergraduate degree at the University of Buffalo, where he got his bachelor’s in anthropology, before taking a gap year and switching career paths to Human Resources. In his free time he enjoys playing and watching soccer, reading, and spending time with friends. As he completes his studies, he intends to join the HR field for hands-on experience and views GradMag as a great organization to help develop and refine related skills.
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Dennis Jourdain">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -311,6 +438,10 @@
             graduation, he hopes to pursue a career in industry as a research scientist, contributing to
             solutions for sustainable nuclear energy.
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Akhil Kolanti">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -325,6 +456,10 @@
           <p class="person-bio">
             Sharmin is an undergraduate student pursuing a degree in Biochemistry. She works as an UGTA for Organic Chemistry Lab I and is passionate about studying the chemistry behind biomolecules. In her free time she enjoys working as a freelance artist, spending time with friends, reading, and traveling. She hopes to pursue an MD-PhD program following her post-baccalaureate, furthering her studies.
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Sharmin Alam">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
@@ -336,10 +471,80 @@
           <p class="person-bio">
             Esther is a Ph.D. student in the School of Marine and Atmospheric Sciences, studying the movement ecology of great black-backed gulls in the Thorne Lab, towards understanding their risk from offshore wind farms in the Northeast US. Outside research, Esther enjoys reading, writing, and listening to real or made-up stories, especially those that highlight how exciting science and nature are.
           </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Esther Nosazeogie">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
         </div>
       </article>
 
     </div>
+    </section>
+
+    <section class="ug-team-section">
+      <div class="board-section-header">
+        <h2>THR 298: Student Media Leadership</h2>
+      </div>
+      <p class="section-intro">Undergraduates earning credit through <strong>THR 298</strong> while contributing to GradMag.</p>
+      <div class="people-grid thr-grid">
+        <article class="person-card">
+          <div class="person-media">
+            <img src="images/Yazhi_Esther_Wang.jpeg" alt="Yazhi (Esther) Wang">
+          </div>
+          <div class="person-body">
+            <h4 class="person-name">Yazhi (Esther) Wang</h4>
+            <p class="person-role">Editorial Team</p>
+            <p class="person-bio">Yazhi (Esther) is an undergraduate student studying Mathematics at Stony Brook University, with a minor in Music and Technology. She is also involved with Stony Brook’s Division of Information Technology (DoIT) and the Blockchain Business Lab (BBL), where she contributes to technology, communication, and interdisciplinary projects. Her interests lie at the intersection of technology, education, and creative communication, and she enjoys finding ways to connect people and ideas across disciplines. Through GradMag, she hopes to help share the work and stories of the Stony Brook community with a broader audience.</p>
+            <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Yazhi (Esther) Wang">
+              <span>Read more</span>
+              <span class="bio-chevron" aria-hidden="true">▼</span>
+            </button>
+          </div>
+        </article>
+        <article class="person-card">
+          <div class="person-media">
+            <img src="images/Ana_Lau.png" alt="Ana Lau">
+          </div>
+          <div class="person-body">
+            <h4 class="person-name">Ana Lau</h4>
+            <p class="person-role">Design &amp; Creative Team</p>
+            <p class="person-bio">Ana is an undergraduate student working towards a Bachelor of Science in Biology, as well as a Studio Art minor. She hopes to pursue a path in dentistry following her Bachelor’s degree, with a focus on reconstructive work. In her free time, she enjoys painting, sculpting, making tea, and watching movies. As someone who enjoys being hands-on, she aspires to use her artistic skills to make a difference in healthcare.</p>
+            <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Ana Lau">
+              <span>Read more</span>
+              <span class="bio-chevron" aria-hidden="true">▼</span>
+            </button>
+          </div>
+        </article>
+        <article class="person-card">
+          <div class="person-media">
+            <img src="images/Alexandra_Hanley_board.jpg" alt="Alexandra Hanley">
+          </div>
+          <div class="person-body">
+            <h4 class="person-name">Alexandra Hanley</h4>
+            <p class="person-role">Assistant Treasurer</p>
+            <p class="person-bio">Alexandra Hanley is a third-year undergraduate student at Stony Brook University pursuing a Bachelor of Science in Business Management, with specializations in Finance and AI for Business Innovation and a minor in Communication and Innovation. She serves as Assistant Treasurer for GradMag and is passionate about philanthropy and empowering women in business. On campus, Alexandra is co-founder of Beyond Diabetes at Stony Brook University, a student-led organization that supports those affected by diabetes and educates others about the condition. She also serves as Professional Activities Chair for Women in Business, where she plans professional events and guest speaker sessions.</p>
+            <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Alexandra Hanley">
+              <span>Read more</span>
+              <span class="bio-chevron" aria-hidden="true">▼</span>
+            </button>
+          </div>
+        </article>
+        <article class="person-card">
+          <div class="person-media">
+            <img src="images/Dahlia_Clark.jpg" alt="Dahlia Clark">
+          </div>
+          <div class="person-body">
+            <h4 class="person-name">Dahlia Clark</h4>
+            <p class="person-role">Outreach/Communication &amp; Editorial</p>
+            <p class="person-bio">Dahlia is an assistant editorial research and outreach assistant for GradMag. She is a junior pursuing a major in English and a minor in history. In her free time, she loves to shop, write, travel to new places, and especially loves reading with her book club. After graduating from Stony Brook, Dahlia plans on applying to law school. She would like to pursue a career practicing intellectual property while exploring the opportunities the legal field has to offer.</p>
+            <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Dahlia Clark">
+              <span>Read more</span>
+              <span class="bio-chevron" aria-hidden="true">▼</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
   </div>
 
   <footer class="site-footer site-footer-simple">
@@ -395,6 +600,15 @@
           });
         });
       }
+
+      document.querySelectorAll('.bio-read-more').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var card = btn.closest('.person-card');
+          var open = card.classList.toggle('is-bio-open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.querySelector('span:first-child').textContent = open ? 'Read less' : 'Read more';
+        });
+      });
     })();
   </script>
 </body>
