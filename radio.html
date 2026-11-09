@@ -29,7 +29,7 @@
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(280px, 0.8fr) minmax(440px, 1.3fr);
       gap: 3rem;
       align-items: center;
     }
@@ -101,15 +101,35 @@
     .radio-hero .hero-actions .btn-outline:hover {
       border-color: #1a1a1a;
     }
+    .radio-hero .hero-actions .btn-spotify {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      line-height: 1;
+      border-radius: 3px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    .radio-hero .hero-actions .btn-spotify svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      flex-shrink: 0;
+    }
+    .radio-hero .hero-actions .btn-spotify:hover {
+      background: #333;
+    }
     .radio-hero .hero-image {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .radio-hero .hero-image img {
-      max-width: 460px;
+    .radio-hero .hero-image iframe {
       width: 100%;
-      height: auto;
+      height: 352px;
+      border: 0;
+      border-radius: 12px;
       display: block;
     }
 
@@ -197,6 +217,28 @@
       line-height: 1.6;
       font-size: 0.95rem;
     }
+    .episode-desc a {
+      color: #0563bb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .episode-desc a:hover {
+      text-decoration: underline;
+    }
+    .episode-photo {
+      margin: 0 0 1.25rem;
+    }
+    .episode-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .episode-photo figcaption {
+      margin-top: 0.5rem;
+      color: #888;
+      font-size: 0.85rem;
+      line-height: 1.45;
+    }
     .episode-audio {
       margin-top: 1.25rem;
     }
@@ -209,6 +251,14 @@
       color: #888;
       font-size: 0.9rem;
       margin-top: 2rem;
+    }
+    .episodes-footer a {
+      color: #0563bb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .episodes-footer a:hover {
+      text-decoration: underline;
     }
 
     @media (max-width: 768px) {
@@ -316,15 +366,19 @@
         <div class="label">WUSB 90.1 FM • Every Other Friday</div>
         <h1>Tech & Friends</h1>
         <p class="subtitle">Premiered February 20th, 2026</p>
-        <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM! Tech & Friends features conversations with Stony Brook's graduate community.</p>
-        <p class="next-ep">Next episode: October 30th, 2026</p>
+        <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM. Tech &amp; Friends is now on Spotify, and more episodes are being added.</p>
+        <p class="next-ep">Latest episode: October 30th, 2026 · Next episode: November 13th, 2026</p>
         <div class="muses-player-wrap" id="listen" aria-label="WUSB 90.1 FM live stream player"></div>
         <div class="hero-actions">
           <a href="#episodes" class="btn-outline">Browse episodes</a>
+          <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" class="btn-spotify" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1DB954" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            Check us out on Spotify
+          </a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="images/techandfriends_logo.png" alt="Tech & Friends logo">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/48FmnqYDnhzfdE0qIPfptm?utm_source=generator&theme=0&t=0&si=ac3a14407c7f4b05" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Tech & Friends on Spotify"></iframe>
       </div>
     </div>
   </section>
@@ -365,6 +419,28 @@
     
     <!-- Episodes -->
     <div class="section-label" id="episodes">Episodes</div>
+
+    <!-- Episode 17 -->
+    <article class="episode-card" id="episode-17">
+      <figure class="episode-photo">
+        <img src="images/gabriellerussoepisode17.jpg" alt="Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo recording the Halloween episode, with primate and human skulls on the studio table.">
+        <figcaption>Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo in the studio for the Halloween episode.</figcaption>
+      </figure>
+      <div class="episode-header">
+        <div class="episode-info">
+          <span class="episode-badge">Episode 17: Halloween Special</span>
+          <h3>What Bones Reveal: Fossils, Human Evolution, and the Technology of Discovery</h3>
+          <div class="episode-date">October 30th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander</span></div>
+          <p class="episode-desc">Ava Nederlander hosts a Halloween episode that looks past ghost stories to what skeletons can tell us about life, movement, and evolutionary history. She speaks with Dr. Gabrielle A. Russo, Associate Professor of Anthropology at Stony Brook University and Interim Director of the Turkana Basin Institute. They talk about how a single bone can record whether a primate climbed, swung through trees, or walked upright, including the loss of the tail in apes and the shift toward bipedalism, and about searching for fossils at Napudet in Kenya. The second half turns to the technology of discovery: high-resolution CT imaging, three-dimensional digital models, and how researchers compare ancient bones with living primates when a fossil is incomplete. They also discuss enamel proteomics, an emerging way to recover evolutionary information from proteins preserved in tooth enamel long after DNA has degraded. The full recording will also be available on YouTube.</p>
+        </div>
+      </div>
+      <div class="episode-audio">
+        <audio controls>
+          <source src="techandfriends_broadcast17.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </article>
 
     <!-- Episode 16 -->
     <article class="episode-card">
@@ -702,7 +778,7 @@
       </div>
     </article>
 
-    <p class="episodes-footer">New episodes every other Friday on WUSB 90.1 FM · Next episode: October 30th, 2026</p>
+    <p class="episodes-footer">New episodes every other Friday on WUSB 90.1 FM · Next episode: November 13th, 2026 · <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener">Listen on Spotify</a></p>
 
   </div>
 
@@ -720,6 +796,9 @@
         <a href="radio.html" aria-current="page">Radio</a>
       </nav>
       <div class="footer-simple-social">
+        <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.2 9.7c3.2-.9 6.6-.6 9.2 1M6.8 12.6c3.4-.9 7.2-.6 10 1.3M7.4 15.4c2.6-.6 5.4-.4 7.6.9" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/></svg>
+        </a>
         <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
         </a>

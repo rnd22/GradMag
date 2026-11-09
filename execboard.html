@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="js/ga4.js"></script>
   <title>Masthead: Meet the Team • SBU Graduate Arts & Sciences Magazine</title>
-  <meta name="description" content="Meet the Executive Board and THR 298 undergraduate team behind the SBU Graduate Arts & Sciences Magazine." />
+  <meta name="description" content="Meet the Executive Board, staff, and THR 298 undergraduate team behind the SBU Graduate Arts & Sciences Magazine." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
@@ -85,6 +85,15 @@
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+    .board-page .person-media--initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0563bb;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      letter-spacing: 0.06em;
     }
 
     .board-page .person-body {
@@ -318,7 +327,7 @@
   <section class="page-header">
     <div class="label">About</div>
     <h1>Masthead: Meet the Team</h1>
-    <p class="subtitle">Executive Board and undergraduate contributors behind the SBU Graduate Arts & Sciences Magazine</p>
+    <p class="subtitle">Executive Board, staff, and undergraduate contributors behind the SBU Graduate Arts & Sciences Magazine</p>
   </section>
 
   <!-- Content -->
@@ -484,6 +493,77 @@
     </div>
     </section>
 
+    <section class="board-section">
+      <div class="board-section-header">
+        <h2>Team</h2>
+      </div>
+      <div class="people-grid">
+
+      <article class="person-card">
+        <div class="person-media person-media--initials" aria-hidden="true">XN</div>
+        <div class="person-body">
+          <h4 class="person-name">Xiaoteng Niu</h4>
+          <p class="person-role">Events Coordinator</p>
+          <p class="person-bio">
+            Xiaoteng is a PhD student in Molecular and Cell Biology working in Dr. Martinez’s lab in the Department of Pathology, the Department of Biochemistry, and the Cancer Center. She is interested in dissecting the molecular and cellular mechanisms driving cancer progression in order to identify new therapeutic targets and drug combinations for cancer treatment. Outside the lab, she loves reading, cooking, and exploring unfamiliar subjects.
+          </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Xiaoteng Niu">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="person-card">
+        <div class="person-media person-media--initials" aria-hidden="true">SP</div>
+        <div class="person-body">
+          <h4 class="person-name">Samruddhi Pande</h4>
+          <p class="person-role">Radio Production Assistant</p>
+          <p class="person-bio">
+            Samruddhi is pursuing a Master’s in Engineering AI in the Electrical and Computer Engineering Department at Stony Brook University. She has over four years of experience in software engineering and is passionate about her work. Outside of this, she likes to write, cook, dance, and swim.
+          </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Samruddhi Pande">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="person-card">
+        <div class="person-media">
+          <img src="images/Diya_Rajesh_Krishnan.jpeg" alt="Diya Rajesh Krishnan">
+        </div>
+        <div class="person-body">
+          <h4 class="person-name">Diya Rajesh Krishnan</h4>
+          <p class="person-role">Radio Production Assistant</p>
+          <p class="person-bio">
+            Diya is an MS student in Molecular and Cellular Pharmacology in the Department of Pharmacological Sciences at Stony Brook University. She works in Dr. Paolo Boffetta’s lab in the Department of Family, Population and Preventive Medicine, where she studies the association between statin use and hepatocellular carcinoma incidence. Growing up in Dubai with an Indian family, she learned early to see health and well-being through more than one cultural lens, a perspective that now shapes her interest in how medicines serve diverse populations. In her free time, she enjoys reading, writing, and traveling, and helps host GradMag’s radio show, Tech &amp; Friends. She hopes to pursue a PhD and build a career in Pharmacology and Epidemiology that uses clinical data to improve patient care.
+          </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Diya Rajesh Krishnan">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
+        </div>
+      </article>
+
+      <article class="person-card">
+        <div class="person-media person-media--initials" aria-hidden="true">FM</div>
+        <div class="person-body">
+          <h4 class="person-name">Francesca Marzo</h4>
+          <p class="person-role">Assistant Managing Editor</p>
+          <p class="person-bio">
+            Francesca is a third-year undergraduate student majoring in Globalization Studies &amp; International Relations and Philosophy with a minor in Italian Studies. Postgrad, she intends to apply to law school. In her free time, she enjoys going to the movie theater, going on hikes, and yoga.
+          </p>
+          <button type="button" class="bio-read-more" aria-expanded="false" aria-label="Read more about Francesca Marzo">
+            <span>Read more</span>
+            <span class="bio-chevron" aria-hidden="true">▼</span>
+          </button>
+        </div>
+      </article>
+
+      </div>
+    </section>
+
     <section class="ug-team-section">
       <div class="board-section-header">
         <h2>THR 298: Student Media Leadership</h2>
@@ -563,6 +643,9 @@
         <a href="radio.html">Radio</a>
       </nav>
       <div class="footer-simple-social">
+        <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.2 9.7c3.2-.9 6.6-.6 9.2 1M6.8 12.6c3.4-.9 7.2-.6 10 1.3M7.4 15.4c2.6-.6 5.4-.4 7.6.9" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/></svg>
+        </a>
         <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
         </a>

@@ -44,7 +44,6 @@
       margin-top: 0.5rem;
       font-style: italic;
     }
-
     /* Main Container */
     .main-container {
       max-width: 1200px;
@@ -274,6 +273,18 @@
     .event-card-image--flyer img {
       object-fit: contain;
       padding: 0.25rem;
+    }
+    .event-card--feature {
+      grid-column: 1 / -1;
+      grid-template-columns: 240px 1fr;
+    }
+    .event-card--feature .event-card-image {
+      aspect-ratio: auto;
+      overflow: visible;
+    }
+    .event-card--feature .event-card-image img {
+      height: auto;
+      object-fit: contain;
     }
     .event-card-content .category {
       font-size: 0.7rem;
@@ -582,6 +593,9 @@
       .event-card {
         grid-template-columns: 100px 1fr;
       }
+      .event-card--feature {
+        grid-template-columns: 120px 1fr;
+      }
       .two-column {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -749,37 +763,18 @@
     </div>
 
     <div class="events-grid">
-      <!-- Current Issue -->
-      <article class="event-card">
+      <!-- Slam Poetry Night -->
+      <article class="event-card event-card--feature">
         <div class="event-card-image event-card-image--flyer">
-          <img src="images/nextgeneration_cover.png" alt="The Next Generation magazine cover">
+          <img src="images/slam-poetry-111126.jpg" alt="GradMag Slam Poetry Night flyer">
         </div>
         <div class="event-card-content">
-          <div class="category">Current Issue</div>
-          <h4><a href="thenextgeneration/index.html">The Next Generation</a></h4>
+          <div class="category">Upcoming Event</div>
+          <h4>Slam Poetry Night</h4>
           <p class="meta">
-            Vol. 3, Issue 1 · Spring 2026<br>
-            <a href="thenextgeneration/index.html">Explore the issue</a>
-            <span class="meta-sep" aria-hidden="true"> · </span>
-            <a href="publications.html">All publications</a>
-          </p>
-        </div>
-      </article>
-
-      <!-- Writer Interest Form -->
-      <article class="event-card">
-        <div class="event-card-image event-card-image--flyer">
-          <img src="images/writerinterest_gradmagfall26.png" alt="GradMag Fall 2026 writer interest form">
-        </div>
-        <div class="event-card-content">
-          <div class="category">Join the Team</div>
-          <h4><a href="https://tinyurl.com/magwriter26" target="_blank" rel="noopener">Writer Interest Form</a></h4>
-          <p class="meta">
-            <strong>Extended deadline: December 4th</strong> for articles and poetry.<br>
-            Tell us you're interested in writing for Spring 2027.<br>
-            <a href="https://tinyurl.com/magwriter26" target="_blank" rel="noopener">Fill out the form</a>
-            <span class="meta-sep" aria-hidden="true"> · </span>
-            <a href="jointheteam.html">See open roles</a>
+            Wednesday, November 11 · 5:00–5:50 PM · SAC 302<br>
+            GradMag general body meeting led by Justine Galvan, Assistant Coordinator for Student Life and Southampton MFA candidate in Creative Writing &amp; Literature. Bring a poem to share, or come to listen. No experience required.<br>
+            <a href="events.html">See it on the calendar</a>
           </p>
         </div>
       </article>
@@ -793,11 +788,12 @@
           <div class="category">Radio Show</div>
           <h4><a href="radio.html">Tech & Friends</a></h4>
           <p class="meta">
-            Every other Friday, 1–2 PM on WUSB 90.1 FM, featuring faculty and student guests.<br>
-            <strong>Next episode:</strong> October 30th, 2026<br>
-            <a href="radio.html#listen">Listen live</a>
+            <strong>Now on Spotify.</strong> Every other Friday, 1–2 PM on WUSB 90.1 FM, featuring faculty and student guests.<br>
+            <strong>Latest episode:</strong> October 30th, 2026, What Bones Reveal, with Dr. Gabrielle Russo<br>
+            <strong>Next episode:</strong> November 13th, 2026<br>
+            <a href="radio.html#episode-17">Latest episode</a>
             <span class="meta-sep" aria-hidden="true"> · </span>
-            <a href="https://www.wusb.fm/station/schedule/week" target="_blank" rel="noopener">WUSB weekly schedule</a>
+            <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener">Listen on Spotify</a>
           </p>
         </div>
       </article>
@@ -900,8 +896,12 @@
         <!-- Latest Episodes -->
         <div class="sidebar-section">
           <h4>Latest Radio Episodes</h4>
-          <p class="radio-next-note"><strong>Next episode:</strong> October 30th, 2026 · <a href="radio.html">Tech &amp; Friends on WUSB</a></p>
+          <p class="radio-next-note"><strong>Now on Spotify.</strong> <strong>Latest:</strong> October 30th, What Bones Reveal · <strong>Next:</strong> November 13th · <a href="radio.html#episode-17">Tech &amp; Friends</a> · <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener">Listen on Spotify</a></p>
           <ul class="radio-list">
+            <li>
+              <a href="radio.html#episode-17">What Bones Reveal: Fossils, Human Evolution, and the Technology of Discovery</a>
+              <span class="date">October 30, 2026</span>
+            </li>
             <li>
               <a href="radio.html#episodes">Air Pollution, Climate Change, and Environmental AI</a>
               <span class="date">October 16, 2026</span>
@@ -949,6 +949,9 @@
         <a href="radio.html">Radio</a>
       </nav>
       <div class="footer-simple-social">
+        <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.2 9.7c3.2-.9 6.6-.6 9.2 1M6.8 12.6c3.4-.9 7.2-.6 10 1.3M7.4 15.4c2.6-.6 5.4-.4 7.6.9" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/></svg>
+        </a>
         <a href="https://www.instagram.com/sbugradmag" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 2a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.9a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z"/></svg>
         </a>
@@ -978,10 +981,10 @@
       { title: 'GradMag GBM', date: { y: 2026, m: 8, d: 23 }, time: '5:00–5:50 pm', location: 'SAC 302' },
       { title: 'GradMag GBM', date: { y: 2026, m: 9, d: 7 }, time: '5:00–5:50 pm', location: 'SAC 302' },
       { title: 'Mastering Resume Building', date: { y: 2026, m: 9, d: 19 }, time: '7:00–8:00 pm', location: 'Virtual' },
-      { title: 'GradMag GBM', date: { y: 2026, m: 10, d: 11 }, time: '5:00–5:50 pm', location: 'SAC 302' },
+      { title: 'Slam Poetry Night', date: { y: 2026, m: 10, d: 11 }, time: '5:00–5:50 pm', location: 'SAC 302' },
       { title: 'Tech & Friends on WUSB 90.1 FM', date: { y: 2026, m: 9, d: 30 }, time: '1:00–2:00 pm', location: 'WUSB 90.1 FM', url: 'radio.html', rule: { interval: 2, byday: ['FR'], until: { y: 2026, m: 11, d: 31 } } },
       { title: 'Preparing for Job Fairs', date: { y: 2026, m: 10, d: 16 }, time: '7:00–8:00 pm', location: 'Virtual' },
-      { title: 'GradMag GBM', date: { y: 2026, m: 11, d: 2 }, time: '5:00–5:50 pm', location: 'SAC 302' },
+      { title: 'GBM: Career Center / Mentor Connect', date: { y: 2026, m: 11, d: 2 }, time: '5:00–5:50 pm', location: 'SAC 302' },
       { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 4 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
       { title: 'B.R.I.D.G.E.S', date: { y: 2027, m: 1, d: 5 }, time: 'All day', location: 'SAC Ballrooms A, B, Shore Club, Auditorium' },
       { title: 'Articulating Your Skills with Confidence', date: { y: 2027, m: 1, d: 8 }, time: '7:00–8:00 pm', location: 'Virtual' },
@@ -1076,7 +1079,9 @@
       agendaList.innerHTML = upcoming.map(e => {
         const ds = e.dt.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
         const meta = [e.time, e.location].filter(Boolean).join(' • ');
-        const zoom = e.url ? `<div class="event-meta"><a href="${e.url}" target="_blank" rel="noopener">Join on Zoom</a></div>` : '';
+        const linkLabel = !e.url ? '' : e.url.includes('zoom.us') ? 'Join on Zoom' : e.url.includes('radio') ? 'Listen' : 'Details';
+        const linkAttrs = e.url && /^https?:/i.test(e.url) ? ' target="_blank" rel="noopener"' : '';
+        const zoom = e.url ? `<div class="event-meta"><a href="${e.url}"${linkAttrs}>${linkLabel}</a></div>` : '';
         return `<li>
           <div class="date-badge">${ds}</div>
           <div class="event-title">${e.title}</div>
