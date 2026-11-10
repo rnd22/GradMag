@@ -239,11 +239,15 @@
       font-size: 0.85rem;
       line-height: 1.45;
     }
-    .episode-audio {
+    .episode-spotify {
       margin-top: 1.25rem;
     }
-    .episode-audio audio {
+    .episode-spotify iframe {
+      display: block;
       width: 100%;
+      height: 152px;
+      border: 0;
+      border-radius: 12px;
     }
 
     .episodes-footer {
@@ -293,7 +297,14 @@
             <a href="jointheteam.html">Join the Team</a>
           </div>
         </div>
-        <a href="bridges.html">BRIDGES</a>
+        <div class="nav-dropdown">
+          <a href="bridges.html">BRIDGES</a>
+          <div class="nav-dropdown-menu">
+            <a href="bridges.html">BRIDGES 2027</a>
+            <a href="bridges2026.html">BRIDGES 2026</a>
+            <a href="bridges2025.html">BRIDGES 2025</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="publications.html">Publications</a>
           <div class="nav-dropdown-menu">
@@ -335,7 +346,14 @@
         <a href="jointheteam.html">Join the Team</a>
       </div>
     </div>
-    <a href="bridges.html">BRIDGES</a>
+    <div class="mobile-dropdown">
+      <div class="mobile-dropdown-title">BRIDGES</div>
+      <div class="mobile-dropdown-items">
+        <a href="bridges.html">BRIDGES 2027</a>
+        <a href="bridges2026.html">BRIDGES 2026</a>
+        <a href="bridges2025.html">BRIDGES 2025</a>
+      </div>
+    </div>
     <div class="mobile-dropdown">
       <div class="mobile-dropdown-title">Publications</div>
       <div class="mobile-dropdown-items">
@@ -366,7 +384,7 @@
         <div class="label">WUSB 90.1 FM • Every Other Friday</div>
         <h1>Tech & Friends</h1>
         <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM. Tech &amp; Friends is now on Spotify, and more episodes are being added.</p>
-        <p class="next-ep">Latest episode: October 30th, 2026 · Next episode: November 27th, 2026</p>
+        <p class="next-ep">Next episode: November 27th, 2026</p>
         <div class="muses-player-wrap" id="listen" aria-label="WUSB 90.1 FM live stream player"></div>
         <div class="hero-actions">
           <a href="#episodes" class="btn-outline">Browse episodes</a>
@@ -433,11 +451,8 @@
           <p class="episode-desc">Ava Nederlander hosts a Halloween episode that looks past ghost stories to what skeletons can tell us about life, movement, and evolutionary history. She speaks with Dr. Gabrielle A. Russo, Associate Professor of Anthropology at Stony Brook University and Interim Director of the Turkana Basin Institute. They talk about how a single bone can record whether a primate climbed, swung through trees, or walked upright, including the loss of the tail in apes and the shift toward bipedalism, and about searching for fossils at Napudet in Kenya. The second half turns to the technology of discovery: high-resolution CT imaging, three-dimensional digital models, and how researchers compare ancient bones with living primates when a fossil is incomplete. They also discuss enamel proteomics, an emerging way to recover evolutionary information from proteins preserved in tooth enamel long after DNA has degraded. The full recording will also be available on YouTube.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast17.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/48FmnqYDnhzfdE0qIPfptm?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -454,11 +469,8 @@
           <p class="episode-desc">Ava Nederlander speaks with Dr. Guanyu Huang, Assistant Professor in the School of Marine and Atmospheric Sciences and the Program in Public Health at Stony Brook University. They discuss how satellite and ground-based remote sensing, numerical modeling, and artificial intelligence are used to study air pollution, climate change, environmental justice, and human health, including projects such as an ozone garden that uses plants as bio-indicators, convolutional neural networks to detect ozone damage on leaves, and A3PEAS, an AI-based system for air-quality exceedance analysis. The conversation also explores how environmental monitoring might become more localized, how communities can contribute through citizen science, and what interdisciplinary collaboration across atmospheric science, public health, and computer science could mean for the future.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast16.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/6QGfYRdPpFqogHS6fNKBtX?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -475,11 +487,8 @@
           <p class="episode-desc">Ava Nederlander speaks with Dr. Lav Varshney, Della Pietra Infinity Professor and inaugural Director of the AI Innovation Institute at Stony Brook University. They explore his path through academia, industry, government, and entrepreneurship, from information theory and electrical engineering to roles at IBM Research (including Chef Watson), Salesforce Research AI, and a White House Fellowship on the National Security Council staff contributing to national AI policy. The conversation examines what it means for AI to be creative, whether generative systems can produce genuinely new ideas, and how humans and machines might collaborate rather than compete in art, science, and discovery. Dr. Varshney also shares his vision for the AI Innovation Institute at Stony Brook and how students across disciplines can engage with human-controllable AI for creativity and research.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast15.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1Fx4sYxvd7X0CG4rkLpXeB?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -496,11 +505,8 @@
           <p class="episode-desc">Host Esther Nosazeogie explores how abstract mathematics becomes tangible through art and historic teaching models. The episode centers on the Altgeld Math Models on display at Stony Brook's Simons Center for Geometry and Physics through September 25, plaster, wood, metal, cardboard, and string forms crafted roughly a century ago as research and teaching aids before computer graphics. Esther speaks with Dr. Moira Chas, Professor of Mathematics at Stony Brook, about her wire and crochet representations of mathematical concepts, stories from math and art history, and why concrete forms help learners grasp ideas that can feel abstract in textbooks, including how linear algebra relates to other kinds of equations. Learn more about Dr. Chas's work at <a href="https://moirart.org" target="_blank" rel="noopener">moirart.org</a>.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast14.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/0JcHBZKOEDiL997XD8kEsl?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -517,11 +523,8 @@
           <p class="episode-desc">Continuing our Tech & Tunes series, this episode explores classical music inspired by the night through two complete works written nearly a century apart. The program opens with Ludwig van Beethoven's Piano Sonata No. 14 in C-sharp minor, Op. 27, No. 2, known today as the Moonlight Sonata, performed by pianist Paul Pitman from a public domain recording released through Musopen. We then turn to Maurice Ravel's Gaspard de la nuit, a three-movement suite inspired by poems of Aloysius Bertrand, where each movement offers a different vision of nighttime: the seductive water spirit Ondine, the haunting stillness of Le Gibet, and the frantic supernatural world of Scarbo. Along the way, the episode considers how evolving piano technology shaped both composers' writing and how recording helps preserve performances for new audiences.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast13.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/0aGfe7uGu7MZsAbjYMBAdU?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -538,11 +541,8 @@
           <p class="episode-desc">Rebroadcast of our April 3rd episode. We explore the role of technology in shaping graduate student mental health, examining both its benefits in academic work and its impact on stress and burnout. Featuring conversations with Donal Thomas, PhD Candidate in the Department of History and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services at Stony Brook University, the episode highlights key campus resources, advocacy efforts, and strategies for maintaining wellbeing in a highly connected environment. Together, they offer insight into navigating academic pressures while building sustainable support systems. This broadcast provides a thoughtful perspective on balancing the demands of graduate life with the realities of an increasingly digital world.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast12.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/70qNHlhFDSypmnRasY3jaD?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -559,11 +559,8 @@
           <p class="episode-desc">We are joined by Dr. Farah Monzur, a Clinical Associate Professor of Medicine in the Renaissance School of Medicine at Stony Brook University, the Program Director for the Gastroenterology Fellowship Program, and Director of the Inflammatory Bowel Disease Center, to talk about her path into medicine and gastroenterology, her experiences in clinical practice, medical education, and leadership, advancements in digestive disease diagnoses and care, as well as the training of future physicians.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast11.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/05Cey8CBT7ZIqEpWatBLVS?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -580,11 +577,8 @@
           <p class="episode-desc">How did people first experience recorded music? In this inaugural episode of Tech & Tunes, a special series from Tech & Friends, we journey back to the earliest years of sound recording through a curated selection of rare cylinder recordings from the 1890s. Rather than tracing history through dates alone, each recording reveals a different technological milestone, from acoustic recording horns and brown wax cylinders to the engineering challenges that shaped the sound of the first commercial recordings. Featuring selections from the Incunabula Collection, curated by John Levin and preserved by the UC Santa Barbara Library Cylinder Audio Archive, this episode explores how the earliest innovations in audio technology transformed music from a fleeting live performance into something that could be preserved, shared, and experienced for generations to come.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast10.m4a" type="audio/mp4">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/23xp3EGwyBck1ZkDTk5NAm?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -601,11 +595,8 @@
           <p class="episode-desc">Narmin Mekawy sits down with Isobel Breheny-Schafer, Assistant Director of Student Media and General Manager of WUSB at Stony Brook University, who works with student broadcasters, journalists, and content creators across campus. They discuss her path into student media, what it takes to manage a radio station, and the skills students build through radio, journalism, and podcasting. In part two, they look at how the media landscape has shifted with streaming, social media, and AI, what role radio still plays in a world of endless digital content, and what media literacy means for students today. The episode closes with advice for students considering getting involved with WUSB or student media for the first time.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast9.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/3Kll74nK9uRrBNkyixC3Qp?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -622,11 +613,8 @@
           <p class="episode-desc">Recorded at the State of the Science conference on offshore wind and wildlife impacts, held at Stony Brook University under the theme "Building on a Strong Foundation: Deepening Knowledge and Finding Collaborative Solutions," this episode features two conversations on the role of technology in scientific research for responsible offshore wind development. Host Esther Nosazeogie, a graduate student studying the movement of the great black-backed gull in relation to offshore wind, speaks with Dr. Lesley Thorne, marine vertebrate biologist and her advisor at Stony Brook University, and a physical oceanographer about their collaborative use of technology to study marine environments and inform offshore wind decision-making.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast8.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1NdlbTosyuYQT0kqaBouWb?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -643,11 +631,8 @@
           <p class="episode-desc">Margaret Schedel, Professor in the Department of Music and Core Faculty of the Institute for Advanced Computational Science at Stony Brook University, joins the show. An internationally recognized composer, cellist, and researcher, Schedel's work spans interactive multimedia opera, virtual reality, sound art, video game scores, and real-time audio and video processing. The episode explores how technology has transformed musical composition and performance, what it means for instruments to become interactive and computational, and the emerging field of data sonification, including using music to study the gait patterns of people with Parkinson's Disease. In part two, they discuss how AI is reshaping creative expression, whether AI-generated art changes what it means to be a composer, and what advice Schedel has for students interested in combining the arts with coding, engineering, or data science.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast7.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/4vgfDKAzwfcCAcup9E9M96?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -664,11 +649,8 @@
           <p class="episode-desc">Gillian Farnan, Assistant Director of Student Engagement & Activities at Stony Brook University, joins the show to explore how technology is reshaping the way students connect and build community on campus. The episode covers how digital tools, virtual collaboration platforms, and AI are transforming student organizations and leadership development, what it means for students to maintain meaningful human connections in an increasingly tech-driven academic environment, and practical strategies for getting involved and developing communication and leadership skills, both online and in person.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast6.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1bWZYQmIT1iWeuC9Px5aVR?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -685,11 +667,8 @@
           <p class="episode-desc">We sit down with Jessica Roman, Associate Director of Career Development at the Stony Brook University Career Center, to explore how artificial intelligence is transforming the modern job market and what that means for students, researchers, and emerging professionals. Roman works closely with graduate students on career readiness, internships, job strategy, and professional development, helping them navigate an increasingly complex employment landscape. In this episode, we discuss how AI is reshaping hiring practices, application processes, and workforce expectations, while also examining the technical and transferable skills that make candidates stand out. In the second half, we explore career paths in STEM, engineering, academia, and industry, offering practical insight into how students can strategically position themselves for long-term success in a rapidly evolving professional world.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast5.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/7gwHfxLOS6Yl44j89iQh1u?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -706,11 +685,8 @@
           <p class="episode-desc">We sit down with Patricia Maurides, a visual artist and Professor of Practice in the Department of Art at Stony Brook University, whose work lives at the crossroads of science and art. With a background in biology and an MFA from Carnegie Mellon, Maurides has spent decades building courses, collaborations, and exhibitions that ask students to investigate perception, memory, and the natural world through both a scientific and artistic lens. We talk about her own photo-based practice, her long-running courses Art and Biology and Art and the Brain, and her current student installation "Blu tanical Impressions" in the Staller Center hallway. In the second half, we explore her philosophy of teaching, the power of public presentation, and Earthstock, where her students will be sharing their work with the Stony Brook community.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast4.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/25tVptDTkGrZHuoLS5GEEe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -727,11 +703,8 @@
           <p class="episode-desc">We explore the role of technology in shaping graduate student mental health, examining both its benefits in academic work and its impact on stress and burnout. Featuring conversations with Donal Thomas, PhD Candidate in the Department of History and Graduate Student Advocate, and Kerri Mahoney, Director of Counseling and Psychological Services at Stony Brook University, the episode highlights key campus resources, advocacy efforts, and strategies for maintaining wellbeing in a highly connected environment. Together, they offer insight into navigating academic pressures while building sustainable support systems. This broadcast provides a thoughtful perspective on balancing the demands of graduate life with the realities of an increasingly digital world.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast3.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/6lAluwRtGrOZ5krGNTa0Fw?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -748,11 +721,8 @@
           <p class="episode-desc">We continue our coverage of BRIDGES: A Cross-Departmental Graduate Student Conference, expanding on our February 20 broadcast with extended interviews and highlights from the event. The episode features conversations with Alfreda S. James on networking and professional development, alongside interviews with graduate student presenters sharing their research and experiences. The broadcast also showcases musical performances from Shiqi Yang and Changyue Liu, Gina Rizzo, Kevin Kyaw, Da Young Rachel Lim, and Guilherme Batalha, highlighting the artistic dimension of the conference. Through these conversations and performances, the episode captures the depth, creativity, and interdisciplinary collaboration that define BRIDGES. As a continuation of our initial coverage, this broadcast offers a more in-depth look at the people, ideas, and community driving graduate research at Stony Brook University.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast2.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/3be1HtYkubwbJQtct0iQqO?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
@@ -769,11 +739,8 @@
           <p class="episode-desc">In the inaugural broadcast of Tech & Friends, we introduce BRIDGES: A Cross-Departmental Graduate Student Conference, a student-led initiative that brought together nearly 300 attendees for a day of research, creativity, and interdisciplinary exchange at Stony Brook University. The broadcast features opening reflections from Celia Marshik and highlights conversations with key contributors to the event, including Gillian Farnan, Nancee Moes, and Peter Stokes. The episode also features interviews with graduate student presenters, along with remarks from Carl W. Lejuez and additional reflections from Dean Marshik, culminating in highlights from award-winning research and creative work, including presentations by Lauren Rothburd and Sai Abasolo. Through these voices, the broadcast captures the scope, energy, and collaborative spirit of BRIDGES. This episode sets the stage for continued coverage, offering an introduction to the people and ideas driving this growing graduate student community.</p>
         </div>
       </div>
-      <div class="episode-audio">
-        <audio controls>
-          <source src="techandfriends_broadcast1.m4a" type="audio/mp4">
-          Your browser does not support the audio element.
-        </audio>
+      <div class="episode-spotify">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/0yw9n9PKeOVgSTjXBJf5S2?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </article>
 
