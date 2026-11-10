@@ -72,7 +72,7 @@
     }
     .radio-hero .muses-player-wrap {
       margin: 0.35rem 0 0.75rem;
-      min-height: 62px;
+      min-height: 46px;
     }
     .radio-hero .hero-actions {
       display: flex;
@@ -386,13 +386,6 @@
         <p class="desc">Join us every other Friday from 1-2pm on WUSB 90.1 FM. Tech &amp; Friends is now on Spotify, and more episodes are being added.</p>
         <p class="next-ep">Next episode: November 27th, 2026</p>
         <div class="muses-player-wrap" id="listen" aria-label="WUSB 90.1 FM live stream player"></div>
-        <div class="hero-actions">
-          <a href="#episodes" class="btn-outline">Browse episodes</a>
-          <a href="https://open.spotify.com/show/48FmnqYDnhzfdE0qIPfptm" class="btn-spotify" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1DB954" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-            Check us out on Spotify
-          </a>
-        </div>
       </div>
       <div class="hero-image">
         <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/48FmnqYDnhzfdE0qIPfptm?utm_source=generator&theme=0&t=0&si=ac3a14407c7f4b05" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Tech & Friends on Spotify"></iframe>
@@ -418,9 +411,9 @@
         'title': 'WUSB',
         'welcome': 'WELCOME TO...',
         'wmode': 'transparent',
-        'skin': 'mcclean',
-        'width': 180,
-        'height': 60
+        'skin': new URL('compact/ffmp3-compact.xml', window.location.href).href,
+        'width': 191,
+        'height': 46
       });
     }
     if (document.readyState === 'loading') {
