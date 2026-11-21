@@ -233,6 +233,75 @@
       height: auto;
       display: block;
     }
+    #episode-17 .episode-intro {
+      margin-bottom: 1.25rem;
+    }
+    #episode-17 .episode-intro h3 {
+      margin: 0.75rem 0 0.5rem;
+    }
+    #episode-17 .episode-intro .episode-date {
+      margin-bottom: 0;
+    }
+    #episode-17 .episode-body-split {
+      display: flex;
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+    #episode-17 .episode-photo--side {
+      flex: 0 0 200px;
+      max-width: 200px;
+      margin: 0;
+    }
+    #episode-17 .episode-photo--side img {
+      border-radius: 4px;
+    }
+    #episode-17 .episode-photo--side figcaption {
+      font-size: 0.78rem;
+    }
+    #episode-17 .episode-body-text {
+      flex: 1;
+      min-width: 0;
+    }
+    #episode-17 .episode-body-text .episode-desc {
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      #episode-17 .episode-body-split {
+        flex-direction: column;
+      }
+      #episode-17 .episode-photo--side {
+        flex: none;
+        max-width: 200px;
+      }
+    }
+    .episode-watch-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin: 1rem 0 0;
+    }
+    .episode-watch-links a {
+      display: inline-block;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 3px;
+      border: 1px solid #ddd;
+      color: #1a1a1a;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .episode-watch-links a:hover {
+      border-color: #1a1a1a;
+    }
+    .episode-watch-links a.is-spotify {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+    .episode-watch-links a.is-spotify:hover {
+      background: #333;
+    }
     .episode-photo figcaption {
       margin-top: 0.5rem;
       color: #888;
@@ -432,20 +501,26 @@
 
     <!-- Episode 17 -->
     <article class="episode-card" id="episode-17">
-      <figure class="episode-photo">
-        <img src="images/gabriellerussoepisode17.jpg" alt="Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo recording the Halloween episode, with primate and human skulls on the studio table.">
-        <figcaption>Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo in the studio for the Halloween episode.</figcaption>
-      </figure>
-      <div class="episode-header">
-        <div class="episode-info">
-          <span class="episode-badge">Episode 17: Halloween Special</span>
-          <h3>What Bones Reveal: Fossils, Human Evolution, and the Technology of Discovery</h3>
-          <div class="episode-date">October 30th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander</span></div>
-          <p class="episode-desc">Ava Nederlander hosts a Halloween episode that looks past ghost stories to what skeletons can tell us about life, movement, and evolutionary history. She speaks with Dr. Gabrielle A. Russo, Associate Professor of Anthropology at Stony Brook University and Interim Director of the Turkana Basin Institute. They talk about how a single bone can record whether a primate climbed, swung through trees, or walked upright, including the loss of the tail in apes and the shift toward bipedalism, and about searching for fossils at Napudet in Kenya. The second half turns to the technology of discovery: high-resolution CT imaging, three-dimensional digital models, and how researchers compare ancient bones with living primates when a fossil is incomplete. They also discuss enamel proteomics, an emerging way to recover evolutionary information from proteins preserved in tooth enamel long after DNA has degraded. The full recording will also be available on YouTube.</p>
+      <div class="episode-intro">
+        <span class="episode-badge">Episode 17: Halloween Special</span>
+        <h3>What Bones Reveal: Fossils, Human Evolution, and the Technology of Discovery</h3>
+        <div class="episode-date">October 30th, 2026 · <span class="episode-hosts">Hosted by Ava Nederlander and Diya Rajesh Krishnan</span></div>
+      </div>
+      <div class="episode-body-split">
+        <figure class="episode-photo episode-photo--side">
+          <img src="images/gabriellerussoepisode17.jpg" alt="Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo recording the Halloween episode, with primate and human skulls on the studio table.">
+          <figcaption>Diya Rajesh Krishnan, Ava Nederlander, and Dr. Gabrielle Russo in the studio for the Halloween episode.</figcaption>
+        </figure>
+        <div class="episode-body-text">
+          <p class="episode-desc">Ava Nederlander and Diya Rajesh Krishnan host a Halloween episode that looks past ghost stories to what skeletons can tell us about life, movement, and evolutionary history. They speak with Dr. Gabrielle A. Russo, Associate Professor of Anthropology at Stony Brook University and Interim Director of the Turkana Basin Institute. They talk about how a single bone can record whether a primate climbed, swung through trees, or walked upright, including the loss of the tail in apes and the shift toward bipedalism, and about searching for fossils at Napudet in Kenya. The second half turns to the technology of discovery: high-resolution CT imaging, three-dimensional digital models, and how researchers compare ancient bones with living primates when a fossil is incomplete. They also discuss enamel proteomics, an emerging way to recover evolutionary information from proteins preserved in tooth enamel long after DNA has degraded.</p>
+          <div class="episode-watch-links">
+            <a class="is-spotify" href="https://open.spotify.com/episode/5bofKVK1qPxFDPuwr5OMCe" target="_blank" rel="noopener">Listen on Spotify</a>
+            <a href="https://www.youtube.com/watch?v=cB-GlonY52w" target="_blank" rel="noopener">Watch on YouTube</a>
+          </div>
         </div>
       </div>
       <div class="episode-spotify">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/48FmnqYDnhzfdE0qIPfptm?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/5bofKVK1qPxFDPuwr5OMCe?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Episode 17 on Spotify"></iframe>
       </div>
     </article>
 

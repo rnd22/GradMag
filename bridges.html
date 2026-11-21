@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="js/ga4.js"></script>
   <title>BRIDGES 2027 • SBU Graduate Arts & Sciences Magazine</title>
-  <meta name="description" content="BRIDGES 2027, the 3rd Annual Cross-Departmental Graduate Student Conference at Stony Brook University, February 4–5, 2027." />
+  <meta name="description" content="BRIDGES 2027 at Stony Brook University, February 4–5, 2027. Poster, art, film, and musician submission forms and deadlines." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
@@ -201,6 +201,160 @@
       border-color: #1a1a1a;
     }
 
+    .submissions-section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 1.5rem;
+    }
+    .submissions-intro {
+      color: #444;
+      line-height: 1.8;
+      margin: 0 0 1.5rem;
+    }
+    .submissions-intro a {
+      color: #0563bb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .submissions-intro a:hover {
+      text-decoration: underline;
+    }
+    .submission-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .submission-item {
+      border: 1px solid #eee;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: border-color 0.2s ease;
+    }
+    .submission-item:hover {
+      border-color: #1a1a1a;
+    }
+    .submission-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin: 0;
+      color: #1a1a1a;
+    }
+    .submission-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.55;
+    }
+    .submission-item .deadline {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #92400e;
+      background: #fef3c7;
+      align-self: flex-start;
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+    }
+    .submission-item-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 0.65rem;
+    }
+    .submission-item a.form-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0563bb;
+      text-decoration: none;
+    }
+    .submission-item a.form-link:hover {
+      text-decoration: underline;
+    }
+    .submission-item .guide-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .submission-item a.guide-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .submission-item a.guide-link:hover {
+      border-color: #1a1a1a;
+      background: #fafafa;
+    }
+    .submission-guides-note {
+      font-size: 0.9rem;
+      color: #666;
+      margin: -0.5rem 0 1.25rem;
+      line-height: 1.6;
+    }
+    .submission-flyers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .submission-flyers a {
+      display: block;
+      border: 1px solid #eee;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .submission-flyers a:hover {
+      border-color: #1a1a1a;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+    .submission-flyers img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+    @media (max-width: 900px) {
+      .submission-flyers {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+      }
+    }
+    .musicians-callout {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: minmax(200px, 280px) 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      border: 1px solid #eee;
+      padding: 1.5rem;
+      background: #fafafa;
+    }
+    .musicians-callout img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .musicians-callout h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 0 0 0.75rem;
+    }
+    .musicians-callout p {
+      margin: 0 0 0.75rem;
+      color: #444;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .musicians-callout .hero-actions {
+      margin-top: 0.25rem;
+    }
+
     @media (max-width: 900px) {
       .bridges-hero .container {
         grid-template-columns: 1fr;
@@ -210,6 +364,12 @@
         max-width: 100%;
       }
       .programs-row {
+        grid-template-columns: 1fr;
+      }
+      .submission-grid {
+        grid-template-columns: 1fr;
+      }
+      .musicians-callout {
         grid-template-columns: 1fr;
       }
     }
@@ -324,10 +484,11 @@
         <h1>B.R.I.D.G.E.S</h1>
         <p class="subtitle">A Cross-Departmental Graduate Student Conference</p>
         <p class="event-info">
-          Graduate students share research, creative work, and ideas with faculty and peers from across Stony Brook. The program for 2027 will be posted here as it is set.
+          Graduate students share research, creative work, and ideas with faculty and peers from across Stony Brook. Submissions for BRIDGES 2027 are open including posters, art, film, and live music. All forms and deadlines are listed below.
         </p>
         <div class="hero-actions">
-          <a href="bridges2026.html" class="btn-outline">Check out B.R.I.D.G.E.S 2026</a>
+          <a href="#submissions" class="btn-primary">View submissions</a>
+          <a href="bridges2026.html" class="btn-outline">BRIDGES 2026 archive</a>
         </div>
       </div>
       <div class="date-card">
@@ -348,7 +509,82 @@
         <h2>BRIDGES 2027</h2>
       </div>
       <p>B.R.I.D.G.E.S is the annual conference hosted by the SBU Graduate Arts &amp; Sciences Magazine. The third conference will be held February 4–5, 2027, at the Student Activities Center.</p>
-      <p>Previous conferences brought together graduate scholars for research presentations, artistic work, and conversations across departments. The 2026 recap, award winners, photos, and programs remain available.</p>
+      <p>Previous conferences brought together graduate scholars for research presentations, artistic work, and conversations across departments.</p>
+    </section>
+
+    <section class="submissions-section" id="submissions">
+      <div class="section-header">
+        <h2>Submissions &amp; Forms</h2>
+      </div>
+      <p class="submissions-intro">
+        Use the links below to apply. For help, contact <a href="mailto:sbugradmag@stonybrook.edu">sbugradmag@stonybrook.edu</a>.
+      </p>
+      <p class="submission-guides-note">Read the submission guides before you apply so formatting, deadlines, and eligibility match what is required.</p>
+      <div class="submission-flyers" aria-label="BRIDGES 2027 submission posters">
+        <a href="https://tinyurl.com/BRIDGES2027Poster" target="_blank" rel="noopener">
+          <img src="images/bridges-2027-poster-call.jpg" alt="BRIDGES 2027: submit your research poster by January 11, 2027. Prizes up to $1,000.">
+        </a>
+        <a href="https://tinyurl.com/BRIDGES2027Art" target="_blank" rel="noopener">
+          <img src="images/bridges-2027-art-call.jpg" alt="BRIDGES 2027: submit your art by January 11, 2027. Winner receives $350.">
+        </a>
+        <a href="https://tinyurl.com/BRIDGES2027Concert" target="_blank" rel="noopener">
+          <img src="images/bridges-2027-call-for-musicians.png" alt="BRIDGES 2027 call for musicians. Submit by January 11, 2027.">
+        </a>
+      </div>
+      <div class="submission-grid">
+        <div class="submission-item">
+          <h3>Poster presentations</h3>
+          <p>Graduate research posters across departments. Prizes: $1,000 (winner), $500 (finalist), $250 (semifinalist).</p>
+          <span class="deadline">Submit by January 11, 2027</span>
+          <div class="submission-item-actions">
+            <a class="form-link" href="https://tinyurl.com/BRIDGES2027Poster" target="_blank" rel="noopener">Poster submission form →</a>
+            <div class="guide-links">
+              <a class="guide-link" href="guides/BRIDGES-2027-poster-submission-guide.pdf" target="_blank" rel="noopener">View submission guide</a>
+              <a class="guide-link" href="guides/BRIDGES-2027-poster-submission-guide.pdf" download>Download guide (PDF)</a>
+            </div>
+          </div>
+        </div>
+        <div class="submission-item">
+          <h3>Art gallery</h3>
+          <p>Visual art and creative work for the conference gallery. Finalists present at B.R.I.D.G.E.S.; winner receives $350.</p>
+          <span class="deadline">Submit by January 11, 2027</span>
+          <div class="submission-item-actions">
+            <a class="form-link" href="https://tinyurl.com/BRIDGES2027Art" target="_blank" rel="noopener">Art submission form →</a>
+            <div class="guide-links">
+              <a class="guide-link" href="guides/BRIDGES-2027-art-submission-guide.docx" download>Download submission guide</a>
+            </div>
+          </div>
+        </div>
+        <div class="submission-item">
+          <h3>Graduate films</h3>
+          <p>Short films and moving-image work by graduate students.</p>
+          <div class="submission-item-actions">
+            <a class="form-link" href="https://tinyurl.com/BRIDGES2027Film" target="_blank" rel="noopener">Film submission form →</a>
+            <div class="guide-links">
+              <a class="guide-link" href="guides/BRIDGES-2027-film-submission-guide.pdf" target="_blank" rel="noopener">View submission guide</a>
+              <a class="guide-link" href="guides/BRIDGES-2027-film-submission-guide.pdf" download>Download guide (PDF)</a>
+            </div>
+          </div>
+        </div>
+        <div class="submission-item">
+          <h3>Live music / concert</h3>
+          <p>Apply to perform at B.R.I.D.G.E.S. Open to graduate musicians.</p>
+          <span class="deadline">Submit by January 11, 2027</span>
+          <a class="form-link" href="https://tinyurl.com/BRIDGES2027Concert" target="_blank" rel="noopener">Musician / concert interest form →</a>
+        </div>
+      </div>
+
+      <div class="musicians-callout" id="musicians">
+        <img src="images/bridges-2027-call-for-musicians.png" alt="BRIDGES 2027 call for musicians. Submit by January 11, 2027.">
+        <div>
+          <h3>Call for musicians</h3>
+          <p>Perform at the third annual cross-departmental graduate conference, <strong>February 4–5, 2027</strong>, at the Student Activities Center.</p>
+          <p><strong>Deadline: January 11, 2027.</strong> Use the concert interest form above.</p>
+          <div class="hero-actions">
+            <a href="https://tinyurl.com/BRIDGES2027Concert" target="_blank" rel="noopener" class="btn-primary">Apply to perform</a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section>
